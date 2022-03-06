@@ -2,4 +2,4 @@ extends PathFollow2D
 
 
 func _process(delta: float) -> void:
-	offset += delta * 100
+	offset += delta * 200

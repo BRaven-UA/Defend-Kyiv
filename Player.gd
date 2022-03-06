@@ -8,9 +8,12 @@ var vertical_limit: int
 
 func _ready() -> void:
 	var player_radius = $CollisionShape2D.shape.radius
-	horizontal_limit = OS.window_size.x / 2 - player_radius
+	var viewport_size = get_viewport_rect()
+	horizontal_limit = viewport_size.size.x / 2 - player_radius
+#	horizontal_limit = OS.window_size.x / 2 - player_radius
 #	horizontal_limit = ProjectSettings.get_setting("display/window/size/width") / 2 - player_radius
-	vertical_limit = OS.window_size.y / 2 - player_radius
+	vertical_limit = viewport_size.size.y / 2 - player_radius
+#	vertical_limit = OS.window_size.y / 2 - player_radius
 #	vertical_limit = ProjectSettings.get_setting("display/window/size/height") / 2 - player_radius
 
 func _process(delta: float) -> void:
