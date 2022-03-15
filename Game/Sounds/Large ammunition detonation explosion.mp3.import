@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Large ammunition detonation explosion.mp3-039e450109592ac01fea8b6e98909990.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Large ammunition detonation explosion.mp3"
+dest_files=[ "res://.import/Large ammunition detonation explosion.mp3-039e450109592ac01fea8b6e98909990.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

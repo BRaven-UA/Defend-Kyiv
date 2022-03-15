@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ammunition detonation explosion.mp3-15136cdf4d1b1f60e3030327edc653ed.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Ammunition detonation explosion.mp3"
+dest_files=[ "res://.import/Ammunition detonation explosion.mp3-15136cdf4d1b1f60e3030327edc653ed.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

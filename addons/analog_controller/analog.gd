@@ -54,14 +54,15 @@ func _enter_tree() -> void:
 	Global.set("analog_controller", self) # register itself in global singleton
 
 func _ready() -> void:
-	initial_position = global_position
-	_configAnalog()
-	initialized = true
-	scale = Vector2(1,1)
+	var has_touchscreen = OS.has_touchscreen_ui_hint()
+	set_process_input(has_touchscreen)
+	if has_touchscreen:
+		initial_position = global_position
+		_configAnalog()
+		initialized = true
+		scale = Vector2(1,1)
 
 func _configAnalog():
-	set_process_input(true)
-	
 	if !initialized:
 		add_child(bg)
 		bg.add_child(bgAnalogicoBase)

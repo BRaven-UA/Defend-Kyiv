@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Soft ground explosion.mp3-ab6c772a72ac8271042e0f614ed5bcfd.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Soft ground explosion.mp3"
+dest_files=[ "res://.import/Soft ground explosion.mp3-ab6c772a72ac8271042e0f614ed5bcfd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

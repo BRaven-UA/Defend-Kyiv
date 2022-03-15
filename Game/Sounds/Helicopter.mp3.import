@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Helicopter.mp3-337ffbd7205d5ecdcb0f644a9f6251aa.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Helicopter.mp3"
+dest_files=[ "res://.import/Helicopter.mp3-337ffbd7205d5ecdcb0f644a9f6251aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hard ground explosion.mp3-4c682ca215c315d4c23f75e88893e9be.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Hard ground explosion.mp3"
+dest_files=[ "res://.import/Hard ground explosion.mp3-4c682ca215c315d4c23f75e88893e9be.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
