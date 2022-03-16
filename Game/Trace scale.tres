@@ -1,9 +1,8 @@
 [gd_resource type="CurveTexture" load_steps=2 format=2]
 
 [sub_resource type="Curve" id=1]
-max_value = 3.0
 bake_resolution = 10
-_data = [ Vector2( 0, 0.439655 ), 0.0, 0.0, 0, 0, Vector2( 0.990291, 3 ), 3.66272, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.439655 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.0789271, 0.0, 0, 0 ]
 
 [resource]
 width = 32

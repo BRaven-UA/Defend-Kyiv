@@ -1,9 +1,12 @@
 extends Area2D
 
+class_name Player
+
 const PLAYER_SPEED: int = 100
 const FULL_ACCELERATION: float = 3.0 # move modifier for keyboard input
 #const CENTERING_FORCE: float = 2.0 # 
 const CROSSAIR_DISTANCE: float = 600.0 # distance to the crossair when player is centered
+const ROCKET_SPREAD: float = 0.08 # rocket spread in percent (0-1)
 const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
 
 onready var animation_tree: AnimationTree = $AnimationTree # blend space animation
@@ -20,6 +23,9 @@ var current_rocket_launcher_index: int # index of current launcher
 var rocket_pool: Array # list of all rocket instances
 var can_fire_rocket: bool = true
 
+
+func _enter_tree() -> void:
+	Global.player = self # register itself in global singleton
 
 func _ready() -> void:
 	analog_controller = Global.analog_controller
@@ -41,7 +47,9 @@ func _process(delta: float) -> void:
 	animation_tree.set("parameters/Direction/blend_position", direction)
 	
 	# moving the crossair
-	crossair.position = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(-CROSSAIR_DISTANCE, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
+	crossair.position = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
+	var _spread_value = crossair.position.length() * ROCKET_SPREAD
+	crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
 	
 	if Input.is_action_pressed("fire_rocket") and can_fire_rocket:
 		fire_rocket()
@@ -79,11 +87,13 @@ func _moving(delta: float):
 
 func fire_rocket() -> void:
 	var launcher: RocketLauncher = rocket_launchers[current_rocket_launcher_index]
-	var dir = Vector2.UP.rotated(global_rotation)
-	var pos: Vector2 = launcher.global_position + dir * 10 # plus launcher length
+	var dir_2D = Vector2.UP.rotated(global_rotation)
+	var dir_3D = Vector3(direction.x, 0, direction.y).rotated(Vector3.RIGHT, direction.y * PI / 4.0)
+	var pos: Vector2 = launcher.global_position + dir_2D * 10 # plus launcher length
+	var dest: Vector2 = crossair.global_position
 	var rocket: Rocket = get_rocket()
 	launcher.activate()
-	rocket.activate(pos, dir)
+	rocket.activate(pos, dir_3D, dest)
 	can_fire_rocket = false
 	rocket_timer.start(ROCKET_COOLDOWN)
 	current_rocket_launcher_index = current_rocket_launcher_index ^ 1 # swap 0 and 1

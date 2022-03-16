@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Trace.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Explosion.tscn" type="PackedScene" id=3]
 
 [node name="ResourcePreloader" type="ResourcePreloader"]
-resources = [ PoolStringArray( "Rocket", "Trace" ), [ ExtResource( 1 ), ExtResource( 2 ) ] ]
+resources = [ PoolStringArray( "Explosion", "Rocket", "Trace" ), [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ] ]
