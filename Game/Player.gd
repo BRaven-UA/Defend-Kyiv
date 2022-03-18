@@ -87,13 +87,22 @@ func _moving(delta: float):
 
 func fire_rocket() -> void:
 	var launcher: RocketLauncher = rocket_launchers[current_rocket_launcher_index]
-	var dir_2D = Vector2.UP.rotated(global_rotation)
-	var dir_3D = Vector3(direction.x, 0, direction.y).rotated(Vector3.RIGHT, direction.y * PI / 4.0)
-	var pos: Vector2 = launcher.global_position + dir_2D * 10 # plus launcher length
+	
+	var dir_2D_global = Vector2.UP.rotated(global_rotation)
+#	var dir_2D_global = Vector2.UP.rotated(global_rotation)
+#	var dir_3D_global = Vector3(dir_2D_global.x, direction.y * 0.7, dir_2D_global.y)
+#	var dir_3D_global = Vector3(dir_2D_global.x, 0, dir_2D_global.y).rotated(Vector3(1, 0, 1).normalized(), direction.y * PI / 4.0)
+	var dir_3D_local = Vector3.FORWARD.rotated(Vector3(1, 0, direction.x).normalized(), direction.y * PI / 4.0)
+	var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
+	Global.debug_label_1.text = str(direction)
+	Global.debug_label_2.text = str(dir_3D_global)
+	var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
 	var dest: Vector2 = crossair.global_position
+	
 	var rocket: Rocket = get_rocket()
-	launcher.activate()
-	rocket.activate(pos, dir_3D, dest)
+	rocket.activate(pos, dir_3D_global, dest)
+	launcher.activate(dir_2D_global)
+	
 	can_fire_rocket = false
 	rocket_timer.start(ROCKET_COOLDOWN)
 	current_rocket_launcher_index = current_rocket_launcher_index ^ 1 # swap 0 and 1

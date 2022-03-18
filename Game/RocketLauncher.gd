@@ -8,9 +8,10 @@ onready var flame: Particles2D = $Flame
 var trace_pool: Array
 
 
-func activate() -> void:
-	flame.restart()
+func activate(dir: Vector2) -> void:
+	global_rotation = -dir.angle_to(Vector2.UP)
 	var trace = get_trace()
+	flame.restart()
 	trace.restart()
 
 func get_trace() -> Particles2D: # get reference to new trace from the trace pool

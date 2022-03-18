@@ -13,7 +13,7 @@
 [ext_resource path="res://Game/Textures/73.jpg" type="Texture" id=11]
 [ext_resource path="res://Game/MovePath2D.tres" type="Curve2D" id=12]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Button
 
 
@@ -65,8 +65,8 @@ position = Vector2( -5.33936, 0 )
 curve = ExtResource( 12 )
 
 [node name="Path_Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 66227.1, -50453.7 )
-rotation = 0.262611
+position = Vector2( 66226.8, -50453.8 )
+rotation = 0.262712
 offset = 114338.0
 loop = false
 lookahead = 40.0
@@ -127,7 +127,7 @@ anchor_bottom = 0.5
 margin_top = -17.5
 margin_bottom = 17.5
 text = "B"
-script = SubResource( 2 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

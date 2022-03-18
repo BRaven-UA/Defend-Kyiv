@@ -3,8 +3,8 @@ extends EditorScript
 
 
 func _run() -> void:
-	randomize()
-	print((randi() % 2) as bool)
+	print(get_scene().find_node("Player").global_rotation)
+#	print(get_scene().find_node("Player").global_transform.get_rotation())
 	
 func b():
 	var pos = Vector2(100, -100)

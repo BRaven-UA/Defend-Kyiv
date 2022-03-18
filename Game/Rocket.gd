@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		detonation()
 	else:
 		position += Vector2(velocity_3D.x, velocity_3D.z)
-		global_rotation = Vector2(direction_3D.x, direction_3D.z).angle_to(Vector2.UP)
+		global_rotation = -Vector2(direction_3D.x, direction_3D.z).angle_to(Vector2.UP)
 		
 		#deformations based on 3D height
 		var _scale = position_3D.y / INIT_HEIGHT
@@ -40,10 +40,9 @@ func _physics_process(delta: float) -> void:
 # activate (fire) the rocket. Initial position and normalized move direction both are in global coords
 func activate(pos: Vector2, dir: Vector3, dest: Vector2) -> void:
 	global_position = pos
-	rotation = 0
-#	global_rotation = -dir.angle_to(Vector2.UP)
 	position_3D = Vector3(pos.x, INIT_HEIGHT, pos.y)
 	direction_3D = dir
+	global_rotation = -Vector2(direction_3D.x, direction_3D.z).angle_to(Vector2.UP)
 	
 	# add random spread offset to the destination point
 	var _spread_value = (dest - pos).length() * Global.player.ROCKET_SPREAD

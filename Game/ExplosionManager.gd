@@ -20,6 +20,7 @@ func get_explosion(_name: String) -> AnimatedSprite: # get reference to new expl
 	
 	# add new instance to the pool if there no free explosions left
 	var new_explosion = Preloader.get_resource(_name).instance()
+	new_explosion.connect("animation_finished", self, "_on_animation_finished", [new_explosion]) # FACEPALM: animation considers playing until stop() called
 	var index = explosion_pool.size()
 	explosion_pool.append(new_explosion)
 	Global.ground_layer.add_child(new_explosion)
@@ -30,3 +31,6 @@ func get_explosion(_name: String) -> AnimatedSprite: # get reference to new expl
 	indexes[_name] = _indexes # store updated list
 	
 	return new_explosion
+
+func _on_animation_finished(sprite: AnimatedSprite):
+	sprite.stop()
