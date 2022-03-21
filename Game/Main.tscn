@@ -1,26 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Game/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Game/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game/Textures/74.jpg" type="Texture" id=3]
-[ext_resource path="res://Temp/Debug_node.gd" type="Script" id=4]
-[ext_resource path="res://Game/PathFollow2D.gd" type="Script" id=5]
-[ext_resource path="res://Game/Textures/69.jpg" type="Texture" id=6]
-[ext_resource path="res://Game/Textures/70.jpg" type="Texture" id=7]
-[ext_resource path="res://Game/Textures/72.jpg" type="Texture" id=8]
-[ext_resource path="res://Game/Textures/71.jpg" type="Texture" id=9]
-[ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=10]
-[ext_resource path="res://Game/Textures/73.jpg" type="Texture" id=11]
+[ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Textures/Background/74.jpg" type="Texture" id=3]
+[ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Scripts/PathFollow2D.gd" type="Script" id=5]
+[ext_resource path="res://Game/Textures/Background/69.jpg" type="Texture" id=6]
+[ext_resource path="res://Game/Textures/Background/70.jpg" type="Texture" id=7]
+[ext_resource path="res://Game/Textures/Background/72.jpg" type="Texture" id=8]
+[ext_resource path="res://Game/Textures/Background/71.jpg" type="Texture" id=9]
+[ext_resource path="res://Game/Textures/Background/73.jpg" type="Texture" id=11]
 [ext_resource path="res://Game/MovePath2D.tres" type="Curve2D" id=12]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Button
-
-
-
-func _on_Button_pressed() -> void:
-	text += \"A\"
-"
 
 [node name="Main" type="Node2D"]
 
@@ -58,6 +48,26 @@ texture = ExtResource( 3 )
 
 [node name="GroundLayer" type="Node2D" parent="."]
 
+[node name="Enemy" parent="GroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 66820.6, -50291.7 )
+rotation = 1.84417
+
+[node name="Enemy2" parent="GroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 66399.6, -50410.6 )
+rotation = 1.84417
+
+[node name="Enemy3" parent="GroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 66384.2, -50405.8 )
+rotation = 1.84417
+
+[node name="Enemy4" parent="GroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 66353.3, -50426 )
+rotation = 1.84417
+
+[node name="Enemy5" parent="GroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 66146.3, -50471.2 )
+rotation = 1.84417
+
 [node name="MidairLayer" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -65,9 +75,9 @@ position = Vector2( -5.33936, 0 )
 curve = ExtResource( 12 )
 
 [node name="Path_Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 66226.8, -50453.8 )
-rotation = 0.262712
-offset = 114338.0
+position = Vector2( 65831.1, -50561.2 )
+rotation = 0.266816
+offset = 113929.0
 loop = false
 lookahead = 40.0
 script = ExtResource( 5 )
@@ -81,61 +91,4 @@ current = true
 
 [node name="Player" parent="Path2D/Path_Follow/90 degrees" instance=ExtResource( 2 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-theme = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="debug_label_1" type="Label" parent="CanvasLayer/Control"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -14.5
-margin_bottom = 14.5
-valign = 1
-max_lines_visible = 1
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="debug_label_2" type="Label" parent="CanvasLayer/Control"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -14.5
-margin_bottom = 14.5
-align = 2
-valign = 1
-max_lines_visible = 1
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
-visible = false
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -17.5
-margin_bottom = 17.5
-text = "B"
-script = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnalogController" type="Node2D" parent="CanvasLayer"]
-position = Vector2( 300, 700 )
-script = ExtResource( 10 )
-isDynamicallyShowing = true
-typeAnalogic = 4
-
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_Button_pressed"]
+[node name="GUI" parent="." instance=ExtResource( 1 )]

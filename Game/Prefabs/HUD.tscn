@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Materials/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
+[ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+
+
+func _on_Button_pressed() -> void:
+	text += \"A\"
+"
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="VBoxContainer" parent="Control"]
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabel_1" type="Label" parent="Control/Debug"]
+margin_right = 200.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 200, 0 )
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabel_2" type="Label" parent="Control/Debug"]
+margin_top = 33.0
+margin_right = 200.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 200, 0 )
+align = 2
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control/Debug"]
+visible = false
+margin_top = 66.0
+margin_right = 200.0
+margin_bottom = 101.0
+text = "Testing"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnalogController" type="Node2D" parent="."]
+position = Vector2( 300, 700 )
+script = ExtResource( 2 )
+isDynamicallyShowing = true
+typeAnalogic = 4
+directionsResult = {
+"down": "down",
+"down_left": "down_left",
+"down_right": "down_right",
+"left": "left",
+"right": "right",
+"up": "up",
+"up_left": "up_left",
+"up_right": "up_right"
+}
+
+[connection signal="pressed" from="Control/Debug/Button" to="Control/Debug/Button" method="_on_Button_pressed"]

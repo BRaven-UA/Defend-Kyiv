@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Textures/Flame.png" type="Texture" id=1]
+[ext_resource path="res://Game/Scripts/RocketLauncher.gd" type="Script" id=2]
+[ext_resource path="res://Game/Materials/Flame.tres" type="Material" id=4]
+
+[node name="RocketLauncher" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Flame" type="Particles2D" parent="."]
+emitting = false
+amount = 2
+one_shot = true
+speed_scale = 6.0
+visibility_rect = Rect2( -20, -20, 40, 60 )
+process_material = ExtResource( 4 )
+texture = ExtResource( 1 )

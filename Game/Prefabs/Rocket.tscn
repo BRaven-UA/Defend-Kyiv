@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Game/Materials/Trace scale.tres" type="Texture" id=1]
+[ext_resource path="res://Game/Scripts/Rocket.gd" type="Script" id=2]
+[ext_resource path="res://Game/Materials/Flame.tres" type="Material" id=3]
+[ext_resource path="res://Game/Sounds/Rocket.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Game/Textures/Smoke.png" type="Texture" id=5]
+[ext_resource path="res://Game/Textures/Flame.png" type="Texture" id=6]
+[ext_resource path="res://Game/Textures/Rocket.png" type="Texture" id=7]
+[ext_resource path="res://Game/Materials/Trace color.tres" type="Texture" id=8]
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -100.0
+linear_accel_random = 0.5
+damping = 100.0
+damping_random = 0.5
+angle = 360.0
+angle_random = 1.0
+scale_curve = ExtResource( 1 )
+color_ramp = ExtResource( 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Move"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 100, -0.235888, -0.107925, 0.270598, 0.123806 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -200, -0.144764, 8.88043, 0.144764, -8.88043 ),
+"times": PoolRealArray( 0, 3 )
+}
+
+[node name="Rocket" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.0
+pitch_scale = 3.0
+autoplay = true
+max_distance = 5000.0
+attenuation = 0.0583146
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite" parent="Visual"]
+texture = ExtResource( 7 )
+
+[node name="Flame" type="Particles2D" parent="Visual"]
+position = Vector2( 0, 11 )
+scale = Vector2( 0.5, 0.5 )
+amount = 2
+speed_scale = 6.0
+visibility_rect = Rect2( -20, -20, 40, 60 )
+process_material = ExtResource( 3 )
+texture = ExtResource( 6 )
+
+[node name="Trace" type="Particles2D" parent="Visual"]
+position = Vector2( 0, 14 )
+amount = 60
+lifetime = 3.0
+visibility_rect = Rect2( -300, -100, 600, 1280 )
+local_coords = false
+process_material = SubResource( 2 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Move = SubResource( 3 )
+
+[node name="WatchDog" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="WatchDog" to="." method="deactivate"]
+[connection signal="timeout" from="ResetTimer" to="." method="reset"]

@@ -1,10 +1,16 @@
 tool
 extends EditorScript
-
+const COLOR_NONE = Color.transparent
+const COLOR_COMMON = Color.white
+const COLOR_UNCOMMON = Color.green
+const COLOR_RARE = Color.dodgerblue
+const COLOR_EPIC = Color.blueviolet
+const COLOR_LEGENDARY = Color.orange
+enum RARITY {NONE, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
+const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 
 func _run() -> void:
-	print(get_scene().find_node("Player").global_rotation)
-#	print(get_scene().find_node("Player").global_transform.get_rotation())
+	print(COLOR[RARITY.LEGENDARY])
 	
 func b():
 	var pos = Vector2(100, -100)
@@ -37,3 +43,7 @@ func d():
 	l.append(0)
 	idx["dd"] = l
 	print(idx)
+
+func e():
+	for direction in [Vector2.ZERO, Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.ONE, Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1)]:
+		printt(direction, (Vector3(direction.x * direction.y, direction.y, 2.0 - abs(direction.y)) * 0.5).normalized())

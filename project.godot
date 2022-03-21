@@ -15,22 +15,40 @@ _global_script_classes=[ {
 "path": "res://addons/analog_controller/analog.gd"
 }, {
 "base": "Area2D",
-"class": "Player",
+"class": "Enemy",
 "language": "GDScript",
-"path": "res://Game/Player.gd"
+"path": "res://Game/Scripts/Enemy.gd"
 }, {
 "base": "Area2D",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://Game/Scripts/Explosion.gd"
+}, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://Game/Scripts/HUD.gd"
+}, {
+"base": "Area2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Game/Scripts/Player.gd"
+}, {
+"base": "Node2D",
 "class": "Rocket",
 "language": "GDScript",
-"path": "res://Game/Rocket.gd"
+"path": "res://Game/Scripts/Rocket.gd"
 }, {
 "base": "Node2D",
 "class": "RocketLauncher",
 "language": "GDScript",
-"path": "res://Game/RocketLauncher.gd"
+"path": "res://Game/Scripts/RocketLauncher.gd"
 } ]
 _global_script_class_icons={
 "AnalogController": "",
+"Enemy": "",
+"Explosion": "",
+"HUD": "",
 "Player": "",
 "Rocket": "",
 "RocketLauncher": ""
@@ -44,9 +62,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Game/Global.gd"
+Global="*res://Game/Scripts/Global.gd"
 Preloader="*res://Game/ResourcePreloader.tscn"
-ExplosionManager="*res://Game/ExplosionManager.gd"
+ExplosionManager="*res://Game/Scripts/ExplosionManager.gd"
 
 [debug]
 
@@ -72,7 +90,7 @@ enabled=PoolStringArray( "res://addons/analog_controller/plugin.cfg" )
 
 [gui]
 
-theme/custom="res://Game/Theme.tres"
+theme/custom="res://Game/Materials/Theme.tres"
 
 [input]
 
@@ -126,6 +144,8 @@ full_acceleration={
 2d_physics/layer_2="Ground Vehicles"
 2d_physics/layer_3="Air Vehicles"
 2d_physics/layer_6="Projectiles"
+2d_physics/layer_8="Explosion"
+2d_physics/layer_9="Crossair"
 
 [physics]
 
