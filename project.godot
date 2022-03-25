@@ -70,6 +70,9 @@ ExplosionManager="*res://Game/Scripts/ExplosionManager.gd"
 
 gdscript/warnings/unused_variable=false
 gdscript/warnings/unused_argument=false
+gdscript/warnings/variable_conflicts_function=false
+gdscript/warnings/function_conflicts_variable=false
+gdscript/warnings/function_conflicts_constant=false
 gdscript/warnings/unused_signal=false
 gdscript/warnings/return_value_discarded=false
 
@@ -91,6 +94,14 @@ enabled=PoolStringArray( "res://addons/analog_controller/plugin.cfg" )
 [gui]
 
 theme/custom="res://Game/Materials/Theme.tres"
+
+[importer_defaults]
+
+texture={
+"compress/mode": 2,
+"detect_3d": false,
+"process/fix_alpha_border": false
+}
 
 [input]
 
@@ -135,6 +146,11 @@ fire_rocket={
 full_acceleration={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_debug_panel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
  ]
 }
 

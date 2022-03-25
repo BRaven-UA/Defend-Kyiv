@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex"
-path.etc2="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex"
+path.s3tc="res://.import/Tigr_onmap.png-e9a3c9186466587a82828e318e314f35.s3tc.stex"
+path.etc2="res://.import/Tigr_onmap.png-e9a3c9186466587a82828e318e314f35.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Textures/Tigr.png"
-dest_files=[ "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex", "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex" ]
+source_file="res://Game/Textures/Tigr_onmap.png"
+dest_files=[ "res://.import/Tigr_onmap.png-e9a3c9186466587a82828e318e314f35.s3tc.stex", "res://.import/Tigr_onmap.png-e9a3c9186466587a82828e318e314f35.etc2.stex" ]
 
 [params]
 

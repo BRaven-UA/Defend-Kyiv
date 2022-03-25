@@ -10,7 +10,7 @@ enum RARITY {NONE, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 
 func _run() -> void:
-	print(COLOR[RARITY.LEGENDARY])
+	print(Global.COLOR[5])
 	
 func b():
 	var pos = Vector2(100, -100)

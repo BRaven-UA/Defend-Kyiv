@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex"
-path.etc2="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex"
+path.s3tc="res://.import/2S7 Pion.png-a40799f1d51bf986c35087a944502def.s3tc.stex"
+path.etc2="res://.import/2S7 Pion.png-a40799f1d51bf986c35087a944502def.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Textures/Tigr.png"
-dest_files=[ "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex", "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex" ]
+source_file="res://Game/Textures/2S7 Pion.png"
+dest_files=[ "res://.import/2S7 Pion.png-a40799f1d51bf986c35087a944502def.s3tc.stex", "res://.import/2S7 Pion.png-a40799f1d51bf986c35087a944502def.etc2.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=false

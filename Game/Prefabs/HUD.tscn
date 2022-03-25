@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Materials/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
+[ext_resource path="res://Game/Scripts/DebugSwipe.gd" type="Script" id=4]
+[ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Button
@@ -25,36 +27,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Debug" type="VBoxContainer" parent="Control"]
+[node name="DebugPanel" type="VBoxContainer" parent="Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugLabel_1" type="Label" parent="Control/Debug"]
+[node name="DebugLabel_1" type="Label" parent="Control/DebugPanel"]
 margin_right = 200.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 200, 0 )
+text = "label 1"
 valign = 1
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugLabel_2" type="Label" parent="Control/Debug"]
+[node name="DebugLabel_2" type="Label" parent="Control/DebugPanel"]
 margin_top = 33.0
 margin_right = 200.0
 margin_bottom = 62.0
 rect_min_size = Vector2( 200, 0 )
-align = 2
+text = "label 2"
 valign = 1
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Control/Debug"]
+[node name="Button" type="Button" parent="Control/DebugPanel"]
 visible = false
 margin_top = 66.0
 margin_right = 200.0
@@ -81,11 +86,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RightHalf" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugSwipe" type="Control" parent="Control"]
+margin_right = 130.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 130, 50 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnalogController" type="Node2D" parent="."]
 position = Vector2( 300, 700 )
 script = ExtResource( 2 )
 isDynamicallyShowing = true
 typeAnalogic = 4
+scaleBall = Vector2( 0.7, 0.7 )
 directionsResult = {
 "down": "down",
 "down_left": "down_left",
@@ -97,4 +122,4 @@ directionsResult = {
 "up_right": "up_right"
 }
 
-[connection signal="pressed" from="Control/Debug/Button" to="Control/Debug/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/DebugPanel/Button" to="Control/DebugPanel/Button" method="_on_Button_pressed"]

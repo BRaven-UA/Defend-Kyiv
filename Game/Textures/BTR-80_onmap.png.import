@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex"
-path.etc2="res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex"
+path.s3tc="res://.import/BTR-80_onmap.png-ea416c3436287b4546b1ce1e5e597add.s3tc.stex"
+path.etc2="res://.import/BTR-80_onmap.png-ea416c3436287b4546b1ce1e5e597add.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Textures/Tigr.png"
-dest_files=[ "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.s3tc.stex", "res://.import/Tigr.png-08a0c13d144469937cec1c6e433b690b.etc2.stex" ]
+source_file="res://Game/Textures/BTR-80_onmap.png"
+dest_files=[ "res://.import/BTR-80_onmap.png-ea416c3436287b4546b1ce1e5e597add.s3tc.stex", "res://.import/BTR-80_onmap.png-ea416c3436287b4546b1ce1e5e597add.etc2.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=false

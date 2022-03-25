@@ -13,9 +13,11 @@ export (Texture) var preview_texture
 export (Global.RARITY) var rarity
 export (String) var explosion_name = "VehicleExplosion"
 
+
 func _ready() -> void:
 	on_map_picture.texture = on_map_texture
 	preview_picture.texture = preview_texture
+	preview.visible = false
 	preview.self_modulate = Global.COLOR[rarity]
 	on_map_shadow.global_position = global_position + Global.SHADOW * 1.5
 	
@@ -28,6 +30,9 @@ func _on_area_entered(area: Area2D) -> void:
 	else: # highlighting when under the crossair
 		on_map_picture.texture = Preloader.get_resource("White")
 		on_map_picture.self_modulate = Global.COLOR[rarity]
+		var _direction = global_position - area.global_position
+		preview.rotation = _direction.angle() + 0.785398
+		preview_picture.global_rotation = Global.player.global_rotation
 		preview.visible = true
 
 func _on_area_exited(area: Area2D) -> void:
@@ -37,6 +42,7 @@ func _on_area_exited(area: Area2D) -> void:
 		preview.visible = false
 
 func destroy() -> void:
+	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
 	preview.visible = false
 	Global.increase_score(rarity)
 	
