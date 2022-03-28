@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://Game/Scripts/Player.gd"
 }, {
 "base": "Node2D",
+"class": "Preview",
+"language": "GDScript",
+"path": "res://Game/Scripts/Preview.gd"
+}, {
+"base": "Node2D",
 "class": "Rocket",
 "language": "GDScript",
 "path": "res://Game/Scripts/Rocket.gd"
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "Explosion": "",
 "HUD": "",
 "Player": "",
+"Preview": "",
 "Rocket": "",
 "RocketLauncher": ""
 }
@@ -62,9 +68,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Game/Scripts/Global.gd"
 Preloader="*res://Game/ResourcePreloader.tscn"
+Global="*res://Game/Scripts/Global.gd"
 ExplosionManager="*res://Game/Scripts/ExplosionManager.gd"
+PreviewManager="*res://Game/Scripts/PreviewManager.gd"
 
 [debug]
 
@@ -162,12 +169,15 @@ toggle_debug_panel={
 2d_physics/layer_6="Projectiles"
 2d_physics/layer_8="Explosion"
 2d_physics/layer_9="Crossair"
+2d_physics/layer_10="Preview"
 
 [physics]
 
 common/physics_fps=30
 common/enable_pause_aware_picking=true
 2d/default_gravity_vector=Vector2( 0, 0 )
+2d/default_linear_damp=50.0
+2d/default_angular_damp=0.1
 
 [rendering]
 

@@ -1,10 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Game/Materials/OutlineWhite.tres" type="Material" id=1]
-[ext_resource path="res://Game/Materials/Blur.tres" type="Material" id=2]
 [ext_resource path="res://Game/Textures/Tigr_onmap.png" type="Texture" id=3]
-[ext_resource path="res://Game/Textures/Tigr.png" type="Texture" id=4]
-[ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=5]
 [ext_resource path="res://Game/Scripts/Enemy.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -13,9 +9,7 @@ extents = Vector2( 5, 10 )
 [node name="Enemy" type="Area2D"]
 input_pickable = false
 gravity_vec = Vector2( 0, 0 )
-gravity = 0.0
-monitorable = false
-collision_layer = 0
+collision_layer = 2
 collision_mask = 384
 script = ExtResource( 6 )
 
@@ -28,22 +22,3 @@ texture = ExtResource( 3 )
 
 [node name="OnMapPicture" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-
-[node name="Preview" type="Sprite" parent="."]
-visible = false
-material = ExtResource( 1 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="PreviewShadow" type="Sprite" parent="Preview"]
-self_modulate = Color( 0, 0, 0, 1 )
-show_behind_parent = true
-material = ExtResource( 2 )
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( -5, -5 )
-
-[node name="PreviewPicture" type="Sprite" parent="Preview"]
-position = Vector2( 110.5, 110.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )

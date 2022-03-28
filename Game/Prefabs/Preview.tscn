@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Materials/OutlineWhite.tres" type="Material" id=1]
+[ext_resource path="res://Game/Materials/Blur.tres" type="Material" id=2]
+[ext_resource path="res://Game/Textures/Tigr.png" type="Texture" id=3]
+[ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=4]
+[ext_resource path="res://Game/CircleShape2D_r1.tres" type="Shape2D" id=5]
+[ext_resource path="res://Game/BalloonPhysicsMaterial.tres" type="PhysicsMaterial" id=6]
+[ext_resource path="res://Game/CircleShape2D_r48.tres" type="Shape2D" id=7]
+[ext_resource path="res://Game/Scripts/Preview.gd" type="Script" id=8]
+
+[node name="Preview" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Anchor" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor"]
+shape = ExtResource( 5 )
+
+[node name="Rope" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("../Anchor")
+node_b = NodePath("../Balloon")
+length = 200.0
+rest_length = 152.0
+stiffness = 64.0
+
+[node name="Balloon" type="RigidBody2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+physics_material_override = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon"]
+shape = ExtResource( 7 )
+
+[node name="PreviewFrame" type="Sprite" parent="."]
+material = ExtResource( 1 )
+texture = ExtResource( 4 )
+offset = Vector2( -30.05, -29.55 )
+
+[node name="PreviewShadow" type="Sprite" parent="PreviewFrame"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+material = ExtResource( 2 )
+texture = ExtResource( 4 )
+offset = Vector2( -30.05, -29.55 )
+
+[node name="PreviewPicture" type="Sprite" parent="PreviewFrame"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )

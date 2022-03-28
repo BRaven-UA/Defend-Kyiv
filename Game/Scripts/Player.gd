@@ -10,6 +10,8 @@ const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
 
 onready var shadow: Sprite = find_node("Shadow")
 onready var crossair: Sprite = find_node("Crossair")
+onready var highlight: Area2D = find_node("Highlight") # an area of highlighted vehicles with preview
+onready var pusher: KinematicBody2D = find_node("PreviewPusher") # a physics body that pushes off preview balloons
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
 onready var rocket_timer: Timer = find_node("RocketTimer")
 var analog_controller: AnalogController # touchscreen movement controller
@@ -49,9 +51,12 @@ func _process(delta: float) -> void:
 	# adjust shadow position
 	shadow.global_position = global_position + Global.SHADOW * 100
 	
-	# moving the crossair
-	crossair.position = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
-	var _spread_value = crossair.position.length() * ROCKET_SPREAD
+	# moving the crossair, highlight area and preview pusher
+	var _pos = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
+	crossair.position = _pos
+	highlight.position = _pos
+	pusher.position = _pos
+	var _spread_value = _pos.length() * ROCKET_SPREAD
 	crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
 	
 	if Input.is_action_pressed("fire_rocket") and can_fire_rocket:

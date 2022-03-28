@@ -1,11 +1,15 @@
 extends Node
 
+enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion}
+
 var explosion_pool: Array # object pool for explosions
 var indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
 
 
-func get_explosion(_name: String) -> Explosion: # get reference to new explosion with given name from the explosion pool
+func get_explosion(type: int) -> Explosion: # get reference to new explosion with given type from the explosion pool
+	var _name = EXPLOSION.keys()[type]
+	
 	for index in indexes.get(_name, []): # list of indexes or empty list
 		if explosion_pool[index].is_free:
 			return explosion_pool[index]

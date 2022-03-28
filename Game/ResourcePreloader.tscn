@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Trace.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game/Prefabs/VehicleExplosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Textures/White.tres" type="Texture" id=7]
+[ext_resource path="res://Game/Prefabs/Preview.tscn" type="PackedScene" id=8]
 
 [node name="ResourcePreloader" type="ResourcePreloader"]
-resources = [ PoolStringArray( "AmmunitionExplosion", "Crater", "Rocket", "RocketExplosion", "Trace", "VehicleExplosion", "White" ), [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 7 ) ] ]
+resources = [ PoolStringArray( "AmmunitionExplosion", "Crater", "Preview", "Rocket", "RocketExplosion", "Trace", "VehicleExplosion", "White" ), [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 7 ) ] ]

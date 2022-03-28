@@ -78,5 +78,5 @@ func reset() -> void:
 
 func detonation():
 	deactivate()
-	var explosion: Explosion = ExplosionManager.get_explosion("RocketExplosion")
+	var explosion: Explosion = ExplosionManager.get_explosion(ExplosionManager.EXPLOSION.RocketExplosion)
 	explosion.activate(global_position)

@@ -15,9 +15,3 @@ texture = ExtResource( 2 )
 
 [node name="OnMapPicture" parent="." index="2"]
 texture = ExtResource( 2 )
-
-[node name="Preview" parent="." index="3"]
-self_modulate = Color( 0, 1, 0, 1 )
-
-[node name="PreviewPicture" parent="Preview" index="1"]
-texture = ExtResource( 3 )
