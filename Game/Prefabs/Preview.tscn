@@ -4,9 +4,9 @@
 [ext_resource path="res://Game/Materials/Blur.tres" type="Material" id=2]
 [ext_resource path="res://Game/Textures/Tigr.png" type="Texture" id=3]
 [ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=4]
-[ext_resource path="res://Game/CircleShape2D_r1.tres" type="Shape2D" id=5]
-[ext_resource path="res://Game/BalloonPhysicsMaterial.tres" type="PhysicsMaterial" id=6]
-[ext_resource path="res://Game/CircleShape2D_r48.tres" type="Shape2D" id=7]
+[ext_resource path="res://Game/Resources/CircleShape2D_r1.tres" type="Shape2D" id=5]
+[ext_resource path="res://Game/Materials/BalloonPhysicsMaterial.tres" type="PhysicsMaterial" id=6]
+[ext_resource path="res://Game/Resources/CircleShape2D_r48.tres" type="Shape2D" id=7]
 [ext_resource path="res://Game/Scripts/Preview.gd" type="Script" id=8]
 
 [node name="Preview" type="Node2D"]
@@ -27,15 +27,19 @@ rest_length = 152.0
 stiffness = 64.0
 
 [node name="Balloon" type="RigidBody2D" parent="."]
-collision_layer = 512
-collision_mask = 512
+position = Vector2( 0, 152 )
+collision_layer = 1024
+collision_mask = 1536
 physics_material_override = ExtResource( 6 )
+sleeping = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon"]
 shape = ExtResource( 7 )
 
 [node name="PreviewFrame" type="Sprite" parent="."]
 material = ExtResource( 1 )
+position = Vector2( 0, 152 )
+rotation = 0.785398
 texture = ExtResource( 4 )
 offset = Vector2( -30.05, -29.55 )
 
@@ -47,5 +51,6 @@ texture = ExtResource( 4 )
 offset = Vector2( -30.05, -29.55 )
 
 [node name="PreviewPicture" type="Sprite" parent="PreviewFrame"]
+rotation = -0.785398
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )

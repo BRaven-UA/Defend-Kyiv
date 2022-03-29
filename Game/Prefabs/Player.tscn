@@ -628,7 +628,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 6
-frame = 7
+frame = 6
 
 [node name="Crossair" type="Sprite" parent="."]
 position = Vector2( 0, -200 )
@@ -648,13 +648,13 @@ collision_mask = 0
 [node name="HighlightArea" type="CollisionShape2D" parent="Highlight"]
 shape = SubResource( 2 )
 
-[node name="PreviewPusher" type="KinematicBody2D" parent="."]
+[node name="BalloonPusher" type="KinematicBody2D" parent="."]
 position = Vector2( 0, -200 )
 collision_layer = 512
-collision_mask = 512
+collision_mask = 1536
 motion/sync_to_physics = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PreviewPusher"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BalloonPusher"]
 shape = SubResource( 41 )
 
 [node name="Body" type="Sprite" parent="."]
@@ -662,7 +662,7 @@ material = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 6
-frame = 7
+frame = 6
 
 [node name="RocketLauncher1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 19, 11 )

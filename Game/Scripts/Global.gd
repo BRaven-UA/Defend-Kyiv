@@ -13,25 +13,21 @@ const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow directio
 
 # reference pool
 var main: Node2D
-var ground_layer: Node2D
-var midair_layer: Node2D
-var preview_layer: Node2D
+onready var ground_layer: Node2D = main.find_node("GroundLayer")
+onready var midair_layer: Node2D = main.find_node("MidairLayer")
+onready var preview_layer: Node2D = main.find_node("PreviewLayer")
+onready var flying_text_layer: Node2D = main.find_node("FlyingTextLayer")
 var path_follow: PathFollow2D
 var player: Player
 var analog_controller: AnalogController
 var hud: HUD
 
 var viewport_size: Vector2 # set by player node
+onready var default_font = Preloader.get_resource("Theme").default_font
 var score: int = 0
 
 func _enter_tree() -> void:
 	main = get_tree().current_scene
-
-func _ready() -> void:
-	ground_layer = main.find_node("GroundLayer")
-	midair_layer = main.find_node("MidairLayer")
-	preview_layer = main.find_node("Previews")
-	
 	randomize()
 
 func increase_score(value: int) -> void:

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Textures/BTR-80_onmap.png" type="Texture" id=2]
+[ext_resource path="res://Game/Textures/2S7 Pion_onmap.png" type="Texture" id=3]
+[ext_resource path="res://Game/Textures/2S7 Pion.png" type="Texture" id=4]
+
+[node name="2S7 Pion" instance=ExtResource( 1 )]
+on_map_texture = ExtResource( 3 )
+preview_texture = ExtResource( 4 )
+rarity = 3
+explosion_type = 2
+
+[node name="OnMapShadow" parent="." index="1"]
+position = Vector2( 1.06066, -1.06066 )
+texture = ExtResource( 2 )
+
+[node name="OnMapPicture" parent="." index="2"]
+texture = ExtResource( 2 )

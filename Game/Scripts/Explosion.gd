@@ -34,7 +34,7 @@ func activate(pos: Vector2) -> void:
 	set_physics_process(true) # start growing the explosion area
 
 func place_crater():
-	var crater = ExplosionManager.get_crater()
+	var crater = PoolManager.get_crater()
 	crater.global_position = global_position
 	# add some randomness (default crater radius is 22)
 	crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)

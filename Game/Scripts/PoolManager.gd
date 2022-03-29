@@ -3,14 +3,15 @@ extends Node
 enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion}
 
 var explosion_pool: Array # object pool for explosions
-var indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
+var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
+var flying_text_pool: Array
 
 
 func get_explosion(type: int) -> Explosion: # get reference to new explosion with given type from the explosion pool
 	var _name = EXPLOSION.keys()[type]
 	
-	for index in indexes.get(_name, []): # list of indexes or empty list
+	for index in explosion_indexes.get(_name, []): # list of indexes or empty list
 		if explosion_pool[index].is_free:
 			return explosion_pool[index]
 	
@@ -21,9 +22,9 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	explosion_pool.append(new_explosion)
 	Global.ground_layer.add_child(new_explosion)
 	# store corresponding index
-	var _indexes: Array = indexes.get(_name, []) # list of indexes or empty list
+	var _indexes: Array = explosion_indexes.get(_name, []) # list of indexes or empty list
 	_indexes.append(index) # add new index
-	indexes[_name] = _indexes # store updated list
+	explosion_indexes[_name] = _indexes # store updated list
 	
 	return new_explosion
 
@@ -39,3 +40,12 @@ func get_crater() -> Sprite:
 	crater_pool.append(new_crater)
 	Global.ground_layer.add_child(new_crater)
 	return new_crater
+
+func get_flying_text() -> FlyingText:
+	for flying_text in flying_text_pool:
+		if not flying_text.is_inside_tree():
+			return flying_text
+	
+	var new_flying_text = FlyingText.new()
+	flying_text_pool.append(new_flying_text)
+	return new_flying_text

@@ -11,7 +11,7 @@ const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
 onready var shadow: Sprite = find_node("Shadow")
 onready var crossair: Sprite = find_node("Crossair")
 onready var highlight: Area2D = find_node("Highlight") # an area of highlighted vehicles with preview
-onready var pusher: KinematicBody2D = find_node("PreviewPusher") # a physics body that pushes off preview balloons
+onready var pusher: KinematicBody2D = find_node("BalloonPusher") # a physics body that pushes off preview balloons
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
 onready var rocket_timer: Timer = find_node("RocketTimer")
 var analog_controller: AnalogController # touchscreen movement controller

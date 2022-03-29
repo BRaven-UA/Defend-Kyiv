@@ -10,10 +10,15 @@ enum RARITY {NONE, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 enum EXPLOSION {VehicleExplosion, AmmunitionExplosion}
 
+
 func _run() -> void:
-	var scene = get_scene()
-	print(scene.get_node("Rope").node_b)
-	
+	var f: float = 0.0
+	print(f + ".1" as float)
+
+func f():
+	var scene: Node2D = get_scene()
+	var curve: Curve2D = scene.get_node("Pos").curve
+	print(curve._data["points"][5])
 	
 func b():
 	var pos = Vector2(100, -100)
@@ -51,6 +56,4 @@ func e():
 	for direction in [Vector2.ZERO, Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.ONE, Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1)]:
 		printt(direction, (Vector3(direction.x * direction.y, direction.y, 2.0 - abs(direction.y)) * 0.5).normalized())
 
-#func f():
-#	for i in 60:
-#
+

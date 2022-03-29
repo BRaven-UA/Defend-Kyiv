@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/Scripts/Explosion.gd"
 }, {
+"base": "Node2D",
+"class": "FlyingText",
+"language": "GDScript",
+"path": "res://Game/Scripts/FlyingText.gd"
+}, {
 "base": "CanvasLayer",
 "class": "HUD",
 "language": "GDScript",
@@ -53,6 +58,7 @@ _global_script_class_icons={
 "AnalogController": "",
 "Enemy": "",
 "Explosion": "",
+"FlyingText": "",
 "HUD": "",
 "Player": "",
 "Preview": "",
@@ -70,8 +76,8 @@ config/icon="res://icon.png"
 
 Preloader="*res://Game/ResourcePreloader.tscn"
 Global="*res://Game/Scripts/Global.gd"
-ExplosionManager="*res://Game/Scripts/ExplosionManager.gd"
-PreviewManager="*res://Game/Scripts/PreviewManager.gd"
+PoolManager="*res://Game/Scripts/PoolManager.gd"
+GlobalTween="*res://Game/Scripts/GlobalTween.gd"
 
 [debug]
 
@@ -170,6 +176,7 @@ toggle_debug_panel={
 2d_physics/layer_8="Explosion"
 2d_physics/layer_9="Crossair"
 2d_physics/layer_10="Preview"
+2d_physics/layer_11="Balloon"
 
 [physics]
 
@@ -177,12 +184,12 @@ common/physics_fps=30
 common/enable_pause_aware_picking=true
 2d/default_gravity_vector=Vector2( 0, 0 )
 2d/default_linear_damp=50.0
-2d/default_angular_damp=0.1
+2d/default_angular_damp=10.0
 
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://Game/default_env.tres"
+environment/default_environment="res://Game/Resources/default_env.tres"
 quality/dynamic_fonts/use_oversampling=false
