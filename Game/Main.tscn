@@ -1,20 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game/Textures/Background/74.jpg" type="Texture" id=3]
-[ext_resource path="res://Game/Prefabs/Vehicles/Tigr.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Scripts/PathFollow2D.gd" type="Script" id=5]
 [ext_resource path="res://Game/Textures/Background/69.jpg" type="Texture" id=6]
 [ext_resource path="res://Game/Textures/Background/70.jpg" type="Texture" id=7]
 [ext_resource path="res://Game/Textures/Background/72.jpg" type="Texture" id=8]
 [ext_resource path="res://Game/Textures/Background/71.jpg" type="Texture" id=9]
-[ext_resource path="res://Game/Prefabs/Vehicles/Pantsir-S.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Game/Textures/Background/73.jpg" type="Texture" id=11]
 [ext_resource path="res://Game/Resources/MovePath2D.tres" type="Curve2D" id=12]
-[ext_resource path="res://Game/Prefabs/Vehicles/BTR-80.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Game/Prefabs/Vehicles/Borisoglebsk-2.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Game/Prefabs/Vehicles/2S7 Pion.tscn" type="PackedScene" id=15]
 
 [node name="Main" type="Node2D"]
 
@@ -40,156 +33,7 @@ position = Vector2( 69134, -52551.9 )
 rotation = 2.41257
 texture = ExtResource( 8 )
 
-[node name="73" type="Sprite" parent="Background"]
-position = Vector2( 70449.1, -53748.2 )
-rotation = 2.41257
-texture = ExtResource( 11 )
-
-[node name="74" type="Sprite" parent="Background"]
-position = Vector2( 71758, -54925.4 )
-rotation = 2.41257
-texture = ExtResource( 3 )
-
 [node name="GroundLayer" type="Node2D" parent="."]
-
-[node name="Backup" type="Node2D" parent="GroundLayer"]
-visible = false
-
-[node name="Tigr" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 66134.9, -50484 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr2" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 66201.6, -50466.5 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr3" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 66465.9, -50383.2 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr4" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 66883.4, -50276.8 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr5" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 66909.6, -50269.7 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr6" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 65739.4, -50583.6 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Tigr7" parent="GroundLayer/Backup" instance=ExtResource( 4 )]
-position = Vector2( 65709.6, -50590.8 )
-rotation = -1.31009
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Pantsir-S" parent="GroundLayer/Backup" instance=ExtResource( 10 )]
-position = Vector2( 66167.5, -50474.5 )
-rotation = -1.28144
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Pantsir-S2" parent="GroundLayer/Backup" instance=ExtResource( 10 )]
-position = Vector2( 65955.8, -50525.5 )
-rotation = -1.28144
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="Pantsir-S3" parent="GroundLayer/Backup" instance=ExtResource( 10 )]
-position = Vector2( 65776.3, -50572.2 )
-rotation = -1.28144
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="BTR-80" parent="GroundLayer/Backup" instance=ExtResource( 13 )]
-position = Vector2( 65851.6, -50560.7 )
-rotation = -1.25401
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="BTR-81" parent="GroundLayer/Backup" instance=ExtResource( 13 )]
-position = Vector2( 65993, -50513.6 )
-rotation = -1.25401
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="BTR-82" parent="GroundLayer/Backup" instance=ExtResource( 13 )]
-position = Vector2( 66235.5, -50456.3 )
-rotation = -1.25401
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="BTR-83" parent="GroundLayer/Backup" instance=ExtResource( 13 )]
-position = Vector2( 66434.2, -50391.2 )
-rotation = -1.25401
-gravity = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 0
-
-[node name="2S7 Pion" parent="GroundLayer/Backup" instance=ExtResource( 15 )]
-position = Vector2( 65897.8, -50540.4 )
-rotation = -1.28941
-monitoring = false
-monitorable = false
-
-[node name="2S7 Pion2" parent="GroundLayer/Backup" instance=ExtResource( 15 )]
-position = Vector2( 66068.8, -50460.4 )
-rotation = -1.28941
-monitoring = false
-monitorable = false
-
-[node name="Borisoglebsk-2" parent="GroundLayer/Backup" instance=ExtResource( 14 )]
-position = Vector2( 66099, -50453 )
-rotation = -1.28896
-monitoring = false
-monitorable = false
-
-[node name="Borisoglebsk-3" parent="GroundLayer/Backup" instance=ExtResource( 14 )]
-position = Vector2( 66490, -50376 )
-rotation = -1.28896
-monitoring = false
-monitorable = false
 
 [node name="MidairLayer" type="Node2D" parent="."]
 

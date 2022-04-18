@@ -1,24 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Materials/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
-[ext_resource path="res://Game/Scripts/DebugSwipe.gd" type="Script" id=4]
 [ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Button
-
-
-
-func _on_Button_pressed() -> void:
-	text += \"A\"
-"
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
 
-[node name="Control" type="Control" parent="."]
+[node name="BaseControl" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -27,50 +17,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugPanel" type="VBoxContainer" parent="Control"]
-visible = false
-modulate = Color( 1, 1, 1, 0.498039 )
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DebugLabel_1" type="Label" parent="Control/DebugPanel"]
-margin_right = 200.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 200, 0 )
-text = "label 1"
-valign = 1
-max_lines_visible = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DebugLabel_2" type="Label" parent="Control/DebugPanel"]
-margin_top = 33.0
-margin_right = 200.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 200, 0 )
-text = "label 2"
-valign = 1
-max_lines_visible = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Control/DebugPanel"]
-visible = false
-margin_top = 66.0
-margin_right = 200.0
-margin_bottom = 101.0
-text = "Testing"
-script = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="Control"]
+[node name="Score" type="Label" parent="BaseControl"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0
@@ -86,21 +33,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RightHalf" type="Control" parent="Control"]
+[node name="RightHalf" type="Control" parent="BaseControl"]
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DebugSwipe" type="Control" parent="Control"]
-margin_right = 130.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 130, 50 )
-script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,5 +59,3 @@ directionsResult = {
 "up_left": "up_left",
 "up_right": "up_right"
 }
-
-[connection signal="pressed" from="Control/DebugPanel/Button" to="Control/DebugPanel/Button" method="_on_Button_pressed"]

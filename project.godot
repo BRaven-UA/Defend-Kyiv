@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/analog_controller/analog.gd"
 }, {
+"base": "Control",
+"class": "Debug",
+"language": "GDScript",
+"path": "res://Debug/Debug.gd"
+}, {
 "base": "Area2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -33,6 +38,11 @@ _global_script_classes=[ {
 "class": "HUD",
 "language": "GDScript",
 "path": "res://Game/Scripts/HUD.gd"
+}, {
+"base": "Resource",
+"class": "Places",
+"language": "GDScript",
+"path": "res://Game/Scripts/Places.gd"
 }, {
 "base": "Area2D",
 "class": "Player",
@@ -56,10 +66,12 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AnalogController": "",
+"Debug": "",
 "Enemy": "",
 "Explosion": "",
 "FlyingText": "",
 "HUD": "",
+"Places": "",
 "Player": "",
 "Preview": "",
 "Rocket": "",
@@ -74,13 +86,15 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Preloader="*res://Game/ResourcePreloader.tscn"
 Global="*res://Game/Scripts/Global.gd"
 PoolManager="*res://Game/Scripts/PoolManager.gd"
+EnemyManager="*res://Game/Scripts/EnemyManager.gd"
 GlobalTween="*res://Game/Scripts/GlobalTween.gd"
+Preloader="*res://Game/ResourcePreloader.tscn"
 
 [debug]
 
+settings/fps/force_fps=60
 gdscript/warnings/unused_variable=false
 gdscript/warnings/unused_argument=false
 gdscript/warnings/variable_conflicts_function=false
@@ -181,6 +195,7 @@ toggle_debug_panel={
 [physics]
 
 common/physics_fps=30
+common/physics_jitter_fix=6.0
 common/enable_pause_aware_picking=true
 2d/default_gravity_vector=Vector2( 0, 0 )
 2d/default_linear_damp=50.0

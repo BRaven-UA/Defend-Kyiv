@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Debug/DebugSwipe.gd" type="Script" id=1]
+[ext_resource path="res://Debug/Debug.gd" type="Script" id=2]
+
+[node name="Debug" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugPanel" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+anchor_bottom = 1.0
+margin_right = 208.0
+margin_bottom = 94.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabel_1" type="Label" parent="DebugPanel"]
+margin_right = 208.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 200, 0 )
+text = "label 1"
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabel_2" type="Label" parent="DebugPanel"]
+margin_top = 18.0
+margin_right = 208.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 0 )
+text = "label 2"
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollSpeedLabel" type="Label" parent="DebugPanel"]
+margin_top = 36.0
+margin_right = 208.0
+margin_bottom = 50.0
+text = "Scroll speed:"
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollSpeedSlider" type="HSlider" parent="DebugPanel/ScrollSpeedLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 300.0
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetPosition" type="Button" parent="DebugPanel"]
+margin_top = 54.0
+margin_right = 208.0
+margin_bottom = 74.0
+text = "Reset Position"
+
+[node name="DebugSwipe" type="Control" parent="."]
+margin_right = 130.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 130, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

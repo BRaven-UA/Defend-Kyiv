@@ -21,6 +21,7 @@ var path_follow: PathFollow2D
 var player: Player
 var analog_controller: AnalogController
 var hud: HUD
+var debug: Debug
 
 var viewport_size: Vector2 # set by player node
 onready var default_font = Preloader.get_resource("Theme").default_font

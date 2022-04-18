@@ -19,10 +19,11 @@ func _process(delta: float) -> void:
 	shadow.global_position = frame.global_position + Global.SHADOW * 5.0
 	picture.global_rotation = Global.player.global_rotation
 
-func init(pos: Vector2, texture: Texture, color: Color) -> void:
+func init(pos: Vector2, frame_index: int, color: Color) -> void:
+	yield(self, "ready")
 	_deactivate()
 	global_position = pos
-	picture.texture = texture
+	picture.frame = frame_index
 	frame.self_modulate = color
 
 func activate() -> void:

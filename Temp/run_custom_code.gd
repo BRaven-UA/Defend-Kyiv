@@ -1,19 +1,9 @@
 tool
 extends EditorScript
-const COLOR_NONE = Color.transparent
-const COLOR_COMMON = Color.white
-const COLOR_UNCOMMON = Color.green
-const COLOR_RARE = Color.dodgerblue
-const COLOR_EPIC = Color.blueviolet
-const COLOR_LEGENDARY = Color.orange
-enum RARITY {NONE, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
-const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
-enum EXPLOSION {VehicleExplosion, AmmunitionExplosion}
-
+enum {NAME, FRAME, RARITY, EXPLOSION} 
 
 func _run() -> void:
-	var f: float = 0.0
-	print(f + ".1" as float)
+	print({NAME: "Tigr", FRAME: 0, RARITY: Global.RARITY.COMMON, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion})
 
 func f():
 	var scene: Node2D = get_scene()
@@ -56,4 +46,25 @@ func e():
 	for direction in [Vector2.ZERO, Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.ONE, Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1)]:
 		printt(direction, (Vector3(direction.x * direction.y, direction.y, 2.0 - abs(direction.y)) * 0.5).normalized())
 
+func parse_name(name: String) -> Dictionary:
+	assert(name)
+	
+	var _group_pos = name.find("G") + 1
+	var _app_min_pos = name.find("A") + 1
+	var _app_max_len = name.substr(_app_min_pos, 3).find("-")
+	var _app_max_pos = _app_min_pos + _app_max_len + 1
+	var _pop_min_pos = name.find("P") + 1
+	var _pop_max_len = name.substr(_pop_min_pos, 3).find("-")
+	var _pop_max_pos = _pop_min_pos + _pop_max_len + 1
+	
+	var _group = (name.substr(_group_pos)) as int
+	var _app_max = (name.substr(_app_max_pos, _pop_min_pos - _app_max_pos)) as float
+	var _app_min = (name.substr(_app_min_pos, _app_max_pos - _app_min_pos)) as float if _app_max_len != -1 else _app_max
+	var _pop_max = (name.substr(_pop_max_pos, _group_pos - _pop_max_pos)) as float
+	var _pop_min = (name.substr(_pop_min_pos, _pop_max_pos - _pop_min_pos)) as float if _pop_max_len != -1 else _pop_max
+	
+	return {Group = _group, AppearanceMin = _app_min, AppearanceMax = _app_max, PopulationMin = _pop_min, PopulationMax = _pop_max}
+
+func _rand_range(_min: int, _max: int) -> float:
+	return _min / 100.0 + (_max - _min) / 100.0 * randf()
 

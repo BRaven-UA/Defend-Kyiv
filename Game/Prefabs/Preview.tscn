@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Game/Materials/OutlineWhite.tres" type="Material" id=1]
 [ext_resource path="res://Game/Materials/Blur.tres" type="Material" id=2]
-[ext_resource path="res://Game/Textures/Tigr.png" type="Texture" id=3]
+[ext_resource path="res://Game/Textures/Vehicles_preview.png" type="Texture" id=3]
 [ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=4]
 [ext_resource path="res://Game/Resources/CircleShape2D_r1.tres" type="Shape2D" id=5]
 [ext_resource path="res://Game/Materials/BalloonPhysicsMaterial.tres" type="PhysicsMaterial" id=6]
@@ -54,3 +54,5 @@ offset = Vector2( -30.05, -29.55 )
 rotation = -0.785398
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
+hframes = 3
+vframes = 3

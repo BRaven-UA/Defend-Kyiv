@@ -24,6 +24,6 @@ func flying_text(node: Node2D) -> void:
 	var _direction := Vector2.UP.rotated(Global.player.global_rotation)
 	var _destination = node.global_position + _direction * 100
 	interpolate_property(node, "global_position", node.global_position, _destination, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
-	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE * 2.0, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	interpolate_property(node, "modulate:a", 0, 1, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	start()

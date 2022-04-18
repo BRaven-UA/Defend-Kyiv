@@ -5,39 +5,49 @@ class_name Enemy
 onready var on_map_picture: Sprite = find_node("OnMapPicture")
 onready var on_map_shadow: Sprite = find_node("OnMapShadow")
 
-export (Texture) var on_map_texture
-export (Texture) var preview_texture
-export (Global.RARITY) var rarity
-export (PoolManager.EXPLOSION) var explosion_type = PoolManager.EXPLOSION.VehicleExplosion
-
 var preview: Preview # link to preview
+var texture_white: Texture = Preloader.get_resource("White")
+var texture_atlas: Texture
+
+var rarity: int
+var frame_index: int
+var color: Color
+var explosion_type: int
 
 
 func _ready() -> void:
-	on_map_picture.texture = on_map_texture
+	texture_atlas = on_map_picture.texture
+	on_map_picture.frame = frame_index
 	on_map_shadow.global_position = global_position + Global.SHADOW * 1.5
 	
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
 	
 	preview = Preloader.get_resource("Preview").instance()
+	preview.init(global_position, frame_index, color)
 	Global.preview_layer.add_child(preview)
-	yield(preview, "ready")
-	preview.init(global_position, preview_texture, Global.COLOR[rarity])
+
+func init(data: Dictionary, pos: Vector2, rot: float) -> void:
+	frame_index = data[EnemyManager.FRAME]
+	rarity = data[EnemyManager.RARITY]
+	color = Global.COLOR[rarity]
+	explosion_type = data[EnemyManager.EXPLOSION]
+	position = pos
+	rotation = rot
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Explosion:
 		destroy()
 	else: # highlighting and show preview when under the crossair highlight area
-		on_map_picture.texture = Preloader.get_resource("White")
-		on_map_picture.self_modulate = Global.COLOR[rarity]
+		on_map_picture.texture = texture_white
+		on_map_picture.self_modulate = color
 		on_map_picture.self_modulate.a = 0.5
 #		yield(get_tree(), "physics_frame")
 		preview.activate()
 
 func _on_area_exited(area: Area2D) -> void:
 	if not (area is Explosion): # back to deafult atate when the crossair leave
-		on_map_picture.texture = on_map_texture
+		on_map_picture.texture = texture_atlas
 		on_map_picture.self_modulate = Global.COLOR_COMMON # reset to deafult white color
 		preview.deactivate()
 
