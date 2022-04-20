@@ -59,6 +59,7 @@ __meta__ = {
 [node name="ScrollSpeedSlider" type="HSlider" parent="DebugPanel/ScrollSpeedLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 0
 max_value = 300.0
 value = 50.0
 __meta__ = {
@@ -69,6 +70,7 @@ __meta__ = {
 margin_top = 54.0
 margin_right = 208.0
 margin_bottom = 74.0
+focus_mode = 0
 text = "Reset Position"
 
 [node name="DebugSwipe" type="Control" parent="."]

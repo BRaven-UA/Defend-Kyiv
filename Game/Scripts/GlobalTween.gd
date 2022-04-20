@@ -6,7 +6,7 @@ const PREVIEW_MIN_SCALE := Vector2(0.1, 0.1)
 
 
 func _ready() -> void:
-	playback_process_mode = Tween.TWEEN_PROCESS_PHYSICS
+	playback_process_mode = TWEEN_PROCESS_PHYSICS
 
 # basic show up animation
 func show_up_preview(preview: Preview) -> void:
@@ -20,10 +20,22 @@ func fade_preview(preview: Preview) -> float:
 	start()
 	return _duration
 
+func explosion_flash(flash: Sprite, scale: float) -> void:
+	var duration = 0.01 * scale
+	var brightness = 0.025 * scale
+	interpolate_property(flash, "self_modulate:a", 0.0, brightness, duration, TRANS_EXPO, EASE_IN_OUT)
+	interpolate_property(flash, "self_modulate:a", brightness, 0.0, duration, TRANS_SINE, EASE_IN_OUT, duration)
+	start()
+
+func explosion_shockwave(shockwave: Sprite, scale: float) -> void:
+	shockwave.material.set_shader_param("force", 0.15 * scale)
+	interpolate_property(shockwave, "material:shader_param/progression", 0.0, 1.0, 1.0)
+	start()
+
 func flying_text(node: Node2D) -> void:
 	var _direction := Vector2.UP.rotated(Global.player.global_rotation)
 	var _destination = node.global_position + _direction * 100
-	interpolate_property(node, "global_position", node.global_position, _destination, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
-	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE * 2.0, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
-	interpolate_property(node, "modulate:a", 0, 1, FLYING_TEXT_DURATION, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	interpolate_property(node, "global_position", node.global_position, _destination, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
+	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE * 2.0, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
+	interpolate_property(node, "modulate:a", 0, 1, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
 	start()

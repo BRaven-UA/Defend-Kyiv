@@ -3,7 +3,8 @@ extends EditorScript
 enum {NAME, FRAME, RARITY, EXPLOSION} 
 
 func _run() -> void:
-	print({NAME: "Tigr", FRAME: 0, RARITY: Global.RARITY.COMMON, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion})
+	var node: Sprite = get_scene().find_node("Shockwave")
+	print(node.get_global_transform_with_canvas().origin)
 
 func f():
 	var scene: Node2D = get_scene()

@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game/Materials/OutlineWhite.tres" type="Material" id=4]
-[ext_resource path="res://Game/Textures/Tigr_onmap.png" type="Texture" id=6]
-[ext_resource path="res://Game/Materials/Blur.tres" type="Material" id=7]
-[ext_resource path="res://Game/Textures/Tigr.png" type="Texture" id=8]
+[ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Textures/Background/125.jpg" type="Texture" id=9]
-[ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=10]
 
 [node name="Node" type="Node"]
 
@@ -14,59 +11,11 @@
 rotation = 1.5708
 texture = ExtResource( 9 )
 
-[node name="Enemy" type="Node2D" parent="."]
-position = Vector2( 6.00681, -483.88 )
-
-[node name="Shadow" type="Sprite" parent="Enemy"]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -1.389, -1 )
-texture = ExtResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="Enemy"]
-self_modulate = Color( 0.0431373, 0.564706, 0.878431, 1 )
-texture = ExtResource( 6 )
-
-[node name="Preview" type="Sprite" parent="Enemy"]
-self_modulate = Color( 0.0431373, 0.564706, 0.878431, 1 )
-material = ExtResource( 4 )
-rotation = -0.785398
-texture = ExtResource( 10 )
-centered = false
-
-[node name="Shadow" type="Sprite" parent="Enemy/Preview"]
-self_modulate = Color( 0, 0, 0, 1 )
-show_behind_parent = true
-material = ExtResource( 7 )
-position = Vector2( -3.03555, -5.20712 )
-texture = ExtResource( 10 )
-centered = false
-
-[node name="Full" type="Sprite" parent="Enemy/Preview"]
-position = Vector2( 110.5, 110.5 )
-rotation = 0.786129
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
-
-[node name="Preview2" type="Sprite" parent="Enemy"]
-self_modulate = Color( 0.0431373, 0.564706, 0.878431, 1 )
-material = ExtResource( 4 )
-rotation = 2.35619
-texture = ExtResource( 10 )
-centered = false
-
-[node name="Shadow" type="Sprite" parent="Enemy/Preview2"]
-self_modulate = Color( 0, 0, 0, 1 )
-show_behind_parent = true
-material = ExtResource( 7 )
-position = Vector2( 3.3284, 2.57108 )
-texture = ExtResource( 10 )
-centered = false
-
-[node name="Full" type="Sprite" parent="Enemy/Preview2"]
-position = Vector2( 110.5, 110.5 )
-rotation = 3.92699
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
-
 [node name="Rocket" parent="." instance=ExtResource( 1 )]
-position = Vector2( 18.2603, -484.071 )
+position = Vector2( 34.7417, -380.688 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4.76221, -544.479 )
+rotation = 3.13236

@@ -12,8 +12,10 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	var _name = EXPLOSION.keys()[type]
 	
 	for index in explosion_indexes.get(_name, []): # list of indexes or empty list
-		if explosion_pool[index].is_free:
-			return explosion_pool[index]
+		var explosion: Explosion = explosion_pool[index]
+		if explosion.is_free:
+#			Global.ground_layer.add_child(explosion)
+			return explosion
 	
 	# add new instance to the pool if there no free explosions left
 	var new_explosion = Preloader.get_resource(_name).instance()

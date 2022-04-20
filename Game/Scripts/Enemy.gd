@@ -1,13 +1,11 @@
+class_name Enemy
 extends Area2D
 
-class_name Enemy
-
-onready var on_map_picture: Sprite = find_node("OnMapPicture")
+onready var on_map_highlight: Sprite = find_node("OnMapHighlight")
 onready var on_map_shadow: Sprite = find_node("OnMapShadow")
+onready var on_map_picture: Sprite = find_node("OnMapPicture")
 
 var preview: Preview # link to preview
-var texture_white: Texture = Preloader.get_resource("White")
-var texture_atlas: Texture
 
 var rarity: int
 var frame_index: int
@@ -16,9 +14,9 @@ var explosion_type: int
 
 
 func _ready() -> void:
-	texture_atlas = on_map_picture.texture
-	on_map_picture.frame = frame_index
+	on_map_highlight.self_modulate = color
 	on_map_shadow.global_position = global_position + Global.SHADOW * 1.5
+	on_map_picture.frame = frame_index
 	
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
@@ -39,21 +37,18 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Explosion:
 		destroy()
 	else: # highlighting and show preview when under the crossair highlight area
-		on_map_picture.texture = texture_white
-		on_map_picture.self_modulate = color
-		on_map_picture.self_modulate.a = 0.5
-#		yield(get_tree(), "physics_frame")
+		on_map_highlight.visible = true
 		preview.activate()
 
 func _on_area_exited(area: Area2D) -> void:
-	if not (area is Explosion): # back to deafult atate when the crossair leave
-		on_map_picture.texture = texture_atlas
-		on_map_picture.self_modulate = Global.COLOR_COMMON # reset to deafult white color
+	if not (area is Explosion): # cancel highlight when the crossair leave
+		on_map_highlight.visible = false
 		preview.deactivate()
 
 func destroy() -> void:
+	on_map_highlight.visible = false
 	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
-	preview.deactivate(true) # deactivate and delete
+	preview.deactivate(true) # deactivate and delete preview
 	
 	var _points = Global.POINTS[rarity]
 	var _flying_text = PoolManager.get_flying_text()

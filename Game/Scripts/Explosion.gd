@@ -1,19 +1,21 @@
-extends Area2D
-
 class_name Explosion
+extends Area2D
 
 const GROW_SPEED: float = 25.0
 
 onready var area: CollisionShape2D = find_node("ExplosionArea")
+onready var flash: Sprite = find_node("Flash")
+onready var shockwave: Sprite = find_node("Shockwave")
 onready var animation: AnimatedSprite = find_node("Animation")
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
+#onready var half_textute_size: Vector2 = shockwave.texture.get_size() / 2.0
 
 export var max_radius: float = 12.0
 var is_free: bool = false
 
 
 func _ready() -> void:
-	animation.connect("animation_finished", self, "_on_animation_finished") # FACEPALM: animation must be stopped via code
+	animation.connect("animation_finished", self, "_on_animation_finished")
 
 func _physics_process(delta: float) -> void:
 	var _radius = area.shape.radius + delta * GROW_SPEED
@@ -25,12 +27,19 @@ func _physics_process(delta: float) -> void:
 
 func activate(pos: Vector2) -> void:
 	is_free = false
+	
 	global_position = pos
 	global_rotation = Global.player.global_rotation
+	
 	animation.flip_h = (randi() % 2) as bool # add some randomness
 	animation.frame = 0
 	animation.play()
+	
+	GlobalTween.explosion_flash(flash, max_radius)
+	GlobalTween.explosion_shockwave(shockwave, max_radius)
+	
 	sound.play()
+	
 	set_physics_process(true) # start growing the explosion area
 
 func place_crater():
@@ -42,6 +51,7 @@ func place_crater():
 	crater.rotation = randf() * PI * 2.0
 
 func _on_animation_finished():
-	animation.stop()
+	animation.stop() # FACEPALM: animation must be stopped via code
 	area.shape.radius = 0
+#	get_parent().remove_child(self)
 	is_free = true
