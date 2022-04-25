@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Game/Materials/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Game/Resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
+[ext_resource path="res://Game/Textures/Rocket_ammo.png" type="Texture" id=4]
 [ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
+[ext_resource path="res://Game/Resources/Small_font.tres" type="DynamicFont" id=6]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -13,6 +15,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmmoBar" type="TextureProgress" parent="BaseControl"]
+margin_right = 128.0
+margin_bottom = 47.0
+max_value = 32.0
+value = 16.0
+rounded = true
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+tint_under = Color( 1, 0.686275, 0.686275, 0.192157 )
+nine_patch_stretch = true
+stretch_margin_left = 128
+stretch_margin_top = 24
+stretch_margin_bottom = 23
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmmoLabel" type="Label" parent="BaseControl/AmmoBar"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ammunition"
+align = 1
+valign = 2
+max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,12 +1,23 @@
 extends Node
 
-enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion}
+enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion}
 
+var rocket_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
 var flying_text_pool: Array
 
+
+func get_rocket() -> Rocket: # get reference to new rocket from the rocket pool
+	for rocket in rocket_pool: # search for free rocket
+		if rocket.is_free:
+			return rocket
+	
+	# add new instance to the pool if there no free rockets left
+	var new_rocket = Preloader.get_resource("Rocket").instance()
+	rocket_pool.append(new_rocket)
+	return new_rocket
 
 func get_explosion(type: int) -> Explosion: # get reference to new explosion with given type from the explosion pool
 	var _name = EXPLOSION.keys()[type]
@@ -22,7 +33,7 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	
 	var index = explosion_pool.size()
 	explosion_pool.append(new_explosion)
-	Global.ground_layer.add_child(new_explosion)
+	Global.above_ground_layer.add_child(new_explosion)
 	# store corresponding index
 	var _indexes: Array = explosion_indexes.get(_name, []) # list of indexes or empty list
 	_indexes.append(index) # add new index

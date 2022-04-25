@@ -8,7 +8,7 @@ onready var flash: Sprite = find_node("Flash")
 onready var shockwave: Sprite = find_node("Shockwave")
 onready var animation: AnimatedSprite = find_node("Animation")
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
-#onready var half_textute_size: Vector2 = shockwave.texture.get_size() / 2.0
+onready var anim_names: PoolStringArray = animation.frames.get_animation_names()
 
 export var max_radius: float = 12.0
 var is_free: bool = false
@@ -31,7 +31,10 @@ func activate(pos: Vector2) -> void:
 	global_position = pos
 	global_rotation = Global.player.global_rotation
 	
-	animation.flip_h = (randi() % 2) as bool # add some randomness
+	var names_amount = anim_names.size()
+	if names_amount > 1:
+		animation.animation = anim_names[randi() % names_amount] # random animation
+	animation.flip_h = (randi() % 2) as bool # add some randomness by flipping picture
 	animation.frame = 0
 	animation.play()
 	

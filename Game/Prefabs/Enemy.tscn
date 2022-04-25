@@ -25,8 +25,8 @@ texture = ExtResource( 2 )
 [node name="OnMapShadow" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 1 )
-hframes = 7
+hframes = 12
 
 [node name="OnMapPicture" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 7
+hframes = 12

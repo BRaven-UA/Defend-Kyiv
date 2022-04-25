@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Resources/Shockwave.shader" type="Shader" id=5]
+[ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Textures/Radial Gradient.png" type="Texture" id=7]
 [ext_resource path="res://Game/Textures/Background/125.jpg" type="Texture" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/force = 2.0
+shader_param/progression = 0.0
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
+shader_param/force = 2.0
+shader_param/progression = 3.0
 
 [node name="Node" type="Node"]
 
@@ -12,10 +27,101 @@ rotation = 1.5708
 texture = ExtResource( 9 )
 
 [node name="Rocket" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 34.7417, -380.688 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="ground" type="Node2D" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4.76221, -544.479 )
+[node name="Explosion" parent="ground" instance=ExtResource( 2 )]
+
+[node name="Shockwave" parent="ground/Explosion/BackBufferCopy" index="0"]
+material = SubResource( 1 )
+
+[node name="Animation" parent="ground/Explosion" index="3"]
+frame = 20
+
+[node name="Enemy" parent="ground" instance=ExtResource( 4 )]
+position = Vector2( 7.86375, -8.87402 )
 rotation = 3.13236
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="ground"]
+position = Vector2( 77.3056, 14.2544 )
+copy_mode = 2
+
+[node name="Crater" parent="ground/BackBufferCopy" instance=ExtResource( 6 )]
+position = Vector2( -30.2905, 0 )
+
+[node name="Crater2" parent="ground" instance=ExtResource( 6 )]
+position = Vector2( 10.0783, 38.7544 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -19, -51.125 )
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy2"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy3"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy4" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy4"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy5" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy5"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy6" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy6"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="BackBufferCopy7" type="BackBufferCopy" parent="Node2D"]
+copy_mode = 2
+
+[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy7"]
+material = SubResource( 2 )
+position = Vector2( -91, 268 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[editable path="ground/Explosion"]
+[editable path="ground/BackBufferCopy/Crater"]

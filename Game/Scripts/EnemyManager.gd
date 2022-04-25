@@ -8,7 +8,12 @@ const ENEMIES := [
 	{NAME: "BTR-80", FRAME: 3, RARITY: Global.RARITY.UNCOMMON, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion},
 	{NAME: "Black Eagle", FRAME: 4, RARITY: Global.RARITY.LEGENDARY, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion},
 	{NAME: "Borisoglebsk-2", FRAME: 5, RARITY: Global.RARITY.RARE, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion},
-	{NAME: "Pantsir-S", FRAME: 6, RARITY: Global.RARITY.RARE, EXPLOSION: PoolManager.EXPLOSION.AmmunitionExplosion}
+	{NAME: "Pantsir-S", FRAME: 6, RARITY: Global.RARITY.RARE, EXPLOSION: PoolManager.EXPLOSION.AmmunitionExplosion},
+	{NAME: "2S19 Msta", FRAME: 7, RARITY: Global.RARITY.RARE, EXPLOSION: PoolManager.EXPLOSION.AmmunitionExplosion},
+	{NAME: "Ural (fuel)", FRAME: 8, RARITY: Global.RARITY.COMMON, EXPLOSION: PoolManager.EXPLOSION.FuelExplosion},
+	{NAME: "Kamaz", FRAME: 9, RARITY: Global.RARITY.COMMON, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion},
+	{NAME: "T-72", FRAME: 10, RARITY: Global.RARITY.UNCOMMON, EXPLOSION: PoolManager.EXPLOSION.AmmunitionExplosion},
+	{NAME: "ZSU-23-4 Shilka", FRAME: 11, RARITY: Global.RARITY.RARE, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion}
 ]
 const CHANCES := [0.0, 1.0, 0.33, 0.1, 0.05, 0.015] # spawn chances for none/common/uncommon/rare/epic/legendary enemies
 

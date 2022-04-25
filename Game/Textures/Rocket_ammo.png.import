@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Rocket_ammo.png-e432bdf8b5c66c6d4abf1f918c6935b0.s3tc.stex"
+path.etc2="res://.import/Rocket_ammo.png-e432bdf8b5c66c6d4abf1f918c6935b0.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Game/Textures/Rocket_ammo.png"
+dest_files=[ "res://.import/Rocket_ammo.png-e432bdf8b5c66c6d4abf1f918c6935b0.s3tc.stex", "res://.import/Rocket_ammo.png-e432bdf8b5c66c6d4abf1f918c6935b0.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=1
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=false
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

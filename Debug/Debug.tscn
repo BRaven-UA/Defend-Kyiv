@@ -5,27 +5,42 @@
 
 [node name="Debug" type="Control"]
 pause_mode = 2
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugPanel" type="VBoxContainer" parent="."]
-modulate = Color( 1, 1, 1, 0.498039 )
-anchor_bottom = 1.0
-margin_right = 208.0
-margin_bottom = 94.0
+[node name="DebugPanel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.498039 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -123.0
+margin_right = 281.0
+margin_bottom = 123.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugPanel"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+margin_left = -0.1
+margin_top = -2.6
+margin_right = 0.100006
+margin_bottom = -0.399994
 mouse_filter = 2
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugLabel_1" type="Label" parent="DebugPanel"]
-margin_right = 208.0
-margin_bottom = 14.0
+[node name="DebugLabel_1" type="Label" parent="DebugPanel/VBoxContainer"]
+margin_top = 17.0
+margin_right = 200.0
+margin_bottom = 31.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 0
 text = "label 1"
 valign = 1
 max_lines_visible = 1
@@ -33,11 +48,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DebugLabel_2" type="Label" parent="DebugPanel"]
-margin_top = 18.0
-margin_right = 208.0
-margin_bottom = 32.0
+[node name="DebugLabel_2" type="Label" parent="DebugPanel/VBoxContainer"]
+margin_top = 35.0
+margin_right = 200.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 0
 text = "label 2"
 valign = 1
 max_lines_visible = 1
@@ -45,10 +61,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollSpeedLabel" type="Label" parent="DebugPanel"]
-margin_top = 36.0
-margin_right = 208.0
-margin_bottom = 50.0
+[node name="ScrollSpeed" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+margin_top = 53.0
+margin_right = 224.0
+margin_bottom = 69.0
+size_flags_horizontal = 0
+
+[node name="ScrollSpeedLabel" type="Label" parent="DebugPanel/VBoxContainer/ScrollSpeed"]
+margin_top = 1.0
+margin_right = 120.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 120, 0 )
 text = "Scroll speed:"
 valign = 1
 max_lines_visible = 1
@@ -56,9 +79,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollSpeedSlider" type="HSlider" parent="DebugPanel/ScrollSpeedLabel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ScrollSpeedSlider" type="HSlider" parent="DebugPanel/VBoxContainer/ScrollSpeed"]
+margin_left = 124.0
+margin_right = 224.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 100, 0 )
 focus_mode = 0
 max_value = 300.0
 value = 50.0
@@ -66,12 +91,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetPosition" type="Button" parent="DebugPanel"]
-margin_top = 54.0
-margin_right = 208.0
-margin_bottom = 74.0
+[node name="ResetPosition" type="Button" parent="DebugPanel/VBoxContainer"]
+margin_top = 73.0
+margin_right = 104.0
+margin_bottom = 93.0
 focus_mode = 0
+size_flags_horizontal = 0
 text = "Reset Position"
+
+[node name="InfiniteAmmo" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+margin_top = 97.0
+margin_right = 177.0
+margin_bottom = 137.0
+size_flags_horizontal = 0
+
+[node name="InfiniteAmmoLabel" type="Label" parent="DebugPanel/VBoxContainer/InfiniteAmmo"]
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 27.0
+text = "Infinite Ammo:"
+
+[node name="InfiniteAmmoSwitch" type="CheckButton" parent="DebugPanel/VBoxContainer/InfiniteAmmo"]
+margin_left = 101.0
+margin_right = 177.0
+margin_bottom = 40.0
+
+[node name="AlwaysOnTop" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+margin_top = 141.0
+margin_right = 178.0
+margin_bottom = 181.0
+size_flags_horizontal = 0
+
+[node name="AlwaysOnTopLabel" type="Label" parent="DebugPanel/VBoxContainer/AlwaysOnTop"]
+margin_top = 13.0
+margin_right = 98.0
+margin_bottom = 27.0
+text = "Always On Top:"
+
+[node name="AlwaysOnTopSwitch" type="CheckButton" parent="DebugPanel/VBoxContainer/AlwaysOnTop"]
+margin_left = 102.0
+margin_right = 178.0
+margin_bottom = 40.0
 
 [node name="DebugSwipe" type="Control" parent="."]
 margin_right = 130.0

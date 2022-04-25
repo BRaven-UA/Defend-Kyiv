@@ -35,6 +35,8 @@ texture = ExtResource( 8 )
 
 [node name="GroundLayer" type="Node2D" parent="."]
 
+[node name="AboveGroundLayer" type="Node2D" parent="."]
+
 [node name="MidairLayer" type="Node2D" parent="."]
 
 [node name="PreviewLayer" type="Node2D" parent="."]

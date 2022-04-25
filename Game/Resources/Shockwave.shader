@@ -3,7 +3,7 @@ shader_type canvas_item;
 
 const float PI = 3.1416;
 uniform float force = 2.0;
-uniform float progression : hint_range(0, 1);
+uniform float progression : hint_range(0, 3);
 varying vec2 world_pos;
 
 void vertex() {

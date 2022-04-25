@@ -1,10 +1,10 @@
 tool
 extends EditorScript
-enum {NAME, FRAME, RARITY, EXPLOSION} 
 
 func _run() -> void:
-	var node: Sprite = get_scene().find_node("Shockwave")
-	print(node.get_global_transform_with_canvas().origin)
+	var ref = weakref(null)
+	print(ref.get_ref().call("test"))
+	
 
 func f():
 	var scene: Node2D = get_scene()

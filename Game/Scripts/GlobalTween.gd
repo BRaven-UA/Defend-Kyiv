@@ -29,7 +29,7 @@ func explosion_flash(flash: Sprite, scale: float) -> void:
 
 func explosion_shockwave(shockwave: Sprite, scale: float) -> void:
 	shockwave.material.set_shader_param("force", 0.15 * scale)
-	interpolate_property(shockwave, "material:shader_param/progression", 0.0, 1.0, 1.0)
+	interpolate_property(shockwave, "material:shader_param/progression", 0.0, 3.0, 3.0)
 	start()
 
 func flying_text(node: Node2D) -> void:

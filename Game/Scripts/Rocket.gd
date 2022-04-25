@@ -4,7 +4,6 @@ class_name Rocket
 
 const SPEED: int = 400
 const TANG_SPEED: float = 1.0
-const INIT_HEIGHT: int = 500
 
 onready var visual: Node2D = find_node("Visual")
 onready var body: Sprite = find_node("Body")
@@ -13,12 +12,17 @@ onready var trace: Particles2D = find_node("Trace")
 onready var watchdog: Timer = find_node("WatchDog")
 onready var reset_timer: Timer = find_node("ResetTimer")
 
+var player_height: int = 1
 var is_free: bool = true
 #var direction: Vector2 = Vector2.UP # normalized move direction vector
 var position_3D: Vector3
 var direction_3D: Vector3
 var destination_3D: Vector3
 
+
+func _ready() -> void:
+	if Global.player:
+		player_height = Global.player.HEIGHT
 
 func _process(delta: float) -> void:
 	var dir_to_dest = position_3D.direction_to(destination_3D)
@@ -33,14 +37,14 @@ func _process(delta: float) -> void:
 		global_rotation = -Vector2(direction_3D.x, direction_3D.z).angle_to(Vector2.UP)
 		
 		#deformations based on 3D height
-		var _scale = position_3D.y / INIT_HEIGHT
+		var _scale = position_3D.y / player_height
 		visual.scale = Vector2.ONE * _scale
 	#	trace.process_material.scale = _scale
 
 # activate (fire) the rocket. Initial position and normalized move direction both are in global coords
 func activate(pos: Vector2, dir: Vector3, dest: Vector2) -> void:
 	global_position = pos
-	position_3D = Vector3(pos.x, INIT_HEIGHT, pos.y)
+	position_3D = Vector3(pos.x, player_height, pos.y)
 	direction_3D = dir
 	global_rotation = -Vector2(direction_3D.x, direction_3D.z).angle_to(Vector2.UP)
 	

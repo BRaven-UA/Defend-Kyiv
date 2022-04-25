@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fuel Explosion.mp3-dc251f02bf5935baac8fc389ab7e94e2.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Fuel Explosion.mp3"
+dest_files=[ "res://.import/Fuel Explosion.mp3-dc251f02bf5935baac8fc389ab7e94e2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
