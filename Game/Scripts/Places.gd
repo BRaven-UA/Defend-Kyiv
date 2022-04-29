@@ -1,7 +1,6 @@
 # this kind of resource created and saved via code by res://Temp/Placeholders parser tool.gd
-extends Resource
-
 class_name Places
+extends Resource
 
 export var positions: PoolVector2Array
 export var rotations: PoolRealArray

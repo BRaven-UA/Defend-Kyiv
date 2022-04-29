@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Aerial explosion.mp3-69f7759b48a73954e69509d3279ba12f.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Aerial explosion.mp3"
+dest_files=[ "res://.import/Aerial explosion.mp3-69f7759b48a73954e69509d3279ba12f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

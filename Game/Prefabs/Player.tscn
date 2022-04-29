@@ -9,7 +9,7 @@
 [ext_resource path="res://Game/Resources/Blur.tres" type="Material" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21.5, 59 )
+extents = Vector2( 12.0172, 59 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 90.0
@@ -628,7 +628,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 6
-frame = 6
+frame = 7
 
 [node name="Crossair" type="Sprite" parent="."]
 position = Vector2( 0, -200 )
@@ -662,7 +662,7 @@ material = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 6
-frame = 6
+frame = 7
 
 [node name="RocketLauncher1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 19, 11 )

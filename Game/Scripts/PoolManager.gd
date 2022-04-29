@@ -1,6 +1,6 @@
 extends Node
 
-enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion}
+enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion, AerialExplosion}
 
 var rocket_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
@@ -9,7 +9,7 @@ var crater_pool: Array # object pool for crater decals
 var flying_text_pool: Array
 
 
-func get_rocket() -> Rocket: # get reference to new rocket from the rocket pool
+func get_rocket() -> RocketBase: # get reference to new rocket from the rocket pool
 	for rocket in rocket_pool: # search for free rocket
 		if rocket.is_free:
 			return rocket

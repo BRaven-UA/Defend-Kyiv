@@ -1,7 +1,7 @@
 extends PathFollow2D
 
-onready var start_offset := offset
 var scroll_speed := 50.0
+onready var start_offset := offset
 
 func _enter_tree() -> void:
 	Global.path_follow = self # register itself in global singleton

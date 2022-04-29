@@ -1,10 +1,11 @@
 tool
 extends EditorScript
 
+
 func _run() -> void:
-	var ref = weakref(null)
-	print(ref.get_ref().call("test"))
-	
+	var target = INF
+	print(1111111110 > target )
+
 
 func f():
 	var scene: Node2D = get_scene()

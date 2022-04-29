@@ -1,15 +1,15 @@
-class_name Player
-extends Area2D
+# main class for player entity
+# contains only private fields and methods
+extends PlayerBase
 
-signal ammo_changed(value)
+var analog_controller: AnalogController # touchscreen movement controller
+var direction := Vector2.ZERO # current move normalized direction vector
+var horizontal_limit: int # screen boundaries
+var vertical_limit: int
 
-const HEIGHT: int = 500 # player's height above the ground
-const PLAYER_SPEED: int = 100
-const FULL_ACCELERATION: float = 3.0 # move modifier for keyboard input
-const CROSSAIR_DISTANCE: float = 600.0 # distance to the crossair when player is centered
-const ROCKET_SPREAD: float = 0.08 # rocket spread in percent (0-1)
-const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
-const MAX_ROCKETS: int = 32 # max amount of rockets that player can carry
+var rocket_launchers: Array # list of the two available rocket launchers
+var current_rocket_launcher_index: int # index of current launcher
+var ready_to_fire: bool = true
 
 onready var shadow: Sprite = find_node("Shadow")
 onready var crossair: Sprite = find_node("Crossair")
@@ -18,17 +18,6 @@ onready var pusher: KinematicBody2D = find_node("BalloonPusher") # a physics bod
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
 onready var rocket_timer: Timer = find_node("RocketTimer")
 onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
-var analog_controller: AnalogController # touchscreen movement controller
-
-var direction := Vector2.ZERO # current move normalized direction vector
-var horizontal_limit: int # screen boundaries
-var vertical_limit: int
-
-var rocket_launchers: Array # list of the two available rocket launchers
-var current_rocket_launcher_index: int # index of current launcher
-var rockets_amount: int = MAX_ROCKETS # available rockets
-var rocket_consumption: int = 1 # for debug purposes
-var ready_to_fire: bool = true
 
 
 func _enter_tree() -> void:
@@ -65,13 +54,13 @@ func _process(delta: float) -> void:
 	crossair.position = _pos
 	highlight.position = _pos
 	pusher.position = _pos
-	var _spread_value = _pos.length() * ROCKET_SPREAD
+	var _spread_value = _pos.length() * RocketBase.SPREAD
 	crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
 	
 	if Input.is_action_pressed("fire_rocket") and ready_to_fire and rockets_amount:
 		fire_rocket()
 
-func _moving(delta: float):
+func _moving(delta: float) -> void:
 	# calculating user input vector
 	var input_vector := Vector2.ZERO
 	
@@ -109,10 +98,16 @@ func fire_rocket() -> void:
 	var dir_3D_local = (Vector3(direction.x * direction.y, direction.y, abs(direction.y) - 2.0) * 0.5).normalized()
 	var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
 	var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
-	var dest: Vector2 = crossair.global_position
 	
-	var rocket: Rocket = PoolManager.get_rocket()
-	rocket.activate(pos, dir_3D_global, dest)
+	var target := Target.new()
+	var target_position = crossair.global_position
+	target.global_position = target_position
+	var spread = (target_position - pos).length() * RocketBase.SPREAD
+	target.rand_position(spread)
+	Global.ground_layer.add_child(target)
+	
+	var rocket: RocketBase = PoolManager.get_rocket()
+	rocket.activate(self, Vector3(pos.x, HEIGHT, pos.y), dir_3D_global, target)
 	launcher.activate(Vector2(dir_3D_global.x, dir_3D_global.z))
 	
 	_change_rockets_amount(-rocket_consumption)

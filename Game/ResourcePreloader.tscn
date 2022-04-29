@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Trace.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Game/Resources/Places.tres" type="Resource" id=10]
 [ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Prefabs/AerialExplosion.tscn" type="PackedScene" id=14]
 
 [node name="ResourcePreloader" type="ResourcePreloader"]
-resources = [ PoolStringArray( "AmmunitionExplosion", "Crater", "Enemy", "FuelExplosion", "Places", "Preview", "Rocket", "RocketExplosion", "Theme", "Trace", "VehicleExplosion", "White" ), [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 7 ) ] ]
+resources = [ PoolStringArray( "AerialExplosion", "AmmunitionExplosion", "AntiAircraftEnemy", "Crater", "Enemy", "FuelExplosion", "Places", "Preview", "Rocket", "RocketExplosion", "Theme", "Trace", "VehicleExplosion", "White" ), [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 7 ) ] ]

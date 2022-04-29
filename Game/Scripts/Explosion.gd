@@ -3,15 +3,15 @@ extends Area2D
 
 const GROW_SPEED: float = 25.0
 
+var is_free: bool = false
+export var max_radius: float = 12.0
+
 onready var area: CollisionShape2D = find_node("ExplosionArea")
 onready var flash: Sprite = find_node("Flash")
 onready var shockwave: Sprite = find_node("Shockwave")
 onready var animation: AnimatedSprite = find_node("Animation")
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
 onready var anim_names: PoolStringArray = animation.frames.get_animation_names()
-
-export var max_radius: float = 12.0
-var is_free: bool = false
 
 
 func _ready() -> void:
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		place_crater()
 	area.shape.radius = _radius # growing the explosion area
 
-func activate(pos: Vector2) -> void:
+func activate(pos: Vector2, is_aerial := false) -> void:
 	is_free = false
 	
 	global_position = pos
@@ -43,7 +43,8 @@ func activate(pos: Vector2) -> void:
 	
 	sound.play()
 	
-	set_physics_process(true) # start growing the explosion area
+	if not is_aerial:
+		set_physics_process(true) # start growing the explosion area
 
 func place_crater():
 	var crater = PoolManager.get_crater()

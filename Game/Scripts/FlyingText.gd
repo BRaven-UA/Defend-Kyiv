@@ -1,6 +1,5 @@
-extends Node2D
-
 class_name FlyingText
+extends Node2D
 
 var text: String
 var color: Color

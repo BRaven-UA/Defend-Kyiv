@@ -50,24 +50,29 @@ _global_script_classes=[ {
 "path": "res://Game/Scripts/Places.gd"
 }, {
 "base": "Area2D",
-"class": "Player",
+"class": "PlayerBase",
 "language": "GDScript",
-"path": "res://Game/Scripts/Player.gd"
+"path": "res://Game/Scripts/PlayerBase.gd"
 }, {
 "base": "Node2D",
 "class": "Preview",
 "language": "GDScript",
 "path": "res://Game/Scripts/Preview.gd"
 }, {
-"base": "Node2D",
-"class": "Rocket",
+"base": "Area2D",
+"class": "RocketBase",
 "language": "GDScript",
-"path": "res://Game/Scripts/Rocket.gd"
+"path": "res://Game/Scripts/RocketBase.gd"
 }, {
 "base": "Node2D",
 "class": "RocketLauncher",
 "language": "GDScript",
 "path": "res://Game/Scripts/RocketLauncher.gd"
+}, {
+"base": "Node2D",
+"class": "Target",
+"language": "GDScript",
+"path": "res://Game/Scripts/Target.gd"
 } ]
 _global_script_class_icons={
 "AAEnemy": "",
@@ -78,10 +83,11 @@ _global_script_class_icons={
 "FlyingText": "",
 "HUD": "",
 "Places": "",
-"Player": "",
+"PlayerBase": "",
 "Preview": "",
-"Rocket": "",
-"RocketLauncher": ""
+"RocketBase": "",
+"RocketLauncher": "",
+"Target": ""
 }
 
 [application]

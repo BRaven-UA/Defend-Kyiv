@@ -1,16 +1,19 @@
 class_name Enemy
 extends Area2D
 
-onready var on_map_highlight: Sprite = find_node("OnMapHighlight")
-onready var on_map_shadow: Sprite = find_node("OnMapShadow")
-onready var on_map_picture: Sprite = find_node("OnMapPicture")
+const HEIGHT: float = 1.0 # enemy's height above the ground
 
 var preview: Preview # link to preview
-
 var rarity: int
 var frame_index: int
 var color: Color
 var explosion_type: int
+var anti_aircraft: int # type of ant-aircraft system
+var is_destroyed: bool
+
+onready var on_map_highlight: Sprite = find_node("OnMapHighlight")
+onready var on_map_shadow: Sprite = find_node("OnMapShadow")
+onready var on_map_picture: Sprite = find_node("OnMapPicture")
 
 
 func _ready() -> void:
@@ -30,22 +33,15 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	rarity = data[EnemyManager.RARITY]
 	color = Global.COLOR[rarity]
 	explosion_type = data[EnemyManager.EXPLOSION]
+	anti_aircraft = data.get(EnemyManager.ANTIAIRCRAFT, EnemyManager.AA_NONE)
 	position = pos
 	rotation = rot
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is Explosion:
-		destroy()
-	else: # highlighting and show preview when under the crossair highlight area
-		on_map_highlight.visible = true
-		preview.activate()
-
-func _on_area_exited(area: Area2D) -> void:
-	if not (area is Explosion): # cancel highlight when the crossair leave
-		on_map_highlight.visible = false
-		preview.deactivate()
+func get_height() -> float:
+	return HEIGHT
 
 func destroy() -> void:
+	is_destroyed = true
 	on_map_highlight.visible = false
 	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
 	preview.deactivate(true) # deactivate and delete preview
@@ -59,3 +55,15 @@ func destroy() -> void:
 	yield(get_tree(), "idle_frame") # waiting next frame
 	var explosion: Explosion = PoolManager.get_explosion(explosion_type)
 	explosion.activate(global_position)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Explosion:
+		destroy()
+	else: # highlighting and show preview when under the crossair highlight area
+		on_map_highlight.visible = true
+		preview.activate()
+
+func _on_area_exited(area: Area2D) -> void:
+	if not (area is Explosion): # cancel highlight when the crossair leave
+		on_map_highlight.visible = false
+		preview.deactivate()

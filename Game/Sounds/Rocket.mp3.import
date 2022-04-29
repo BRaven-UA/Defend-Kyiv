@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Rocket.mp3-529412418e4912a4a35cc6d7e5868379.mp3str" 
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

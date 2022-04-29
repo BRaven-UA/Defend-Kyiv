@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/alarm_small_01.wav-c3396391199a122f6b5475fd3acb7b79.sample"
+
+[deps]
+
+source_file="res://Temp/alarm_small_01.wav"
+dest_files=[ "res://.import/alarm_small_01.wav-c3396391199a122f6b5475fd3acb7b79.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

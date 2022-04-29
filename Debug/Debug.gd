@@ -1,8 +1,9 @@
+class_name Debug
 extends Control
 
-class_name Debug
+var player_rocket_consumption: int # backup value
 
-onready var player: Player = Global.player
+onready var player: PlayerBase = Global.player
 onready var scene_tree: SceneTree = get_tree()
 onready var panel: Panel = find_node("DebugPanel")
 onready var debug_label_1: Label = find_node("DebugLabel_1")
@@ -12,8 +13,6 @@ onready var scroll_speed_slider: Slider = find_node("ScrollSpeedSlider")
 onready var reset_position: Button = find_node("ResetPosition")
 onready var infinite_ammo: CheckButton = find_node("InfiniteAmmoSwitch")
 onready var always_on_top: CheckButton = find_node("AlwaysOnTopSwitch")
-
-var player_rocket_consumption: int # backup value
 
 
 func _enter_tree() -> void:
@@ -57,7 +56,7 @@ func _on_scroll_speed_changed(value: float) -> void:
 
 func _on_infinite_ammo_toggled(enabled: bool) -> void:
 	if enabled:
-		player.rockets_amount = player.MAX_ROCKETS
+		player.rockets_amount = PlayerBase.MAX_ROCKETS
 		player.rocket_consumption = 0
 	else:
 		player.rocket_consumption = player_rocket_consumption
