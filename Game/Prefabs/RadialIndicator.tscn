@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Textures/Radial indicator.png" type="Texture" id=1]
+[ext_resource path="res://Game/Scripts/RadialIndicator.gd" type="Script" id=2]
+
+[node name="RadialIndicator" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="OuterShadow" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 1.778, 0.639 )
+hframes = 5
+vframes = 5
+
+[node name="InnerShadow" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 1.778, 0.639 )
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="OuterProgress" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 1, 0.5 )
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="InnerProgress" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 1, 0.5 )
+hframes = 5
+vframes = 5
+frame = 13
+
+[node name="OuterTimer" type="Timer" parent="."]
+
+[node name="InnerTimer" type="Timer" parent="."]

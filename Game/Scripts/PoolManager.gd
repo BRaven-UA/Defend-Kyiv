@@ -2,12 +2,23 @@ extends Node
 
 enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion, AerialExplosion}
 
+var target_pool: Array
 var rocket_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
 var flying_text_pool: Array
+var warning_sign_pool: Array
 
+
+func get_target() -> Target:
+	for target in target_pool:
+		if not target.is_inside_tree():
+			return target
+	
+	var new_target = Target.new()
+	target_pool.append(new_target)
+	return new_target
 
 func get_rocket() -> RocketBase: # get reference to new rocket from the rocket pool
 	for rocket in rocket_pool: # search for free rocket
@@ -41,7 +52,6 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	
 	return new_explosion
 
-
 func get_crater() -> Sprite:
 	var distance = Global.viewport_size.length() * 2 # guaranteed offscreen distance
 	for crater in crater_pool: # search for free crater
@@ -62,3 +72,16 @@ func get_flying_text() -> FlyingText:
 	var new_flying_text = FlyingText.new()
 	flying_text_pool.append(new_flying_text)
 	return new_flying_text
+
+func get_warning_sign() -> WarningSign:
+	if Global.hud == null:
+		return null
+	
+	for warning_sign in warning_sign_pool:
+		if not warning_sign.visible:
+			return warning_sign
+	
+	var new_warning_sign = Preloader.get_resource("WarningSign").instance()
+	warning_sign_pool.append(new_warning_sign)
+	Global.hud.warnings.add_child(new_warning_sign)
+	return new_warning_sign

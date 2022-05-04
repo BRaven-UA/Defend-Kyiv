@@ -34,3 +34,6 @@ var rocket_consumption: int = 1 # for debug purposes
 
 func get_height() -> float:
 	return HEIGHT
+
+func hit_by_rocket() -> void:
+	pass

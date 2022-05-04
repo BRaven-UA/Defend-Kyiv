@@ -3,8 +3,11 @@ extends EditorScript
 
 
 func _run() -> void:
-	var target = INF
-	print(1111111110 > target )
+	var max_value: float = 5.0
+	var init_value := 0.6
+	if max_value > 0.0 and init_value < max_value:
+		var interval: float = max_value / 10.0
+		print(int(init_value / interval))
 
 
 func f():

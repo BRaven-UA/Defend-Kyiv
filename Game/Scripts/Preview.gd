@@ -30,17 +30,13 @@ func activate() -> void:
 	balloon.layers = layers # collide also with visible balloons
 	set_process(true)
 	frame.visible = true
-	is_animated = true
-	GlobalTween.show_up_preview(self)
-	is_animated = false
+	var duration = GlobalTween.show_up_preview(self)
+	_wait_animation(duration)
 
 func deactivate(delete := false) -> void:
 	if frame.visible:
 		var duration = GlobalTween.fade_preview(self)
-		# waiting for the end of the animation
-		is_animated = true
-		yield(get_tree().create_timer(duration), "timeout")
-		is_animated = false
+		_wait_animation(duration)
 	if delete and not is_animated: # delete this preview when the enemy is destroyed
 		queue_free()
 	else:
@@ -51,3 +47,9 @@ func _deactivate() -> void:
 	balloon.set_collision_layer_bit(9, true) # collide only with the pusher
 	set_process(false)
 	frame.visible = false
+
+# waiting for the end of the animation
+func _wait_animation(duration: float) -> void:
+		is_animated = true
+		yield(get_tree().create_timer(duration), "timeout")
+		is_animated = false

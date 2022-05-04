@@ -4,20 +4,27 @@ extends Enemy
 var player: PlayerBase
 var position_3D: Vector3
 
-onready var reload_timer: Timer = find_node("ReloadTimer")
+onready var indicator: RadialIndicator = find_node("RadialIndicator")
+onready var rocket_reload_timer: Timer = find_node("RocketReloadTimer")
+onready var cannon_reload_timer: Timer = find_node("CannonReloadTimer")
 
 
 func _ready() -> void:
 	position_3D = Vector3(global_position.x, HEIGHT, global_position.y)
-	reload_timer.connect("timeout", self, "_on_reload_timer_timeout")
+	rocket_reload_timer.connect("timeout", self, "_on_rocket_reload_timer_timeout")
+	cannon_reload_timer.connect("timeout", self, "_on_cannon_reload_timer_timeout")
 	
-	if Global.player: # attack only if player exists
-		player = Global.player
-		reload_timer.start()
-
-func fire() -> void:
-	if anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]:
-		fire_rocket()
+	player = Global.player
+	indicator.set_process(player != null)
+	if player: # attack only if player exists
+		if anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]:
+			rocket_reload_timer.start(EnemyManager.AA_ROCKET_DELAY)
+			indicator.start_outer_progress(EnemyManager.AA_ROCKET_DELAY)
+			indicator.show_outer_indicator()
+		if anti_aircraft in [EnemyManager.AA_CANNON, EnemyManager.AA_BOTH]:
+			cannon_reload_timer.start(EnemyManager.AA_CANNON_DELAY)
+			indicator.start_inner_progress(EnemyManager.AA_CANNON_DELAY)
+			indicator.show_inner_indicator()
 
 func fire_rocket() -> void:
 #	var dir: Vector2 = Vector2.UP.rotated(global_rotation)
@@ -29,6 +36,17 @@ func fire_rocket() -> void:
 	var rocket: RocketBase = PoolManager.get_rocket()
 	rocket.activate(self, position_3D, dir3D, player)
 
-func _on_reload_timer_timeout() -> void:
+func fire_cannon() -> void:
+	pass
+
+func destroy() -> void:
+	indicator.deactivate()
+	.destroy()
+
+func _on_rocket_reload_timer_timeout() -> void:
 	if not is_destroyed:
-		fire()
+		fire_rocket()
+
+func _on_cannon_reload_timer_timeout() -> void:
+	if not is_destroyed:
+		fire_cannon()

@@ -4,14 +4,18 @@ const FLYING_TEXT_DURATION := 4.0
 const PREVIEW_DURATION := 0.3
 const PREVIEW_MIN_SCALE := Vector2(0.1, 0.1)
 
+onready var noise = OpenSimplexNoise.new()
+
 
 func _ready() -> void:
 	playback_process_mode = TWEEN_PROCESS_PHYSICS
+	noise.period = 2
 
 # basic show up animation
-func show_up_preview(preview: Preview) -> void:
+func show_up_preview(preview: Preview) -> float:
 	interpolate_property(preview.frame, "scale", PREVIEW_MIN_SCALE, Vector2.ONE, PREVIEW_DURATION)
 	start()
+	return PREVIEW_DURATION
 
 # basic fade animation (respecting current scale)
 func fade_preview(preview: Preview) -> float:
@@ -39,3 +43,14 @@ func flying_text(node: Node2D) -> void:
 	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE * 2.0, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
 	interpolate_property(node, "modulate:a", 0, 1, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
 	start()
+
+func shake_camera() -> void:
+	if Global.camera:
+		noise.seed = randi()
+		interpolate_method(self, "_shake_camera_process", 0, 60, 0.5)
+		start()
+
+func _shake_camera_process(delta: float):
+	var strength = lerp(60.0 - delta, 0.0, 0.05)
+	var noise_point = Vector2(noise.get_noise_2d(1, delta), noise.get_noise_2d(100, delta))
+	Global.camera.offset = noise_point * strength

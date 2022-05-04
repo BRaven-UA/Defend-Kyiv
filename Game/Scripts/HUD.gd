@@ -4,6 +4,7 @@ extends CanvasLayer
 onready var base: Control = $BaseControl
 onready var ammo_bar: TextureProgress = base.find_node("AmmoBar")
 onready var score: Label = base.find_node("Score")
+onready var warnings: Control = base.find_node("Warnings")
 
 
 func _enter_tree() -> void:

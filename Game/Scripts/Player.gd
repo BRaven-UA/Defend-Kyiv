@@ -22,7 +22,7 @@ onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
 
 func _enter_tree() -> void:
 	Global.player = self # register itself in global singleton
-	Global.viewport_size = get_viewport_rect().size
+#	Global.viewport_size = get_viewport_rect().size
 
 func _ready() -> void:
 	analog_controller = Global.analog_controller
@@ -34,6 +34,7 @@ func _ready() -> void:
 	rocket_launchers[1] = find_node("RocketLauncher2")
 	rocket_timer.connect("timeout", self, "_on_RocketTimer_timeout")
 	ammo_timer.connect("timeout", self, "_on_AmmoTimer_timeout")
+#	connect()
 	
 	# calculating screen boundaries
 	var player_extents = find_node("Hitbox").shape.extents # player boundaries
@@ -99,12 +100,10 @@ func fire_rocket() -> void:
 	var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
 	var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
 	
-	var target := Target.new()
+	var target: Target = PoolManager.get_target()
 	var target_position = crossair.global_position
-	target.global_position = target_position
 	var spread = (target_position - pos).length() * RocketBase.SPREAD
-	target.rand_position(spread)
-	Global.ground_layer.add_child(target)
+	target.activate(target_position, spread)
 	
 	var rocket: RocketBase = PoolManager.get_rocket()
 	rocket.activate(self, Vector3(pos.x, HEIGHT, pos.y), dir_3D_global, target)
@@ -120,6 +119,9 @@ func _change_rockets_amount(value: int) -> void:
 	if new_value != rockets_amount:
 		rockets_amount = new_value
 		emit_signal("ammo_changed", rockets_amount)
+
+func hit_by_rocket() -> void:
+	GlobalTween.shake_camera()
 
 func _on_RocketTimer_timeout() -> void:
 	ready_to_fire = true

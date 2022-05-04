@@ -1,12 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Game/Textures/crater.png" type="Texture" id=1]
-[ext_resource path="res://Game/Resources/Crater.shader" type="Shader" id=2]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 2 )
-shader_param/str = -0.011
+[ext_resource path="res://Game/Resources/CraterMaterial.tres" type="Material" id=2]
 
 [node name="Crater" type="Sprite"]
-material = SubResource( 1 )
+material = ExtResource( 2 )
 texture = ExtResource( 1 )

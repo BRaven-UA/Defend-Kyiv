@@ -7,6 +7,7 @@ var direction_3D: Vector3
 var shooter: Node2D
 var target: Node2D
 var square_distance: float
+var warning_sign: WarningSign
 var colliders: Array
 
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
@@ -28,9 +29,13 @@ func _physics_process(delta: float) -> void:
 		
 		var new_square_distance = position_3D.distance_squared_to(dest_3D)
 		if new_square_distance > square_distance: # miss the target
-			target = null
-			if target is Target:
-				target.queue_free()
+			set_target(null)
+#			target = null
+#			if warning_sign:
+#				warning_sign.deactivate()
+#				warning_sign = null
+#			if target is Target:
+#				target.queue_free()
 			watchdog.start(2) # deactivate after this time
 		else:
 			square_distance = new_square_distance
@@ -49,18 +54,38 @@ func _physics_process(delta: float) -> void:
 		for area in colliders:
 			if abs(area.get_height() - position_3D.y) < 5.0:
 				detonation()
+				if area is PlayerBase:
+					area.hit_by_rocket()
 
 func get_height() -> float:
 	return position_3D.y
 
+func set_target(new_target: Node2D) -> void:
+	if new_target is PlayerBase:
+		warning_sign = PoolManager.get_warning_sign()
+		warning_sign.activate(self)
+	
+	if new_target == null:
+		if target is Target:
+			target.deactivate()
+		if warning_sign:
+			warning_sign.deactivate()
+			warning_sign = null
+	
+	target = new_target
+
 # activate (fire) the rocket. Initial position and normalized move direction both are in global coords
-func activate(shoot: Node2D, pos: Vector3, dir: Vector3, tar: Node2D) -> void:
+func activate(shoot: Node2D, pos: Vector3, dir: Vector3, new_target: Node2D) -> void:
 	shooter = shoot
 	position_3D = pos
 	direction_3D = dir
 	global_position = Vector2(pos.x, pos.z)
 	global_rotation = -Vector2(dir.x, dir.z).angle_to(Vector2.UP)
-	target = tar
+	set_target(new_target)
+#	target = tar
+#	if target is PlayerBase:
+#		warning_sign = PoolManager.get_warning_sign()
+#		warning_sign.activate(self)
 	square_distance = INF
 	is_free = false
 	Global.midair_layer.add_child(self)
@@ -73,8 +98,13 @@ func activate(shoot: Node2D, pos: Vector3, dir: Vector3, tar: Node2D) -> void:
 # deactivate the rocket. Gives a delay for all animations to complete before returning to the pool
 # will called automaticly by the timer (just in case to be sure)
 func deactivate() -> void:
+	set_target(null)
+#	if warning_sign:
+#		warning_sign.deactivate()
+#		warning_sign = null
 	colliders = []
 	set_physics_process(false)
+	set_deferred("monitorable", false)
 	sound.stop()
 	watchdog.stop() # to avoid re-call
 	body.visible = false
@@ -85,6 +115,7 @@ func deactivate() -> void:
 # reset the rocket for future use via rocket pool. Called by timer
 func reset() -> void:
 	get_parent().remove_child(self)
+	set_deferred("monitorable", true)
 	body.visible = true
 	flame.visible = true
 	is_free = true

@@ -15,6 +15,7 @@ onready var anim_names: PoolStringArray = animation.frames.get_animation_names()
 
 
 func _ready() -> void:
+	set_physics_process(false)
 	animation.connect("animation_finished", self, "_on_animation_finished")
 
 func _physics_process(delta: float) -> void:
