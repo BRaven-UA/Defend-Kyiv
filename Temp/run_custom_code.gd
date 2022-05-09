@@ -3,17 +3,26 @@ extends EditorScript
 
 
 func _run() -> void:
-	var max_value: float = 5.0
-	var init_value := 0.6
-	if max_value > 0.0 and init_value < max_value:
-		var interval: float = max_value / 10.0
-		print(int(init_value / interval))
-
+	print(int(4.0*(1.0-(0.1+.5)/4.0)))
+#	print(int((4.0-5.0+.5)*4/4.0))
 
 func f():
-	var scene: Node2D = get_scene()
-	var curve: Curve2D = scene.get_node("Pos").curve
-	print(curve._data["points"][5])
+	var scene = get_scene()
+	var player: Node2D = scene.find_node("Player")
+#	printt(player.position, player.global_position)
+#	printt(rad2deg(player.rotation), rad2deg(player.global_rotation))
+	var velocity = Vector2(0, -10)
+#	print(player.to_global(velocity))
+#	print(player.transform.xform_inv(velocity))
+	print(velocity.rotated(player.global_rotation))
+	
+func _get_all_nodes(root: Node, list = []):
+	for node in root.get_children():
+		if node.get_class() == "CanvasItemEditorViewport":
+			node.visible = !node.visible
+		list.append(node)
+		_get_all_nodes(node, list)
+	return list
 	
 func b():
 	var pos = Vector2(100, -100)

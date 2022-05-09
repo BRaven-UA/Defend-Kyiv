@@ -1,35 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Game/Resources/Trace scale.tres" type="Texture" id=1]
+[ext_resource path="res://Game/Resources/TraceParticles.tres" type="Material" id=1]
 [ext_resource path="res://Game/Scripts/Rocket.gd" type="Script" id=2]
-[ext_resource path="res://Game/Resources/Flame.tres" type="Material" id=3]
+[ext_resource path="res://Game/Resources/FlameParticles.tres" type="Material" id=3]
 [ext_resource path="res://Game/Sounds/Rocket.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Game/Textures/Smoke.png" type="Texture" id=5]
 [ext_resource path="res://Game/Textures/Flame.png" type="Texture" id=6]
 [ext_resource path="res://Game/Textures/Rocket.png" type="Texture" id=7]
-[ext_resource path="res://Game/Resources/Trace color.tres" type="Texture" id=8]
 [ext_resource path="res://Game/Resources/CircleShape2D_r10.tres" type="Shape2D" id=9]
 
-[sub_resource type="ParticlesMaterial" id=1]
-flag_align_y = true
-flag_disable_z = true
-direction = Vector3( 0, 1, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 200.0
-initial_velocity_random = 0.5
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -100.0
-linear_accel_random = 0.5
-damping = 100.0
-damping_random = 0.5
-angle = 360.0
-angle_random = 1.0
-scale_curve = ExtResource( 1 )
-color_ramp = ExtResource( 8 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Move"
 length = 3.0
 tracks/0/type = "bezier"
@@ -88,11 +68,11 @@ amount = 60
 lifetime = 3.0
 visibility_rect = Rect2( -300, -100, 600, 1280 )
 local_coords = false
-process_material = SubResource( 1 )
+process_material = ExtResource( 1 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Move = SubResource( 2 )
+anims/Move = SubResource( 1 )
 
 [node name="WatchDog" type="Timer" parent="."]
 wait_time = 20.0

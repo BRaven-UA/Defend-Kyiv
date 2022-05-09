@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Textures/Flame.png" type="Texture" id=1]
+[ext_resource path="res://Game/Resources/ProjectileParticles.tres" type="Material" id=2]
+[ext_resource path="res://Game/Scripts/Projectiles.gd" type="Script" id=3]
+
+[node name="Projectiles" type="Particles2D"]
+emitting = false
+amount = 4
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.98
+randomness = 0.01
+visibility_rect = Rect2( -10, -10, 20, 20 )
+local_coords = false
+process_material = ExtResource( 2 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

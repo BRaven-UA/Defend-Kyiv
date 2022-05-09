@@ -19,6 +19,7 @@ const ENEMIES := [
 const CHANCES := [0.0, 1.0, 0.33, 0.1, 0.05, 0.015] # spawn chances for none/common/uncommon/rare/epic/legendary enemies
 const AA_ROCKET_DELAY := 7.0
 const AA_CANNON_DELAY := 3.0
+const AA_CANNON_PARTICLES := 4
 
 var places: Places # reference to placeholders database
 var enemy_prefab: PackedScene
@@ -35,7 +36,8 @@ func _ready() -> void:
 	for enemy_data in ENEMIES:
 		total_chance += CHANCES[enemy_data[RARITY]]
 	
-	spawn_enemy(ENEMIES[2], Vector2(66016, -50509), 73)
+#	spawn_enemy(ENEMIES[11], Vector2(0, -300), 0)
+	spawn_enemy(ENEMIES[11], Vector2(66016, -50509), 73)
 #	spawn_enemy(ENEMIES[2], Vector2(66944, -48930), 0)
 #	spawn_enemy(ENEMIES[2], Vector2(66887, -51707), 0)
 #	spawn_enemy(ENEMIES[2], Vector2(68640, -50055), 0)

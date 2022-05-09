@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Textures/Background/1.jpg" type="Texture" id=3]
 [ext_resource path="res://Game/Scripts/PathFollow2D.gd" type="Script" id=5]
 [ext_resource path="res://Game/Textures/Background/69.jpg" type="Texture" id=6]
 [ext_resource path="res://Game/Textures/Background/70.jpg" type="Texture" id=7]
@@ -33,6 +34,11 @@ position = Vector2( 69134, -52551.9 )
 rotation = 2.41257
 texture = ExtResource( 8 )
 
+[node name="1" type="Sprite" parent="Background"]
+visible = false
+rotation = 1.5708
+texture = ExtResource( 3 )
+
 [node name="GroundLayer" type="Node2D" parent="."]
 
 [node name="AboveGroundLayer" type="Node2D" parent="."]
@@ -47,9 +53,9 @@ position = Vector2( -5.33936, 0 )
 curve = ExtResource( 12 )
 
 [node name="Path_Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 65768.7, -50578.3 )
-rotation = 0.267243
-offset = 113864.0
+position = Vector2( 65679.9, -50602.7 )
+rotation = 0.267886
+offset = 113772.0
 loop = false
 lookahead = 40.0
 script = ExtResource( 5 )

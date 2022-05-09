@@ -3,6 +3,9 @@ extends Node
 enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion, AerialExplosion}
 
 var target_pool: Array
+var projectiles_pool: Array
+var projectile_fire_pool: Array
+var projectile_hit_pool: Array
 var rocket_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
@@ -19,6 +22,35 @@ func get_target() -> Target:
 	var new_target = Target.new()
 	target_pool.append(new_target)
 	return new_target
+
+func get_projectiles() -> Projectiles:
+	for projectiles in projectiles_pool:
+		if not projectiles.is_inside_tree():
+			return projectiles
+	
+	var new_projectiles = Preloader.get_resource("Projectile").instance()
+	projectiles_pool.append(new_projectiles)
+	return new_projectiles
+
+func get_projectile_fire() -> AudioStreamPlayer2D:
+	for projectile_fire in projectile_fire_pool:
+		if not projectile_fire.is_inside_tree():
+			return projectile_fire
+	
+	var new_projectile_fire = Preloader.get_resource("ProjectileFire").instance()
+	new_projectile_fire.connect("finished", self, "_remove_me", [new_projectile_fire])
+	projectile_fire_pool.append(new_projectile_fire)
+	return new_projectile_fire
+
+func get_projectile_hit() -> AudioStreamPlayer:
+	for projectile_hit in projectile_hit_pool:
+		if not projectile_hit.is_inside_tree():
+			return projectile_hit
+	
+	var new_projectile_hit = Preloader.get_resource("ProjectileHit").instance()
+	new_projectile_hit.connect("finished", self, "_remove_me", [new_projectile_hit])
+	projectile_hit_pool.append(new_projectile_hit)
+	return new_projectile_hit
 
 func get_rocket() -> RocketBase: # get reference to new rocket from the rocket pool
 	for rocket in rocket_pool: # search for free rocket
@@ -85,3 +117,6 @@ func get_warning_sign() -> WarningSign:
 	warning_sign_pool.append(new_warning_sign)
 	Global.hud.warnings.add_child(new_warning_sign)
 	return new_warning_sign
+
+func _remove_me(node) -> void:
+	node.get_parent().remove_child(node)

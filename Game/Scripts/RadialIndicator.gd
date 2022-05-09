@@ -14,8 +14,8 @@ onready var inner_timer: Timer = find_node("InnerTimer")
 
 
 func _ready() -> void:
-	inner_timer.connect("timeout", self, "_on_timer_timeout", [inner_progress, INNER_FIRST_FRAME])
-	outer_timer.connect("timeout", self, "_on_timer_timeout", [outer_progress, OUTER_FIRST_FRAME])
+	inner_timer.connect("timeout", self, "_on_timer_timeout", [inner_timer, inner_progress, INNER_FIRST_FRAME])
+	outer_timer.connect("timeout", self, "_on_timer_timeout", [outer_timer, outer_progress, OUTER_FIRST_FRAME])
 
 func _process(delta: float) -> void:
 	global_rotation = Global.player.global_rotation
@@ -44,9 +44,10 @@ func _start_progress(max_value: float, init_value: float, progress: Sprite, firs
 	if max_value > 0.0 and init_value < max_value:
 		var interval: float = max_value / TICKS
 		progress.frame = first_frame + int(init_value / interval)
-		timer.start(interval)
+		timer.wait_time = interval
+		timer.start()
 
-func _on_timer_timeout(progress: Sprite, first_frame: int) -> void:
+func _on_timer_timeout(timer: Timer, progress: Sprite, first_frame: int) -> void:
 	progress.frame += 1
-	if progress.frame >= first_frame + TICKS:
-		progress.frame = first_frame
+	if progress.frame < first_frame + TICKS:
+		timer.start()

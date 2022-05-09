@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Projectile fire.mp3-9be064b573a396598f691b397e2918a3.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Projectile fire.mp3"
+dest_files=[ "res://.import/Projectile fire.mp3-9be064b573a396598f691b397e2918a3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

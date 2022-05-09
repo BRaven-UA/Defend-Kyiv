@@ -1,9 +1,7 @@
 [gd_resource type="GradientTexture" load_steps=2 format=2]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.418079, 1 )
-colors = PoolColorArray( 0.730469, 0.730469, 0.730469, 0.984102, 0.550781, 0.550781, 0.550781, 0.607843, 0.576471, 0.576471, 0.576471, 0 )
+[ext_resource path="res://Game/Resources/TraceColorGradient.tres" type="Gradient" id=1]
 
 [resource]
-gradient = SubResource( 1 )
+gradient = ExtResource( 1 )
 width = 32

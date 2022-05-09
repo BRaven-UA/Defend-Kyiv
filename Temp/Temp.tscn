@@ -1,28 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Resources/Shockwave.shader" type="Shader" id=5]
 [ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Textures/Radial Gradient.png" type="Texture" id=7]
+[ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Prefabs/WarningSign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Textures/Background/125.jpg" type="Texture" id=9]
-[ext_resource path="res://Game/Prefabs/RadialIndicator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 5 )
 shader_param/force = 2.0
 shader_param/progression = 0.0
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 5 )
-shader_param/force = 2.0
-shader_param/progression = 3.0
 
 [node name="Node" type="Node"]
 
@@ -33,6 +24,7 @@ texture = ExtResource( 9 )
 [node name="ground" type="Node2D" parent="."]
 
 [node name="Explosion" parent="ground" instance=ExtResource( 2 )]
+position = Vector2( 14.5151, 114.254 )
 
 [node name="Shockwave" parent="ground/Explosion/BackBufferCopy" index="0"]
 material = SubResource( 1 )
@@ -41,7 +33,7 @@ material = SubResource( 1 )
 frame = 20
 
 [node name="TestEnemy" parent="ground" instance=ExtResource( 4 )]
-position = Vector2( 4.40971, -85.7456 )
+position = Vector2( 4.40971, -36.0332 )
 
 [node name="Hitbox" parent="ground/TestEnemy" index="0"]
 visible = false
@@ -56,91 +48,23 @@ position = Vector2( -30.2905, 0 )
 [node name="Crater2" parent="ground" instance=ExtResource( 6 )]
 position = Vector2( 10.0783, 38.7544 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -100, 165 )
+[node name="Enemy" parent="ground" instance=ExtResource( 7 )]
+position = Vector2( -7, 185 )
+collision_mask = 416
 
-[node name="Hitbox" parent="Player" index="0"]
-visible = false
+[node name="OuterShadow" parent="ground/Enemy/RadialIndicator" index="0"]
+visible = true
 
-[node name="Shadow" parent="Player" index="2"]
-frame = 7
+[node name="InnerShadow" parent="ground/Enemy/RadialIndicator" index="1"]
+visible = true
 
-[node name="Highlight" parent="Player" index="4"]
-visible = false
+[node name="OuterProgress" parent="ground/Enemy/RadialIndicator" index="2"]
+visible = true
+frame = 8
 
-[node name="BalloonPusher" parent="Player" index="5"]
-visible = false
-
-[node name="Body" parent="Player" index="6"]
-frame = 7
-
-[node name="AnimationTree" parent="Player" index="12"]
-parameters/playback = SubResource( 2 )
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy2" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy2"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy3" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy3"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy4" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy4"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy5" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy5"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy6" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy6"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-
-[node name="BackBufferCopy7" type="BackBufferCopy" parent="Node2D"]
-copy_mode = 2
-
-[node name="Shockwave" type="Sprite" parent="Node2D/BackBufferCopy7"]
-material = SubResource( 3 )
-position = Vector2( -91, 268 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+[node name="InnerProgress" parent="ground/Enemy/RadialIndicator" index="3"]
+visible = true
+frame = 23
 
 [node name="Rocket" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56.8539, -28.0332 )
@@ -154,19 +78,9 @@ margin_top = 150.875
 margin_right = 144.0
 margin_bottom = 183.875
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-fill_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RadialIndicator" parent="." instance=ExtResource( 10 )]
-position = Vector2( 40, 114.254 )
-
 [editable path="ground/Explosion"]
 [editable path="ground/TestEnemy"]
 [editable path="ground/BackBufferCopy/Crater"]
-[editable path="Player"]
+[editable path="ground/Enemy"]
+[editable path="ground/Enemy/RadialIndicator"]
 [editable path="Rocket"]

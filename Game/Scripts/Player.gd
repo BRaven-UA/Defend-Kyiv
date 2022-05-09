@@ -89,7 +89,9 @@ func _moving(delta: float) -> void:
 		direction = direction.clamped(1)
 	
 	# move player
-	position += direction * PLAYER_SPEED * acceleration
+	var velocity_per_frame = direction * PLAYER_SPEED * acceleration
+	velocity = velocity_per_frame / delta
+	position += velocity_per_frame
 	position.x = clamp(position.x, -horizontal_limit, horizontal_limit)
 	position.y = clamp(position.y, -vertical_limit, vertical_limit)
 

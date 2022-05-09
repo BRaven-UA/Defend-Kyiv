@@ -38,5 +38,7 @@ vframes = 5
 frame = 13
 
 [node name="OuterTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="InnerTimer" type="Timer" parent="."]
+one_shot = true

@@ -18,13 +18,11 @@ func _ready() -> void:
 	indicator.set_process(player != null)
 	if player: # attack only if player exists
 		if anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]:
-			rocket_reload_timer.start(EnemyManager.AA_ROCKET_DELAY)
-			indicator.start_outer_progress(EnemyManager.AA_ROCKET_DELAY)
 			indicator.show_outer_indicator()
+			rocket_reload_timer.start(1)
 		if anti_aircraft in [EnemyManager.AA_CANNON, EnemyManager.AA_BOTH]:
-			cannon_reload_timer.start(EnemyManager.AA_CANNON_DELAY)
-			indicator.start_inner_progress(EnemyManager.AA_CANNON_DELAY)
 			indicator.show_inner_indicator()
+			cannon_reload_timer.start(1)
 
 func fire_rocket() -> void:
 #	var dir: Vector2 = Vector2.UP.rotated(global_rotation)
@@ -35,9 +33,17 @@ func fire_rocket() -> void:
 	
 	var rocket: RocketBase = PoolManager.get_rocket()
 	rocket.activate(self, position_3D, dir3D, player)
+	
+	rocket_reload_timer.start(EnemyManager.AA_ROCKET_DELAY)
+	indicator.start_outer_progress(EnemyManager.AA_ROCKET_DELAY)
 
 func fire_cannon() -> void:
-	pass
+	var projectiles: Projectiles = PoolManager.get_projectiles()
+	if projectiles.activate(position_3D, player):
+		cannon_reload_timer.start(EnemyManager.AA_CANNON_DELAY)
+		indicator.start_inner_progress(EnemyManager.AA_CANNON_DELAY)
+	else: # failed to calculate deflection
+		cannon_reload_timer.start(0.5) # wait a bit
 
 func destroy() -> void:
 	indicator.deactivate()

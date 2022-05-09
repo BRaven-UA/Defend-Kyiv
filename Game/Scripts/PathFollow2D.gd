@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var scroll_speed := 50.0
+var scroll_speed := 50.0 # per second
 onready var start_offset := offset
 
 func _enter_tree() -> void:
