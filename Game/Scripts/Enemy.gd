@@ -57,13 +57,18 @@ func destroy() -> void:
 	explosion.activate(global_position)
 
 func _on_area_entered(area: Area2D) -> void:
+	print("Base callback")
 	if area is Explosion:
 		destroy()
+	elif area is RocketBase:
+		return
 	else: # highlighting and show preview when under the crossair highlight area
 		on_map_highlight.visible = true
 		preview.activate()
 
 func _on_area_exited(area: Area2D) -> void:
-	if not (area is Explosion): # cancel highlight when the crossair leave
+	if area is RocketBase or area is Explosion:
+		return
+	else: # cancel highlight when the crossair leave
 		on_map_highlight.visible = false
 		preview.deactivate()

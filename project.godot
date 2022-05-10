@@ -146,7 +146,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/analog_controller/plugin.cfg", "res://addons/clear_2d_preview/plugin.cfg", "res://addons/script-state-keeper/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/analog_controller/plugin.cfg", "res://addons/clear_2d_preview/plugin.cfg" )
 
 [gui]
 
@@ -221,6 +221,7 @@ toggle_debug_panel={
 2d_physics/layer_9="Crossair"
 2d_physics/layer_10="Preview"
 2d_physics/layer_11="Balloon"
+2d_physics/layer_12="ScreenRect"
 
 [physics]
 

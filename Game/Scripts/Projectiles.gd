@@ -25,12 +25,9 @@ func activate(pos: Vector3, tar: Node2D) -> bool:
 	var a = Vector3.ZERO # target 3D velocity
 	if target is PlayerBase:
 		var target_local_velocity = target.velocity
-		
 		var path_follow = Global.path_follow
 		if path_follow:
-			var scroll_velocity = Vector2(0, -path_follow.scroll_speed)
-			target_local_velocity += scroll_velocity # added screen scrolling velocity
-		
+			target_local_velocity += Vector2(0, -path_follow.scroll_speed) # added screen scrolling velocity
 		var target_velocity_2D = target_local_velocity.rotated(target.global_rotation) # converting to global coords
 		a = Vector3(target_velocity_2D.x, 0, target_velocity_2D.y)
 	a.y = 0.1 # further calculations are valid for non-zero velocity
@@ -141,14 +138,7 @@ func _hit() -> void:
 func _on_timer_timeout() -> void:
 	if fire_amount:
 		_fire()
-		return
-	
-	if interception_point:
+	elif interception_point:
 		_interception()
-		return
-	
-	if hit_amount:
+	elif hit_amount:
 		_hit()
-		return
-	
-	deactivate()

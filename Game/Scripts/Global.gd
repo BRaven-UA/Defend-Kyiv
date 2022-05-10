@@ -29,7 +29,7 @@ onready var preview_layer: Node2D = main.find_node("PreviewLayer")
 onready var flying_text_layer: Node2D = main.find_node("FlyingTextLayer")
 onready var camera: Camera2D = main.find_node("Camera2D")
 onready var default_font = Preloader.get_resource("Theme").default_font
-onready var screen_rect = get_viewport().get_visible_rect()
+#onready var screen_rect = get_viewport().get_visible_rect()
 
 func _enter_tree() -> void:
 	main = get_tree().current_scene
@@ -37,17 +37,20 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	viewport_size = main.get_viewport_rect().size
+	var _screen_rect = camera.find_node("ScreenRectShape")
+	_screen_rect.shape.extents = viewport_size / 2
 
 func clamp_int(value: int, min_value: int, max_value: int) -> int:
 	if value > max_value: return max_value
 	if value < min_value: return min_value
 	return value
 
-#func match_screen(rect: Rect2) -> Vector2:
-#	var screen_size = viewport_size - rect.size
-#	var x = clamp(rect.position.x, 0, screen_size.x)
-#	var y = clamp(rect.position.y, 0, screen_size.y)
-#	return Vector2(x, y)
+# simple clamp given rectangle position to match screen rectangle
+func match_screen(rect: Rect2) -> Vector2:
+	var screen_size = viewport_size - rect.size
+	var x = clamp(rect.position.x, 0, screen_size.x)
+	var y = clamp(rect.position.y, 0, screen_size.y)
+	return Vector2(x, y)
 
 # Return adjusted position of given rectangle to fit screen boundaries. Used in offscreen indicators. Both the argument and returned value in global screen coordinates
 func clamp_to_screen(dest_rect: Rect2) -> Vector2:
