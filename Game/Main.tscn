@@ -56,9 +56,9 @@ position = Vector2( -5.33936, 0 )
 curve = ExtResource( 12 )
 
 [node name="Path_Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 64716.1, -50869.3 )
-rotation = 0.271213
-offset = 112772.0
+position = Vector2( 65487, -50655.7 )
+rotation = 0.268976
+offset = 113572.0
 loop = false
 lookahead = 40.0
 script = ExtResource( 5 )

@@ -56,3 +56,6 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 hframes = 4
 vframes = 3
+
+[node name="AnimationTimer" type="Timer" parent="."]
+one_shot = true

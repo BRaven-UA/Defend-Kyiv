@@ -21,33 +21,26 @@ const AA_ROCKET_DELAY := 7.0
 const AA_CANNON_DELAY := 3.0
 const AA_CANNON_PARTICLES := 4
 
-var places: Places # reference to placeholders database
-var enemy_prefab: PackedScene
-var aa_enemy_prefab: PackedScene
 var enemies: Array # list containing dictionaries with enemy data
 var total_chance := 0.0 # total spawn chance for all enemies
 
 
 func _ready() -> void:
-	places = Preloader.get_resource("Places")
-	enemy_prefab = Preloader.get_resource("Enemy")
-	aa_enemy_prefab = Preloader.get_resource("AntiAircraftEnemy")
-	
 	for enemy_data in ENEMIES:
 		total_chance += CHANCES[enemy_data[RARITY]]
 	
 #	spawn_enemy(ENEMIES[11], Vector2(0, -300), 0)
-	spawn_enemy(ENEMIES[11], Vector2(66016, -50509), 73)
+#	spawn_enemy(ENEMIES[11], Vector2(66016, -50509), 73)
 #	spawn_enemy(ENEMIES[2], Vector2(66944, -48930), 0)
 #	spawn_enemy(ENEMIES[2], Vector2(66887, -51707), 0)
 #	spawn_enemy(ENEMIES[2], Vector2(68640, -50055), 0)
 	
-#	for group_data in places.groups:
+#	for group_data in Global.places.groups:
 #		spawn_enemy_group(group_data)
 	
-#	spawn_enemy_group(places.groups[4])
-#	spawn_enemy_group(places.groups[3])
-#	spawn_enemy_group(places.groups[2])
+#	spawn_enemy_group(Global.places.groups[4])
+#	spawn_enemy_group(Global.places.groups[3])
+#	spawn_enemy_group(Global.places.groups[2])
 
 func spawn_enemy_group(group_data: Dictionary) -> void:
 	assert(group_data)
@@ -66,12 +59,14 @@ func spawn_enemy_group(group_data: Dictionary) -> void:
 	
 	for index in indexes:
 		var enemy_data: Dictionary = get_random_enemy()
-		spawn_enemy(enemy_data, places.positions[index], places.rotations[index])
+		spawn_enemy(enemy_data, Global.places.positions[index], Global.places.rotations[index])
 
 func spawn_enemy(data: Dictionary, pos := Vector2.ZERO, rot := 0.0) -> void:
-	var enemy: Enemy = aa_enemy_prefab.instance() if data.get(ANTIAIRCRAFT) else enemy_prefab.instance()
-	enemy.init(data, pos, rot)
+	var enemy: Enemy = PoolManager.get_aa_enemy() if data.get(ANTIAIRCRAFT) else PoolManager.get_enemy()
+	if Global.path_follow:
+		enemy.set_meta("Offset", Global.pos_to_offset(pos))
 	Global.ground_layer.add_child(enemy)
+	enemy.call_deferred("init", data, pos, rot)
 
 func _rand_range(_min: int, _max: int) -> float:
 	return _min / 100.0 + (_max - _min) / 100.0 * randf()

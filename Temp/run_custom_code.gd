@@ -3,8 +3,22 @@ extends EditorScript
 
 
 func _run() -> void:
-	print(int(4.0*(1.0-(0.1+.5)/4.0)))
-#	print(int((4.0-5.0+.5)*4/4.0))
+	h()
+
+
+func h():
+	var arr = []
+	arr.resize(100000)
+	var time = OS.get_ticks_usec()
+	arr.resize(arr.size() - 1)
+#	arr.remove(arr.size() - 1)
+	print(OS.get_ticks_usec() - time)
+	
+
+func g():
+	var curve: Curve2D = load("res://Game/Resources/MovePath2D.tres")
+	print(curve.get_closest_offset(Vector2(65487+20, -50655.7-20)))
+#	print(curve.interpolate_baked(113572, true))
 
 func f():
 	var scene = get_scene()

@@ -110,7 +110,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Russian Military Convoy"
+config/name="Road to Kyiv"
 run/main_scene="res://Game/Main.tscn"
 config/icon="res://icon.png"
 

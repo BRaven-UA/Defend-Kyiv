@@ -54,6 +54,9 @@ func place_crater():
 	crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)
 	crater.scale.y = max_radius / 22.0 * (0.8 + randf() * 0.4)
 	crater.rotation = randf() * PI * 2.0
+	if Global.path_follow:
+		crater.set_meta("Offset", Global.pos_to_offset(global_position))
+
 
 func _on_animation_finished():
 	animation.stop() # FACEPALM: animation must be stopped via code

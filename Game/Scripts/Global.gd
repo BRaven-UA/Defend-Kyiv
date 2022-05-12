@@ -10,12 +10,15 @@ const COLOR_LEGENDARY = Color.orange
 const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 const POINTS = [0, 1, 2, 4, 8, 16] # score points per rarity
 const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow direction
+const REUSABLE := "Reusable" # name of the node group for nodes that can be reused
 
 var viewport_size: Vector2
 var score: int = 0
 
 # reference pool
+var tree: SceneTree
 var main: Node2D
+var places: Places # placeholders database
 var path_follow: PathFollow2D
 var player: PlayerBase
 var analog_controller: AnalogController
@@ -29,16 +32,24 @@ onready var preview_layer: Node2D = main.find_node("PreviewLayer")
 onready var flying_text_layer: Node2D = main.find_node("FlyingTextLayer")
 onready var camera: Camera2D = main.find_node("Camera2D")
 onready var default_font = Preloader.get_resource("Theme").default_font
-#onready var screen_rect = get_viewport().get_visible_rect()
+onready var timer: Timer = Timer.new()
+onready var curve: Curve2D = Preloader.get_resource("MovePath2D")
 
 func _enter_tree() -> void:
-	main = get_tree().current_scene
+	tree = get_tree()
+	main = tree.current_scene
+	places = Preloader.get_resource("Places")
 	randomize()
 
 func _ready() -> void:
 	viewport_size = main.get_viewport_rect().size
 	var _screen_rect = camera.find_node("ScreenRectShape")
 	_screen_rect.shape.extents = viewport_size / 2
+	
+	if path_follow:
+		timer.connect("timeout", self, "_on_timer_timeout")
+		add_child(timer)
+		timer.start()
 
 func clamp_int(value: int, min_value: int, max_value: int) -> int:
 	if value > max_value: return max_value
@@ -72,3 +83,23 @@ func increase_score(value: int) -> void:
 	assert(value > 0)
 	score += value
 	hud.set_score(score)
+
+func pos_to_offset(pos: Vector2) -> float:
+	return curve.get_closest_offset(pos)
+
+# called periodically during the game (by default every second)
+func _routine() -> void:
+	if places.groups:
+		var group_data = places.groups.back() # groups must be sorted by offset in descending order
+		var max_offset = path_follow.offset + viewport_size.y * 2
+		if group_data.Offset < max_offset:
+			EnemyManager.spawn_enemy_group(group_data)
+			places.groups.resize(places.groups.size() - 1)
+	
+	var min_offset = path_follow.offset - viewport_size.y * 2
+	for node in tree.get_nodes_in_group(REUSABLE):
+		if node.get_meta("Offset") < min_offset:
+			node.get_parent().remove_child(node) # back to an object pool
+
+func _on_timer_timeout() -> void:
+	_routine()

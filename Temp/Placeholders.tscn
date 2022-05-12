@@ -1,619 +1,504 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Temp/editor_arrow.png" type="Texture" id=1]
+[ext_resource path="res://Game/Prefabs/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Temp/Placeholder.tscn" type="PackedScene" id=2]
 
-[node name="Placeholders" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
-[node name="A100P30-40G2" type="Node2D" parent="."]
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="Placeholders" type="Node2D" parent="."]
+
+[node name="A100P30-40G2" type="Node2D" parent="Placeholders"]
 position = Vector2( 66809.1, -50294 )
 
-[node name="Placeholder" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -244.93, -60.2188 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -202.93, -48.9063 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder3" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder3" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -159.516, -37.5859 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -118.922, -26.2578 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -80.6953, -16.3516 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -42, -5.01563 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 0, 7.24219 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder8" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder8" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 42.4688, 19.0469 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 91.0781, 31.3047 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder10" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder10" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 131.664, 43.5781 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder11" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder11" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 175.078, 55.3672 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder12" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder12" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 218.023, 67.6328 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder13" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder13" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 262.383, 79.9063 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder14" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder14" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 304.859, 91.2266 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder18" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder18" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 372.969, 73.5703 )
 rotation = 0.216439
-texture = ExtResource( 1 )
 
-[node name="Placeholder19" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder19" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 480.602, 97.1172 )
 rotation = 0.216439
-texture = ExtResource( 1 )
 
-[node name="Placeholder20" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder20" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 399.875, 143.375 )
 rotation = 3.32918
-texture = ExtResource( 1 )
 
-[node name="Placeholder21" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder21" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 332.609, 132.445 )
 rotation = 3.32918
-texture = ExtResource( 1 )
 
-[node name="Placeholder38" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder38" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 209.852, 90.3906 )
 rotation = 4.09778
-texture = ExtResource( 1 )
 
-[node name="Placeholder22" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder22" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -221.258, -66.5703 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder23" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder23" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -179.258, -55.2578 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder24" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder24" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -135.844, -43.9375 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder25" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder25" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -95.25, -32.6016 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder26" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder26" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -57.0234, -22.7031 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder27" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder27" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -18.3281, -11.3672 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder28" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder28" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 23.6719, 0.898438 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder29" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder29" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 66.1406, 12.6953 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder30" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder30" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 114.75, 24.9531 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder31" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder31" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 155.336, 37.2266 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder32" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder32" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 198.75, 49.0234 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder33" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder33" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 241.695, 61.2813 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder34" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder34" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 286.055, 73.5547 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder35" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder35" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 328.531, 84.875 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder15" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder15" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -330.82, -82.8594 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder16" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder16" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -374.602, -107.016 )
 rotation = -1.24261
-texture = ExtResource( 1 )
 
-[node name="Placeholder17" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder17" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -292.492, -84.5391 )
 rotation = -1.31609
-texture = ExtResource( 1 )
 
-[node name="Placeholder36" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder36" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 36.8672, -20.0313 )
 rotation = -2.15675
-texture = ExtResource( 1 )
 
-[node name="Placeholder37" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder37" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 58.5, -8.03906 )
 rotation = -1.59934
-texture = ExtResource( 1 )
 
-[node name="Placeholder39" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder39" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 381.211, 110.969 )
 rotation = -1.36664
-texture = ExtResource( 1 )
 
-[node name="Placeholder40" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder40" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 467.078, 130.609 )
 rotation = -1.36664
-texture = ExtResource( 1 )
 
-[node name="Placeholder41" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder41" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 567.539, 154.742 )
 rotation = -1.36664
-texture = ExtResource( 1 )
 
-[node name="Placeholder42" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder42" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 534.992, 139.039 )
 rotation = -1.36664
-texture = ExtResource( 1 )
 
-[node name="Placeholder43" type="Sprite" parent="A100P30-40G2" instance=ExtResource( 2 )]
+[node name="Placeholder43" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( 427.797, 112.102 )
 rotation = -1.36664
-texture = ExtResource( 1 )
 
-[node name="A20-50P30-80G3" type="Node2D" parent="."]
+[node name="A20-50P30-80G3" type="Node2D" parent="Placeholders"]
 position = Vector2( 67696.5, -50436.2 )
 
-[node name="Placeholder" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -77.3359, 176.93 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -48.7266, 107 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder3" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder3" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -22.2422, 40.25 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( 29.6719, -79.4688 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( 77.3438, -193.891 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( 68.875, -137.734 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( 24.375, -32.8438 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder8" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder8" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -8.46875, 47.6719 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A20-50P30-80G3" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -40.25, 126.07 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="A30-70P60-100G6" type="Node2D" parent="."]
+[node name="A30-70P60-100G6" type="Node2D" parent="Placeholders"]
 position = Vector2( 67704.9, -50230.2 )
 
-[node name="Placeholder" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -85.5703, 117.117 )
 rotation = -1.42646
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -53.4766, 82.625 )
 rotation = -3.1129
-texture = ExtResource( 1 )
 
-[node name="Placeholder3" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder3" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -63.2656, 29.5469 )
 rotation = -2.06365
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -21.4609, -40.2188 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -20.7656, -85.6719 )
 rotation = -3.36915
-texture = ExtResource( 1 )
 
-[node name="Placeholder10" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder10" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( 10.1563, -137.398 )
 rotation = -3.36915
-texture = ExtResource( 1 )
 
-[node name="Placeholder11" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder11" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( 22.6406, 7.09375 )
 rotation = -4.24466
-texture = ExtResource( 1 )
 
-[node name="Placeholder12" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder12" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( 32.7344, -14.3125 )
 rotation = -4.24466
-texture = ExtResource( 1 )
 
-[node name="Placeholder13" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder13" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( 42.25, -40.4727 )
 rotation = -4.24466
-texture = ExtResource( 1 )
 
-[node name="Placeholder14" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder14" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( 52.9531, -62.4727 )
 rotation = -4.24466
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -9.01563, 34.7031 )
 rotation = -3.07788
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -33.8906, -1.92188 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder8" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder8" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -69.125, 53.0313 )
 rotation = -1.98522
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A30-70P60-100G6" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -40.25, 126.07 )
 rotation = -3.40662
-texture = ExtResource( 1 )
 
-[node name="A20-50P30-80G4" type="Node2D" parent="."]
+[node name="A20-50P30-80G4" type="Node2D" parent="Placeholders"]
 position = Vector2( 67896.3, -50907 )
 
-[node name="Placeholder" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( -84.3359, 183.93 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( -35.7266, 70 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( 20.6719, -75.4688 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( 63.3438, -182.891 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( 58.875, -142.734 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( 13.375, -34.8438 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A20-50P30-80G4" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( -43.25, 114.07 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="A20-50P30-80G5" type="Node2D" parent="."]
+[node name="A20-50P30-80G5" type="Node2D" parent="Placeholders"]
 position = Vector2( 68085.4, -51377.5 )
 
-[node name="Placeholder" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( -83.0547, 177.906 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( -17.2266, 19.5 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( 35.1719, -104.969 )
 rotation = -2.74078
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( 119.344, -235.391 )
 rotation = -2.59958
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( 68.875, -144.734 )
 rotation = -2.64376
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( 29.375, -61.3438 )
 rotation = -2.72815
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A20-50P30-80G5" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( -44.75, 115.57 )
 rotation = -2.76434
-texture = ExtResource( 1 )
 
-[node name="A100P50-90G1" type="Node2D" parent="."]
+[node name="A100P50-90G1" type="Node2D" parent="Placeholders"]
 position = Vector2( 66029.8, -50507.3 )
 
-[node name="Placeholder" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -244.93, -60.2188 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder2" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -202.93, -48.9063 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder3" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder3" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -159.516, -37.5859 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder4" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -118.922, -26.2578 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder5" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -80.6953, -16.3516 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder6" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -42, -5.01563 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder7" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 0, 7.24219 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder8" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder8" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 42.4688, 19.0469 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder9" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 91.0781, 31.3047 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder10" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder10" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 131.664, 43.5781 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder11" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder11" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 175.078, 55.3672 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder12" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder12" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 218.023, 67.6328 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder13" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder13" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 262.383, 79.9063 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder14" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder14" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 304.859, 91.2266 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder22" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder22" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -221.258, -66.5703 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder23" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder23" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -179.258, -55.2578 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder24" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder24" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -135.844, -43.9375 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder25" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder25" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -95.25, -32.6016 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder26" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder26" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -57.0234, -22.7031 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder27" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder27" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -18.3281, -11.3672 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder28" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder28" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 23.6719, 0.898438 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder29" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder29" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 66.1406, 12.6953 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder30" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder30" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 114.75, 24.9531 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder31" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder31" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 155.336, 37.2266 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder32" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder32" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 198.75, 49.0234 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder33" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder33" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 241.695, 61.2813 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder34" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder34" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 286.055, 73.5547 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder35" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder35" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 328.531, 84.875 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder15" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder15" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 42.4609, 48.1094 )
 rotation = -1.31731
-texture = ExtResource( 1 )
 
-[node name="Placeholder16" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder16" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 87.7734, 54.2344 )
 rotation = -1.7205
-texture = ExtResource( 1 )
 
-[node name="Placeholder17" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder17" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -4.72656, 33.9531 )
 rotation = -1.42154
-texture = ExtResource( 1 )
 
-[node name="Placeholder18" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder18" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -17.9375, 57.0938 )
 rotation = -2.13746
-texture = ExtResource( 1 )
 
-[node name="Placeholder19" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder19" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -53.8047, 42.4688 )
 rotation = -0.898804
-texture = ExtResource( 1 )
 
-[node name="Placeholder20" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder20" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -95.3359, 16.5078 )
 rotation = -1.06654
-texture = ExtResource( 1 )
 
-[node name="Placeholder21" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder21" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -138.758, -6.61719 )
 rotation = -0.979137
-texture = ExtResource( 1 )
 
-[node name="Placeholder36" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder36" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -156.797, -65.2578 )
 rotation = -1.38238
-texture = ExtResource( 1 )
 
-[node name="Placeholder37" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder37" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 95.8125, 4.65625 )
 rotation = -1.29768
-texture = ExtResource( 1 )
 
-[node name="Placeholder38" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder38" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 138.664, 15.1797 )
 rotation = -1.29768
-texture = ExtResource( 1 )
 
-[node name="Placeholder39" type="Sprite" parent="A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder39" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 148.438, 65.5547 )
 rotation = -1.50159
-texture = ExtResource( 1 )

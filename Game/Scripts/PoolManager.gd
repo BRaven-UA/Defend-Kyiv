@@ -2,6 +2,8 @@ extends Node
 
 enum EXPLOSION {RocketExplosion, VehicleExplosion, AmmunitionExplosion, FuelExplosion, AerialExplosion}
 
+var enemy_pool: Array
+var aa_enemy_pool: Array # antiaircraft
 var target_pool: Array
 var projectiles_pool: Array
 var projectile_fire_pool: Array
@@ -10,9 +12,30 @@ var rocket_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
+var preview_pool: Array
 var flying_text_pool: Array
 var warning_sign_pool: Array
 
+
+func get_enemy() -> Enemy:
+	for enemy in enemy_pool:
+		if not enemy.is_inside_tree():
+			return enemy
+	
+	var new_enemy = Preloader.get_resource("Enemy").instance()
+	new_enemy.add_to_group(Global.REUSABLE)
+	enemy_pool.append(new_enemy)
+	return new_enemy
+
+func get_aa_enemy() -> AAEnemy:
+	for aa_enemy in aa_enemy_pool:
+		if not aa_enemy.is_inside_tree():
+			return aa_enemy
+	
+	var new_aa_enemy = Preloader.get_resource("AntiAircraftEnemy").instance()
+	new_aa_enemy.add_to_group(Global.REUSABLE)
+	aa_enemy_pool.append(new_aa_enemy)
+	return new_aa_enemy
 
 func get_target() -> Target:
 	for target in target_pool:
@@ -85,16 +108,28 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	return new_explosion
 
 func get_crater() -> Sprite:
-	var distance = Global.viewport_size.length() * 2 # guaranteed offscreen distance
+#	var distance = Global.viewport_size.length() * 2 # guaranteed offscreen distance
 	for crater in crater_pool: # search for free crater
-		if (crater.global_position - Global.player.global_position).length() > distance: # far enough
+		if not crater.is_inside_tree():
+#		if (crater.global_position - Global.player.global_position).length() > distance: # far enough
 			return crater
 	
 	# add new instance to the pool if there no free craterss left
 	var new_crater = Preloader.get_resource("Crater").instance()
+	new_crater.add_to_group(Global.REUSABLE)
 	crater_pool.append(new_crater)
 	Global.ground_layer.add_child(new_crater)
 	return new_crater
+
+func get_preview() -> Preview:
+	for preview in preview_pool:
+		if not preview.is_inside_tree():
+			return preview
+	
+	var new_preview = Preloader.get_resource("Preview").instance()
+	new_preview.add_to_group(Global.REUSABLE)
+	preview_pool.append(new_preview)
+	return new_preview
 
 func get_flying_text() -> FlyingText:
 	for flying_text in flying_text_pool:

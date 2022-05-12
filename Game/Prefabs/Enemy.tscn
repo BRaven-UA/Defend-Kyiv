@@ -23,7 +23,7 @@ scale = Vector2( 0.85, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="OnMapShadow" type="Sprite" parent="."]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 0.784314 )
 texture = ExtResource( 1 )
 hframes = 12
 
