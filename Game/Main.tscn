@@ -1,14 +1,23 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Textures/Background/1.jpg" type="Texture" id=3]
+[ext_resource path="res://Game/Textures/Background/67.jpg" type="Texture" id=4]
 [ext_resource path="res://Game/Scripts/PathFollow2D.gd" type="Script" id=5]
 [ext_resource path="res://Game/Textures/Background/69.jpg" type="Texture" id=6]
 [ext_resource path="res://Game/Textures/Background/70.jpg" type="Texture" id=7]
 [ext_resource path="res://Game/Textures/Background/72.jpg" type="Texture" id=8]
 [ext_resource path="res://Game/Textures/Background/71.jpg" type="Texture" id=9]
+[ext_resource path="res://Game/Textures/Background/68.jpg" type="Texture" id=10]
+[ext_resource path="res://Game/Textures/Background/73.jpg" type="Texture" id=11]
 [ext_resource path="res://Game/Resources/MovePath2D.tres" type="Curve2D" id=12]
+[ext_resource path="res://Game/Textures/Background/78.jpg" type="Texture" id=13]
+[ext_resource path="res://Game/Textures/Background/79.jpg" type="Texture" id=14]
+[ext_resource path="res://Game/Textures/Background/76.jpg" type="Texture" id=15]
+[ext_resource path="res://Game/Textures/Background/77.jpg" type="Texture" id=16]
+[ext_resource path="res://Game/Textures/Background/74.jpg" type="Texture" id=17]
+[ext_resource path="res://Game/Textures/Background/75.jpg" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 360, 640 )
@@ -16,6 +25,10 @@ extents = Vector2( 360, 640 )
 [node name="Main" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="69" type="Sprite" parent="Background"]
 position = Vector2( 65884.4, -50559.1 )
@@ -38,9 +51,53 @@ rotation = 2.41257
 texture = ExtResource( 8 )
 
 [node name="1" type="Sprite" parent="Background"]
-visible = false
 rotation = 1.5708
 texture = ExtResource( 3 )
+
+[node name="68" type="Sprite" parent="Background"]
+position = Vector2( 64159.4, -51029.6 )
+rotation = 3.40796
+texture = ExtResource( 10 )
+
+[node name="67" type="Sprite" parent="Background"]
+position = Vector2( 62431.8, -51452.3 )
+rotation = 3.33099
+texture = ExtResource( 4 )
+
+[node name="73" type="Sprite" parent="Background"]
+position = Vector2( 70449.1, -53748.2 )
+rotation = 2.41257
+texture = ExtResource( 11 )
+
+[node name="74" type="Sprite" parent="Background"]
+position = Vector2( 71758, -54925.4 )
+rotation = 2.41257
+texture = ExtResource( 17 )
+
+[node name="75" type="Sprite" parent="Background"]
+position = Vector2( 73086.9, -56112 )
+rotation = 2.41257
+texture = ExtResource( 18 )
+
+[node name="76" type="Sprite" parent="Background"]
+position = Vector2( 74398.7, -57280.7 )
+rotation = 2.41257
+texture = ExtResource( 15 )
+
+[node name="77" type="Sprite" parent="Background"]
+position = Vector2( 75298.2, -58702.7 )
+rotation = 2.00544
+texture = ExtResource( 16 )
+
+[node name="78" type="Sprite" parent="Background"]
+position = Vector2( 76019.6, -60300.5 )
+rotation = 2.00544
+texture = ExtResource( 13 )
+
+[node name="79" type="Sprite" parent="Background"]
+position = Vector2( 76746.9, -61905.2 )
+rotation = 2.00544
+texture = ExtResource( 14 )
 
 [node name="GroundLayer" type="Node2D" parent="."]
 
@@ -52,13 +109,16 @@ texture = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 visible = false
-position = Vector2( -5.33936, 0 )
 curve = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Path_Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 65487, -50655.7 )
-rotation = 0.268976
-offset = 113572.0
+position = Vector2( 63075.9, -51318.8 )
+rotation = 0.223697
+offset = 111072.0
 loop = false
 lookahead = 40.0
 script = ExtResource( 5 )

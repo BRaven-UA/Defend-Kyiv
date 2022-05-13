@@ -8,9 +8,16 @@
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="Placeholders" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="A100P30-40G2" type="Node2D" parent="Placeholders"]
 position = Vector2( 66809.1, -50294 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A100P30-40G2" instance=ExtResource( 2 )]
 position = Vector2( -244.93, -60.2188 )
@@ -186,6 +193,10 @@ rotation = -1.36664
 
 [node name="A20-50P30-80G3" type="Node2D" parent="Placeholders"]
 position = Vector2( 67696.5, -50436.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A20-50P30-80G3" instance=ExtResource( 2 )]
 position = Vector2( -77.3359, 176.93 )
@@ -223,8 +234,1668 @@ rotation = -2.76434
 position = Vector2( -40.25, 126.07 )
 rotation = -2.76434
 
+[node name="A30-60P50-80G24" type="Node2D" parent="Placeholders"]
+position = Vector2( 68514.5, -51984.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( -207.695, 232.367 )
+rotation = -2.44735
+
+[node name="Placeholder2" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( -137.141, 144.188 )
+rotation = -2.3599
+
+[node name="Placeholder3" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( -66.5859, 78.6719 )
+rotation = -2.3599
+
+[node name="Placeholder4" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( -17.4453, 34.5781 )
+rotation = -2.3599
+
+[node name="Placeholder5" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 26.6484, -19.6094 )
+rotation = -2.3599
+
+[node name="Placeholder6" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 88.3828, -62.4375 )
+rotation = -2.3599
+
+[node name="Placeholder7" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 121.141, -107.797 )
+rotation = -2.3599
+
+[node name="Placeholder8" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 167.758, -134.25 )
+rotation = -2.3599
+
+[node name="Placeholder9" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 212.711, -181.453 )
+rotation = -2.3599
+
+[node name="Placeholder10" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 278.633, -246.641 )
+rotation = -2.3599
+
+[node name="Placeholder11" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( 367.031, -332.047 )
+rotation = -2.3599
+
+[node name="Placeholder12" parent="Placeholders/A30-60P50-80G24" instance=ExtResource( 2 )]
+position = Vector2( -186.93, 183.203 )
+rotation = -2.402
+
+[node name="A30-60P50-80G25" type="Node2D" parent="Placeholders"]
+position = Vector2( 68569.2, -52024.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( -221.039, 220.359 )
+rotation = -2.44735
+
+[node name="Placeholder2" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( -163.789, 146.266 )
+rotation = -2.36742
+
+[node name="Placeholder3" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( -103.18, 90.1563 )
+rotation = -2.36742
+
+[node name="Placeholder4" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( -53.7969, 43.0156 )
+rotation = -2.36742
+
+[node name="Placeholder5" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 6.82031, 0.359375 )
+rotation = -2.36742
+
+[node name="Placeholder6" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 37.125, -42.2969 )
+rotation = -2.36742
+
+[node name="Placeholder7" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 86.5156, -71.4844 )
+rotation = -2.36742
+
+[node name="Placeholder8" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 198.766, -172.5 )
+rotation = -2.36742
+
+[node name="Placeholder9" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 264.992, -229.734 )
+rotation = -2.36742
+
+[node name="Placeholder10" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 296.422, -262.281 )
+rotation = -2.36742
+
+[node name="Placeholder11" parent="Placeholders/A30-60P50-80G25" instance=ExtResource( 2 )]
+position = Vector2( 351.422, -312.797 )
+rotation = -2.36742
+
+[node name="A60P70G26" type="Node2D" parent="Placeholders"]
+position = Vector2( 69111.9, -52516 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -133.25, 115.594 )
+rotation = -2.39282
+
+[node name="Placeholder2" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -87.0078, 72.1875 )
+rotation = -2.39282
+
+[node name="Placeholder3" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -48.3125, 33.4844 )
+rotation = -2.39282
+
+[node name="Placeholder4" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( 17.7578, -24.0938 )
+rotation = -2.39282
+
+[node name="Placeholder5" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -40.7656, 75 )
+rotation = -2.63947
+
+[node name="Placeholder6" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -50.2031, 112.75 )
+rotation = -2.27932
+
+[node name="Placeholder7" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -76.6328, 139.188 )
+rotation = -2.27932
+
+[node name="Placeholder8" parent="Placeholders/A60P70G26" instance=ExtResource( 2 )]
+position = Vector2( -25.6641, 91.0625 )
+rotation = -2.95984
+
+[node name="A60P70G27" type="Node2D" parent="Placeholders"]
+position = Vector2( 69353.6, -52736.9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( -127.578, 109.938 )
+rotation = -2.36318
+
+[node name="Placeholder2" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( -89.8203, 74.0781 )
+rotation = -2.36318
+
+[node name="Placeholder3" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( -24.6953, 13.6719 )
+rotation = -2.36318
+
+[node name="Placeholder4" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( 65.9141, -67.5 )
+rotation = -2.36318
+
+[node name="Placeholder5" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( 98.0078, -98.6406 )
+rotation = -2.36318
+
+[node name="Placeholder6" parent="Placeholders/A60P70G27" instance=ExtResource( 2 )]
+position = Vector2( 12.1172, -8.98438 )
+rotation = -2.36318
+
+[node name="A100P60-100G28" type="Node2D" parent="Placeholders"]
+position = Vector2( 69763.2, -53110.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -264.445, 232.641 )
+rotation = -2.36318
+
+[node name="Placeholder2" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -217.242, 193.938 )
+rotation = -2.36318
+
+[node name="Placeholder3" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -184.211, 159.953 )
+rotation = -2.36318
+
+[node name="Placeholder4" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -148.344, 128.797 )
+rotation = -2.36318
+
+[node name="Placeholder5" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -117.195, 101.422 )
+rotation = -2.36318
+
+[node name="Placeholder6" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -81.3203, 67.4375 )
+rotation = -2.36318
+
+[node name="Placeholder7" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -42.6172, 35.3438 )
+rotation = -2.36318
+
+[node name="Placeholder8" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( -5.80469, -2.42188 )
+rotation = -2.36318
+
+[node name="Placeholder9" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 30.0625, -33.5625 )
+rotation = -2.36318
+
+[node name="Placeholder10" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 63.0938, -65.6563 )
+rotation = -2.36318
+
+[node name="Placeholder11" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 145.203, -137.391 )
+rotation = -2.36318
+
+[node name="Placeholder12" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 218.828, -206.297 )
+rotation = -2.36318
+
+[node name="Placeholder13" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 302.828, -282.75 )
+rotation = -2.36318
+
+[node name="Placeholder14" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 243.367, -215.734 )
+rotation = -2.36318
+
+[node name="Placeholder15" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 86.6797, -53.3906 )
+rotation = -2.36318
+
+[node name="Placeholder16" parent="Placeholders/A100P60-100G28" instance=ExtResource( 2 )]
+position = Vector2( 227.313, -245.945 )
+rotation = -2.99827
+
+[node name="A60-100P90G29" type="Node2D" parent="Placeholders"]
+position = Vector2( 70390.2, -53686.4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( -248.414, 227.297 )
+rotation = -2.36318
+
+[node name="Placeholder2" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( -173.578, 160.469 )
+rotation = -2.36318
+
+[node name="Placeholder3" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( -111.219, 103.453 )
+rotation = -2.36318
+
+[node name="Placeholder4" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( -70.2422, 64.25 )
+rotation = -2.36318
+
+[node name="Placeholder5" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( -36.3828, 33.0625 )
+rotation = -2.36318
+
+[node name="Placeholder6" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 25.0938, -21.2813 )
+rotation = -2.36318
+
+[node name="Placeholder7" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 51.8203, -49.7969 )
+rotation = -2.36318
+
+[node name="Placeholder8" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 140.906, -130.875 )
+rotation = -2.36318
+
+[node name="Placeholder9" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 179.211, -163.844 )
+rotation = -2.36318
+
+[node name="Placeholder10" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 213.961, -196.813 )
+rotation = -2.36318
+
+[node name="Placeholder11" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 247.813, -227.094 )
+rotation = -2.36318
+
+[node name="Placeholder12" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 278.992, -255.609 )
+rotation = -2.36318
+
+[node name="Placeholder13" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 312.852, -287.688 )
+rotation = -2.36318
+
+[node name="Placeholder14" parent="Placeholders/A60-100P90G29" instance=ExtResource( 2 )]
+position = Vector2( 344.922, -318.859 )
+rotation = -2.36318
+
+[node name="A60P70G30" type="Node2D" parent="Placeholders"]
+position = Vector2( 70516.7, -53786.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( -73.7969, 67.8281 )
+rotation = -2.36318
+
+[node name="Placeholder2" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( -40.8281, 33.9688 )
+rotation = -2.36318
+
+[node name="Placeholder3" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( -3.40625, 1.01563 )
+rotation = -2.36318
+
+[node name="Placeholder4" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 27.7734, -28.375 )
+rotation = -2.36318
+
+[node name="Placeholder5" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 58.9609, -56.8906 )
+rotation = -2.36318
+
+[node name="Placeholder6" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 91.9219, -83.625 )
+rotation = -2.36318
+
+[node name="Placeholder7" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 119.539, -110.344 )
+rotation = -2.36318
+
+[node name="Placeholder8" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 152.508, -141.531 )
+rotation = -2.36318
+
+[node name="Placeholder9" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 176.555, -163.797 )
+rotation = -2.36318
+
+[node name="Placeholder10" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 206.844, -194.094 )
+rotation = -2.36318
+
+[node name="Placeholder11" parent="Placeholders/A60P70G30" instance=ExtResource( 2 )]
+position = Vector2( 238.023, -222.594 )
+rotation = -2.36318
+
+[node name="A100P70-100G31" type="Node2D" parent="Placeholders"]
+position = Vector2( 71116.7, -54343.4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( -321.43, 285.313 )
+rotation = -2.36318
+
+[node name="Placeholder2" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( -267.625, 239.063 )
+rotation = -2.36318
+
+[node name="Placeholder3" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( -204.383, 181.484 )
+rotation = -2.36318
+
+[node name="Placeholder4" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( -134.539, 116.359 )
+rotation = -2.36318
+
+[node name="Placeholder5" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( -59.9688, 48.4063 )
+rotation = -2.36318
+
+[node name="Placeholder6" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 11.7656, -17.6563 )
+rotation = -2.36318
+
+[node name="Placeholder7" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 98.6094, -100.719 )
+rotation = -2.36318
+
+[node name="Placeholder8" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 147.695, -147.906 )
+rotation = -2.36318
+
+[node name="Placeholder9" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 226.977, -213.969 )
+rotation = -2.36318
+
+[node name="Placeholder10" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 306.266, -285.703 )
+rotation = -2.36318
+
+[node name="Placeholder11" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 371.406, -343.281 )
+rotation = -2.36318
+
+[node name="Placeholder12" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 433.703, -407.469 )
+rotation = -2.36318
+
+[node name="Placeholder13" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 9.90625, -63.8906 )
+rotation = -2.36318
+
+[node name="Placeholder14" parent="Placeholders/A100P70-100G31" instance=ExtResource( 2 )]
+position = Vector2( 69.375, -109.203 )
+rotation = -1.00357
+
+[node name="A60P70G32" type="Node2D" parent="Placeholders"]
+position = Vector2( 71069.2, -54697.8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( 72.0625, 176.375 )
+rotation = -3.5474
+
+[node name="Placeholder2" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( 32.8594, 88.1719 )
+rotation = -3.5474
+
+[node name="Placeholder3" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( -41.9688, -91.7969 )
+rotation = -3.5474
+
+[node name="Placeholder4" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( 47.1094, -11.625 )
+rotation = -1.96999
+
+[node name="Placeholder5" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( 30.1797, 146.969 )
+rotation = -1.96999
+
+[node name="Placeholder6" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( -71.3906, -112.281 )
+rotation = -1.96999
+
+[node name="Placeholder7" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( -66.0313, -149.688 )
+rotation = -3.52635
+
+[node name="Placeholder8" parent="Placeholders/A60P70G32" instance=ExtResource( 2 )]
+position = Vector2( 17.7188, 54.3281 )
+rotation = -3.52635
+
+[node name="A60P70G33" type="Node2D" parent="Placeholders"]
+position = Vector2( 71308.2, -54162.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -106.336, -178.523 )
+rotation = -1.54466
+
+[node name="Placeholder2" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -70.4688, -152.094 )
+rotation = -0.432271
+
+[node name="Placeholder3" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -14.7734, -20.8984 )
+rotation = -0.432271
+
+[node name="Placeholder4" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( 5.99219, 23.4648 )
+rotation = -0.432271
+
+[node name="Placeholder5" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -35.5391, -101.121 )
+rotation = -0.432271
+
+[node name="Placeholder6" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( 48.4688, 121.633 )
+rotation = -0.432271
+
+[node name="Placeholder7" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( 83.3906, 175.434 )
+rotation = -0.432271
+
+[node name="Placeholder8" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( 51.3047, 2.70313 )
+rotation = -2.00107
+
+[node name="Placeholder9" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( 12.6016, 98.9688 )
+rotation = -2.00107
+
+[node name="Placeholder10" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -58.1953, -58.6563 )
+rotation = -2.00107
+
+[node name="Placeholder11" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -274.344, -23.7266 )
+rotation = -1.14375
+
+[node name="Placeholder12" parent="Placeholders/A60P70G33" instance=ExtResource( 2 )]
+position = Vector2( -173.344, -140.781 )
+rotation = -2.24517
+
+[node name="A60P70G34" type="Node2D" parent="Placeholders"]
+position = Vector2( 71611.8, -54786.3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -204.609, 196.953 )
+rotation = -2.33208
+
+[node name="Placeholder2" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -147.914, 149.078 )
+rotation = -2.33208
+
+[node name="Placeholder3" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -54.6797, 64.6719 )
+rotation = -2.33208
+
+[node name="Placeholder4" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -5.53906, 5.46875 )
+rotation = -2.33208
+
+[node name="Placeholder5" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 41.0781, -39.8906 )
+rotation = -2.33208
+
+[node name="Placeholder6" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 91.4766, -82.7344 )
+rotation = -2.33208
+
+[node name="Placeholder7" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 134.32, -118 )
+rotation = -2.33208
+
+[node name="Placeholder8" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 175.898, -155.797 )
+rotation = -2.33208
+
+[node name="Placeholder9" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 228.813, -202.422 )
+rotation = -2.33208
+
+[node name="Placeholder10" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 272.906, -240.234 )
+rotation = -2.33208
+
+[node name="Placeholder11" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 12.1094, 30.6406 )
+rotation = -1.77481
+
+[node name="Placeholder12" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -210.898, 241.047 )
+rotation = -2.74915
+
+[node name="Placeholder13" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( -278.945, 382.156 )
+rotation = -2.74915
+
+[node name="Placeholder14" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 106.594, 165.445 )
+rotation = -3.49235
+
+[node name="Placeholder15" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 122.969, 207.023 )
+rotation = -3.49235
+
+[node name="Placeholder16" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 151.969, 278.836 )
+rotation = -3.49235
+
+[node name="Placeholder17" parent="Placeholders/A60P70G34" instance=ExtResource( 2 )]
+position = Vector2( 145.656, 236 )
+rotation = -3.49235
+
+[node name="A60P70G35" type="Node2D" parent="Placeholders"]
+position = Vector2( 71492.2, -55193.3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( -87.4375, -58.8125 )
+rotation = -5.07284
+
+[node name="Placeholder2" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( -24.4688, -80.2344 )
+rotation = -3.53438
+
+[node name="Placeholder3" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( -6.82813, -38.6563 )
+rotation = -3.53438
+
+[node name="Placeholder4" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 15.8438, 23.0781 )
+rotation = -3.53438
+
+[node name="Placeholder5" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 34.7344, 75.9922 )
+rotation = -3.53438
+
+[node name="Placeholder6" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 51.125, 118.828 )
+rotation = -3.53438
+
+[node name="Placeholder7" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( -27, -38.6641 )
+rotation = -3.53438
+
+[node name="Placeholder8" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 10.7813, 63.3906 )
+rotation = -3.53438
+
+[node name="Placeholder9" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 48.5625, 149.063 )
+rotation = -3.53438
+
+[node name="Placeholder10" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 107.766, 300.25 )
+rotation = -3.53438
+
+[node name="Placeholder11" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 95.1719, 351.922 )
+rotation = -2.0622
+
+[node name="Placeholder12" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 12.0156, 399.797 )
+rotation = -2.0622
+
+[node name="Placeholder13" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 53.5938, 263.719 )
+rotation = -2.0622
+
+[node name="Placeholder14" parent="Placeholders/A60P70G35" instance=ExtResource( 2 )]
+position = Vector2( 53.5938, 263.719 )
+rotation = -2.0622
+
+[node name="A30-60P70G36" type="Node2D" parent="Placeholders"]
+position = Vector2( 71875.2, -55044.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -222.25, 185.609 )
+rotation = -2.3225
+
+[node name="Placeholder2" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -181.938, 162.938 )
+rotation = -2.3225
+
+[node name="Placeholder3" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -137.836, 126.391 )
+rotation = -2.3225
+
+[node name="Placeholder4" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -89.9609, 84.8125 )
+rotation = -2.3225
+
+[node name="Placeholder5" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -48.3828, 45.75 )
+rotation = -2.3225
+
+[node name="Placeholder6" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( -3.02344, 9.21875 )
+rotation = -2.3225
+
+[node name="Placeholder7" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( 29.7344, -24.8125 )
+rotation = -2.3225
+
+[node name="Placeholder8" parent="Placeholders/A30-60P70G36" instance=ExtResource( 2 )]
+position = Vector2( 72.5703, -57.5781 )
+rotation = -2.3225
+
+[node name="A30P100G37" type="Node2D" parent="Placeholders"]
+position = Vector2( 72202.2, -55292.9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A30P100G37" instance=ExtResource( 2 )]
+position = Vector2( 24.6875, -13.2969 )
+rotation = -3.23621
+
+[node name="Placeholder2" parent="Placeholders/A30P100G37" instance=ExtResource( 2 )]
+position = Vector2( 7.32813, 1.375 )
+rotation = -3.36837
+
+[node name="Placeholder3" parent="Placeholders/A30P100G37" instance=ExtResource( 2 )]
+position = Vector2( -7.34375, 18.7266 )
+rotation = -3.36837
+
+[node name="Placeholder4" parent="Placeholders/A30P100G37" instance=ExtResource( 2 )]
+position = Vector2( -22.0313, 32.0703 )
+rotation = -3.36837
+
+[node name="Placeholder5" parent="Placeholders/A30P100G37" instance=ExtResource( 2 )]
+position = Vector2( -30.0469, 60.1016 )
+rotation = -3.36837
+
+[node name="A40P40-70G38" type="Node2D" parent="Placeholders"]
+position = Vector2( 72256.9, -55381 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -240.953, 217.625 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -190.234, 173.578 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -142.18, 133.531 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -102.133, 97.5 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -63.4297, 57.4531 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( -19.375, 20.0781 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 26.0078, -25.3125 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 75.3984, -69.3594 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 123.453, -108.063 )
+rotation = -2.36365
+
+[node name="Placeholder10" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 159.5, -141.438 )
+rotation = -2.36365
+
+[node name="Placeholder11" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 192.875, -169.469 )
+rotation = -2.36365
+
+[node name="Placeholder12" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 235.594, -204.172 )
+rotation = -2.36365
+
+[node name="Placeholder13" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 274.305, -240.219 )
+rotation = -2.36365
+
+[node name="Placeholder14" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 311.68, -276.25 )
+rotation = -2.36365
+
+[node name="Placeholder15" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 346.383, -304.281 )
+rotation = -2.36365
+
+[node name="Placeholder16" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 379.75, -332.313 )
+rotation = -2.36365
+
+[node name="Placeholder17" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 218.234, -176.141 )
+rotation = -2.36365
+
+[node name="Placeholder18" parent="Placeholders/A40P40-70G38" instance=ExtResource( 2 )]
+position = Vector2( 52.7188, -30.6563 )
+rotation = -2.36365
+
+[node name="A20-40P70G39" type="Node2D" parent="Placeholders"]
+position = Vector2( 72877.6, -55928.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( -191.188, 177.188 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( -143.258, 131.781 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( -18.8125, 20.7813 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 23.2344, -19.5938 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 63.6016, -58.2656 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 103.961, -96.1094 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 148.523, -135.625 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 189.727, -172.625 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 234.297, -203.734 )
+rotation = -2.36365
+
+[node name="Placeholder10" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 267.094, -244.938 )
+rotation = -2.36365
+
+[node name="Placeholder11" parent="Placeholders/A20-40P70G39" instance=ExtResource( 2 )]
+position = Vector2( 61.9219, -77.5938 )
+rotation = -2.36365
+
+[node name="A100P50-70G40" type="Node2D" parent="Placeholders"]
+position = Vector2( 73466.3, -56456.9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -268.641, 237.797 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -220.375, 196.266 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -169.867, 153.609 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -128.344, 112.078 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -84.5703, 75.0313 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -35.1797, 31.2656 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 8.59375, -6.90625 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 47.8828, -41.7031 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 87.1719, -77.6094 )
+rotation = -2.36365
+
+[node name="Placeholder10" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 138.805, -122.516 )
+rotation = -2.36365
+
+[node name="Placeholder11" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 179.211, -160.672 )
+rotation = -2.36365
+
+[node name="Placeholder12" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 222.992, -193.219 )
+rotation = -2.36365
+
+[node name="Placeholder13" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 257.789, -231.375 )
+rotation = -2.36365
+
+[node name="Placeholder14" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( 144.422, -152.813 )
+rotation = -1.89721
+
+[node name="Placeholder15" parent="Placeholders/A100P50-70G40" instance=ExtResource( 2 )]
+position = Vector2( -188.953, 139.031 )
+rotation = -2.72483
+
+[node name="A50P70G41" type="Node2D" parent="Placeholders"]
+position = Vector2( 74018, -56944.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( -209.188, 183.094 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( -156.859, 137.906 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( -106.914, 87.9688 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( -53.3984, 43.9688 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( 46.5, -49.9688 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( 94.0625, -91.5938 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( 148.766, -136.797 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( 197.523, -184.359 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A50P70G41" instance=ExtResource( 2 )]
+position = Vector2( 69.0859, -17.875 )
+rotation = -2.36365
+
+[node name="A60-80P70G42" type="Node2D" parent="Placeholders"]
+position = Vector2( 74594.8, -57461.8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -299.563, 263.953 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -248.422, 216.375 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -193.719, 172.375 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -139.016, 126 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -91.4453, 76.0469 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( -45.0703, 35.6094 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 23.9063, -21.4688 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 77.4219, -66.6563 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 123.797, -113.031 )
+rotation = -2.36365
+
+[node name="Placeholder10" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 164.227, -157.031 )
+rotation = -2.36365
+
+[node name="Placeholder11" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 205.852, -198.641 )
+rotation = -2.49937
+
+[node name="Placeholder12" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 246.281, -241.453 )
+rotation = -2.49937
+
+[node name="Placeholder13" parent="Placeholders/A60-80P70G42" instance=ExtResource( 2 )]
+position = Vector2( 283.148, -292.578 )
+rotation = -2.49937
+
+[node name="A40P80G43" type="Node2D" parent="Placeholders"]
+position = Vector2( 74709, -57597.4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -112.859, 114.109 )
+rotation = -2.36365
+
+[node name="Placeholder2" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -86.7031, 89.1406 )
+rotation = -2.36365
+
+[node name="Placeholder3" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -61.7344, 64.1719 )
+rotation = -2.36365
+
+[node name="Placeholder4" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -34.3828, 36.8125 )
+rotation = -2.36365
+
+[node name="Placeholder5" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -5.94531, 13.0781 )
+rotation = -2.36365
+
+[node name="Placeholder6" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( 19.0313, -15.4688 )
+rotation = -2.36365
+
+[node name="Placeholder7" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( 42.8125, -47.5781 )
+rotation = -2.36365
+
+[node name="Placeholder8" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( 72.5391, -73.7344 )
+rotation = -2.36365
+
+[node name="Placeholder9" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( 103.477, -103.469 )
+rotation = -2.36365
+
+[node name="Placeholder10" parent="Placeholders/A40P80G43" instance=ExtResource( 2 )]
+position = Vector2( -193.828, 177.188 )
+rotation = -2.36365
+
+[node name="A40P80G44" type="Node2D" parent="Placeholders"]
+position = Vector2( 75102.6, -57981.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -23.5938, -82.8438 )
+rotation = -3.74602
+
+[node name="Placeholder2" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 9.40625, -63.8438 )
+rotation = -5.2629
+
+[node name="Placeholder3" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 33.4063, -52.8438 )
+rotation = -5.2629
+
+[node name="Placeholder4" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 56.4063, -42.8438 )
+rotation = -5.2629
+
+[node name="Placeholder5" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 73.4063, -34.8438 )
+rotation = -5.2629
+
+[node name="Placeholder6" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 87.4063, -24.8438 )
+rotation = -5.2629
+
+[node name="Placeholder7" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 112.406, 28.1563 )
+rotation = -4.18819
+
+[node name="Placeholder8" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 66.4063, 1.15625 )
+rotation = -4.18819
+
+[node name="Placeholder9" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 13.4063, -5.84375 )
+rotation = -3.07831
+
+[node name="Placeholder10" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 34.4063, 7.15625 )
+rotation = -3.07831
+
+[node name="Placeholder11" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -31.5938, -27.8438 )
+rotation = -2.70184
+
+[node name="Placeholder12" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -52.5938, 26.1563 )
+rotation = -3.45373
+
+[node name="Placeholder13" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -27.5938, 47.1563 )
+rotation = -3.45373
+
+[node name="Placeholder14" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -51.5938, 67.1563 )
+rotation = -3.15956
+
+[node name="Placeholder15" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -98.5938, 77.1563 )
+rotation = -2.69005
+
+[node name="Placeholder16" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -48.5938, -28.8438 )
+rotation = -2.69005
+
+[node name="Placeholder17" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( 0.40625, -102.844 )
+rotation = -2.54683
+
+[node name="Placeholder18" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -118.594, 113.156 )
+rotation = -2.4728
+
+[node name="Placeholder19" parent="Placeholders/A40P80G44" instance=ExtResource( 2 )]
+position = Vector2( -90.5938, 121.156 )
+rotation = -0.463775
+
+[node name="A100P40-80G45" type="Node2D" parent="Placeholders"]
+position = Vector2( 75074.6, -58159.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( -97.5938, 218.156 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( -68.5938, 159.156 )
+rotation = -2.68353
+
+[node name="Placeholder3" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( -44.5938, 101.156 )
+rotation = -2.68353
+
+[node name="Placeholder4" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( -19.5938, 45.1563 )
+rotation = -2.68353
+
+[node name="Placeholder5" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 8.40625, -18.8438 )
+rotation = -2.68353
+
+[node name="Placeholder6" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 31.4063, -75.8438 )
+rotation = -2.68353
+
+[node name="Placeholder7" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 56.4063, -103.844 )
+rotation = -2.68353
+
+[node name="Placeholder8" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 55.4063, -130.844 )
+rotation = -2.68353
+
+[node name="Placeholder9" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 81.4063, -157.844 )
+rotation = -2.68353
+
+[node name="Placeholder10" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 82.4063, -197.844 )
+rotation = -2.68353
+
+[node name="Placeholder11" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 108.406, -218.844 )
+rotation = -2.68353
+
+[node name="Placeholder12" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 114.406, -261.844 )
+rotation = -2.68353
+
+[node name="Placeholder13" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 136.406, -283.844 )
+rotation = -2.68353
+
+[node name="Placeholder14" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 136.406, -317.844 )
+rotation = -2.68353
+
+[node name="Placeholder15" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 159.406, -367.844 )
+rotation = -2.68353
+
+[node name="Placeholder16" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 181.406, -416.844 )
+rotation = -2.68353
+
+[node name="Placeholder17" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 203.406, -465.844 )
+rotation = -2.68353
+
+[node name="Placeholder18" parent="Placeholders/A100P40-80G45" instance=ExtResource( 2 )]
+position = Vector2( 225.406, -508.844 )
+rotation = -2.68353
+
+[node name="A80P40-60G46" type="Node2D" parent="Placeholders"]
+position = Vector2( 75476.2, -59076 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A80P40-60G46" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
+[node name="A20-50P20-60G47" type="Node2D" parent="Placeholders"]
+position = Vector2( 75379.8, -58822.8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A20-50P20-60G47" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
+[node name="A20-50P20-60G48" type="Node2D" parent="Placeholders"]
+position = Vector2( 75707.1, -59566.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A20-50P20-60G48" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
+[node name="A20-50P20-60G49" type="Node2D" parent="Placeholders"]
+position = Vector2( 75794, -59800.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A20-50P20-60G49" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
+[node name="A20-50P20-60G50" type="Node2D" parent="Placeholders"]
+position = Vector2( 76030.3, -60294.4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A20-50P20-60G50" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
+[node name="A60P60G51" type="Node2D" parent="Placeholders"]
+position = Vector2( 76341.8, -61004.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -138.906, 317.734 )
+rotation = -2.74279
+
+[node name="Placeholder2" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -117.719, 267.938 )
+rotation = -2.74279
+
+[node name="Placeholder3" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -93.3516, 209.672 )
+rotation = -2.74279
+
+[node name="Placeholder4" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -73.2266, 172.594 )
+rotation = -2.74279
+
+[node name="Placeholder5" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -58.3984, 137.625 )
+rotation = -2.74279
+
+[node name="Placeholder6" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -31.9063, 70.875 )
+rotation = -2.74279
+
+[node name="Placeholder7" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( -11.7734, 26.375 )
+rotation = -2.74279
+
+[node name="Placeholder8" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 10.4766, -18.125 )
+rotation = -2.74279
+
+[node name="Placeholder9" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 25.3125, -63.6719 )
+rotation = -2.74279
+
+[node name="Placeholder10" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 43.3203, -102.859 )
+rotation = -2.74279
+
+[node name="Placeholder11" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 63.4453, -145.234 )
+rotation = -2.74279
+
+[node name="Placeholder12" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 83.5703, -193.969 )
+rotation = -2.74279
+
+[node name="Placeholder13" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 102.641, -236.344 )
+rotation = -2.74279
+
+[node name="Placeholder14" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 118.531, -275.547 )
+rotation = -2.74279
+
+[node name="Placeholder15" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 137.609, -315.813 )
+rotation = -2.74279
+
+[node name="Placeholder16" parent="Placeholders/A60P60G51" instance=ExtResource( 2 )]
+position = Vector2( 154.555, -352.891 )
+rotation = -2.74279
+
 [node name="A30-70P60-100G6" type="Node2D" parent="Placeholders"]
 position = Vector2( 67704.9, -50230.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A30-70P60-100G6" instance=ExtResource( 2 )]
 position = Vector2( -85.5703, 117.117 )
@@ -284,6 +1955,10 @@ rotation = -3.40662
 
 [node name="A20-50P30-80G4" type="Node2D" parent="Placeholders"]
 position = Vector2( 67896.3, -50907 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A20-50P30-80G4" instance=ExtResource( 2 )]
 position = Vector2( -84.3359, 183.93 )
@@ -315,6 +1990,10 @@ rotation = -2.76434
 
 [node name="A20-50P30-80G5" type="Node2D" parent="Placeholders"]
 position = Vector2( 68085.4, -51377.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A20-50P30-80G5" instance=ExtResource( 2 )]
 position = Vector2( -83.0547, 177.906 )
@@ -346,6 +2025,10 @@ rotation = -2.76434
 
 [node name="A100P50-90G1" type="Node2D" parent="Placeholders"]
 position = Vector2( 66029.8, -50507.3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Placeholder" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( -244.93, -60.2188 )
@@ -502,3 +2185,1746 @@ rotation = -1.29768
 [node name="Placeholder39" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
 position = Vector2( 148.438, 65.5547 )
 rotation = -1.50159
+
+[node name="A100P50-70G20" type="Node2D" parent="Placeholders"]
+position = Vector2( 65387.4, -50688.9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 362.679, 99.1563 )
+rotation = -1.31731
+
+[node name="Placeholder2" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 315.297, 97.8281 )
+rotation = -1.31731
+
+[node name="Placeholder3" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 293.273, 77.1406 )
+rotation = -1.31731
+
+[node name="Placeholder4" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 251.89, 79.1406 )
+rotation = -1.31731
+
+[node name="Placeholder5" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 225.859, 57.125 )
+rotation = -1.31731
+
+[node name="Placeholder6" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 171.133, 55.7969 )
+rotation = -1.31731
+
+[node name="Placeholder7" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 144.433, 34.4453 )
+rotation = -1.31731
+
+[node name="Placeholder8" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 110.398, 39.1172 )
+rotation = -1.31731
+
+[node name="Placeholder9" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 69.6833, 13.75 )
+rotation = -1.31731
+
+[node name="Placeholder10" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 43.652, 18.4219 )
+rotation = -1.31731
+
+[node name="Placeholder11" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( 10.2809, -5.60938 )
+rotation = -1.31731
+
+[node name="Placeholder12" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -6.40265, 5.73438 )
+rotation = -1.31731
+
+[node name="Placeholder13" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -49.7855, -19.625 )
+rotation = -1.31731
+
+[node name="Placeholder14" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -81.1526, -12.9453 )
+rotation = -1.31731
+
+[node name="Placeholder15" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -110.52, -36.9766 )
+rotation = -1.31731
+
+[node name="Placeholder16" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -140.555, -30.3047 )
+rotation = -1.31731
+
+[node name="Placeholder17" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -167.25, -55 )
+rotation = -1.31731
+
+[node name="Placeholder18" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -207.961, -49.6563 )
+rotation = -1.31731
+
+[node name="Placeholder19" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -238.664, -70.3438 )
+rotation = -1.31731
+
+[node name="Placeholder20" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -268.032, -63 )
+rotation = -1.31731
+
+[node name="Placeholder21" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -306.742, -88.3594 )
+rotation = -1.31731
+
+[node name="Placeholder22" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -353.461, -104.375 )
+rotation = -1.31731
+
+[node name="Placeholder23" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -401.543, -115.688 )
+rotation = -1.31731
+
+[node name="Placeholder24" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -165.196, -13.9453 )
+rotation = -1.97051
+
+[node name="Placeholder25" parent="Placeholders/A100P50-70G20" instance=ExtResource( 2 )]
+position = Vector2( -205.648, -82.125 )
+rotation = -0.630679
+
+[node name="A100P20-50G21" type="Node2D" parent="Placeholders"]
+position = Vector2( 64558.6, -50919.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 333.8, 88.7188 )
+rotation = -1.31731
+
+[node name="Placeholder2" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 279.8, 73.7188 )
+rotation = -1.31731
+
+[node name="Placeholder3" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 223.8, 57.7188 )
+rotation = -1.31731
+
+[node name="Placeholder4" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 167.8, 41.7188 )
+rotation = -1.31731
+
+[node name="Placeholder5" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 113.8, 24.7188 )
+rotation = -1.31731
+
+[node name="Placeholder6" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 61.8005, 13.7188 )
+rotation = -1.31731
+
+[node name="Placeholder7" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 16.8005, -0.28125 )
+rotation = -1.31731
+
+[node name="Placeholder8" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -39.1995, -18.2813 )
+rotation = -1.31731
+
+[node name="Placeholder9" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -87.1995, -31.2813 )
+rotation = -1.31731
+
+[node name="Placeholder10" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -134.199, -41.2813 )
+rotation = -1.31731
+
+[node name="Placeholder11" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -201.199, -61.2813 )
+rotation = -1.31731
+
+[node name="Placeholder12" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -249.199, -74.2813 )
+rotation = -1.31731
+
+[node name="Placeholder13" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -293.199, -88.2813 )
+rotation = -1.31731
+
+[node name="Placeholder14" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -341.199, -100.281 )
+rotation = -1.31731
+
+[node name="Placeholder15" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -393.199, -117.281 )
+rotation = -1.31731
+
+[node name="Placeholder16" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -256.199, -59.2813 )
+rotation = -1.31731
+
+[node name="Placeholder17" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( -78.1995, -16.2813 )
+rotation = -1.31731
+
+[node name="Placeholder18" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 134.801, 45.7188 )
+rotation = -1.31731
+
+[node name="Placeholder19" parent="Placeholders/A100P20-50G21" instance=ExtResource( 2 )]
+position = Vector2( 358.801, 109.719 )
+rotation = -1.31731
+
+[node name="A50P50G22" type="Node2D" parent="Placeholders"]
+position = Vector2( 63682.7, -51166.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( 386.742, 106.109 )
+rotation = -1.31731
+
+[node name="Placeholder2" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( 328.472, 102.93 )
+rotation = -1.31731
+
+[node name="Placeholder3" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( 214.051, 59.4922 )
+rotation = -1.31731
+
+[node name="Placeholder4" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( 120.816, 33 )
+rotation = -1.31731
+
+[node name="Placeholder5" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( 42.4177, 11.8125 )
+rotation = -1.31731
+
+[node name="Placeholder6" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -33.8635, -9.375 )
+rotation = -1.31731
+
+[node name="Placeholder7" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -108.024, -30.5625 )
+rotation = -1.31731
+
+[node name="Placeholder8" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -188.543, -51.75 )
+rotation = -1.31731
+
+[node name="Placeholder9" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -258.465, -70.8125 )
+rotation = -1.31731
+
+[node name="Placeholder10" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -342.16, -95.1719 )
+rotation = -1.31731
+
+[node name="Placeholder11" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -400.43, -108.945 )
+rotation = -1.32319
+
+[node name="Placeholder12" parent="Placeholders/A50P50G22" instance=ExtResource( 2 )]
+position = Vector2( -455.176, -124.055 )
+rotation = -1.32319
+
+[node name="A30P70G23" type="Node2D" parent="Placeholders"]
+position = Vector2( 63191.1, -51175 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A30P70G23" instance=ExtResource( 2 )]
+position = Vector2( 13.8123, -18.9063 )
+rotation = -1.31731
+
+[node name="Placeholder2" parent="Placeholders/A30P70G23" instance=ExtResource( 2 )]
+position = Vector2( 3.2146, -1.96094 )
+rotation = -1.31731
+
+[node name="Placeholder3" parent="Placeholders/A30P70G23" instance=ExtResource( 2 )]
+position = Vector2( -5.26196, 17.1094 )
+rotation = -1.31731
+
+[node name="Placeholder4" parent="Placeholders/A30P70G23" instance=ExtResource( 2 )]
+position = Vector2( -15.8557, 31.9453 )
+rotation = -1.31731
+
+[node name="Placeholder5" parent="Placeholders/A30P70G23" instance=ExtResource( 2 )]
+position = Vector2( -27.5081, 45.7188 )
+rotation = -1.31731
+
+[node name="A50-70P60-90G7" type="Node2D" parent="Placeholders"]
+position = Vector2( 115670, -80770 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 132.453, 180.984 )
+rotation = -2.12489
+
+[node name="Placeholder2" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 97.9766, 114.547 )
+rotation = -2.12489
+
+[node name="Placeholder4" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 70.2266, 92.6719 )
+rotation = -1.26857
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder5" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 61.8203, 67.4531 )
+rotation = -1.26857
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder6" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 49.2109, 41.375 )
+rotation = -1.26857
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder7" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 37.4375, 11.0938 )
+rotation = -1.58347
+
+[node name="Placeholder8" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 33.2344, -14.125 )
+rotation = -1.58347
+
+[node name="Placeholder9" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 33.2344, -42.7188 )
+rotation = -1.58347
+
+[node name="Placeholder10" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 37.4375, -157.906 )
+rotation = -1.89306
+
+[node name="Placeholder11" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 45.8438, -183.969 )
+rotation = -1.89306
+
+[node name="Placeholder12" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 57.6172, -217.594 )
+rotation = -1.89306
+
+[node name="Placeholder13" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 64.3359, -243.656 )
+rotation = -1.89306
+
+[node name="Placeholder14" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 72.7422, -272.25 )
+rotation = -1.89306
+
+[node name="Placeholder15" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 32.375, -101.563 )
+rotation = 8.9407e-05
+
+[node name="Placeholder16" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 16.3984, -89.7969 )
+rotation = 8.9407e-05
+
+[node name="Placeholder17" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -2.9375, 47.2891 )
+rotation = 2.02962
+
+[node name="Placeholder18" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -7.96875, 22.9063 )
+rotation = 2.02962
+
+[node name="Placeholder19" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -227.438, -42.6719 )
+rotation = -2.98098
+
+[node name="Placeholder20" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -206.406, -19.9688 )
+rotation = -2.83295
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder21" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -150.031, 16.2031 )
+rotation = -2.83295
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder22" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -96.2031, 54.875 )
+rotation = -2.83295
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder23" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -34.8281, 114.594 )
+rotation = -2.83295
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder24" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -13.8125, 130.563 )
+rotation = -2.83295
+scale = Vector2( 1, 1 )
+
+[node name="Placeholder25" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 13.9531, 132.234 )
+rotation = -2.23423
+
+[node name="Placeholder26" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -72.6563, 75.8906 )
+rotation = -2.23423
+
+[node name="Placeholder27" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -46.5938, 87.6563 )
+rotation = -1.6734
+
+[node name="Placeholder28" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -176.102, 2.71875 )
+rotation = -0.490268
+
+[node name="Placeholder29" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -83.6094, -16.625 )
+rotation = -0.490268
+
+[node name="Placeholder30" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -139.125, -27.5469 )
+rotation = -3.0005
+
+[node name="Placeholder31" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( -126.516, -107.438 )
+rotation = 1.69914
+
+[node name="Placeholder32" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 149.414, 261.719 )
+rotation = -2.11016
+
+[node name="Placeholder3" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
+position = Vector2( 113.117, 146.5 )
+rotation = -1.61078
+
+[node name="A100P90G8" type="Node2D" parent="Placeholders"]
+position = Vector2( 118308, -78547.8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -227.367, -265.383 )
+rotation = -0.760071
+
+[node name="Placeholder2" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -233.031, -246.508 )
+rotation = -0.760071
+
+[node name="Placeholder3" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -198.109, -235.188 )
+rotation = -0.760071
+
+[node name="Placeholder4" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -202.836, -216.313 )
+rotation = -0.760071
+
+[node name="Placeholder5" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -167.906, -202.156 )
+rotation = -0.710283
+
+[node name="Placeholder6" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -171.68, -178.563 )
+rotation = -0.710283
+
+[node name="Placeholder7" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -136.758, -168.18 )
+rotation = -0.710283
+
+[node name="Placeholder8" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -143.359, -143.648 )
+rotation = -0.710283
+
+[node name="Placeholder9" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -108.438, -134.211 )
+rotation = -0.710283
+
+[node name="Placeholder10" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -113.156, -109.664 )
+rotation = -0.710283
+
+[node name="Placeholder11" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -78.2344, -100.227 )
+rotation = -0.710283
+
+[node name="Placeholder12" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -78.2344, -69.0781 )
+rotation = -0.710283
+
+[node name="Placeholder13" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -43.3125, -61.5313 )
+rotation = -0.710283
+
+[node name="Placeholder14" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -46.1406, -31.3125 )
+rotation = -0.710283
+
+[node name="Placeholder15" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -12.1641, -28.4844 )
+rotation = -0.710283
+
+[node name="Placeholder16" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( -13.1094, 1.71875 )
+rotation = -0.710283
+
+[node name="Placeholder17" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 19.9297, 7.38281 )
+rotation = -0.710283
+
+[node name="Placeholder18" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 18.0469, 38.5313 )
+rotation = -0.710283
+
+[node name="Placeholder19" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 52.9688, 47.0234 )
+rotation = -0.710283
+
+[node name="Placeholder20" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 50.1328, 76.2813 )
+rotation = -0.710283
+
+[node name="Placeholder21" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 84.1172, 82.8828 )
+rotation = -0.710283
+
+[node name="Placeholder22" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 85.0625, 113.086 )
+rotation = -0.710283
+
+[node name="Placeholder23" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 116.211, 116.867 )
+rotation = -0.710283
+
+[node name="Placeholder24" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 115.266, 144.242 )
+rotation = -0.710283
+
+[node name="Placeholder25" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 146.414, 151.789 )
+rotation = -0.710283
+
+[node name="Placeholder26" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 145.469, 179.164 )
+rotation = -0.710283
+
+[node name="Placeholder27" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 176.617, 188.602 )
+rotation = -0.710283
+
+[node name="Placeholder28" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 177.555, 215.977 )
+rotation = -0.710283
+
+[node name="Placeholder29" parent="Placeholders/A100P90G8" instance=ExtResource( 2 )]
+position = Vector2( 204.93, 218.805 )
+rotation = -0.710283
+
+[node name="A100P90G9" type="Node2D" parent="Placeholders"]
+position = Vector2( 118766, -78026.7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -226.703, -267.391 )
+rotation = -0.73637
+
+[node name="Placeholder2" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -228.359, -243.836 )
+rotation = -0.708431
+
+[node name="Placeholder30" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -253.719, -273.875 )
+rotation = -0.708431
+
+[node name="Placeholder3" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -198.773, -233.859 )
+rotation = -0.760071
+
+[node name="Placeholder4" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -200.836, -210.297 )
+rotation = -0.760071
+
+[node name="Placeholder5" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -169.906, -201.492 )
+rotation = -0.710283
+
+[node name="Placeholder6" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -171.68, -178.563 )
+rotation = -0.710283
+
+[node name="Placeholder7" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -136.758, -168.18 )
+rotation = -0.710283
+
+[node name="Placeholder8" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -143.359, -143.648 )
+rotation = -0.710283
+
+[node name="Placeholder9" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -108.438, -134.211 )
+rotation = -0.710283
+
+[node name="Placeholder10" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -113.156, -109.664 )
+rotation = -0.710283
+
+[node name="Placeholder11" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -78.2344, -100.227 )
+rotation = -0.710283
+
+[node name="Placeholder12" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -78.2344, -69.0781 )
+rotation = -0.710283
+
+[node name="Placeholder13" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -43.3125, -61.5313 )
+rotation = -0.710283
+
+[node name="Placeholder14" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -46.1406, -31.3125 )
+rotation = -0.710283
+
+[node name="Placeholder15" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -12.1641, -28.4844 )
+rotation = -0.710283
+
+[node name="Placeholder16" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( -13.1094, 1.71875 )
+rotation = -0.710283
+
+[node name="Placeholder17" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 19.9297, 7.38281 )
+rotation = -0.710283
+
+[node name="Placeholder18" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 18.0469, 38.5313 )
+rotation = -0.710283
+
+[node name="Placeholder19" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 52.9688, 47.0234 )
+rotation = -0.710283
+
+[node name="Placeholder20" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 50.1328, 76.2813 )
+rotation = -0.710283
+
+[node name="Placeholder21" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 84.1172, 82.8828 )
+rotation = -0.710283
+
+[node name="Placeholder22" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 85.0625, 113.086 )
+rotation = -0.710283
+
+[node name="Placeholder23" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 115.539, 118.867 )
+rotation = -0.710283
+
+[node name="Placeholder24" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 115.266, 147.578 )
+rotation = -0.710283
+
+[node name="Placeholder25" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 146.414, 153.133 )
+rotation = -0.710283
+
+[node name="Placeholder26" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 146.805, 182.5 )
+rotation = -0.710283
+
+[node name="Placeholder27" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 176.617, 191.93 )
+rotation = -0.710283
+
+[node name="Placeholder28" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 177.555, 220.648 )
+rotation = -0.710283
+
+[node name="Placeholder29" parent="Placeholders/A100P90G9" instance=ExtResource( 2 )]
+position = Vector2( 205.602, 224.148 )
+rotation = -0.710283
+
+[node name="A100P90G10" type="Node2D" parent="Placeholders"]
+position = Vector2( 122140, -73346.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -246.047, -399.414 )
+rotation = -0.598466
+
+[node name="Placeholder2" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -220.82, -363.258 )
+rotation = -0.598466
+
+[node name="Placeholder3" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -194.75, -323.734 )
+rotation = -0.598466
+
+[node name="Placeholder4" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -171.211, -281.688 )
+rotation = -0.598466
+
+[node name="Placeholder5" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -143.461, -245.531 )
+rotation = -0.598466
+
+[node name="Placeholder6" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -120.75, -209.375 )
+rotation = -0.598466
+
+[node name="Placeholder7" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -94.6875, -170.688 )
+rotation = -0.598466
+
+[node name="Placeholder8" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -66.9375, -131.156 )
+rotation = -0.598466
+
+[node name="Placeholder9" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -45.0781, -94.1641 )
+rotation = -0.598466
+
+[node name="Placeholder10" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -21.5313, -59.6875 )
+rotation = -0.598466
+
+[node name="Placeholder11" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 0.328125, -21.8438 )
+rotation = -0.598466
+
+[node name="Placeholder12" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 23.875, 10.9531 )
+rotation = -0.598466
+
+[node name="Placeholder13" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 46.5859, 47.9531 )
+rotation = -0.598466
+
+[node name="Placeholder14" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 71.8125, 85.7891 )
+rotation = -0.598466
+
+[node name="Placeholder15" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 95.3516, 117.742 )
+rotation = -0.598466
+
+[node name="Placeholder16" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 117.211, 155.586 )
+rotation = -0.598466
+
+[node name="Placeholder17" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 144.117, 191.75 )
+rotation = -0.598466
+
+[node name="Placeholder18" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 169.602, 226.672 )
+rotation = -0.598466
+
+[node name="Placeholder19" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 194.148, 265.367 )
+rotation = -0.598466
+
+[node name="Placeholder20" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 167.719, 259.703 )
+rotation = -0.598466
+
+[node name="Placeholder21" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 146.953, 219.117 )
+rotation = -0.598466
+
+[node name="Placeholder22" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 118.633, 184.195 )
+rotation = -0.598466
+
+[node name="Placeholder23" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 95.0313, 148.328 )
+rotation = -0.598466
+
+[node name="Placeholder24" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 70.4922, 112.461 )
+rotation = -0.598466
+
+[node name="Placeholder25" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 47.8359, 77.5391 )
+rotation = -0.598466
+
+[node name="Placeholder26" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( 21.4141, 36.0078 )
+rotation = -0.598466
+
+[node name="Placeholder27" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -1.23438, 4.85938 )
+rotation = -0.598466
+
+[node name="Placeholder28" parent="Placeholders/A100P90G10" instance=ExtResource( 2 )]
+position = Vector2( -26.7188, -34.7813 )
+rotation = -0.598466
+
+[node name="A100P80G11" type="Node2D" parent="Placeholders"]
+position = Vector2( 122638, -72643.5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -297.719, -400.305 )
+rotation = -0.598466
+
+[node name="Placeholder2" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -272.773, -392.281 )
+rotation = -0.598466
+
+[node name="Placeholder3" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -271.883, -362.891 )
+rotation = -0.598466
+
+[node name="Placeholder4" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -243.367, -353.977 )
+rotation = -0.598466
+
+[node name="Placeholder6" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -213.078, -312.102 )
+rotation = -0.598466
+
+[node name="Placeholder8" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -183.68, -272.898 )
+rotation = -0.598466
+
+[node name="Placeholder9" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -181.898, -244.391 )
+rotation = -0.598466
+
+[node name="Placeholder10" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -152.5, -233.703 )
+rotation = -0.598466
+
+[node name="Placeholder12" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -120.422, -189.156 )
+rotation = -0.598466
+
+[node name="Placeholder14" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -92.8047, -149.07 )
+rotation = -0.598466
+
+[node name="Placeholder15" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -99.9375, -122.344 )
+rotation = -0.551205
+
+[node name="Placeholder16" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -70.5391, -109.875 )
+rotation = -0.551205
+
+[node name="Placeholder17" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -74.9922, -83.1484 )
+rotation = -0.551205
+
+[node name="Placeholder18" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -42.0234, -69.7813 )
+rotation = -0.551205
+
+[node name="Placeholder19" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( -13.5156, -31.4766 )
+rotation = -0.551205
+
+[node name="Placeholder20" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 8.75781, 5.94531 )
+rotation = -0.535446
+
+[node name="Placeholder21" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 11.0078, 45.6563 )
+rotation = -0.535446
+
+[node name="Placeholder22" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 36.4844, 50.1484 )
+rotation = -0.535446
+
+[node name="Placeholder23" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 61.2109, 86.1094 )
+rotation = -0.535446
+
+[node name="Placeholder24" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 84.4297, 124.313 )
+rotation = -0.535446
+
+[node name="Placeholder25" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 73.9453, 143.047 )
+rotation = -0.535446
+
+[node name="Placeholder26" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 107.656, 160.281 )
+rotation = -0.535446
+
+[node name="Placeholder27" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 119.641, 211.227 )
+rotation = -0.535446
+
+[node name="Placeholder28" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 132.375, 195.5 )
+rotation = -0.535446
+
+[node name="Placeholder29" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 154.852, 232.961 )
+rotation = -0.535446
+
+[node name="Placeholder30" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 143.609, 248.695 )
+rotation = -0.535446
+
+[node name="Placeholder31" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 178.07, 269.672 )
+rotation = -0.535446
+
+[node name="Placeholder32" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 167.578, 286.906 )
+rotation = -0.535446
+
+[node name="Placeholder33" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 200.539, 307.133 )
+rotation = -0.535446
+
+[node name="Placeholder34" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 220.016, 343.844 )
+rotation = -0.471269
+
+[node name="Placeholder35" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 240.242, 382.055 )
+rotation = -0.428455
+
+[node name="Placeholder36" parent="Placeholders/A100P80G11" instance=ExtResource( 2 )]
+position = Vector2( 256.719, 422.516 )
+rotation = -0.398833
+
+[node name="A100P90G12" type="Node2D" parent="Placeholders"]
+position = Vector2( 123062, -71711.7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -133.477, -372 )
+rotation = -0.366126
+
+[node name="Placeholder2" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -118.133, -333.297 )
+rotation = -0.366126
+
+[node name="Placeholder3" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -104.781, -294.578 )
+rotation = -0.366126
+
+[node name="Placeholder4" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -90.1016, -251.203 )
+rotation = -0.336282
+
+[node name="Placeholder5" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -76.0859, -208.484 )
+rotation = -0.336282
+
+[node name="Placeholder6" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -50.7266, -192.469 )
+rotation = -0.336282
+
+[node name="Placeholder7" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -62.7344, -167.773 )
+rotation = -0.336282
+
+[node name="Placeholder8" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -36.7031, -156.422 )
+rotation = -0.336282
+
+[node name="Placeholder9" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -52.0547, -130.391 )
+rotation = -0.336282
+
+[node name="Placeholder10" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -24.0234, -119.047 )
+rotation = -0.336282
+
+[node name="Placeholder11" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -34.7031, -92.3516 )
+rotation = -0.336282
+
+[node name="Placeholder12" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( -22.6875, -53.6406 )
+rotation = -0.336282
+
+[node name="Placeholder13" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 6.67188, -22.2656 )
+rotation = -0.336282
+
+[node name="Placeholder14" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 19.3516, 17.7813 )
+rotation = -0.336282
+
+[node name="Placeholder15" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 33.3672, 55.1563 )
+rotation = -0.336282
+
+[node name="Placeholder16" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 63.3984, 131.906 )
+rotation = -0.336282
+
+[node name="Placeholder17" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 75.4141, 167.953 )
+rotation = -0.336282
+
+[node name="Placeholder18" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 98.1016, 219.344 )
+rotation = -0.336282
+
+[node name="Placeholder19" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 112.117, 260.063 )
+rotation = -0.336282
+
+[node name="Placeholder20" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 106.781, 302.773 )
+rotation = -0.336282
+
+[node name="Placeholder21" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 127.469, 302.109 )
+rotation = -0.336282
+
+[node name="Placeholder22" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 122.227, 341.07 )
+rotation = -0.336282
+
+[node name="Placeholder23" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 141.703, 343.32 )
+rotation = -0.336282
+
+[node name="Placeholder24" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 155.188, 382.273 )
+rotation = -0.336282
+
+[node name="Placeholder25" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 170.172, 418.234 )
+rotation = -0.336282
+
+[node name="Placeholder26" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 185.156, 459.438 )
+rotation = -0.336282
+
+[node name="Placeholder27" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 200.891, 499.891 )
+rotation = -0.336282
+
+[node name="Placeholder28" parent="Placeholders/A100P90G12" instance=ExtResource( 2 )]
+position = Vector2( 214.375, 542.586 )
+rotation = -0.336282
+
+[node name="A100P90G13" type="Node2D" parent="Placeholders"]
+position = Vector2( 123420, -70737.3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -127.125, -383.117 )
+rotation = -0.343272
+
+[node name="Placeholder2" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -108.867, -337.086 )
+rotation = -0.343272
+
+[node name="Placeholder3" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -93.7891, -292.641 )
+rotation = -0.343272
+
+[node name="Placeholder4" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -80.2969, -253.75 )
+rotation = -0.343272
+
+[node name="Placeholder5" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -64.4219, -214.859 )
+rotation = -0.343272
+
+[node name="Placeholder6" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -49.3438, -176.758 )
+rotation = -0.343272
+
+[node name="Placeholder7" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -35.8516, -133.898 )
+rotation = -0.343272
+
+[node name="Placeholder8" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -20.7734, -95.7969 )
+rotation = -0.343272
+
+[node name="Placeholder9" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( -4.89844, -50.5547 )
+rotation = -0.343272
+
+[node name="Placeholder10" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 10.1797, -9.28125 )
+rotation = -0.343272
+
+[node name="Placeholder11" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 27.6406, 34.3672 )
+rotation = -0.343272
+
+[node name="Placeholder12" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 42.7188, 75.6406 )
+rotation = -0.343272
+
+[node name="Placeholder13" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 58.5938, 116.914 )
+rotation = -0.343272
+
+[node name="Placeholder14" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 72.875, 153.422 )
+rotation = -0.343272
+
+[node name="Placeholder15" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 87.9609, 197.078 )
+rotation = -0.343272
+
+[node name="Placeholder16" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 101.461, 239.141 )
+rotation = -0.343272
+
+[node name="Placeholder17" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 132.422, 318.508 )
+rotation = -0.343272
+
+[node name="Placeholder19" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 147.5, 359.781 )
+rotation = -0.343272
+
+[node name="Placeholder20" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 160.203, 398.68 )
+rotation = -0.343272
+
+[node name="Placeholder21" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 176.07, 438.367 )
+rotation = -0.343272
+
+[node name="Placeholder22" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 189.563, 474.875 )
+rotation = -0.343272
+
+[node name="Placeholder23" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 204.641, 511.383 )
+rotation = -0.343272
+
+[node name="Placeholder24" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 217.344, 549.477 )
+rotation = -0.343272
+
+[node name="Placeholder25" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 230.836, 585.984 )
+rotation = -0.343272
+
+[node name="Placeholder18" parent="Placeholders/A100P90G13" instance=ExtResource( 2 )]
+position = Vector2( 117.336, 278.828 )
+rotation = -0.343272
+
+[node name="A90P40-70G14" type="Node2D" parent="Placeholders"]
+position = Vector2( 96766.7, -95770.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -337.43, -247.344 )
+rotation = -1.13231
+
+[node name="Placeholder2" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -294.961, -226.578 )
+rotation = -1.13231
+
+[node name="Placeholder3" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -250.602, -206.75 )
+rotation = -1.13231
+
+[node name="Placeholder4" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -203.406, -180.313 )
+rotation = -0.985816
+
+[node name="Placeholder5" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -164.711, -151.047 )
+rotation = -0.870699
+
+[node name="Placeholder6" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -130.734, -118.008 )
+rotation = -0.756966
+
+[node name="Placeholder7" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -95.8125, -80.2578 )
+rotation = -0.756966
+
+[node name="Placeholder8" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -63.7188, -44.3906 )
+rotation = -0.756966
+
+[node name="Placeholder9" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( -25.9609, -12.3047 )
+rotation = -1.03587
+
+[node name="Placeholder10" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 23.1172, 11.2969 )
+rotation = -1.36955
+
+[node name="Placeholder11" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 74.0859, 16.0156 )
+rotation = -1.55292
+
+[node name="Placeholder12" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 120.336, 13.1875 )
+rotation = -1.55292
+
+[node name="Placeholder13" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 171.305, 11.3125 )
+rotation = -1.55292
+
+[node name="Placeholder14" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 222.273, 12.25 )
+rotation = -1.46921
+
+[node name="Placeholder15" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 271.352, 19.7969 )
+rotation = -1.37581
+
+[node name="Placeholder16" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 316.656, 35.8281 )
+rotation = -1.18452
+
+[node name="Placeholder17" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 368.57, 61.3125 )
+rotation = -0.929348
+
+[node name="Placeholder18" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 407.266, 93.4063 )
+rotation = -0.83213
+
+[node name="Placeholder19" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 445.023, 127.391 )
+rotation = -0.830977
+
+[node name="Placeholder20" parent="Placeholders/A90P40-70G14" instance=ExtResource( 2 )]
+position = Vector2( 487.5, 163.258 )
+rotation = -0.830977
+
+[node name="A100P90G15" type="Node2D" parent="Placeholders"]
+position = Vector2( 88083.3, -92081.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -243.172, -556.875 )
+rotation = 2.74833
+
+[node name="Placeholder2" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -224.266, -511.531 )
+rotation = 2.74833
+
+[node name="Placeholder3" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -204.438, -463.391 )
+rotation = 2.74833
+
+[node name="Placeholder4" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -185.563, -419.047 )
+rotation = 2.74833
+
+[node name="Placeholder5" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -165.734, -371.859 )
+rotation = 2.74833
+
+[node name="Placeholder6" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -144.953, -329.391 )
+rotation = 2.74833
+
+[node name="Placeholder7" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -126.063, -284.094 )
+rotation = 2.74833
+
+[node name="Placeholder8" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -105.313, -236.906 )
+rotation = 2.74833
+
+[node name="Placeholder9" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -85.5, -191.594 )
+rotation = 2.74833
+
+[node name="Placeholder10" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -72.2969, -150.063 )
+rotation = 2.74833
+
+[node name="Placeholder11" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -52.4688, -100.984 )
+rotation = 2.74833
+
+[node name="Placeholder12" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -35.4844, -62.2969 )
+rotation = 2.74833
+
+[node name="Placeholder13" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( -16.6094, -17.9375 )
+rotation = 2.74833
+
+[node name="Placeholder14" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 4.15625, 26.4219 )
+rotation = 2.74833
+
+[node name="Placeholder15" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 25.8594, 71.7188 )
+rotation = 2.74833
+
+[node name="Placeholder16" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 45.6875, 121.734 )
+rotation = 2.74833
+
+[node name="Placeholder17" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 65.5, 171.75 )
+rotation = 2.74833
+
+[node name="Placeholder18" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 84.3906, 213.281 )
+rotation = 2.74833
+
+[node name="Placeholder19" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 102.328, 261.422 )
+rotation = 2.77618
+
+[node name="Placeholder20" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 119.328, 306.734 )
+rotation = 2.81854
+
+[node name="Placeholder21" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 134.422, 354.875 )
+rotation = 2.85027
+
+[node name="Placeholder22" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 151.406, 402.063 )
+rotation = 2.89089
+
+[node name="Placeholder23" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 166.5, 451.156 )
+rotation = 2.89089
+
+[node name="Placeholder24" parent="Placeholders/A100P90G15" instance=ExtResource( 2 )]
+position = Vector2( 178.781, 505.906 )
+rotation = 2.96737
+
+[node name="A100P90G16" type="Node2D" parent="Placeholders"]
+position = Vector2( 88249.4, -90801.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 24.5, -722.094 )
+rotation = 2.98159
+
+[node name="Placeholder2" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 33.2344, -672.875 )
+rotation = 2.98159
+
+[node name="Placeholder3" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 38.0156, -621.281 )
+rotation = 3.09799
+
+[node name="Placeholder4" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 38.7969, -570.484 )
+rotation = 3.09799
+
+[node name="Placeholder5" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 41.1719, -512.531 )
+rotation = 3.09799
+
+[node name="Placeholder6" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 42.7656, -458.563 )
+rotation = 3.09799
+
+[node name="Placeholder7" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 42.7656, -401.422 )
+rotation = 3.1606
+
+[node name="Placeholder8" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 42.7656, -347.453 )
+rotation = 3.1606
+
+[node name="Placeholder9" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 39.5938, -294.266 )
+rotation = 3.1606
+
+[node name="Placeholder10" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 37.2031, -245.047 )
+rotation = 3.21806
+
+[node name="Placeholder11" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 31.6406, -193.453 )
+rotation = 3.26293
+
+[node name="Placeholder12" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 25.2969, -149.797 )
+rotation = 3.26293
+
+[node name="Placeholder13" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 18.1719, -99 )
+rotation = 3.28096
+
+[node name="Placeholder14" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( 8.64063, -42.6406 )
+rotation = 3.33162
+
+[node name="Placeholder15" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -13.5781, 32.7656 )
+rotation = 3.39289
+
+[node name="Placeholder16" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -27.8594, 78.0156 )
+rotation = 3.46936
+
+[node name="Placeholder17" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -45.3281, 125.625 )
+rotation = 3.54496
+
+[node name="Placeholder18" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -62.7813, 168.484 )
+rotation = 3.54496
+
+[node name="Placeholder19" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -81.8125, 214.516 )
+rotation = 3.54496
+
+[node name="Placeholder20" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -102.438, 258.969 )
+rotation = 3.54496
+
+[node name="Placeholder21" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -124.656, 306.578 )
+rotation = 3.62175
+
+[node name="Placeholder22" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -150.852, 353.406 )
+rotation = 3.62175
+
+[node name="Placeholder23" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -177.055, 401.828 )
+rotation = 3.66528
+
+[node name="Placeholder24" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -204.039, 445.484 )
+rotation = 3.66528
+
+[node name="Placeholder25" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -235.781, 489.938 )
+rotation = 3.78703
+
+[node name="Placeholder26" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -265.148, 526.469 )
+rotation = 3.78703
+
+[node name="Placeholder27" parent="Placeholders/A100P90G16" instance=ExtResource( 2 )]
+position = Vector2( -293.719, 563.781 )
+rotation = 3.78703
+
+[node name="A100P100G17" type="Node2D" parent="Placeholders"]
+position = Vector2( 82473.3, -74213.2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( 6.23438, -69.5 )
+rotation = -2.94173
+
+[node name="Placeholder2" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( 18.7031, -65.9375 )
+rotation = -2.94173
+
+[node name="Placeholder3" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -1.79688, -39.2188 )
+rotation = -2.94173
+
+[node name="Placeholder4" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( 8.89063, -33.875 )
+rotation = -2.94173
+
+[node name="Placeholder5" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -8.92188, -9.8125 )
+rotation = -2.94173
+
+[node name="Placeholder6" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -0.015625, -0.015625 )
+rotation = -2.94173
+
+[node name="Placeholder7" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -13.3906, 24.0313 )
+rotation = -2.94173
+
+[node name="Placeholder8" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -4.48438, 32.9375 )
+rotation = -2.94173
+
+[node name="Placeholder9" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -22.2969, 57 )
+rotation = -2.94173
+
+[node name="Placeholder10" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -10.7031, 64.125 )
+rotation = -2.94173
+
+[node name="Placeholder11" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -30.2969, 94.4063 )
+rotation = -2.94173
+
+[node name="Placeholder12" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -17.8281, 94.4063 )
+rotation = -2.94173
+
+[node name="Placeholder13" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -36.5156, 125.578 )
+rotation = -2.94173
+
+[node name="Placeholder14" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -25.8281, 127.359 )
+rotation = -2.94173
+
+[node name="Placeholder15" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -44.5313, 160.328 )
+rotation = -2.94173
+
+[node name="Placeholder16" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -32.9531, 161.219 )
+rotation = -2.94173
+
+[node name="Placeholder17" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -51.6719, 192.391 )
+rotation = -2.94173
+
+[node name="Placeholder18" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -40.0781, 195.063 )
+rotation = -2.94173
+
+[node name="Placeholder19" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -60.5625, 223.578 )
+rotation = -2.94173
+
+[node name="Placeholder20" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -47.2031, 224.469 )
+rotation = -2.94173
+
+[node name="Placeholder21" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -65.0156, 255.656 )
+rotation = -2.94173
+
+[node name="Placeholder22" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -54.3281, 255.656 )
+rotation = -2.94173
+
+[node name="Placeholder23" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -73.0469, 288.625 )
+rotation = -2.94173
+
+[node name="Placeholder24" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -59.6719, 288.625 )
+rotation = -2.94173
+
+[node name="Placeholder25" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -81.0469, 318.016 )
+rotation = -2.94173
+
+[node name="Placeholder26" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -69.4688, 318.016 )
+rotation = -2.94173
+
+[node name="Placeholder27" parent="Placeholders/A100P100G17" instance=ExtResource( 2 )]
+position = Vector2( -78.375, 349.188 )
+rotation = -2.94173
+
+[node name="A100P40-70G18" type="Node2D" parent="Placeholders"]
+position = Vector2( 82467.4, -74055.6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( 37.4219, -210.25 )
+rotation = -2.94173
+
+[node name="Placeholder2" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( 25.8281, -163.922 )
+rotation = -2.94173
+
+[node name="Placeholder3" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( 15.125, -115.828 )
+rotation = -2.94173
+
+[node name="Placeholder4" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( 8, -74.8594 )
+rotation = -2.94173
+
+[node name="Placeholder5" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -5.35938, -27.6406 )
+rotation = -2.94173
+
+[node name="Placeholder6" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -14.2656, 19.5781 )
+rotation = -2.94173
+
+[node name="Placeholder7" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -24.0781, 60.5469 )
+rotation = -2.94173
+
+[node name="Placeholder8" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -34.7656, 106.875 )
+rotation = -2.94173
+
+[node name="Placeholder9" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -46.3594, 151.438 )
+rotation = -2.94173
+
+[node name="Placeholder10" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -53.4844, 192.422 )
+rotation = -2.94173
+
+[node name="Placeholder12" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( 32.0469, 4.42188 )
+rotation = -3.2323
+
+[node name="Placeholder11" parent="Placeholders/A100P40-70G18" instance=ExtResource( 2 )]
+position = Vector2( -41.8906, 236.953 )
+rotation = -3.57914
+
+[node name="A100P80G19" type="Node2D" parent="Placeholders"]
+position = Vector2( 82330.8, -73622 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Placeholder" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 48.1094, -208.469 )
+rotation = -2.94173
+
+[node name="Placeholder2" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 61.4688, -192.438 )
+rotation = -2.94173
+
+[node name="Placeholder3" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 34.75, -176.406 )
+rotation = -2.94173
+
+[node name="Placeholder4" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 44.5625, -162.156 )
+rotation = -2.94173
+
+[node name="Placeholder5" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 53.4844, -139 )
+rotation = -2.94173
+
+[node name="Placeholder6" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 24.9531, -133.656 )
+rotation = -2.94173
+
+[node name="Placeholder7" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 32.0938, -112.281 )
+rotation = -2.94173
+
+[node name="Placeholder8" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 39.2188, -86.4531 )
+rotation = -2.89274
+
+[node name="Placeholder9" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 16.0625, -83.7969 )
+rotation = -2.89274
+
+[node name="Placeholder10" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 24.9688, -54.4063 )
+rotation = -2.89274
+
+[node name="Placeholder11" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 5.35938, -45.5 )
+rotation = -2.89274
+
+[node name="Placeholder12" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 11.5938, -16.9844 )
+rotation = -2.78736
+
+[node name="Placeholder13" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -8.89063, -8.07813 )
+rotation = -2.78736
+
+[node name="Placeholder14" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -5.32813, 24.8906 )
+rotation = -2.78736
+
+[node name="Placeholder15" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -23.1406, 37.3594 )
+rotation = -2.78736
+
+[node name="Placeholder16" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -16.0156, 62.2969 )
+rotation = -2.78736
+
+[node name="Placeholder17" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -38.2813, 81.8906 )
+rotation = -2.78736
+
+[node name="Placeholder18" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -31.1563, 107.734 )
+rotation = -2.78736
+
+[node name="Placeholder19" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -50.75, 125.563 )
+rotation = -2.78736
+
+[node name="Placeholder20" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -43.625, 150.5 )
+rotation = -2.78736
+
+[node name="Placeholder21" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -62.3281, 190.594 )
+rotation = -2.78736
+
+[node name="Placeholder22" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -79.2656, 233.359 )
+rotation = -2.78736
+
+[node name="Placeholder23" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -81.9375, 190.609 )
+rotation = -2.78736
+
+[node name="Placeholder24" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -96.2031, 280.578 )
+rotation = -2.78736
+
+[node name="Placeholder25" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -19.5859, -120.328 )
+rotation = -2.34568
+
+[node name="Placeholder26" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -63.2422, -84.6875 )
+rotation = -2.34568
+
+[node name="Placeholder27" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( -0.882813, -101.609 )
+rotation = -3.19226
+
+[node name="Placeholder28" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 63.2656, -114.953 )
+rotation = -2.13984
+
+[node name="Placeholder29" parent="Placeholders/A100P80G19" instance=ExtResource( 2 )]
+position = Vector2( 48.125, -59.7188 )
+rotation = -2.52555

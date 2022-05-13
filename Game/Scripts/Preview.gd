@@ -22,6 +22,7 @@ func init(pos: Vector2, frame_index: int, color: Color) -> void:
 	global_position = pos
 	picture.frame = frame_index
 	frame.self_modulate = color
+	frame.scale = Vector2.ZERO
 
 func activate() -> void:
 	balloon.layers = layers # collide also with visible balloons

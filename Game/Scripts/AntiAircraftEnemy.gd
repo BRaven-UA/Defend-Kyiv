@@ -27,6 +27,7 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	anti_aircraft = data.get(EnemyManager.ANTIAIRCRAFT, EnemyManager.AA_NONE)
 	var has_rockets: bool = anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]
 	var has_cannon: bool = anti_aircraft in [EnemyManager.AA_CANNON, EnemyManager.AA_BOTH]
+	indicator.visible = true
 	indicator.show_outer_indicator(has_rockets)
 	indicator.show_inner_indicator(has_cannon)
 	

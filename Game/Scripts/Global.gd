@@ -50,6 +50,11 @@ func _ready() -> void:
 		timer.connect("timeout", self, "_on_timer_timeout")
 		add_child(timer)
 		timer.start()
+	
+	if OS.is_debug_build(): # only for debug purposes. Cuts off all groups that already behind player st the start of the game
+		for index in places.groups.size():
+			if places.groups[index].Offset < path_follow.offset:
+				places.groups.resize(index)
 
 func clamp_int(value: int, min_value: int, max_value: int) -> int:
 	if value > max_value: return max_value
@@ -89,14 +94,22 @@ func pos_to_offset(pos: Vector2) -> float:
 
 # called periodically during the game (by default every second)
 func _routine() -> void:
+	var offset = path_follow.offset
+	
+	# spawn enemies before
 	if places.groups:
 		var group_data = places.groups.back() # groups must be sorted by offset in descending order
-		var max_offset = path_follow.offset + viewport_size.y * 2
+		var max_offset = offset + viewport_size.y * 2
 		if group_data.Offset < max_offset:
 			EnemyManager.spawn_enemy_group(group_data)
 			places.groups.resize(places.groups.size() - 1)
+	else: # end of map
+		timer.stop()
+		yield(tree.create_timer(viewport_size.y / path_follow.scroll_speed), "timeout")
+		path_follow.set_scroll_speed(0)
 	
-	var min_offset = path_follow.offset - viewport_size.y * 2
+	# back reusable objects behind
+	var min_offset = offset - viewport_size.y * 2
 	for node in tree.get_nodes_in_group(REUSABLE):
 		if node.get_meta("Offset") < min_offset:
 			node.get_parent().remove_child(node) # back to an object pool

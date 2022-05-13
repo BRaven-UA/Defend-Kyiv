@@ -112,7 +112,7 @@ _global_script_class_icons={
 
 config/name="Road to Kyiv"
 run/main_scene="res://Game/Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Classic icon.png"
 
 [autoload]
 

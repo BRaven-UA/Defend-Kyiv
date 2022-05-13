@@ -4,7 +4,7 @@
 [ext_resource path="res://Game/Scripts/AntiAircraftEnemy.gd" type="Script" id=2]
 [ext_resource path="res://Game/Prefabs/RadialIndicator.tscn" type="PackedScene" id=3]
 
-[node name="Enemy" instance=ExtResource( 1 )]
+[node name="AA_Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="RadialIndicator" parent="." index="4" instance=ExtResource( 3 )]
