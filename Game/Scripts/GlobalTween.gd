@@ -7,20 +7,20 @@ onready var noise = OpenSimplexNoise.new()
 
 
 func _ready() -> void:
-	playback_process_mode = TWEEN_PROCESS_PHYSICS
+#	playback_process_mode = TWEEN_PROCESS_PHYSICS
 	noise.period = 2
 
 # basic show up animation
-func show_up_preview(preview: Preview) -> void:
-	stop(preview) # stop all preview animations
-	interpolate_property(preview.frame, "scale", Vector2.ZERO, Vector2.ONE, PREVIEW_DURATION)
+func show_up_preview(frame: Node2D) -> void:
+	stop(frame) # stop all preview animations
+	interpolate_property(frame, "scale", Vector2.ZERO, Vector2.ONE, PREVIEW_DURATION)
 	start()
 
 # basic fade animation (respecting current scale)
-func fade_preview(preview: Preview) -> void:
-	stop(preview) # stop all preview animations
-	var _duration = preview.frame.scale.x * PREVIEW_DURATION
-	interpolate_property(preview.frame, "scale", preview.scale, Vector2.ZERO, _duration)
+func fade_preview(frame: Node2D) -> void:
+	stop(frame) # stop all preview animations
+	var duration = frame.scale.x * PREVIEW_DURATION
+	interpolate_property(frame, "scale", frame.scale, Vector2.ZERO, duration)
 	start()
 
 func explosion_flash(flash: Sprite, scale: float) -> void:

@@ -13,6 +13,7 @@ var ready_to_fire: bool = true
 
 onready var shadow: Sprite = find_node("Shadow")
 onready var crossair: Sprite = find_node("Crossair")
+onready var crossair_shadow: Sprite = find_node("CrossairShadow")
 onready var highlight: Area2D = find_node("Highlight") # an area of highlighted vehicles with preview
 onready var pusher: KinematicBody2D = find_node("BalloonPusher") # a physics body that pushes off preview balloons
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
@@ -47,9 +48,6 @@ func _process(delta: float) -> void:
 	# setting animation
 	animation_tree.set("parameters/Direction/blend_position", direction)
 	
-	# adjust shadow position
-	shadow.global_position = global_position + Global.SHADOW * 100
-	
 	# moving the crossair, highlight area and preview pusher
 	var _pos = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
 	crossair.position = _pos
@@ -57,6 +55,10 @@ func _process(delta: float) -> void:
 	pusher.position = _pos
 	var _spread_value = _pos.length() * RocketBase.SPREAD
 	crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
+	
+	# adjust shadow position
+	shadow.global_position = global_position + Global.SHADOW * 100
+	crossair_shadow.position = Global.SHADOW.rotated(-crossair_shadow.global_rotation) * 7.0
 	
 	if Input.is_action_pressed("fire_rocket") and ready_to_fire and rockets_amount:
 		fire_rocket()

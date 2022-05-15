@@ -17,6 +17,7 @@ func _ready() -> void:
 	connect("area_exited", self, "_on_area_exited")
 
 func init(data: Dictionary, pos: Vector2, rot: float) -> void:
+	name = data[EnemyManager.NAME]
 	position = pos
 	rotation = rot
 	on_map_shadow.position = Global.SHADOW.rotated(-rot) * 2.5
@@ -27,6 +28,7 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	
 	var frame_index = data[EnemyManager.FRAME]
 	on_map_picture.frame = frame_index
+	on_map_shadow.frame = frame_index
 	
 	preview = PoolManager.get_preview()
 	if Global.path_follow:

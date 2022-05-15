@@ -632,8 +632,15 @@ vframes = 6
 frame = 6
 
 [node name="Crossair" type="Sprite" parent="."]
+self_modulate = Color( 1, 0.945098, 0.619608, 1 )
 position = Vector2( 0, -200 )
-rotation = -1.32419
+texture = ExtResource( 7 )
+
+[node name="CrossairShadow" type="Sprite" parent="Crossair"]
+self_modulate = Color( 0, 0, 0, 0.498039 )
+show_behind_parent = true
+material = ExtResource( 8 )
+position = Vector2( 4.71938, 4.71938 )
 texture = ExtResource( 7 )
 
 [node name="Highlight" type="Area2D" parent="."]

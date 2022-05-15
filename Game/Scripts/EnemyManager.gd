@@ -29,11 +29,7 @@ func _ready() -> void:
 	for enemy_data in ENEMIES:
 		total_chance += CHANCES[enemy_data[RARITY]]
 	
-#	spawn_enemy(ENEMIES[11], Vector2(0, -300), 0)
-#	spawn_enemy(ENEMIES[11], Vector2(66016, -50509), 73)
-#	spawn_enemy(ENEMIES[2], Vector2(66944, -48930), 0)
-#	spawn_enemy(ENEMIES[2], Vector2(66887, -51707), 0)
-#	spawn_enemy(ENEMIES[2], Vector2(68640, -50055), 0)
+#	spawn_enemy(ENEMIES[3], Vector2(63310, -51262), 0)
 	
 #	for group_data in Global.places.groups:
 #		spawn_enemy_group(group_data)

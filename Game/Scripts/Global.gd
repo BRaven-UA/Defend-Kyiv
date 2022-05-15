@@ -61,6 +61,14 @@ func clamp_int(value: int, min_value: int, max_value: int) -> int:
 	if value < min_value: return min_value
 	return value
 
+func bump_camera() -> void:
+	if camera:
+		var shift = Vector2.ONE
+		camera.offset += shift
+		yield(tree.create_timer(0.05), "timeout")
+		if camera.offset:
+			camera.offset -= shift
+
 # simple clamp given rectangle position to match screen rectangle
 func match_screen(rect: Rect2) -> Vector2:
 	var screen_size = viewport_size - rect.size
