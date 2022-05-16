@@ -10,13 +10,19 @@ var vertical_limit: int
 var rocket_launchers: Array # list of the two available rocket launchers
 var current_rocket_launcher_index: int # index of current launcher
 var ready_to_fire: bool = true
+var breakdown_threshold = MAX_HEALTH / 2
+var is_breakdown: bool # engine failure
 
 onready var shadow: Sprite = find_node("Shadow")
+onready var smoke: Particles2D = find_node("Smoke")
 onready var crossair: Sprite = find_node("Crossair")
 onready var crossair_shadow: Sprite = find_node("CrossairShadow")
 onready var highlight: Area2D = find_node("Highlight") # an area of highlighted vehicles with preview
 onready var pusher: KinematicBody2D = find_node("BalloonPusher") # a physics body that pushes off preview balloons
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
+onready var sound: AudioStreamPlayer2D = find_node("Sound")
+onready var breakdown_sound: AudioStreamPlayer2D = find_node("Breakdown")
+onready var empty_sound: AudioStreamPlayer2D = find_node("Empty")
 onready var rocket_timer: Timer = find_node("RocketTimer")
 onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
 
@@ -27,8 +33,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	analog_controller = Global.analog_controller
-	if Global.hud:
-		connect("ammo_changed", Global.hud, "set_ammo")
+#	call_deferred("emit_signal", "health_changed", health) # init the bar
 	
 	rocket_launchers.resize(2)
 	rocket_launchers[0] = find_node("RocketLauncher1")
@@ -60,8 +65,10 @@ func _process(delta: float) -> void:
 	shadow.global_position = global_position + Global.SHADOW * 100
 	crossair_shadow.position = Global.SHADOW.rotated(-crossair_shadow.global_rotation) * 7.0
 	
-	if Input.is_action_pressed("fire_rocket") and ready_to_fire and rockets_amount:
+	if Input.is_action_pressed("fire_rocket") and ready_to_fire:
 		fire_rocket()
+	
+	sound.pitch_scale = engine_efficiency
 
 func _moving(delta: float) -> void:
 	# calculating user input vector
@@ -85,10 +92,9 @@ func _moving(delta: float) -> void:
 	if input_length < 0.1: # lesser than input zead zone or no input at all
 		# the move direction tends to zero
 		direction = direction.move_toward(Vector2.ZERO, acceleration)
-	#	direction = direction.move_toward(Vector2.ZERO, resist_delta)
 	else: # valid input values
 		direction += input_vector.reflect(Vector2.RIGHT) * acceleration # Y-axis is inverted in 2D
-		direction = direction.clamped(1)
+		direction = direction.clamped(engine_efficiency)
 	
 	# move player
 	var velocity_per_frame = direction * PLAYER_SPEED * acceleration
@@ -97,26 +103,59 @@ func _moving(delta: float) -> void:
 	position.x = clamp(position.x, -horizontal_limit, horizontal_limit)
 	position.y = clamp(position.y, -vertical_limit, vertical_limit)
 
+func apply_damage(value: int) -> void:
+	value *= damage_multiplier
+	if value > 0:
+		health = clamp(health - value, 0, MAX_HEALTH)
+		emit_signal("health_changed", health)
+		
+		if health == 0:
+			set_process(false)
+#			Global.player = null
+			return
+		
+		if health < breakdown_threshold:
+			# low health visualization
+			smoke.visible = true
+			smoke.self_modulate.a = lerp(1.0, 0.0, health / MAX_HEALTH)
+			
+			if !is_breakdown:
+				# random breakdown
+				var damage_level = MAX_HEALTH / health / 50.0
+				if randf() < damage_level:
+					is_breakdown = true
+					breakdown_sound.play()
+					GlobalTween.start_breakdown(self)
+					var duration = breakdown_sound.stream.get_length() + randf() * damage_level * 10
+					yield(get_tree().create_timer(duration), "timeout")
+					is_breakdown = false
+					breakdown_sound.stop()
+					GlobalTween.cancel_breakdown(self)
+
 func fire_rocket() -> void:
-	var launcher: RocketLauncher = rocket_launchers[current_rocket_launcher_index]
+	if rockets_amount:
+		var launcher: RocketLauncher = rocket_launchers[current_rocket_launcher_index]
+		
+		var dir_3D_local = (Vector3(direction.x * direction.y, direction.y, abs(direction.y) - 2.0) * 0.5).normalized()
+		var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
+		var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
+		
+		var target: Target = PoolManager.get_target()
+		var target_position = crossair.global_position
+		var spread = (target_position - pos).length() * RocketBase.SPREAD
+		target.activate(target_position, spread)
+		
+		var rocket: RocketBase = PoolManager.get_rocket()
+		rocket.activate(self, Vector3(pos.x, HEIGHT, pos.y), dir_3D_global, target)
+		launcher.activate(Vector2(dir_3D_global.x, dir_3D_global.z))
+		
+		_change_rockets_amount(-rocket_consumption)
+		current_rocket_launcher_index = current_rocket_launcher_index ^ 1 # swap 0 and 1
+	else:
+		empty_sound.play()
 	
-	var dir_3D_local = (Vector3(direction.x * direction.y, direction.y, abs(direction.y) - 2.0) * 0.5).normalized()
-	var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
-	var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
-	
-	var target: Target = PoolManager.get_target()
-	var target_position = crossair.global_position
-	var spread = (target_position - pos).length() * RocketBase.SPREAD
-	target.activate(target_position, spread)
-	
-	var rocket: RocketBase = PoolManager.get_rocket()
-	rocket.activate(self, Vector3(pos.x, HEIGHT, pos.y), dir_3D_global, target)
-	launcher.activate(Vector2(dir_3D_global.x, dir_3D_global.z))
-	
-	_change_rockets_amount(-rocket_consumption)
 	ready_to_fire = false
 	rocket_timer.start(ROCKET_COOLDOWN)
-	current_rocket_launcher_index = current_rocket_launcher_index ^ 1 # swap 0 and 1
 
 func _change_rockets_amount(value: int) -> void:
 	var new_value = Global.clamp_int(rockets_amount + value, 0, MAX_ROCKETS)
@@ -125,6 +164,7 @@ func _change_rockets_amount(value: int) -> void:
 		emit_signal("ammo_changed", rockets_amount)
 
 func hit_by_rocket() -> void:
+	apply_damage(10)
 	GlobalTween.shake_camera()
 
 func _on_RocketTimer_timeout() -> void:

@@ -3,7 +3,7 @@ extends EditorScript
 
 
 func _run() -> void:
-	h()
+	print(lerp(1.0, 5.0, 500 / PlayerBase.HEIGHT))
 
 
 func h():

@@ -124,10 +124,12 @@ func _interception() -> void:
 
 # called when one projectile hit the target
 func _hit() -> void:
-	var sound: AudioStreamPlayer = PoolManager.get_projectile_hit()
-	Global.midair_layer.add_child(sound)
-	sound.play()
-	Global.bump_camera()
+	if target is PlayerBase:
+		target.apply_damage(1)
+		var sound: AudioStreamPlayer = PoolManager.get_projectile_hit()
+		Global.midair_layer.add_child(sound)
+		sound.play()
+		Global.bump_camera()
 	
 	hit_amount -= 1
 	if hit_amount > 0:

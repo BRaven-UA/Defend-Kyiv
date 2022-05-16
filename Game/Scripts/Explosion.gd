@@ -19,17 +19,17 @@ func _ready() -> void:
 	animation.connect("animation_finished", self, "_on_animation_finished")
 
 func _physics_process(delta: float) -> void:
-	var _radius = area.shape.radius + delta * GROW_SPEED
+	var _radius = area.scale.x + delta * GROW_SPEED
 	if _radius >= max_radius:
-		_radius = max_radius
 		set_physics_process(false) # stop growing
 		place_crater()
-	area.shape.radius = _radius # growing the explosion area
+	area.scale = Vector2.ONE * _radius # growing the explosion area
 
-func activate(pos: Vector2, is_aerial := false) -> void:
+func activate(pos: Vector3) -> void:
 	is_free = false
+	area.scale = Vector2.ONE
 	
-	global_position = pos
+	global_position = Vector2(pos.x, pos.z)
 	global_rotation = Global.player.global_rotation
 	
 	var names_amount = anim_names.size()
@@ -39,27 +39,30 @@ func activate(pos: Vector2, is_aerial := false) -> void:
 	animation.frame = 0
 	animation.play()
 	
+	sound.play()
+	
+	var _scale = lerp(1.0, 5.0, pos.y / PlayerBase.HEIGHT) * Vector2.ONE
+	shockwave.scale = _scale
+	flash.scale = _scale
 	GlobalTween.explosion_flash(flash, max_radius)
 	GlobalTween.explosion_shockwave(shockwave, max_radius)
 	
-	sound.play()
-	
-	if not is_aerial:
-		set_physics_process(true) # start growing the explosion area
+	set_physics_process(pos.y < 10.0) # start growing the explosion area
 
 func place_crater():
-	var crater = PoolManager.get_crater()
-	crater.global_position = global_position
-	# add some randomness (default crater radius is 22)
-	crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)
-	crater.scale.y = max_radius / 22.0 * (0.8 + randf() * 0.4)
-	crater.rotation = randf() * PI * 2.0
-	if Global.path_follow:
-		crater.set_meta("Offset", Global.pos_to_offset(global_position))
+	if Global.ground_layer:
+		var crater = PoolManager.get_crater()
+		Global.ground_layer.add_child(crater)
+		crater.global_position = global_position
+		# add some randomness (default crater radius is 22)
+		crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)
+		crater.scale.y = max_radius / 22.0 * (0.8 + randf() * 0.4)
+		crater.rotation = randf() * PI * 2.0
+		if Global.path_follow:
+			crater.set_meta("Offset", Global.pos_to_offset(global_position))
 
 
 func _on_animation_finished():
 	animation.stop() # FACEPALM: animation must be stopped via code
-	area.shape.radius = 0
 #	get_parent().remove_child(self)
 	is_free = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Game/Textures/Rocket_ammo.png" type="Texture" id=4]
 [ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
 [ext_resource path="res://Game/Resources/Small_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Game/Resources/Progress_BG_Stylebox.tres" type="StyleBox" id=7]
+[ext_resource path="res://Game/Resources/Health_Stylebox.tres" type="StyleBox" id=8]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -19,8 +21,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HealthBar" type="ProgressBar" parent="BaseControl"]
+anchor_left = 0.005
+anchor_top = 0.002
+anchor_right = 0.005
+anchor_bottom = 0.002
+margin_left = -0.6
+margin_top = 0.44
+margin_right = 220.4
+margin_bottom = 44.44
+custom_styles/fg = ExtResource( 8 )
+custom_styles/bg = ExtResource( 7 )
+step = 1.0
+value = 75.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="BaseControl/HealthBar"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Health"
+align = 1
+valign = 2
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="BaseControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -56.0
+margin_right = 56.0
+margin_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AmmoBar" type="TextureProgress" parent="BaseControl"]
-margin_right = 128.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
 margin_bottom = 47.0
 max_value = 32.0
 value = 16.0
@@ -44,22 +95,6 @@ custom_fonts/font = ExtResource( 6 )
 text = "Ammunition"
 align = 1
 valign = 2
-max_lines_visible = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="BaseControl"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 29.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Score: 0"
-align = 1
-valign = 1
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false

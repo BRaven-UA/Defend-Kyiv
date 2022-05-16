@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Engine damage.mp3-a199110d040d41f6cd448917a08b07a9.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Engine damage.mp3"
+dest_files=[ "res://.import/Engine damage.mp3-a199110d040d41f6cd448917a08b07a9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

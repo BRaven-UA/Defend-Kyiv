@@ -122,10 +122,10 @@ func reset() -> void:
 
 func detonation() -> void:
 	deactivate()
-	var is_aerial: bool = position_3D.y > 50
+	var is_aerial: bool = position_3D.y > 10
 	var type = PoolManager.EXPLOSION.AerialExplosion if is_aerial else PoolManager.EXPLOSION.RocketExplosion
 	var explosion: Explosion = PoolManager.get_explosion(type)
-	explosion.activate(global_position, is_aerial)
+	explosion.activate(position_3D)
 
 # deformations based on height above the ground
 func _scale() -> void:

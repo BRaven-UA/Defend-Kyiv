@@ -118,7 +118,6 @@ func get_crater() -> Sprite:
 	var new_crater = Preloader.get_resource("Crater").instance()
 	new_crater.add_to_group(Global.REUSABLE)
 	crater_pool.append(new_crater)
-	Global.ground_layer.add_child(new_crater)
 	return new_crater
 
 func get_preview() -> Preview:

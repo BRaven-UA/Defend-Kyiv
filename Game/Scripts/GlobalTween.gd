@@ -43,6 +43,14 @@ func flying_text(node: Node2D) -> void:
 	interpolate_property(node, "modulate:a", 0, 1, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
 	start()
 
+func start_breakdown(player: PlayerBase) -> void:
+	interpolate_property(player, "engine_efficiency", 1.0, 0.5, 2.0)
+	start()
+
+func cancel_breakdown(player: PlayerBase) -> void:
+	interpolate_property(player, "engine_efficiency", 0.5, 1.0, 2.0)
+	start()
+
 func shake_camera() -> void:
 	if Global.camera:
 		noise.seed = randi()

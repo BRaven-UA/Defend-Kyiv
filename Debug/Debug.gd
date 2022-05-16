@@ -12,6 +12,7 @@ onready var scroll_speed_label: Label = find_node("ScrollSpeedLabel")
 onready var scroll_speed_slider: Slider = find_node("ScrollSpeedSlider")
 onready var reset_position: Button = find_node("ResetPosition")
 onready var infinite_ammo: CheckButton = find_node("InfiniteAmmoSwitch")
+onready var invulnerable: CheckButton = find_node("InvulnerableSwitch")
 onready var always_on_top: CheckButton = find_node("AlwaysOnTopSwitch")
 
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 	if player:
 		player_rocket_consumption = player.rocket_consumption
 		infinite_ammo.connect("toggled", self, "_on_infinite_ammo_toggled")
+		invulnerable.connect("toggled", self, "_on_invulnerable_toggled")
 	
 	always_on_top.pressed = OS.is_window_always_on_top()
 	always_on_top.connect("toggled", self, "_on_always_on_top_toggled")
@@ -60,6 +62,14 @@ func _on_infinite_ammo_toggled(enabled: bool) -> void:
 		player.rocket_consumption = 0
 	else:
 		player.rocket_consumption = player_rocket_consumption
+
+func _on_invulnerable_toggled(enabled: bool) -> void:
+	if enabled:
+		player.damage_multiplier = 0
+		player.health = player.MAX_HEALTH
+		player.emit_signal("health_changed", player.health)
+	else:
+		player.damage_multiplier = 1
 
 func _on_always_on_top_toggled(state: bool) -> void:
 	OS.set_window_always_on_top(state)

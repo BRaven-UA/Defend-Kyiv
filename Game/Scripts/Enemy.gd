@@ -56,7 +56,7 @@ func destroy() -> void:
 	set_deferred("monitoring", false) # cannot change state at the current frame
 	yield(get_tree(), "idle_frame") # waiting next frame
 	var explosion: Explosion = PoolManager.get_explosion(explosion_type)
-	explosion.activate(global_position)
+	explosion.activate(Vector3(global_position.x, HEIGHT, global_position.y))
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Explosion:
