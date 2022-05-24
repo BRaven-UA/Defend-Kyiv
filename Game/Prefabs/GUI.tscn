@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Game/Textures/TitleScreen.jpg" type="Texture" id=2]
+[ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Game/Scripts/GUI.gd" type="Script" id=4]
+
+[node name="GUI" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 4 )
+
+[node name="BaseControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleScene" type="Control" parent="BaseControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="BaseControl/TitleScene"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Copyright" type="Label" parent="BaseControl/TitleScene"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -24.0
+margin_right = 152.0
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 3 )
+text = "© 2022 BRaven"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Caption" type="Label" parent="BaseControl/TitleScene"]
+anchor_right = 1.0
+margin_top = 50.0
+margin_bottom = 111.0
+text = "Defend Kyiv
+(WIP)"
+align = 1
+valign = 1
+max_lines_visible = 2
+
+[node name="Menu" type="Panel" parent="BaseControl/TitleScene"]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -143.5
+margin_right = 250.0
+margin_bottom = 143.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/TitleScene/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 40.0
+margin_right = -70.0
+margin_bottom = -47.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 35.0
+text = "NEW GAME"
+
+[node name="Exit" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
+margin_top = 51.0
+margin_right = 360.0
+margin_bottom = 86.0
+text = "EXIT"

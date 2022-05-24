@@ -23,7 +23,7 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	on_map_shadow.position = Global.SHADOW.rotated(-rot) * 2.5
 	
 	rarity = data[EnemyManager.RARITY]
-	var color = Global.COLOR[rarity]
+	var color = Global.COLORS[rarity]
 	on_map_highlight.self_modulate = color
 	
 	var frame_index = data[EnemyManager.FRAME]
@@ -31,9 +31,9 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	on_map_shadow.frame = frame_index
 	
 	preview = PoolManager.get_preview()
-	if Global.path_follow:
+	if Global.game.path_follow:
 		preview.set_meta("Offset", Global.pos_to_offset(pos))
-	Global.preview_layer.add_child(preview)
+	Global.game.preview_layer.add_child(preview)
 	preview.call_deferred("init", pos, frame_index, color)
 
 	monitoring = true
@@ -50,12 +50,13 @@ func destroy() -> void:
 	
 	var _points = Global.POINTS[rarity]
 	var _flying_text = PoolManager.get_flying_text()
-	_flying_text.activate("+%d" % _points, Global.COLOR[rarity], global_position)
+	_flying_text.activate("+%d" % _points, Global.COLORS[rarity], global_position)
 	Global.increase_score(_points)
 	
 	set_deferred("monitoring", false) # cannot change state at the current frame
 	yield(get_tree(), "idle_frame") # waiting next frame
 	var explosion: Explosion = PoolManager.get_explosion(explosion_type)
+	Global.game.above_ground_layer.add_child(explosion)
 	explosion.activate(Vector3(global_position.x, HEIGHT, global_position.y))
 
 func _on_area_entered(area: Area2D) -> void:

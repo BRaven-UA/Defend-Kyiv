@@ -36,7 +36,7 @@ func explosion_shockwave(shockwave: Sprite, scale: float) -> void:
 	start()
 
 func flying_text(node: Node2D) -> void:
-	var _direction := Vector2.UP.rotated(Global.player.global_rotation)
+	var _direction := Vector2.UP.rotated(Global.game.player.global_rotation)
 	var _destination = node.global_position + _direction * 100
 	interpolate_property(node, "global_position", node.global_position, _destination, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
 	interpolate_property(node, "scale", Vector2.ZERO, Vector2.ONE * 2.0, FLYING_TEXT_DURATION, TRANS_EXPO, EASE_OUT)
@@ -44,15 +44,15 @@ func flying_text(node: Node2D) -> void:
 	start()
 
 func start_breakdown(player: PlayerBase) -> void:
-	interpolate_property(player, "engine_efficiency", 1.0, 0.5, 2.0)
+	interpolate_property(player, "engine_efficiency", 1.0, 0.5, 3.0)
 	start()
 
 func cancel_breakdown(player: PlayerBase) -> void:
-	interpolate_property(player, "engine_efficiency", 0.5, 1.0, 2.0)
+	interpolate_property(player, "engine_efficiency", 0.5, 1.0, 3.0)
 	start()
 
 func shake_camera() -> void:
-	if Global.camera:
+	if Global.game.camera:
 		noise.seed = randi()
 		interpolate_method(self, "_shake_camera_process", 0, 60, 0.5)
 		start()
@@ -60,4 +60,4 @@ func shake_camera() -> void:
 func _shake_camera_process(delta: float):
 	var strength = lerp(60.0 - delta, 0.0, 0.05)
 	var noise_point = Vector2(noise.get_noise_2d(1, delta), noise.get_noise_2d(100, delta))
-	Global.camera.offset = noise_point * strength
+	Global.game.camera.offset = noise_point * strength

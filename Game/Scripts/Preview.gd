@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	var _direction = frame.position - anchor.position
 	frame.rotation = _direction.angle() - 0.785398 # since the texture points to 45 degrees counterclockwise
 	shadow.position = Global.SHADOW.rotated(-shadow.global_rotation) * 7.0
-	picture.global_rotation = Global.player.global_rotation
+	picture.global_rotation = Global.game.player.global_rotation
 
 func init(pos: Vector2, frame_index: int, color: Color) -> void:
 	deactivate()

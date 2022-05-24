@@ -9,20 +9,17 @@ onready var warnings: Control = base.find_node("Warnings")
 
 
 func _enter_tree() -> void:
-	Global.hud = self # register itself in global singleton
+	Global.game.hud = self # register itself in global singleton
 
 func _ready() -> void:
-	if OS.is_debug_build(): # not available in release build
-		base.add_child(load("res://Debug/Debug.tscn").instance())
-	
-	var player = Global.player
+	var player = Global.game.player
 	if player:
-		player.connect("health_changed", self, "set_health")
-		player.connect("ammo_changed", self, "set_ammo")
+		player.connect("health_changed", self, "_on_player_health_changed")
+		player.connect("ammo_changed", self, "_on_player_ammo_changed")
 		
 		health_bar.value = player.health
 		
-		var max_rockets: int = player.MAX_ROCKETS
+		var max_rockets: int = PlayerBase.MAX_ROCKETS
 		ammo_bar.max_value = max_rockets
 		ammo_bar.value = max_rockets
 		ammo_bar.stretch_margin_left = max_rockets * 4
@@ -41,3 +38,9 @@ func set_score(value: int) -> void:
 
 func set_ammo(value: int) -> void:
 	ammo_bar.value = value
+
+func _on_player_health_changed(value: int) -> void:
+	set_health(value)
+
+func _on_player_ammo_changed(value: int) -> void:
+	set_ammo(value)

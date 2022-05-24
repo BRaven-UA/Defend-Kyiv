@@ -4,7 +4,7 @@
 [ext_resource path="res://Game/Sounds/Soft ground explosion.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Game/Scripts/Explosion.gd" type="Script" id=3]
 [ext_resource path="res://Game/Textures/Radial Gradient.png" type="Texture" id=4]
-[ext_resource path="res://Game/Resources/Shockwave.tres" type="Material" id=5]
+[ext_resource path="res://Game/Resources/Shaders/Shockwave.tres" type="Material" id=5]
 [ext_resource path="res://Game/Resources/CircleShape2D_r1.tres" type="Shape2D" id=6]
 
 [sub_resource type="AtlasTexture" id=1]

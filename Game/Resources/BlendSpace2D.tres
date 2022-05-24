@@ -1,0 +1,89 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=18 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Centered"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Back"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Half Back Right"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Back Left"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Forward Left"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Forward Right"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Half Back Left"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Half Forward Left"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Half Forward Right"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Right"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Forward"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Half Back"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Half Forward"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Half Right"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Half Left"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Back Right"
+
+[resource]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = Vector2( 0, 0 )
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 10 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 11 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_point_4/node = SubResource( 12 )
+blend_point_4/pos = Vector2( -1, 0 )
+blend_point_5/node = SubResource( 13 )
+blend_point_5/pos = Vector2( 0, 0.2 )
+blend_point_6/node = SubResource( 14 )
+blend_point_6/pos = Vector2( 0, -0.2 )
+blend_point_7/node = SubResource( 15 )
+blend_point_7/pos = Vector2( 0.2, 0 )
+blend_point_8/node = SubResource( 16 )
+blend_point_8/pos = Vector2( -0.2, 0 )
+blend_point_9/node = SubResource( 17 )
+blend_point_9/pos = Vector2( 0.7, 0.7 )
+blend_point_10/node = SubResource( 3 )
+blend_point_10/pos = Vector2( 0.2, 0.2 )
+blend_point_11/node = SubResource( 4 )
+blend_point_11/pos = Vector2( -0.7, 0.7 )
+blend_point_12/node = SubResource( 5 )
+blend_point_12/pos = Vector2( -0.7, -0.7 )
+blend_point_13/node = SubResource( 6 )
+blend_point_13/pos = Vector2( 0.7, -0.7 )
+blend_point_14/node = SubResource( 7 )
+blend_point_14/pos = Vector2( -0.2, 0.2 )
+blend_point_15/node = SubResource( 8 )
+blend_point_15/pos = Vector2( -0.2, -0.2 )
+blend_point_16/node = SubResource( 9 )
+blend_point_16/pos = Vector2( 0.2, -0.2 )
+blend_mode = 1

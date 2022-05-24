@@ -11,13 +11,15 @@ func _process(delta: float) -> void:
 	mark.visible = rect_global_position != pos
 	rect_global_position = pos
 
-func activate(tar: Node2D) -> void:
-	if tar:
-		target = tar
-		visible = true
+func activate(_target: Node2D) -> void:
+	if _target:
+		Global.game.hud.warnings.add_child(self)
+		target = _target
+#		visible = true
 		set_process(true)
 
 func deactivate() -> void:
-	set_process(false)
-	target = null
-	visible = false
+#	set_process(false)
+#	target = null
+#	visible = false
+	get_parent().remove_child(self)

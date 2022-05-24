@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Game/Resources/TraceParticles.tres" type="Material" id=1]
+[ext_resource path="res://Game/Resources/Particles/TraceParticles.tres" type="Material" id=1]
 [ext_resource path="res://Game/Scripts/Rocket.gd" type="Script" id=2]
-[ext_resource path="res://Game/Resources/FlameParticles.tres" type="Material" id=3]
+[ext_resource path="res://Game/Resources/Particles/FlameParticles.tres" type="Material" id=3]
 [ext_resource path="res://Game/Sounds/Rocket.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Game/Textures/Smoke.png" type="Texture" id=5]
 [ext_resource path="res://Game/Textures/Flame.png" type="Texture" id=6]

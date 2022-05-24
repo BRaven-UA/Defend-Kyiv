@@ -20,6 +20,10 @@ onready var watchdog: Timer = find_node("WatchDog")
 onready var reset_timer: Timer = find_node("ResetTimer")
 
 
+func _exit_tree() -> void:
+	watchdog.stop()
+	reset_timer.stop()
+
 func _physics_process(delta: float) -> void:
 	if target:
 		var dest_2D: Vector2 = target.global_position
@@ -30,12 +34,6 @@ func _physics_process(delta: float) -> void:
 		var new_square_distance = position_3D.distance_squared_to(dest_3D)
 		if new_square_distance > square_distance: # miss the target
 			set_target(null)
-#			target = null
-#			if warning_sign:
-#				warning_sign.deactivate()
-#				warning_sign = null
-#			if target is Target:
-#				target.queue_free()
 			watchdog.start(2) # deactivate after this time
 		else:
 			square_distance = new_square_distance
@@ -64,6 +62,8 @@ func set_target(new_target: Node2D) -> void:
 	if new_target is PlayerBase:
 		warning_sign = PoolManager.get_warning_sign()
 		warning_sign.activate(self)
+	else:
+		warning_sign = null
 	
 	if new_target == null:
 		if target is Target:
@@ -76,33 +76,29 @@ func set_target(new_target: Node2D) -> void:
 
 # activate (fire) the rocket. Initial position and normalized move direction both are in global coords
 func activate(shoot: Node2D, pos: Vector3, dir: Vector3, new_target: Node2D) -> void:
-	shooter = shoot
-	position_3D = pos
-	direction_3D = dir
-	global_position = Vector2(pos.x, pos.z)
-	global_rotation = -Vector2(dir.x, dir.z).angle_to(Vector2.UP)
-	set_target(new_target)
-#	target = tar
-#	if target is PlayerBase:
-#		warning_sign = PoolManager.get_warning_sign()
-#		warning_sign.activate(self)
-	square_distance = INF
-	is_free = false
-	Global.midair_layer.add_child(self)
-	_scale()
-	flame.restart()
-	trace.restart()
-	watchdog.start(20)
-	set_physics_process(true)
+	if Global.game.midair_layer:
+		shooter = shoot
+		position_3D = pos
+		direction_3D = dir
+		global_position = Vector2(pos.x, pos.z)
+		global_rotation = -Vector2(dir.x, dir.z).angle_to(Vector2.UP)
+		set_target(new_target)
+		square_distance = INF
+		Global.game.midair_layer.add_child(self)
+		_scale()
+		flame.restart()
+		trace.restart()
+		watchdog.start(20)
+		colliders = []
+		set_deferred("monitorable", true)
+		body.visible = true
+		flame.visible = true
+		set_physics_process(true)
 
 # deactivate the rocket. Gives a delay for all animations to complete before returning to the pool
 # will called automaticly by the timer (just in case to be sure)
 func deactivate() -> void:
 	set_target(null)
-#	if warning_sign:
-#		warning_sign.deactivate()
-#		warning_sign = null
-	colliders = []
 	set_physics_process(false)
 	set_deferred("monitorable", false)
 	sound.stop()
@@ -115,16 +111,13 @@ func deactivate() -> void:
 # reset the rocket for future use via rocket pool. Called by timer
 func reset() -> void:
 	get_parent().remove_child(self)
-	set_deferred("monitorable", true)
-	body.visible = true
-	flame.visible = true
-	is_free = true
 
 func detonation() -> void:
 	deactivate()
 	var is_aerial: bool = position_3D.y > 10
 	var type = PoolManager.EXPLOSION.AerialExplosion if is_aerial else PoolManager.EXPLOSION.RocketExplosion
 	var explosion: Explosion = PoolManager.get_explosion(type)
+	Global.game.above_ground_layer.add_child(explosion)
 	explosion.activate(position_3D)
 
 # deformations based on height above the ground

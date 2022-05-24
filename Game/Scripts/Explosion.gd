@@ -3,7 +3,7 @@ extends Area2D
 
 const GROW_SPEED: float = 25.0
 
-var is_free: bool = false
+#var is_free: bool = false
 export var max_radius: float = 12.0
 
 onready var area: CollisionShape2D = find_node("ExplosionArea")
@@ -18,6 +18,9 @@ func _ready() -> void:
 	set_physics_process(false)
 	animation.connect("animation_finished", self, "_on_animation_finished")
 
+func _exit_tree() -> void:
+	animation.stop() # FACEPALM: animation must be stopped via code
+
 func _physics_process(delta: float) -> void:
 	var _radius = area.scale.x + delta * GROW_SPEED
 	if _radius >= max_radius:
@@ -26,11 +29,11 @@ func _physics_process(delta: float) -> void:
 	area.scale = Vector2.ONE * _radius # growing the explosion area
 
 func activate(pos: Vector3) -> void:
-	is_free = false
+#	is_free = false
 	area.scale = Vector2.ONE
 	
 	global_position = Vector2(pos.x, pos.z)
-	global_rotation = Global.player.global_rotation
+	global_rotation = Global.game.player.global_rotation
 	
 	var names_amount = anim_names.size()
 	if names_amount > 1:
@@ -50,19 +53,18 @@ func activate(pos: Vector3) -> void:
 	set_physics_process(pos.y < 10.0) # start growing the explosion area
 
 func place_crater():
-	if Global.ground_layer:
+	if Global.game.ground_layer:
 		var crater = PoolManager.get_crater()
-		Global.ground_layer.add_child(crater)
+		Global.game.ground_layer.add_child(crater)
 		crater.global_position = global_position
 		# add some randomness (default crater radius is 22)
 		crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)
 		crater.scale.y = max_radius / 22.0 * (0.8 + randf() * 0.4)
 		crater.rotation = randf() * PI * 2.0
-		if Global.path_follow:
+		if Global.game.path_follow:
 			crater.set_meta("Offset", Global.pos_to_offset(global_position))
 
-
 func _on_animation_finished():
-	animation.stop() # FACEPALM: animation must be stopped via code
-#	get_parent().remove_child(self)
-	is_free = true
+#	animation.stop() # FACEPALM: animation must be stopped via code
+	get_parent().remove_child(self)
+#	is_free = true

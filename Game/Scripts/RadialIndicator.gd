@@ -14,25 +14,25 @@ onready var inner_timer: Timer = find_node("InnerTimer")
 
 
 func _ready() -> void:
+	set_process(false)
 	inner_timer.connect("timeout", self, "_on_timer_timeout", [inner_timer, inner_progress, INNER_FIRST_FRAME])
 	outer_timer.connect("timeout", self, "_on_timer_timeout", [outer_timer, outer_progress, OUTER_FIRST_FRAME])
 
 func _process(delta: float) -> void:
-	global_rotation = Global.player.global_rotation
+	global_rotation = Global.game.player.global_rotation
+
+func activate(inner_state: bool, outer_state: bool) -> void:
+	set_process(Global.game.player != null)
+	inner_shadow.visible = inner_state
+	inner_progress.visible = inner_state
+	outer_shadow.visible = outer_state
+	outer_progress.visible = outer_state
 
 func deactivate() -> void:
 	inner_timer.stop()
 	outer_timer.stop()
 	set_process(false)
 	visible = false
-
-func show_inner_indicator(state := true) -> void:
-	inner_shadow.visible = state
-	inner_progress.visible = state
-
-func show_outer_indicator(state := true) -> void:
-	outer_shadow.visible = state
-	outer_progress.visible = state
 
 func start_inner_progress(max_value: float, init_value := 0.0) -> void:
 	_start_progress(max_value, init_value, inner_progress, INNER_FIRST_FRAME, inner_timer)

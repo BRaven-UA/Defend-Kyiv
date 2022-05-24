@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Game/Resources/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=2]
+[ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
 [ext_resource path="res://Game/Textures/Rocket_ammo.png" type="Texture" id=4]
 [ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
-[ext_resource path="res://Game/Resources/Small_font.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Game/Resources/Progress_BG_Stylebox.tres" type="StyleBox" id=7]
-[ext_resource path="res://Game/Resources/Health_Stylebox.tres" type="StyleBox" id=8]
+[ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Game/Resources/Style/Progress_BG_Stylebox.tres" type="StyleBox" id=7]
+[ext_resource path="res://Game/Resources/Style/Health_Stylebox.tres" type="StyleBox" id=8]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -116,21 +115,4 @@ anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
-}
-
-[node name="AnalogController" type="Node2D" parent="."]
-position = Vector2( 300, 700 )
-script = ExtResource( 2 )
-isDynamicallyShowing = true
-typeAnalogic = 4
-scaleBall = Vector2( 0.7, 0.7 )
-directionsResult = {
-"down": "down",
-"down_left": "down_left",
-"down_right": "down_right",
-"left": "left",
-"right": "right",
-"up": "up",
-"up_left": "up_left",
-"up_right": "up_right"
 }

@@ -28,8 +28,7 @@ onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
 
 
 func _enter_tree() -> void:
-	Global.player = self # register itself in global singleton
-#	Global.viewport_size = get_viewport_rect().size
+	owner.player = self
 
 func _ready() -> void:
 	analog_controller = Global.analog_controller
@@ -51,7 +50,8 @@ func _process(delta: float) -> void:
 	_moving(delta)
 	
 	# setting animation
-	animation_tree.set("parameters/Direction/blend_position", direction)
+	animation_tree.set("parameters/BlendTree/BlendSpace2D/blend_position", direction)
+	animation_tree.set("parameters/BlendTree/TimeScale/scale", engine_efficiency)
 	
 	# moving the crossair, highlight area and preview pusher
 	var _pos = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
@@ -89,7 +89,7 @@ func _moving(delta: float) -> void:
 	# direction vector adjustment based on user input
 	var acceleration = delta * (FULL_ACCELERATION if Input.is_action_pressed("full_acceleration") else 1.0)
 	
-	if input_length < 0.1: # lesser than input zead zone or no input at all
+	if input_length < 0.1: # lesser than input's dead zone or no input at all
 		# the move direction tends to zero
 		direction = direction.move_toward(Vector2.ZERO, acceleration)
 	else: # valid input values
@@ -110,26 +110,28 @@ func apply_damage(value: int) -> void:
 		emit_signal("health_changed", health)
 		
 		if health == 0:
+			# TODO: rewrite for game over
 			set_process(false)
-#			Global.player = null
+#			Global.game.player = null
 			return
 		
-		if health < breakdown_threshold:
+		var is_badly_damaged = health < breakdown_threshold
+		smoke.emitting = is_badly_damaged
+		if is_badly_damaged:
 			# low health visualization
-			smoke.visible = true
 			smoke.self_modulate.a = lerp(1.0, 0.0, health / MAX_HEALTH)
 			
-			if !is_breakdown:
-				# random breakdown
+			if not is_breakdown:
+				# random engine breakdown when taking damage
 				var damage_level = MAX_HEALTH / health / 50.0
-				if randf() < damage_level:
+				if randf() < damage_level: # the more damage level, the more chances for breakdown
 					is_breakdown = true
 					breakdown_sound.play()
 					GlobalTween.start_breakdown(self)
 					var duration = breakdown_sound.stream.get_length() + randf() * damage_level * 10
 					yield(get_tree().create_timer(duration), "timeout")
 					is_breakdown = false
-					breakdown_sound.stop()
+#					breakdown_sound.stop()
 					GlobalTween.cancel_breakdown(self)
 
 func fire_rocket() -> void:
@@ -138,7 +140,7 @@ func fire_rocket() -> void:
 		
 		var dir_3D_local = (Vector3(direction.x * direction.y, direction.y, abs(direction.y) - 2.0) * 0.5).normalized()
 		var dir_3D_global = dir_3D_local.rotated(Vector3.UP, -global_rotation)
-		var pos: Vector2 = launcher.global_position #+ dir_2D_global * 20 # plus launcher length
+		var pos: Vector2 = launcher.global_position
 		
 		var target: Target = PoolManager.get_target()
 		var target_position = crossair.global_position

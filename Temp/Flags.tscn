@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Textures/ZZ.png" type="Texture" id=1]
+[ext_resource path="res://Game/Textures/Trident.png" type="Texture" id=2]
+[ext_resource path="res://Game/Resources/Shaders/Screen Blur.tres" type="Material" id=3]
+[ext_resource path="res://Game/Textures/Background/1.jpg" type="Texture" id=4]
+[ext_resource path="res://Game/Resources/Shaders/Flag_RU.shader" type="Shader" id=6]
+[ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 6 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
+shader_param/decal = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
+shader_param/decal = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="1" type="Sprite" parent="."]
+position = Vector2( 10.4299, 31.2133 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -414.0
+margin_top = -68.0
+margin_right = 431.0
+margin_bottom = 531.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ru" type="ColorRect" parent="."]
+material = SubResource( 1 )
+margin_right = 382.0
+margin_bottom = 214.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ua" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_left = -384.0
+margin_top = -1.0
+margin_right = -2.0
+margin_bottom = 213.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

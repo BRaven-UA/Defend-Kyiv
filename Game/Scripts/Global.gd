@@ -7,67 +7,54 @@ const COLOR_UNCOMMON = Color.green
 const COLOR_RARE = Color.dodgerblue
 const COLOR_EPIC = Color.blueviolet
 const COLOR_LEGENDARY = Color.orange
-const COLOR = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
+const COLORS = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 const POINTS = [0, 1, 2, 4, 8, 16] # score points per rarity
 const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow direction
-const REUSABLE := "Reusable" # name of the node group for nodes that can be reused
 
+var tree: SceneTree
+var game: Game
+var curve: Curve2D
+var analog_controller: AnalogController
+var debug: Debug
 var viewport_size: Vector2
 var score: int = 0
 
-# reference pool
-var tree: SceneTree
-var main: Node2D
-var places: Places # placeholders database
-var path_follow: PathFollow2D
-var player: PlayerBase
-var analog_controller: AnalogController
-var hud: HUD
-var debug: Debug
-
-onready var ground_layer: Node2D = main.find_node("GroundLayer")
-onready var above_ground_layer: Node2D = main.find_node("AboveGroundLayer")
-onready var midair_layer: Node2D = main.find_node("MidairLayer")
-onready var preview_layer: Node2D = main.find_node("PreviewLayer")
-onready var flying_text_layer: Node2D = main.find_node("FlyingTextLayer")
-onready var camera: Camera2D = main.find_node("Camera2D")
-onready var default_font = Preloader.get_resource("Theme").default_font
-onready var timer: Timer = Timer.new()
-onready var curve: Curve2D = Preloader.get_resource("MovePath2D")
 
 func _enter_tree() -> void:
 	tree = get_tree()
-	main = tree.current_scene
-	places = Preloader.get_resource("Places")
+	curve = Preloader.get_resource("MovePath2D")
 	randomize()
 
 func _ready() -> void:
-	viewport_size = main.get_viewport_rect().size
-	var _screen_rect = camera.find_node("ScreenRectShape")
-	_screen_rect.shape.extents = viewport_size / 2
-	
-	if path_follow:
-		timer.connect("timeout", self, "_on_timer_timeout")
-		add_child(timer)
-		timer.start()
-	
-	if OS.is_debug_build(): # only for debug purposes. Cuts off all groups that already behind player st the start of the game
-		for index in places.groups.size():
-			if places.groups[index].Offset < path_follow.offset:
-				places.groups.resize(index)
+	if OS.has_touchscreen_ui_hint():
+		analog_controller = AnalogController.new()
+		add_child(analog_controller)
+
+func _notification(what):
+	match what:
+		MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+			if OS.get_name() == "HTML5":
+				JavaScript.eval("window.close()")
+			else:
+				quit()
+		MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+			# TODO: add pause when ingame
+			quit()
+
+func new_game() -> void:
+	tree.change_scene_to(Preloader.get_resource("Game"))
+
+func game_over() -> void:
+	PoolManager.return_all_reusable()
+
+func quit() -> void:
+	# TODO: save game state
+	tree.quit()
 
 func clamp_int(value: int, min_value: int, max_value: int) -> int:
 	if value > max_value: return max_value
 	if value < min_value: return min_value
 	return value
-
-func bump_camera() -> void:
-	if camera:
-		var shift = Vector2.ONE
-		camera.offset += shift
-		yield(tree.create_timer(0.05), "timeout")
-		if camera.offset:
-			camera.offset -= shift
 
 # simple clamp given rectangle position to match screen rectangle
 func match_screen(rect: Rect2) -> Vector2:
@@ -82,7 +69,7 @@ func clamp_to_screen(dest_rect: Rect2) -> Vector2:
 	var screen_size = viewport_size - dest_rect.size
 	
 	# define trajectory segment and screen polygon
-	var segment = PoolVector2Array([dest_rect.position, Global.player.get_global_transform_with_canvas().origin])
+	var segment = PoolVector2Array([dest_rect.position, game.player.get_global_transform_with_canvas().origin])
 	var screen_polygon = PoolVector2Array([Vector2.ZERO, Vector2(screen_size.x, 0), screen_size, Vector2(0, screen_size.y)])
 	
 	# cutoff the trajectory with screen polygon
@@ -95,32 +82,8 @@ func clamp_to_screen(dest_rect: Rect2) -> Vector2:
 func increase_score(value: int) -> void:
 	assert(value > 0)
 	score += value
-	hud.set_score(score)
+	game.hud.set_score(score)
 
 func pos_to_offset(pos: Vector2) -> float:
 	return curve.get_closest_offset(pos)
 
-# called periodically during the game (by default every second)
-func _routine() -> void:
-	var offset = path_follow.offset
-	
-	# spawn enemies before
-	if places.groups:
-		var group_data = places.groups.back() # groups must be sorted by offset in descending order
-		var max_offset = offset + viewport_size.y * 2
-		if group_data.Offset < max_offset:
-			EnemyManager.spawn_enemy_group(group_data)
-			places.groups.resize(places.groups.size() - 1)
-	else: # end of map
-		timer.stop()
-		yield(tree.create_timer(viewport_size.y / path_follow.scroll_speed), "timeout")
-		path_follow.set_scroll_speed(0)
-	
-	# back reusable objects behind
-	var min_offset = offset - viewport_size.y * 2
-	for node in tree.get_nodes_in_group(REUSABLE):
-		if node.get_meta("Offset") < min_offset:
-			node.get_parent().remove_child(node) # back to an object pool
-
-func _on_timer_timeout() -> void:
-	_routine()

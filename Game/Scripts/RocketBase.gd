@@ -7,8 +7,6 @@ const SPEED: int = 400
 const TANG_SPEED: float = 0.9
 const SPREAD: float = 0.08 # 2D rocket spread in percent (0-1)
 
-var is_free: bool = true
-
 
 func get_height() -> float:
 	return 0.0

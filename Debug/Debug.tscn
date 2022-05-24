@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Debug/DebugSwipe.gd" type="Script" id=1]
 [ext_resource path="res://Debug/Debug.gd" type="Script" id=2]
-[ext_resource path="res://Game/Resources/Small_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
@@ -11,6 +11,7 @@ default_font = ExtResource( 3 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -21,9 +22,9 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.74902 )
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -123.0
+margin_top = -174.5
 margin_right = 383.0
-margin_bottom = 123.0
+margin_bottom = 174.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,7 +44,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollSpeed" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+[node name="ScrollSpeed" type="HBoxContainer" parent="DebugPanel/VBoxContainer" groups=[
+"GameDebug",
+]]
 margin_right = 304.0
 margin_bottom = 22.0
 size_flags_horizontal = 0
@@ -71,7 +74,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetPosition" type="Button" parent="DebugPanel/VBoxContainer"]
+[node name="ResetPosition" type="Button" parent="DebugPanel/VBoxContainer" groups=[
+"GameDebug",
+]]
 margin_top = 26.0
 margin_right = 166.0
 margin_bottom = 54.0
@@ -79,10 +84,21 @@ focus_mode = 0
 size_flags_horizontal = 0
 text = "Reset Position"
 
-[node name="InfiniteAmmo" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+[node name="RestartGame" type="Button" parent="DebugPanel/VBoxContainer" groups=[
+"GameDebug",
+]]
 margin_top = 58.0
+margin_right = 144.0
+margin_bottom = 86.0
+size_flags_horizontal = 0
+text = "Restart Game"
+
+[node name="InfiniteAmmo" type="HBoxContainer" parent="DebugPanel/VBoxContainer" groups=[
+"GameDebug",
+]]
+margin_top = 90.0
 margin_right = 234.0
-margin_bottom = 98.0
+margin_bottom = 130.0
 size_flags_horizontal = 0
 
 [node name="InfiniteAmmoLabel" type="Label" parent="DebugPanel/VBoxContainer/InfiniteAmmo"]
@@ -96,10 +112,12 @@ margin_left = 158.0
 margin_right = 234.0
 margin_bottom = 40.0
 
-[node name="Invulnerable" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
-margin_top = 102.0
+[node name="Invulnerable" type="HBoxContainer" parent="DebugPanel/VBoxContainer" groups=[
+"GameDebug",
+]]
+margin_top = 134.0
 margin_right = 223.0
-margin_bottom = 142.0
+margin_bottom = 174.0
 size_flags_horizontal = 0
 
 [node name="InvulnerableLabel" type="Label" parent="DebugPanel/VBoxContainer/Invulnerable"]
@@ -114,9 +132,9 @@ margin_right = 223.0
 margin_bottom = 40.0
 
 [node name="AlwaysOnTop" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
-margin_top = 146.0
+margin_top = 178.0
 margin_right = 234.0
-margin_bottom = 186.0
+margin_bottom = 218.0
 size_flags_horizontal = 0
 
 [node name="AlwaysOnTopLabel" type="Label" parent="DebugPanel/VBoxContainer/AlwaysOnTop"]
@@ -130,10 +148,27 @@ margin_left = 158.0
 margin_right = 234.0
 margin_bottom = 40.0
 
+[node name="Resizeable" type="HBoxContainer" parent="DebugPanel/VBoxContainer"]
+margin_top = 222.0
+margin_right = 278.0
+margin_bottom = 262.0
+size_flags_horizontal = 0
+
+[node name="ResizeableLabel" type="Label" parent="DebugPanel/VBoxContainer/Resizeable"]
+margin_top = 9.0
+margin_right = 198.0
+margin_bottom = 31.0
+text = "Resizeable Window:"
+
+[node name="ResizeableSwitch" type="CheckButton" parent="DebugPanel/VBoxContainer/Resizeable"]
+margin_left = 202.0
+margin_right = 278.0
+margin_bottom = 40.0
+
 [node name="DebugLabel_1" type="Label" parent="DebugPanel/VBoxContainer"]
-margin_top = 190.0
+margin_top = 266.0
 margin_right = 200.0
-margin_bottom = 212.0
+margin_bottom = 288.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 0
 valign = 1
@@ -143,9 +178,9 @@ __meta__ = {
 }
 
 [node name="DebugLabel_2" type="Label" parent="DebugPanel/VBoxContainer"]
-margin_top = 216.0
+margin_top = 292.0
 margin_right = 200.0
-margin_bottom = 238.0
+margin_bottom = 314.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 0
 valign = 1

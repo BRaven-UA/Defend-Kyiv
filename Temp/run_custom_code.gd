@@ -3,7 +3,8 @@ extends EditorScript
 
 
 func _run() -> void:
-	print(lerp(1.0, 5.0, 500 / PlayerBase.HEIGHT))
+	var s = get_scene().find_node("CrossairShadow")
+	print(s.owner)
 
 
 func h():

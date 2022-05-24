@@ -14,7 +14,6 @@ func _ready() -> void:
 	rocket_reload_timer.connect("timeout", self, "_on_rocket_reload_timer_timeout")
 	cannon_reload_timer.connect("timeout", self, "_on_cannon_reload_timer_timeout")
 	
-	player = Global.player
 	indicator.set_process(player != null)
 
 func _exit_tree() -> void:
@@ -22,14 +21,14 @@ func _exit_tree() -> void:
 
 func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	.init(data, pos, rot)
+	player = Global.game.player
 	position_3D = Vector3(global_position.x, HEIGHT, global_position.y)
 	
 	anti_aircraft = data.get(EnemyManager.ANTIAIRCRAFT, EnemyManager.AA_NONE)
 	var has_rockets: bool = anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]
 	var has_cannon: bool = anti_aircraft in [EnemyManager.AA_CANNON, EnemyManager.AA_BOTH]
 	indicator.visible = true
-	indicator.show_outer_indicator(has_rockets)
-	indicator.show_inner_indicator(has_cannon)
+	indicator.activate(has_cannon, has_rockets)
 	
 	if player: # attack only if player exists
 		if has_rockets:

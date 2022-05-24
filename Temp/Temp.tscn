@@ -4,7 +4,7 @@
 [ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Game/Resources/Shockwave.shader" type="Shader" id=5]
+[ext_resource path="res://Game/Resources/Shaders/Shockwave.shader" type="Shader" id=5]
 [ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Prefabs/WarningSign.tscn" type="PackedScene" id=8]
@@ -85,15 +85,24 @@ margin_right = 144.0
 margin_bottom = 183.875
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 72.7487, 123.472 )
+position = Vector2( -61.9467, 169.493 )
 
-[node name="Shadow" parent="Player" index="2"]
-frame = 7
+[node name="Hitbox" parent="Player" index="0"]
+visible = false
 
-[node name="Body" parent="Player" index="6"]
-frame = 7
+[node name="Shadow" parent="Player" index="4"]
+frame = 6
 
-[node name="AnimationTree" parent="Player" index="13"]
+[node name="HighlightArea" parent="Player/Highlight" index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="Player/BalloonPusher" index="0"]
+visible = false
+
+[node name="Body" parent="Player" index="8"]
+frame = 6
+
+[node name="AnimationTree" parent="Player" index="15"]
 parameters/playback = SubResource( 2 )
 
 [editable path="ground/Explosion"]

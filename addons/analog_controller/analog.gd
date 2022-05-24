@@ -50,9 +50,6 @@ signal analogPressed
 signal analogRelease
 
 
-func _enter_tree() -> void:
-	Global.set("analog_controller", self) # register itself in global singleton
-
 func _ready() -> void:
 	var has_touchscreen = OS.has_touchscreen_ui_hint()
 	set_process_input(has_touchscreen)

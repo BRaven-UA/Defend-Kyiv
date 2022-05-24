@@ -2023,166 +2023,166 @@ rotation = -2.72815
 position = Vector2( -44.75, 115.57 )
 rotation = -2.76434
 
-[node name="A100P50-90G1" type="Node2D" parent="Placeholders"]
+[node name="A100P50-70G1" type="Node2D" parent="Placeholders"]
 position = Vector2( 66029.8, -50507.3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Placeholder" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -244.93, -60.2188 )
 rotation = -1.31731
 
-[node name="Placeholder2" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder2" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -202.93, -48.9063 )
 rotation = -1.31731
 
-[node name="Placeholder3" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder3" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -159.516, -37.5859 )
 rotation = -1.31731
 
-[node name="Placeholder4" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder4" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -118.922, -26.2578 )
 rotation = -1.31731
 
-[node name="Placeholder5" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder5" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -80.6953, -16.3516 )
 rotation = -1.31731
 
-[node name="Placeholder6" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder6" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -42, -5.01563 )
 rotation = -1.31731
 
-[node name="Placeholder7" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder7" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 0, 7.24219 )
 rotation = -1.31731
 
-[node name="Placeholder8" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder8" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 42.4688, 19.0469 )
 rotation = -1.31731
 
-[node name="Placeholder9" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder9" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 91.0781, 31.3047 )
 rotation = -1.31731
 
-[node name="Placeholder10" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder10" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 131.664, 43.5781 )
 rotation = -1.31731
 
-[node name="Placeholder11" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder11" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 175.078, 55.3672 )
 rotation = -1.31731
 
-[node name="Placeholder12" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder12" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 218.023, 67.6328 )
 rotation = -1.31731
 
-[node name="Placeholder13" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder13" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 262.383, 79.9063 )
 rotation = -1.31731
 
-[node name="Placeholder14" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder14" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 304.859, 91.2266 )
 rotation = -1.31731
 
-[node name="Placeholder22" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder22" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -221.258, -66.5703 )
 rotation = -1.31731
 
-[node name="Placeholder23" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder23" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -179.258, -55.2578 )
 rotation = -1.31731
 
-[node name="Placeholder24" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder24" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -135.844, -43.9375 )
 rotation = -1.31731
 
-[node name="Placeholder25" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder25" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -95.25, -32.6016 )
 rotation = -1.31731
 
-[node name="Placeholder26" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder26" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -57.0234, -22.7031 )
 rotation = -1.31731
 
-[node name="Placeholder27" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder27" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -18.3281, -11.3672 )
 rotation = -1.31731
 
-[node name="Placeholder28" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder28" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 23.6719, 0.898438 )
 rotation = -1.31731
 
-[node name="Placeholder29" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder29" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 66.1406, 12.6953 )
 rotation = -1.31731
 
-[node name="Placeholder30" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder30" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 114.75, 24.9531 )
 rotation = -1.31731
 
-[node name="Placeholder31" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder31" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 155.336, 37.2266 )
 rotation = -1.31731
 
-[node name="Placeholder32" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder32" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 198.75, 49.0234 )
 rotation = -1.31731
 
-[node name="Placeholder33" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder33" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 241.695, 61.2813 )
 rotation = -1.31731
 
-[node name="Placeholder34" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder34" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 286.055, 73.5547 )
 rotation = -1.31731
 
-[node name="Placeholder35" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder35" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 328.531, 84.875 )
 rotation = -1.31731
 
-[node name="Placeholder15" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder15" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 42.4609, 48.1094 )
 rotation = -1.31731
 
-[node name="Placeholder16" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder16" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 87.7734, 54.2344 )
 rotation = -1.7205
 
-[node name="Placeholder17" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder17" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -4.72656, 33.9531 )
 rotation = -1.42154
 
-[node name="Placeholder18" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder18" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -17.9375, 57.0938 )
 rotation = -2.13746
 
-[node name="Placeholder19" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder19" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -53.8047, 42.4688 )
 rotation = -0.898804
 
-[node name="Placeholder20" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder20" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -95.3359, 16.5078 )
 rotation = -1.06654
 
-[node name="Placeholder21" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder21" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -138.758, -6.61719 )
 rotation = -0.979137
 
-[node name="Placeholder36" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder36" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( -156.797, -65.2578 )
 rotation = -1.38238
 
-[node name="Placeholder37" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder37" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 95.8125, 4.65625 )
 rotation = -1.29768
 
-[node name="Placeholder38" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder38" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 138.664, 15.1797 )
 rotation = -1.29768
 
-[node name="Placeholder39" parent="Placeholders/A100P50-90G1" instance=ExtResource( 2 )]
+[node name="Placeholder39" parent="Placeholders/A100P50-70G1" instance=ExtResource( 2 )]
 position = Vector2( 148.438, 65.5547 )
 rotation = -1.50159
 
@@ -2476,17 +2476,14 @@ rotation = -2.12489
 [node name="Placeholder4" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( 70.2266, 92.6719 )
 rotation = -1.26857
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder5" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( 61.8203, 67.4531 )
 rotation = -1.26857
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder6" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( 49.2109, 41.375 )
 rotation = -1.26857
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder7" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( 37.4375, 11.0938 )
@@ -2543,27 +2540,22 @@ rotation = -2.98098
 [node name="Placeholder20" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( -206.406, -19.9688 )
 rotation = -2.83295
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder21" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( -150.031, 16.2031 )
 rotation = -2.83295
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder22" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( -96.2031, 54.875 )
 rotation = -2.83295
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder23" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( -34.8281, 114.594 )
 rotation = -2.83295
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder24" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( -13.8125, 130.563 )
 rotation = -2.83295
-scale = Vector2( 1, 1 )
 
 [node name="Placeholder25" parent="Placeholders/A50-70P60-90G7" instance=ExtResource( 2 )]
 position = Vector2( 13.9531, 132.234 )

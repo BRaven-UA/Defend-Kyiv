@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Game/Resources/OutlineWhite.tres" type="Material" id=1]
-[ext_resource path="res://Game/Resources/Blur.tres" type="Material" id=2]
+[ext_resource path="res://Game/Resources/Shaders/OutlineWhite.tres" type="Material" id=1]
+[ext_resource path="res://Game/Resources/Shaders/Blur.tres" type="Material" id=2]
 [ext_resource path="res://Game/Textures/Vehicles_preview.png" type="Texture" id=3]
 [ext_resource path="res://Game/Textures/PreviewFrame.png" type="Texture" id=4]
 [ext_resource path="res://Game/Resources/CircleShape2D_r1.tres" type="Shape2D" id=5]
@@ -54,8 +54,8 @@ offset = Vector2( -30.05, -29.55 )
 rotation = -0.785398
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
-hframes = 4
-vframes = 3
+hframes = 5
+vframes = 4
 
 [node name="AnimationTimer" type="Timer" parent="."]
 one_shot = true
