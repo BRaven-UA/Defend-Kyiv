@@ -121,6 +121,10 @@ run/main_scene="res://Game/Prefabs/Empty.tscn"
 config/icon="res://Classic icon.png"
 config/quit_on_go_back=false
 
+[audio]
+
+default_bus_layout="res://Game/Resources/default_bus_layout.tres"
+
 [autoload]
 
 Global="*res://Game/Scripts/Global.gd"
@@ -166,6 +170,10 @@ texture={
 "compress/mode": 2,
 "detect_3d": false,
 "process/fix_alpha_border": false
+}
+mp3={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ukraine Anthem.mp3-3457bf59a9ebcf5f205d369d523cacb8.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Ukraine Anthem.mp3"
+dest_files=[ "res://.import/Ukraine Anthem.mp3-3457bf59a9ebcf5f205d369d523cacb8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

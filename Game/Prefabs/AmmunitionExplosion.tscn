@@ -381,3 +381,4 @@ frame = 31
 stream = ExtResource( 1 )
 volume_db = -10.0
 pitch_scale = 1.26
+bus = "Battlefield"

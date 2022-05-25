@@ -62,8 +62,6 @@ func set_target(new_target: Node2D) -> void:
 	if new_target is PlayerBase:
 		warning_sign = PoolManager.get_warning_sign()
 		warning_sign.activate(self)
-	else:
-		warning_sign = null
 	
 	if new_target == null:
 		if target is Target:
@@ -110,7 +108,8 @@ func deactivate() -> void:
 
 # reset the rocket for future use via rocket pool. Called by timer
 func reset() -> void:
-	get_parent().remove_child(self)
+	if is_inside_tree():
+		get_parent().remove_child(self)
 
 func detonation() -> void:
 	deactivate()

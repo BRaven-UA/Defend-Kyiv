@@ -65,7 +65,8 @@ func _on_reset_position_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	PoolManager.return_all_reusable()
-	scene_tree.reload_current_scene()
+#	scene_tree.reload_current_scene()
+	Global.new_game()
 
 func _on_scroll_speed_changed(value: float) -> void:
 	if Global.game.path_follow:

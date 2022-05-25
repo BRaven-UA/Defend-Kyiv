@@ -47,6 +47,7 @@ stream = ExtResource( 4 )
 volume_db = -7.0
 autoplay = true
 max_distance = 1600.0
+bus = "Battlefield"
 
 [node name="Visual" type="Node2D" parent="."]
 

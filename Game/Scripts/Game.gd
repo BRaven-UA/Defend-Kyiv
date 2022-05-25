@@ -12,23 +12,21 @@ onready var preview_layer: Node2D = find_node("PreviewLayer")
 onready var path_follow: PathFollow2D = find_node("PathFollow")
 onready var camera: Camera2D = find_node("Camera2D")
 onready var player: PlayerBase = find_node("Player")
-onready var flying_text_layer: Node2D = find_node("FlyingTextLayer")
+onready var information_layer: Node2D = find_node("InformationLayer")
+onready var postprocess: BackBufferCopy = camera.find_node("Postprocess")
 onready var hud: HUD = find_node("HUD")
 onready var timer: Timer = find_node("Timer")
 
 
 func _enter_tree() -> void:
 	Global.game = self
-	viewport_size = get_viewport_rect().size
-	Global.viewport_size = viewport_size
-	places = Preloader.get_resource("Places")
+	viewport_size = Global.viewport_size
+	places = Preloader.get_resource("Places").duplicate()
 
 func _ready() -> void:
 	tree = get_tree()
-	
-	var _screen_rect = camera.find_node("ScreenRectShape")
-	_screen_rect.shape.extents = viewport_size / 2
-	
+	var screen_rect = camera.find_node("ScreenRectShape")
+	screen_rect.shape.extents = viewport_size / 2
 	timer.connect("timeout", self, "_on_timer_timeout")
 	timer.start()
 	
@@ -43,6 +41,18 @@ func bump_camera() -> void:
 	yield(tree.create_timer(0.05), "timeout")
 	if camera.offset:
 		camera.offset -= shift
+
+func game_over() -> void:
+	timer.stop()
+	hud.warnings.visible = false
+	postprocess.visible = true
+	postprocess.update()
+	var win = Global.score >= Global.VICTORY_VALUE
+	GlobalTween.game_over(win)
+	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION), "timeout")
+	hud.anthem.stream = Preloader.get_resource("Ukraine Anthem" if win else "Russia Anthem")
+	hud.anthem.play()
+	PoolManager.return_all_reusable()
 
 # called periodically during the game (by default every second)
 func _routine() -> void:

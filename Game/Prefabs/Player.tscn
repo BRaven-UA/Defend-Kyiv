@@ -565,15 +565,18 @@ shape = SubResource( 1 )
 stream = ExtResource( 6 )
 volume_db = 10.0
 autoplay = true
+bus = "Battlefield"
 
 [node name="Breakdown" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 volume_db = -15.0
+bus = "Battlefield"
 
 [node name="Empty" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 volume_db = -15.0
 pitch_scale = 0.75
+bus = "Battlefield"
 
 [node name="Shadow" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )

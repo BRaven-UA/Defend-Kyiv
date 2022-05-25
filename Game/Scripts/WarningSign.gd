@@ -12,14 +12,9 @@ func _process(delta: float) -> void:
 	rect_global_position = pos
 
 func activate(_target: Node2D) -> void:
-	if _target:
-		Global.game.hud.warnings.add_child(self)
-		target = _target
-#		visible = true
-		set_process(true)
+	target = _target
+	Global.game.hud.warnings.add_child(self)
 
 func deactivate() -> void:
-#	set_process(false)
-#	target = null
-#	visible = false
-	get_parent().remove_child(self)
+	if is_inside_tree():
+		get_parent().remove_child(self)

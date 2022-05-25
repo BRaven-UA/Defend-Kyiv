@@ -3,15 +3,15 @@
 extends PlayerBase
 
 var analog_controller: AnalogController # touchscreen movement controller
-var direction := Vector2.ZERO # current move normalized direction vector
 var horizontal_limit: int # screen boundaries
 var vertical_limit: int
 
 var rocket_launchers: Array # list of the two available rocket launchers
 var current_rocket_launcher_index: int # index of current launcher
-var ready_to_fire: bool = true
 var breakdown_threshold = MAX_HEALTH / 2
+var ready_to_fire: bool = true
 var is_breakdown: bool # engine failure
+var can_control: bool = true
 
 onready var shadow: Sprite = find_node("Shadow")
 onready var smoke: Particles2D = find_node("Smoke")
@@ -65,36 +65,38 @@ func _process(delta: float) -> void:
 	shadow.global_position = global_position + Global.SHADOW * 100
 	crossair_shadow.position = Global.SHADOW.rotated(-crossair_shadow.global_rotation) * 7.0
 	
-	if Input.is_action_pressed("fire_rocket") and ready_to_fire:
+	if Input.is_action_pressed("fire_rocket") and ready_to_fire and can_control:
 		fire_rocket()
 	
 	sound.pitch_scale = engine_efficiency
 
 func _moving(delta: float) -> void:
-	# calculating user input vector
-	var input_vector := Vector2.ZERO
-	
-	input_vector.x += Input.get_action_strength("ui_right")
-	input_vector.x -= Input.get_action_strength("ui_left")
-	input_vector.y += Input.get_action_strength("ui_up")
-	input_vector.y -= Input.get_action_strength("ui_down")
-	
-	if analog_controller:
-		input_vector += analog_controller.currentForce # combine with touch input
-	
-	var input_length = input_vector.length()
-	if input_length > 1.0: # normalize ONLY oversized vector
-		input_vector = input_vector.normalized()
-	
-	# direction vector adjustment based on user input
-	var acceleration = delta * (FULL_ACCELERATION if Input.is_action_pressed("full_acceleration") else 1.0)
-	
-	if input_length < 0.1: # lesser than input's dead zone or no input at all
-		# the move direction tends to zero
-		direction = direction.move_toward(Vector2.ZERO, acceleration)
-	else: # valid input values
-		direction += input_vector.reflect(Vector2.RIGHT) * acceleration # Y-axis is inverted in 2D
-		direction = direction.clamped(engine_efficiency)
+	var acceleration = delta * FULL_ACCELERATION
+	if can_control:
+		# calculating user input vector
+		var input_vector := Vector2.ZERO
+		
+		input_vector.x += Input.get_action_strength("ui_right")
+		input_vector.x -= Input.get_action_strength("ui_left")
+		input_vector.y += Input.get_action_strength("ui_up")
+		input_vector.y -= Input.get_action_strength("ui_down")
+		
+		if analog_controller:
+			input_vector += analog_controller.currentForce # combine with touch input
+		
+		var input_length = input_vector.length()
+		if input_length > 1.0: # normalize ONLY oversized vector
+			input_vector = input_vector.normalized()
+		
+		# direction vector adjustment based on user input
+		acceleration = delta * (FULL_ACCELERATION if Input.is_action_pressed("full_acceleration") else 1.0)
+		
+		if input_length < 0.1: # lesser than input's dead zone or no input at all
+			# the move direction tends to zero
+			direction = direction.move_toward(Vector2.ZERO, acceleration)
+		else: # valid input values
+			direction += input_vector.reflect(Vector2.RIGHT) * acceleration # Y-axis is inverted in 2D
+			direction = direction.clamped(engine_efficiency)
 	
 	# move player
 	var velocity_per_frame = direction * PLAYER_SPEED * acceleration
@@ -110,9 +112,11 @@ func apply_damage(value: int) -> void:
 		emit_signal("health_changed", health)
 		
 		if health == 0:
-			# TODO: rewrite for game over
-			set_process(false)
-#			Global.game.player = null
+			can_control = false # turn of player control
+			damage_multiplier = 0 # immune to damage
+			vertical_limit *= 2 # can go offsceen on vertical axis
+			crossair.visible = false
+			Global.game.game_over()
 			return
 		
 		var is_badly_damaged = health < breakdown_threshold

@@ -2,6 +2,7 @@ extends Tween
 
 const FLYING_TEXT_DURATION := 4.0
 const PREVIEW_DURATION := 0.3
+const GAMEOVER_DURATION := 3.0
 
 onready var noise = OpenSimplexNoise.new()
 
@@ -56,6 +57,20 @@ func shake_camera() -> void:
 		noise.seed = randi()
 		interpolate_method(self, "_shake_camera_process", 0, 60, 0.5)
 		start()
+
+func game_over(win: bool) -> void:
+	var direction = Vector2.UP if win else Vector2.DOWN
+	interpolate_property(Global.game.player, "direction", Global.game.player.direction, direction, GAMEOVER_DURATION)
+	interpolate_property(Global.game.path_follow, "scroll_speed", Global.game.path_follow.scroll_speed, 0, GAMEOVER_DURATION)
+	interpolate_property(Global.game.postprocess, "material:shader_param/blur", 0.0, 2.0, 2.0)
+	interpolate_method(Global, "set_battlefield_volume", 0, -80, GAMEOVER_DURATION)
+	
+	var flag = Global.game.hud.flag_ua if win else Global.game.hud.flag_ru
+	flag.visible = true
+	var dest = (Global.viewport_size.y - flag.rect_size.y) / 2
+	interpolate_property(flag, "rect_position:y", flag.rect_position.y, dest, GAMEOVER_DURATION, TRANS_SINE, EASE_OUT, GAMEOVER_DURATION)
+	
+	start()
 
 func _shake_camera_process(delta: float):
 	var strength = lerp(60.0 - delta, 0.0, 0.05)

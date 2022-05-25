@@ -6,6 +6,9 @@ onready var health_bar: ProgressBar = base.find_node("HealthBar")
 onready var ammo_bar: TextureProgress = base.find_node("AmmoBar")
 onready var score: Label = base.find_node("Score")
 onready var warnings: Control = base.find_node("Warnings")
+onready var flag_ru: ColorRect = base.find_node("FlagRU")
+onready var flag_ua: ColorRect = base.find_node("FlagUA")
+onready var anthem: AudioStreamPlayer = base.find_node("Anthem")
 
 
 func _enter_tree() -> void:

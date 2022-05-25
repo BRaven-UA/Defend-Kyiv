@@ -5,3 +5,4 @@
 [node name="ProjectileFire" type="AudioStreamPlayer2D"]
 stream = ExtResource( 1 )
 volume_db = -12.0
+bus = "Battlefield"

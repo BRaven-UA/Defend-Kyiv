@@ -75,7 +75,8 @@ func activate(pos: Vector3, tar: Node2D) -> bool:
 	return true
 
 func deactivate() -> void:
-	get_parent().remove_child(self)
+	if is_inside_tree():
+		get_parent().remove_child(self)
 
 # called when one projectile is fired
 func _fire() -> void:

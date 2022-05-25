@@ -66,5 +66,6 @@ func place_crater():
 
 func _on_animation_finished():
 #	animation.stop() # FACEPALM: animation must be stopped via code
-	get_parent().remove_child(self)
+	if is_inside_tree():
+		get_parent().remove_child(self)
 #	is_free = true

@@ -1,12 +1,26 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=2]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
 [ext_resource path="res://Game/Textures/Rocket_ammo.png" type="Texture" id=4]
 [ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
 [ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Game/Resources/Style/Progress_BG_Stylebox.tres" type="StyleBox" id=7]
 [ext_resource path="res://Game/Resources/Style/Health_Stylebox.tres" type="StyleBox" id=8]
+[ext_resource path="res://Game/Resources/Shaders/Flag_RU.shader" type="Shader" id=9]
+[ext_resource path="res://Game/Textures/ZZ.png" type="Texture" id=10]
+[ext_resource path="res://Game/Textures/Trident.png" type="Texture" id=11]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 9 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
+shader_param/decal = ExtResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
+shader_param/decal = ExtResource( 11 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -99,6 +113,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Warnings" type="Control" parent="BaseControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RightHalf" type="Control" parent="BaseControl"]
 anchor_left = 0.5
 anchor_right = 1.0
@@ -109,10 +131,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Warnings" type="Control" parent="BaseControl"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
+[node name="FlagRU" type="ColorRect" parent="BaseControl"]
+visible = false
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -191.0
+margin_top = -214.0
+margin_right = 191.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FlagUA" type="ColorRect" parent="BaseControl"]
+visible = false
+material = SubResource( 2 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -191.0
+margin_right = 191.0
+margin_bottom = 214.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anthem" type="AudioStreamPlayer" parent="BaseControl"]
+bus = "Game"

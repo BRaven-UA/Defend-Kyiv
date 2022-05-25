@@ -225,3 +225,4 @@ frame = 35
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+bus = "Battlefield"
