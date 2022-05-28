@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background icon.png-c7b7a85333c5ff487ee8145b9e78e46b.stex"
+path="res://.import/Foreground icon.png-430d5889cd9c53b08719dd4f7da1b5d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background icon.png"
-dest_files=[ "res://.import/Background icon.png-c7b7a85333c5ff487ee8145b9e78e46b.stex" ]
+source_file="res://Game/Textures/Foreground icon.png"
+dest_files=[ "res://.import/Foreground icon.png-430d5889cd9c53b08719dd4f7da1b5d1.stex" ]
 
 [params]
 

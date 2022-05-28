@@ -58,8 +58,8 @@ func place_crater():
 		Global.game.ground_layer.add_child(crater)
 		crater.global_position = global_position
 		# add some randomness (default crater radius is 22)
-		crater.scale.x = max_radius / 22.0 * (0.8 + randf() * 0.4)
-		crater.scale.y = max_radius / 22.0 * (0.8 + randf() * 0.4)
+		crater.scale.x = max_radius / 20.0 * (0.8 + randf() * 0.4)
+		crater.scale.y = max_radius / 20.0 * (0.8 + randf() * 0.4)
 		crater.rotation = randf() * PI * 2.0
 		if Global.game.path_follow:
 			crater.set_meta("Offset", Global.pos_to_offset(global_position))

@@ -2,13 +2,13 @@
 # contains only private fields and methods
 extends PlayerBase
 
-var analog_controller: AnalogController # touchscreen movement controller
+# var analog_controller: AnalogController # touchscreen movement controller
 var horizontal_limit: int # screen boundaries
 var vertical_limit: int
 
 var rocket_launchers: Array # list of the two available rocket launchers
 var current_rocket_launcher_index: int # index of current launcher
-var breakdown_threshold = MAX_HEALTH / 2
+var breakdown_threshold = MAX_DURABILITY / 2
 var ready_to_fire: bool = true
 var is_breakdown: bool # engine failure
 var can_control: bool = true
@@ -31,15 +31,14 @@ func _enter_tree() -> void:
 	owner.player = self
 
 func _ready() -> void:
-	analog_controller = Global.analog_controller
-#	call_deferred("emit_signal", "health_changed", health) # init the bar
+	# analog_controller = Global.analog_controller
+#	call_deferred("emit_signal", "durability_changed", durability) # init the bar
 	
 	rocket_launchers.resize(2)
 	rocket_launchers[0] = find_node("RocketLauncher1")
 	rocket_launchers[1] = find_node("RocketLauncher2")
 	rocket_timer.connect("timeout", self, "_on_RocketTimer_timeout")
 	ammo_timer.connect("timeout", self, "_on_AmmoTimer_timeout")
-#	connect()
 	
 	# calculating screen boundaries
 	var player_extents = find_node("Hitbox").shape.extents # player boundaries
@@ -71,25 +70,27 @@ func _process(delta: float) -> void:
 	sound.pitch_scale = engine_efficiency
 
 func _moving(delta: float) -> void:
+	# direction vector adjustment based on user input
 	var acceleration = delta * FULL_ACCELERATION
+	
 	if can_control:
 		# calculating user input vector
 		var input_vector := Vector2.ZERO
-		
+
 		input_vector.x += Input.get_action_strength("ui_right")
 		input_vector.x -= Input.get_action_strength("ui_left")
 		input_vector.y += Input.get_action_strength("ui_up")
 		input_vector.y -= Input.get_action_strength("ui_down")
 		
-		if analog_controller:
-			input_vector += analog_controller.currentForce # combine with touch input
+		if Global.game.hud.analog_controller:
+			input_vector += Global.game.hud.analog_controller.currentForce # combine with touch input
 		
 		var input_length = input_vector.length()
 		if input_length > 1.0: # normalize ONLY oversized vector
 			input_vector = input_vector.normalized()
 		
-		# direction vector adjustment based on user input
-		acceleration = delta * (FULL_ACCELERATION if Input.is_action_pressed("full_acceleration") else 1.0)
+		if Input.is_action_pressed("no_acceleration"):
+			acceleration /= FULL_ACCELERATION
 		
 		if input_length < 0.1: # lesser than input's dead zone or no input at all
 			# the move direction tends to zero
@@ -108,10 +109,10 @@ func _moving(delta: float) -> void:
 func apply_damage(value: int) -> void:
 	value *= damage_multiplier
 	if value > 0:
-		health = clamp(health - value, 0, MAX_HEALTH)
-		emit_signal("health_changed", health)
+		durability = clamp(durability - value, 0, MAX_DURABILITY)
+		emit_signal("durability_changed", durability)
 		
-		if health == 0:
+		if durability == 0:
 			can_control = false # turn of player control
 			damage_multiplier = 0 # immune to damage
 			vertical_limit *= 2 # can go offsceen on vertical axis
@@ -119,15 +120,15 @@ func apply_damage(value: int) -> void:
 			Global.game.game_over()
 			return
 		
-		var is_badly_damaged = health < breakdown_threshold
+		var is_badly_damaged = durability < breakdown_threshold
 		smoke.emitting = is_badly_damaged
 		if is_badly_damaged:
-			# low health visualization
-			smoke.self_modulate.a = lerp(1.0, 0.0, health / MAX_HEALTH)
+			# low durability visualization
+			smoke.self_modulate.a = lerp(1.0, 0.0, durability / MAX_DURABILITY)
 			
 			if not is_breakdown:
 				# random engine breakdown when taking damage
-				var damage_level = MAX_HEALTH / health / 50.0
+				var damage_level = MAX_DURABILITY / durability / 50.0
 				if randf() < damage_level: # the more damage level, the more chances for breakdown
 					is_breakdown = true
 					breakdown_sound.play()

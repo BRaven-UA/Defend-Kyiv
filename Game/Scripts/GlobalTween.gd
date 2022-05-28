@@ -66,9 +66,13 @@ func game_over(win: bool) -> void:
 	interpolate_method(Global, "set_battlefield_volume", 0, -80, GAMEOVER_DURATION)
 	
 	var flag = Global.game.hud.flag_ua if win else Global.game.hud.flag_ru
-	flag.visible = true
-	var dest = (Global.viewport_size.y - flag.rect_size.y) / 2
-	interpolate_property(flag, "rect_position:y", flag.rect_position.y, dest, GAMEOVER_DURATION, TRANS_SINE, EASE_OUT, GAMEOVER_DURATION)
+	var start = Global.viewport_size.y if win else 0.0
+	interpolate_property(flag, "rect_position:y", start, flag.rect_position.y, GAMEOVER_DURATION, TRANS_SINE, EASE_OUT, GAMEOVER_DURATION)
+	
+	interpolate_property(Global.game.hud.gameover_caption, "modulate:a", 0, 1, 0.5, TRANS_LINEAR, EASE_IN_OUT, GAMEOVER_DURATION * 2)
+	interpolate_property(Global.game.hud.statistics, "rect_position:y", Global.viewport_size.y, Global.game.hud.statistics.rect_position.y, GAMEOVER_DURATION, TRANS_SINE, EASE_OUT, GAMEOVER_DURATION * 2)
+	Global.game.hud.statistics.rect_position.y = Global.viewport_size.y
+	Global.game.hud.statistics.visible = true
 	
 	start()
 

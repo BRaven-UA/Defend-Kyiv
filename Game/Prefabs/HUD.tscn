@@ -1,23 +1,28 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=2]
 [ext_resource path="res://Game/Scripts/HUD.gd" type="Script" id=3]
 [ext_resource path="res://Game/Textures/Rocket_ammo.png" type="Texture" id=4]
-[ext_resource path="res://Game/Scripts/RightHalf.gd" type="Script" id=5]
+[ext_resource path="res://Game/Textures/FireRocketButton.png" type="Texture" id=5]
 [ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Game/Resources/Style/Progress_BG_Stylebox.tres" type="StyleBox" id=7]
-[ext_resource path="res://Game/Resources/Style/Health_Stylebox.tres" type="StyleBox" id=8]
+[ext_resource path="res://Game/Resources/Style/Background Stylebox.tres" type="StyleBox" id=7]
+[ext_resource path="res://Game/Resources/Style/Durability Stylebox.tres" type="StyleBox" id=8]
 [ext_resource path="res://Game/Resources/Shaders/Flag_RU.shader" type="Shader" id=9]
 [ext_resource path="res://Game/Textures/ZZ.png" type="Texture" id=10]
 [ext_resource path="res://Game/Textures/Trident.png" type="Texture" id=11]
+[ext_resource path="res://Game/Resources/Style/White Foreground Stylebox.tres" type="StyleBox" id=12]
+[ext_resource path="res://Game/Resources/Style/Completed Stylebox.tres" type="StyleBox" id=13]
+[ext_resource path="res://Game/Resources/Style/Uncompleted Stylebox.tres" type="StyleBox" id=14]
+[ext_resource path="res://Game/Resources/Style/Ammunition Stylebox.tres" type="StyleBox" id=15]
+[ext_resource path="res://Game/Scripts/TouchControl.gd" type="Script" id=16]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 9 )
 shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
 shader_param/decal = ExtResource( 10 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 2 )
 shader_param/shadow_color = Color( 0, 0, 0, 0.65 )
 shader_param/decal = ExtResource( 11 )
@@ -34,7 +39,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBar" type="ProgressBar" parent="BaseControl"]
+[node name="FireRocket" type="TextureButton" parent="BaseControl"]
+self_modulate = Color( 0.764706, 0.517647, 0.843137, 0.709804 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -113.454
+margin_top = -137.0
+margin_right = -13.4542
+margin_bottom = -36.9995
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DurabilityBar" type="ProgressBar" parent="BaseControl"]
 anchor_left = 0.005
 anchor_top = 0.002
 anchor_right = 0.005
@@ -42,7 +67,7 @@ anchor_bottom = 0.002
 margin_left = -0.6
 margin_top = 0.44
 margin_right = 220.4
-margin_bottom = 44.44
+margin_bottom = 28.44
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 7 )
 step = 1.0
@@ -52,12 +77,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthLabel" type="Label" parent="BaseControl/HealthBar"]
+[node name="DurabilityLabel" type="Label" parent="BaseControl/DurabilityBar"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 6 )
-text = "Health"
+text = "Durability"
 align = 1
 valign = 2
 max_lines_visible = 1
@@ -65,27 +90,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="BaseControl"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -56.0
-margin_right = 56.0
-margin_bottom = 29.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Score: 0"
-align = 1
-valign = 1
-max_lines_visible = 1
+[node name="AmmoPanel" type="Panel" parent="BaseControl"]
+anchor_left = 0.996
+anchor_top = 0.002
+anchor_right = 0.996
+anchor_bottom = 0.002
+margin_left = -130.12
+margin_top = 0.44
+margin_right = -0.120056
+margin_bottom = 49.44
+custom_styles/panel = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoBar" type="TextureProgress" parent="BaseControl"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -128.0
-margin_bottom = 47.0
+[node name="AmmoBar" type="TextureProgress" parent="BaseControl/AmmoPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -23.5
+margin_right = 64.0
+margin_bottom = 23.5
 max_value = 32.0
 value = 16.0
 rounded = true
@@ -100,12 +127,119 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoLabel" type="Label" parent="BaseControl/AmmoBar"]
+[node name="AmmoLabel" type="Label" parent="BaseControl/AmmoPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -65.0
+margin_right = 65.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ammunition"
+align = 1
+valign = 2
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Statistics" type="PanelContainer" parent="BaseControl"]
+anchor_left = 0.004
+anchor_top = 0.621
+anchor_right = 0.996
+anchor_bottom = 0.977
+margin_left = 0.12
+margin_top = 0.119995
+margin_right = -0.119995
+margin_bottom = -0.560059
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Statistics"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 708.0
+margin_bottom = 449.0
+
+[node name="StatisticsCaption" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
+margin_right = 702.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
+text = "Destroyed vehicles:"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="BaseControl/Statistics/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.2 )
+margin_top = 33.0
+margin_right = 702.0
+margin_bottom = 410.0
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 12 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BaseControl/Statistics/VBoxContainer/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 697.0
+margin_bottom = 372.0
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatisticUnits" type="GridContainer" parent="BaseControl/Statistics/VBoxContainer/PanelContainer/ScrollContainer"]
+custom_constants/vseparation = 4
+custom_constants/hseparation = 1
+columns = 4
+
+[node name="TotalScore" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
+margin_top = 414.0
+margin_right = 702.0
+margin_bottom = 443.0
+custom_colors/font_color = Color( 0, 0.890196, 1, 1 )
+text = "Total score:"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreBar" type="ProgressBar" parent="BaseControl"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = -23.0
+margin_right = -3.0
+margin_bottom = -3.0
+custom_styles/fg = ExtResource( 13 )
+custom_styles/bg = ExtResource( 14 )
+step = 1.0
+value = 75.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="BaseControl/ScoreBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -11.0
+margin_right = 360.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 6 )
-text = "Ammunition"
+custom_colors/font_color = Color( 0.996078, 1, 0.478431, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Defense of Kyiv"
 align = 1
 valign = 2
 max_lines_visible = 1
@@ -116,43 +250,55 @@ __meta__ = {
 [node name="Warnings" type="Control" parent="BaseControl"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 1.0
+margin_bottom = 2.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RightHalf" type="Control" parent="BaseControl"]
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FlagRU" type="ColorRect" parent="BaseControl"]
-visible = false
-material = SubResource( 1 )
+material = SubResource( 3 )
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -191.0
-margin_top = -214.0
+margin_top = -140.0
 margin_right = 191.0
+margin_bottom = 74.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FlagUA" type="ColorRect" parent="BaseControl"]
-visible = false
-material = SubResource( 2 )
+material = SubResource( 4 )
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -191.0
+margin_top = -140.0
 margin_right = 191.0
-margin_bottom = 214.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameoverCaption" type="Label" parent="BaseControl"]
+anchor_top = 0.273
+anchor_right = 1.0
+anchor_bottom = 0.336
+margin_top = 0.559998
+margin_right = 0.279968
+margin_bottom = -0.0800476
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Game over"
+align = 1
+valign = 1
+max_lines_visible = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -86,8 +86,8 @@ func _on_invulnerable_toggled(enabled: bool) -> void:
 	if Global.game.player:
 		if enabled:
 			Global.game.player.damage_multiplier = 0
-			Global.game.player.health = PlayerBase.MAX_HEALTH
-			Global.game.player.emit_signal("health_changed", PlayerBase.MAX_HEALTH)
+			Global.game.player.durability = PlayerBase.MAX_DURABILITY
+			Global.game.player.emit_signal("durability_changed", PlayerBase.MAX_DURABILITY)
 		else:
 			Global.game.player.damage_multiplier = 1
 

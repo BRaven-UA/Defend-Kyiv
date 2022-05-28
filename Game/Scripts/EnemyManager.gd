@@ -1,6 +1,6 @@
 extends Node
 
-enum {NAME, FRAME, RARITY, EXPLOSION, ANTIAIRCRAFT} # list of each enemy keys
+enum {NAME, FRAME, RARITY, EXPLOSION, ANTIAIRCRAFT, SPAWNED, DESTROYED} # list of each enemy keys
 enum {AA_NONE, AA_ROCKETS, AA_CANNON, AA_BOTH} # Anti Aircraft systems
 const ENEMIES := [
 	{NAME: "Tigr", FRAME: 0, RARITY: Global.RARITY.COMMON, EXPLOSION: PoolManager.EXPLOSION.VehicleExplosion},
@@ -30,10 +30,7 @@ const AA_CANNON_PARTICLES := 4
 var total_chance := 0.0 # total spawn chance for all enemies
 
 
-func _ready() -> void:
-	for enemy_data in ENEMIES:
-		total_chance += CHANCES[enemy_data[RARITY]]
-	
+#func _ready() -> void:
 #	spawn_enemy(ENEMIES[3], Vector2(63310, -51262), 0)
 	
 #	for group_data in Global.game.places.groups:
@@ -60,6 +57,7 @@ func spawn_enemy_group(group_data: Dictionary) -> void:
 	
 	for index in indexes:
 		var enemy_data: Dictionary = get_random_enemy()
+		enemy_data[SPAWNED] += 1
 		spawn_enemy(enemy_data, Global.game.places.positions[index], Global.game.places.rotations[index])
 
 func spawn_enemy(data: Dictionary, pos := Vector2.ZERO, rot := 0.0) -> void:
@@ -69,9 +67,6 @@ func spawn_enemy(data: Dictionary, pos := Vector2.ZERO, rot := 0.0) -> void:
 	if Global.game.ground_layer:
 		Global.game.ground_layer.add_child(enemy)
 	enemy.call_deferred("init", data, pos, rot)
-
-func _rand_range(_min: int, _max: int) -> float:
-	return (_min + (_max - _min) * randf())/ 100.0
 
 func get_random_enemy() -> Dictionary:
 	ENEMIES.shuffle()
@@ -85,3 +80,13 @@ func get_random_enemy() -> Dictionary:
 	
 	assert(false)
 	return {}
+
+func clear_statistics() -> void:
+	total_chance = 0
+	for enemy_data in ENEMIES:
+		enemy_data[SPAWNED] = 0
+		enemy_data[DESTROYED] = 0
+		total_chance += CHANCES[enemy_data[RARITY]]
+
+func _rand_range(_min: int, _max: int) -> float:
+	return (_min + (_max - _min) * randf())/ 100.0

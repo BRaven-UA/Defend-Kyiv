@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Prefabs/WarningSign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Textures/Background/125.jpg" type="Texture" id=9]
+[ext_resource path="res://Game/Prefabs/TouchControls.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -91,7 +93,7 @@ position = Vector2( -61.9467, 169.493 )
 visible = false
 
 [node name="Shadow" parent="Player" index="4"]
-frame = 6
+frame = 7
 
 [node name="HighlightArea" parent="Player/Highlight" index="0"]
 visible = false
@@ -100,10 +102,17 @@ visible = false
 visible = false
 
 [node name="Body" parent="Player" index="8"]
-frame = 6
+frame = 7
 
 [node name="AnimationTree" parent="Player" index="15"]
 parameters/playback = SubResource( 2 )
+
+[node name="TouchControls" parent="." instance=ExtResource( 10 )]
+position = Vector2( -365.569, -1137.58 )
+
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+offset = Vector2( -300, -300 )
+transform = Transform2D( 1, 0, 0, 1, -300, -300 )
 
 [editable path="ground/Explosion"]
 [editable path="ground/TestEnemy"]

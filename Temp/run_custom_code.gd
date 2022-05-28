@@ -3,9 +3,15 @@ extends EditorScript
 
 
 func _run() -> void:
-	var s = get_scene().find_node("CrossairShadow")
-	print(s.owner)
-
+	var atlas_width = 5
+	var texture_size = Vector2(154, 120)
+	for i in 10:
+		var index = i
+		var row = index / atlas_width
+		var column = index % atlas_width
+		var texture_position = Vector2(column, row) * texture_size
+		printt(i, texture_position)
+#		printt(i, column)
 
 func h():
 	var arr = []

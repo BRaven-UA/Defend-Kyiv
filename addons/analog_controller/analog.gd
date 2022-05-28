@@ -1,6 +1,6 @@
-extends Node2D
-
+# https://github.com/thiagobruno/godot_analogcontroller
 class_name AnalogController
+extends Node2D
 
 enum typesAnalog { DIRECTION_2_H, DIRECTION_2_V, DIRECTION_4, DIRECTION_8, DIRECTION_360 }
 
@@ -27,11 +27,11 @@ var ballPos = Vector2()
 var squaredHalfSizeLenght = 0
 var currentPointerIDX = INACTIVE
 
-export(bool) var isDynamicallyShowing = false
-export(typesAnalog) var typeAnalogic = typesAnalog.DIRECTION_8
+export(bool) var isDynamicallyShowing = true
+export(typesAnalog) var typeAnalogic = typesAnalog.DIRECTION_360
 export(float,0.00,1.0) var smoothClick = 0.02
 export(float,0.00,1.0) var smoothRelease = 0.02
-export(Vector2) var scaleBall = Vector2(1,1)
+export(Vector2) var scaleBall = Vector2(0.7, 0.7)
 export(Texture) var bigBallTexture = ResourceLoader.load("res://addons/analog_controller/big_circle_DIRECTION_8.png")
 export(Texture) var smallBallTexture = ResourceLoader.load("res://addons/analog_controller/small_circle_DIRECTION_8.png")
 export(Dictionary) var directionsResult = {
@@ -52,7 +52,7 @@ signal analogRelease
 
 func _ready() -> void:
 	var has_touchscreen = OS.has_touchscreen_ui_hint()
-	set_process_input(has_touchscreen)
+	set_process_unhandled_input(has_touchscreen)
 	if has_touchscreen:
 		initial_position = global_position
 		_configAnalog()
@@ -96,8 +96,8 @@ func _convertType(pos):
 func get_force():
 	if local_paused:return
 	return currentForce
-	
-func _input(event):
+
+func _unhandled_input(event: InputEvent) -> void:
 	if local_paused:return
 	
 	var incomingPointer = extractPointerIdx(event)

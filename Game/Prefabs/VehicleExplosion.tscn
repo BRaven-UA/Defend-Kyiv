@@ -250,7 +250,6 @@ monitoring = false
 collision_layer = 128
 collision_mask = 0
 script = ExtResource( 3 )
-max_radius = 3.0
 
 [node name="ExplosionArea" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
