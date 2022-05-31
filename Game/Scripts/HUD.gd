@@ -15,6 +15,7 @@ onready var flag_ua: ColorRect = base.find_node("FlagUA")
 onready var statistics: PanelContainer = base.find_node("Statistics")
 onready var statistic_units: GridContainer = base.find_node("StatisticUnits")
 onready var total_score: Label = base.find_node("TotalScore")
+onready var main_menu: Button = base.find_node("MainMenu")
 onready var anthem: AudioStreamPlayer = base.find_node("Anthem")
 
 
@@ -22,6 +23,8 @@ func _enter_tree() -> void:
 	Global.game.hud = self # register itself in global singleton
 
 func _ready() -> void:
+	main_menu.connect("pressed", self, "_on_main_menu_pressed")
+	
 	var player = Global.game.player
 	if player:
 		player.connect("durability_changed", self, "_on_player_durability_changed")
@@ -51,6 +54,7 @@ func _ready() -> void:
 	flag_ru.visible = false
 	flag_ua.visible = false
 	statistics.visible = false
+	main_menu.visible = false
 
 func set_durability(new_value: int) -> void:
 	GlobalTween.stop(durability_bar)
@@ -78,3 +82,6 @@ func _on_player_ammo_changed(value: int) -> void:
 
 func _on_game_score_changed(value: int) -> void:
 	increase_score(value)
+
+func _on_main_menu_pressed() -> void:
+	Global.return_to_main_menu()

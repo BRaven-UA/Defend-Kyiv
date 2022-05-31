@@ -71,12 +71,14 @@ func game_over() -> void:
 	
 	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION), "timeout")
 	var flag = hud.flag_ua if win else hud.flag_ru
-	hud.flag.visible = true
+	flag.visible = true
 	hud.gameover_caption.visible = true
 	hud.anthem.stream = Preloader.get_resource("Ukraine Anthem" if win else "Russia Anthem")
 	hud.anthem.play()
-	
 	PoolManager.return_all_reusable()
+	
+	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION * 2), "timeout")
+	hud.main_menu.visible = true
 
 # called periodically during the game (by default every second)
 func _routine() -> void:

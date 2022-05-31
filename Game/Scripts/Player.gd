@@ -70,34 +70,36 @@ func _process(delta: float) -> void:
 	sound.pitch_scale = engine_efficiency
 
 func _moving(delta: float) -> void:
-	# direction vector adjustment based on user input
+	# full acceleratrion by default
 	var acceleration = delta * FULL_ACCELERATION
 	
-	if can_control:
+	if can_control: # take into account user input
 		# calculating user input vector
 		var input_vector := Vector2.ZERO
-
 		input_vector.x += Input.get_action_strength("ui_right")
 		input_vector.x -= Input.get_action_strength("ui_left")
 		input_vector.y += Input.get_action_strength("ui_up")
 		input_vector.y -= Input.get_action_strength("ui_down")
 		
-		if Global.game.hud.analog_controller:
-			input_vector += Global.game.hud.analog_controller.currentForce # combine with touch input
+		if Global.game.hud.analog_controller: # combine with touch input
+			input_vector += Global.game.hud.analog_controller.currentForce
 		
 		var input_length = input_vector.length()
 		if input_length > 1.0: # normalize ONLY oversized vector
 			input_vector = input_vector.normalized()
 		
+		# for input devices with discrete input state (0 or 1) there is a special action for more precise control by reducing acceleration
 		if Input.is_action_pressed("no_acceleration"):
 			acceleration /= FULL_ACCELERATION
 		
 		if input_length < 0.1: # lesser than input's dead zone or no input at all
 			# the move direction tends to zero
 			direction = direction.move_toward(Vector2.ZERO, acceleration)
-		else: # valid input values
+		elif input_length < 1.0: # for analog input devices
+			direction = input_vector.reflect(Vector2.RIGHT) # Y-axis is inverted in 2D
+		else: # for discrete input devices or full accelerated inputs
 			direction += input_vector.reflect(Vector2.RIGHT) * acceleration # Y-axis is inverted in 2D
-			direction = direction.clamped(engine_efficiency)
+		direction = direction.clamped(engine_efficiency)
 	
 	# move player
 	var velocity_per_frame = direction * PLAYER_SPEED * acceleration

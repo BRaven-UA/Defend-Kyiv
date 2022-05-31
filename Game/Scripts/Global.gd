@@ -24,8 +24,6 @@ onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
 func _enter_tree() -> void:
 	tree = get_tree()
 	viewport_size = get_viewport_rect().size
-	print(OS.get_screen_size())
-	print(OS.get_window_safe_area())
 	screen_polygon = PoolVector2Array([Vector2.ZERO, Vector2(viewport_size.x, 0), viewport_size, Vector2(0, viewport_size.y)])
 	curve = Preloader.get_resource("MovePath2D")
 	randomize()
@@ -38,8 +36,21 @@ func _notification(what):
 			else:
 				quit()
 		MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-			# TODO: add pause when ingame
-			quit()
+			if game:
+				tree.paused = true
+			else:
+				quit()
+		MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+			tree.paused = true
+		MainLoop.NOTIFICATION_APP_PAUSED:
+			tree.paused = true
+		MainLoop.NOTIFICATION_APP_RESUMED:
+			tree.paused = false
+
+func return_to_main_menu() -> void:
+	yield(tree, "idle_frame")
+	tree.change_scene_to(Preloader.get_resource("Empty"))
+	GUI.title.visible = true
 
 func new_game() -> void:
 	set_battlefield_volume(0)

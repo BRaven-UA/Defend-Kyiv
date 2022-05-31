@@ -40,6 +40,7 @@ __meta__ = {
 }
 
 [node name="FireRocket" type="TextureButton" parent="BaseControl"]
+visible = false
 self_modulate = Color( 0.764706, 0.517647, 0.843137, 0.709804 )
 anchor_left = 1.0
 anchor_top = 1.0
@@ -299,6 +300,19 @@ text = "Game over"
 align = 1
 valign = 1
 max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="BaseControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -160.0
+margin_top = 250.0
+margin_right = 160.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 320, 50 )
+text = "Return to main menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }

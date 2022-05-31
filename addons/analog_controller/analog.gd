@@ -319,9 +319,7 @@ func isPressed(event):
 
 func isReleased(event):
 	if event is InputEventScreenTouch:
-		return !event.pressed
-	elif event is InputEventMouseButton:
-		return !event.pressed
+		return (!event.pressed and event.index == currentPointerIDX)
 
 func pause() -> void:
 	local_paused = true

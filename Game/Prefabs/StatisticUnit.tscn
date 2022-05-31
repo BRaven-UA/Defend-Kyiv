@@ -16,6 +16,7 @@ region = Rect2( 0, 0, 154, 120 )
 [node name="StatisticUnit" type="MarginContainer"]
 margin_right = 169.0
 margin_bottom = 217.0
+mouse_filter = 2
 custom_constants/margin_top = 3
 custom_constants/margin_left = 3
 script = ExtResource( 6 )
@@ -28,6 +29,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = 169.0
 margin_bottom = 227.0
+mouse_filter = 2
 custom_constants/separation = 5
 
 [node name="Name" type="Label" parent="VBoxContainer"]
@@ -35,6 +37,7 @@ margin_right = 166.0
 margin_bottom = 52.0
 rect_min_size = Vector2( 0, 52 )
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 text = "TOS-1A Solntsepyok"
 align = 1
 valign = 2
@@ -45,6 +48,7 @@ max_lines_visible = 2
 margin_top = 57.0
 margin_right = 166.0
 margin_bottom = 189.0
+mouse_filter = 2
 custom_styles/panel = ExtResource( 5 )
 
 [node name="Picture" type="TextureRect" parent="VBoxContainer/Background"]
@@ -52,6 +56,7 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 160.0
 margin_bottom = 126.0
+mouse_filter = 2
 texture = SubResource( 1 )
 stretch_mode = 6
 
@@ -60,6 +65,7 @@ margin_top = 194.0
 margin_right = 166.0
 margin_bottom = 216.0
 rect_min_size = Vector2( 0, 22 )
+mouse_filter = 2
 custom_styles/fg = ExtResource( 1 )
 custom_styles/bg = ExtResource( 2 )
 step = 1.0
