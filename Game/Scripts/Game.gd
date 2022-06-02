@@ -1,7 +1,8 @@
 class_name Game
 extends Node2D
 
-signal score_changed
+signal score_changed(amount)
+signal pause_changed(state)
 
 var tree: SceneTree
 var places: Places # placeholders database
@@ -24,24 +25,41 @@ onready var timer: Timer = find_node("Timer")
 func _enter_tree() -> void:
 	Global.game = self
 	viewport_size = Global.viewport_size
-	places = Preloader.get_resource("Places").duplicate()
+
+	match Global.game_mode:
+		Global.GAMEMODE.DEBUG:
+			places = Preloader.get_resource("Places_demo").duplicate()
+#			places = Preloader.get_resource("Places").duplicate()
+		Global.GAMEMODE.DEMO:
+			places = Preloader.get_resource("Places_demo").duplicate()
 
 func _ready() -> void:
 	tree = get_tree()
 	var screen_rect = camera.find_node("ScreenRectShape")
 	screen_rect.shape.extents = viewport_size / 2
+	
+	player.connect("destroyed", self, "_on_player_destroyed")
 	timer.connect("timeout", self, "_on_timer_timeout")
 	timer.start()
 
-	if OS.is_debug_build(): # only for debug purposes. Cuts off all groups that already behind player st the start of the game
-		for index in places.groups.size():
-			if places.groups[index].Offset < path_follow.offset:
-				places.groups.resize(index)
+	# if start position is not zero, then all groups that can be placed on or behind the screen are truncated
+	if path_follow.offset:
+		var start_offset = path_follow.offset + viewport_size.y
+		var size = places.groups.size()
+		for index in size:
+			var invert_index = size - index - 1
+			if places.groups[invert_index].Offset > start_offset:
+				places.groups.resize(invert_index)
+				break
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		pause()
 
 func bump_camera() -> void:
 	var shift = Vector2.ONE
 	camera.offset += shift
-	yield(tree.create_timer(0.05), "timeout")
+	yield(tree.create_timer(0.05, false), "timeout")
 	if camera.offset:
 		camera.offset -= shift
 
@@ -49,7 +67,17 @@ func increase_score(value: int) -> void:
 	score += value
 	emit_signal("score_changed", value)
 
+func pause(state: int = -1): # three state workaround: 0 - false, 1 - true, -1 - toggle
+	var paused: bool
+	if state == -1: # toggle by default
+		paused = !tree.paused
+	else:
+		paused = state as bool # type casting
+	tree.paused = paused
+	emit_signal("pause_changed", paused)
+
 func game_over() -> void:
+	player.game_over()
 	timer.stop()
 	if hud.touch_controls:
 		hud.touch_controls.visible = false
@@ -65,11 +93,11 @@ func game_over() -> void:
 				hud.statistic_units.add_child(stat_unit)
 				stat_unit.init(enemy_data)
 	
-	var win = score >= Global.VICTORY_VALUE
+	var win = score >= Global.victory_value
 	hud.gameover_caption.text = "SUCCESS !\nKyiv is defended" if win else "FAILURE !\nKyiv is occupied"
 	GlobalTween.game_over(win)
 	
-	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION), "timeout")
+	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION, false), "timeout")
 	var flag = hud.flag_ua if win else hud.flag_ru
 	flag.visible = true
 	hud.gameover_caption.visible = true
@@ -77,7 +105,7 @@ func game_over() -> void:
 	hud.anthem.play()
 	PoolManager.return_all_reusable()
 	
-	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION * 2), "timeout")
+	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION * 2, false), "timeout")
 	hud.main_menu.visible = true
 
 # called periodically during the game (by default every second)
@@ -91,11 +119,11 @@ func _routine() -> void:
 		if group_data.Offset < max_offset:
 			EnemyManager.spawn_enemy_group(group_data)
 			places.groups.resize(places.groups.size() - 1)
-	else: # end of map
-		# TODO: rewrite
+	else: # no more enemies - end of map
 		timer.stop()
-		yield(tree.create_timer(viewport_size.y / path_follow.scroll_speed), "timeout")
-		path_follow.set_scroll_speed(0)
+		yield(tree.create_timer(viewport_size.y * 2.5 / path_follow.scroll_speed, false), "timeout")
+		game_over()
+		return
 	
 	# back reusable objects behind
 	var min_offset = offset - viewport_size.y * 2
@@ -106,3 +134,6 @@ func _routine() -> void:
 
 func _on_timer_timeout() -> void:
 	_routine()
+
+func _on_player_destroyed() -> void:
+	game_over()

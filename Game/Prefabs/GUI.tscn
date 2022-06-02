@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Textures/TitleScreen.jpg" type="Texture" id=2]
 [ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Game/Scripts/GUI.gd" type="Script" id=4]
+[ext_resource path="res://Game/Resources/Style/Transparent Foreground Stylebox.tres" type="StyleBox" id=5]
 
 [node name="GUI" type="CanvasLayer"]
+pause_mode = 2
 layer = 2
 script = ExtResource( 4 )
 
@@ -21,6 +23,12 @@ __meta__ = {
 [node name="TitleScene" type="Control" parent="BaseControl"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_neighbour_top = NodePath("Menu/VBoxContainer/Exit")
+focus_neighbour_right = NodePath("Menu/VBoxContainer/NewGame")
+focus_neighbour_bottom = NodePath("Menu/VBoxContainer/NewGame")
+focus_next = NodePath("Menu/VBoxContainer/NewGame")
+focus_previous = NodePath("Menu/VBoxContainer/Exit")
+focus_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,7 +65,6 @@ valign = 1
 max_lines_visible = 2
 
 [node name="Menu" type="Panel" parent="BaseControl/TitleScene"]
-self_modulate = Color( 1, 1, 1, 0.294118 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -66,6 +73,7 @@ margin_left = -250.0
 margin_top = -143.5
 margin_right = 250.0
 margin_bottom = 143.5
+custom_styles/panel = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,17 +86,39 @@ margin_top = 40.0
 margin_right = -70.0
 margin_bottom = -47.0
 custom_constants/separation = 16
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NewGame" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
+margin_top = 25.0
 margin_right = 360.0
-margin_bottom = 35.0
+margin_bottom = 64.0
+focus_neighbour_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Exit")
+shortcut_in_tooltip = false
 text = "NEW GAME"
 
-[node name="Exit" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
-margin_top = 51.0
+[node name="Settings" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
+margin_top = 80.0
 margin_right = 360.0
-margin_bottom = 86.0
+margin_bottom = 119.0
+focus_neighbour_top = NodePath("../NewGame")
+focus_neighbour_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../NewGame")
+disabled = true
+shortcut_in_tooltip = false
+text = "SETTINGS"
+
+[node name="Exit" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
+margin_top = 135.0
+margin_right = 360.0
+margin_bottom = 174.0
+focus_neighbour_top = NodePath("../Settings")
+focus_next = NodePath("../NewGame")
+focus_previous = NodePath("../Settings")
+shortcut_in_tooltip = false
 text = "EXIT"

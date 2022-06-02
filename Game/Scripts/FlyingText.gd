@@ -21,7 +21,7 @@ func activate(_text: String, _color := Color(1, 1, 1, 1), pos := Vector2.ZERO) -
 		GlobalTween.flying_text(self)
 		update()
 		# wait until the animation ends
-		yield(get_tree().create_timer(GlobalTween.FLYING_TEXT_DURATION), "timeout")
+		yield(get_tree().create_timer(GlobalTween.FLYING_TEXT_DURATION, false), "timeout")
 		if is_inside_tree():
 			deactivate()
 

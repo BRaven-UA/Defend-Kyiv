@@ -4,7 +4,7 @@ extends Control
 var player_rocket_consumption: int # backup value
 
 #onready var player: PlayerBase = Global.game.player
-onready var scene_tree: SceneTree = get_tree()
+onready var tree: SceneTree = get_tree()
 onready var panel: Panel = find_node("DebugPanel")
 onready var debug_label_1: Label = find_node("DebugLabel_1")
 onready var debug_label_2: Label = find_node("DebugLabel_2")
@@ -23,26 +23,31 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	debug_panel(0) # make sure to start hidden
-	
+	init()
 	scroll_speed_slider.connect("value_changed", self, "_on_scroll_speed_changed")
-	
 	reset_position.connect("pressed", self, "_on_reset_position_pressed")
 	restart.connect("pressed", self, "_on_restart_pressed")
-	
 	infinite_ammo.connect("toggled", self, "_on_infinite_ammo_toggled")
 	invulnerable.connect("toggled", self, "_on_invulnerable_toggled")
-	
-	always_on_top.pressed = OS.is_window_always_on_top()
 	always_on_top.connect("toggled", self, "_on_always_on_top_toggled")
-	
-	resizeable.pressed = OS.window_resizable
 	resizeable.connect("toggled", self, "_on_resizeable_toggled")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_debug_panel"):
 		debug_panel()
-	if event.is_action_pressed("ui_cancel"):
-		scene_tree.paused = !scene_tree.paused
+
+func init() -> void:
+	debug_label_1.text = ""
+	debug_label_2.text = ""
+	always_on_top.pressed = OS.is_window_always_on_top()
+	resizeable.pressed = OS.window_resizable
+	
+	if Global.game:
+		var speed = Global.game.path_follow.scroll_speed
+		scroll_speed_slider.value = speed
+		_on_scroll_speed_changed(speed)
+		infinite_ammo.pressed = false
+		invulnerable.pressed = false
 
 func debug_panel(state: int = -1): # three state workaround: 0 - false, 1 - true, -1 - toggle
 	var _visible: bool
@@ -56,7 +61,7 @@ func debug_panel(state: int = -1): # three state workaround: 0 - false, 1 - true
 	if _visible:
 		if is_ingame:
 			_on_scroll_speed_changed(Global.game.path_follow.scroll_speed)
-		for node in scene_tree.get_nodes_in_group("GameDebug"):
+		for node in tree.get_nodes_in_group("GameDebug"):
 			node.visible = is_ingame
 
 func _on_reset_position_pressed() -> void:
@@ -65,7 +70,7 @@ func _on_reset_position_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	PoolManager.return_all_reusable()
-#	scene_tree.reload_current_scene()
+#	tree.reload_current_scene()
 	Global.new_game()
 
 func _on_scroll_speed_changed(value: float) -> void:

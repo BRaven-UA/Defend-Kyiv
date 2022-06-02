@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Default_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Game/Resources/Style/Button Normal Stylebox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Game/Resources/Style/Button Pressed Stylebox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Game/Resources/Style/Button Selected Stylebox.tres" type="StyleBox" id=4]
 
 [resource]
 default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.933333, 1, 0.478431, 1 )
+Button/colors/font_color_hover = Color( 0.933333, 1, 0.478431, 1 )
+Button/colors/font_color_pressed = Color( 0.603922, 0.654902, 0.25098, 1 )
+Button/styles/focus = ExtResource( 4 )
+Button/styles/hover = ExtResource( 4 )
+Button/styles/normal = ExtResource( 2 )
+Button/styles/pressed = ExtResource( 3 )

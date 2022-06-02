@@ -15,7 +15,10 @@ onready var flag_ua: ColorRect = base.find_node("FlagUA")
 onready var statistics: PanelContainer = base.find_node("Statistics")
 onready var statistic_units: GridContainer = base.find_node("StatisticUnits")
 onready var total_score: Label = base.find_node("TotalScore")
-onready var main_menu: Button = base.find_node("MainMenu")
+onready var pause_menu: Panel = base.find_node("PauseMenu")
+onready var resume: Button = pause_menu.find_node("Resume")
+onready var settings: Button = pause_menu.find_node("Settings")
+onready var main_menu: Button = pause_menu.find_node("MainMenu")
 onready var anthem: AudioStreamPlayer = base.find_node("Anthem")
 
 
@@ -23,6 +26,9 @@ func _enter_tree() -> void:
 	Global.game.hud = self # register itself in global singleton
 
 func _ready() -> void:
+	Global.game.connect("pause_changed", self, "_on_game_pause_changed")
+	resume.connect("pressed", self, "_on_resume_pressed")
+	settings.connect("pressed", self, "_on_settings_pressed")
 	main_menu.connect("pressed", self, "_on_main_menu_pressed")
 	
 	var player = Global.game.player
@@ -54,7 +60,7 @@ func _ready() -> void:
 	flag_ru.visible = false
 	flag_ua.visible = false
 	statistics.visible = false
-	main_menu.visible = false
+	pause_menu.visible = false
 
 func set_durability(new_value: int) -> void:
 	GlobalTween.stop(durability_bar)
@@ -63,7 +69,7 @@ func set_durability(new_value: int) -> void:
 	GlobalTween.start()
 
 func increase_score(value: int) -> void:
-	var progress = clamp(score_bar.value + value, 0, 100) / Global.VICTORY_VALUE * 100
+	var progress = clamp(score_bar.value + value, 0, 100) / Global.victory_value * 100
 	score_label.text = "Defense of Kyiv: %d%%" % progress
 	var difference = abs(score_bar.value - progress)
 	if difference:
@@ -74,6 +80,9 @@ func increase_score(value: int) -> void:
 func set_ammo(value: int) -> void:
 	ammo_bar.value = value
 
+func _on_game_pause_changed(state: bool) -> void:
+	pause_menu.visible = state
+
 func _on_player_durability_changed(value: int) -> void:
 	set_durability(value)
 
@@ -82,6 +91,12 @@ func _on_player_ammo_changed(value: int) -> void:
 
 func _on_game_score_changed(value: int) -> void:
 	increase_score(value)
+
+func _on_resume_pressed() -> void:
+	Global.game.pause(false)
+
+func _on_settings_pressed() -> void:
+	pass
 
 func _on_main_menu_pressed() -> void:
 	Global.return_to_main_menu()

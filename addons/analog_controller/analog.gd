@@ -79,7 +79,7 @@ func _configAnalog():
 	if isDynamicallyShowing:
 		modulate.a = 0
 	else:
-		yield(get_tree().create_timer(.2), "timeout")
+		yield(get_tree().create_timer(.2, false), "timeout")
 		position = initial_position
 		modulate.a = 1
 		show()
@@ -267,7 +267,7 @@ func showAtPos(pos) -> void:
 
 	self.set_global_position(pos)
 	while self.modulate.a < 1.0 and isActive():
-		yield(get_tree().create_timer(smoothClick), "timeout")
+		yield(get_tree().create_timer(smoothClick, false), "timeout")
 		self.modulate.a += .1
 	
 	if !isActive():
@@ -275,7 +275,7 @@ func showAtPos(pos) -> void:
 			
 func hide() -> void:
 	while self.modulate.a > 0.0 and !isActive():
-		yield(get_tree().create_timer(smoothRelease), "timeout")
+		yield(get_tree().create_timer(smoothRelease, false), "timeout")
 		self.modulate.a -= .1
 	
 	emit_signal("analogRelease")

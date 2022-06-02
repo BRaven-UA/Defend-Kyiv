@@ -29,6 +29,11 @@ onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
 
 func _enter_tree() -> void:
 	owner.player = self
+	match Global.game_mode:
+		Global.GAMEMODE.DEBUG:
+			durability = 5.0
+		Global.GAMEMODE.DEMO:
+			durability = MAX_DURABILITY
 
 func _ready() -> void:
 	# analog_controller = Global.analog_controller
@@ -115,11 +120,7 @@ func apply_damage(value: int) -> void:
 		emit_signal("durability_changed", durability)
 		
 		if durability == 0:
-			can_control = false # turn of player control
-			damage_multiplier = 0 # immune to damage
-			vertical_limit *= 2 # can go offsceen on vertical axis
-			crossair.visible = false
-			Global.game.game_over()
+			emit_signal("destroyed")
 			return
 		
 		var is_badly_damaged = durability < breakdown_threshold
@@ -136,7 +137,7 @@ func apply_damage(value: int) -> void:
 					breakdown_sound.play()
 					GlobalTween.start_breakdown(self)
 					var duration = breakdown_sound.stream.get_length() + randf() * damage_level * 10
-					yield(get_tree().create_timer(duration), "timeout")
+					yield(get_tree().create_timer(duration, false), "timeout")
 					is_breakdown = false
 #					breakdown_sound.stop()
 					GlobalTween.cancel_breakdown(self)
@@ -166,15 +167,21 @@ func fire_rocket() -> void:
 	ready_to_fire = false
 	rocket_timer.start(ROCKET_COOLDOWN)
 
+func hit_by_rocket() -> void:
+	apply_damage(10)
+	GlobalTween.shake_camera()
+
+func game_over() -> void:
+	can_control = false # turn of player control
+	damage_multiplier = 0 # immune to damage
+	vertical_limit *= 2 # can go offsceen on vertical axis
+	crossair.visible = false
+
 func _change_rockets_amount(value: int) -> void:
 	var new_value = Global.clamp_int(rockets_amount + value, 0, MAX_ROCKETS)
 	if new_value != rockets_amount:
 		rockets_amount = new_value
 		emit_signal("ammo_changed", rockets_amount)
-
-func hit_by_rocket() -> void:
-	apply_damage(10)
-	GlobalTween.shake_camera()
 
 func _on_RocketTimer_timeout() -> void:
 	ready_to_fire = true

@@ -1,5 +1,6 @@
 extends Node2D
 
+enum GAMEMODE {DEBUG, DEMO, TUTORIAL, STANDARD}
 enum RARITY {NONE, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 const COLOR_NONE = Color.transparent
 const COLOR_COMMON = Color.white
@@ -10,14 +11,15 @@ const COLOR_LEGENDARY = Color.orange
 const COLORS = [COLOR_NONE, COLOR_COMMON, COLOR_UNCOMMON, COLOR_RARE, COLOR_EPIC, COLOR_LEGENDARY]
 const POINTS = [0, 1, 2, 4, 8, 16] # score points per rarity
 const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow direction
-const VICTORY_VALUE := 100.0
 
 var tree: SceneTree
+var game_mode: int = GAMEMODE.DEMO
 var game: Game
 var debug: Debug
 var curve: Curve2D
 var viewport_size: Vector2
 var screen_polygon
+var victory_value: float
 onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
 
 
@@ -27,6 +29,11 @@ func _enter_tree() -> void:
 	screen_polygon = PoolVector2Array([Vector2.ZERO, Vector2(viewport_size.x, 0), viewport_size, Vector2(0, viewport_size.y)])
 	curve = Preloader.get_resource("MovePath2D")
 	randomize()
+	match game_mode:
+		GAMEMODE.DEBUG:
+			victory_value = 5.0
+		GAMEMODE.DEMO:
+			victory_value = 100.0
 
 func _notification(what):
 	match what:
@@ -37,26 +44,30 @@ func _notification(what):
 				quit()
 		MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
 			if game:
-				tree.paused = true
+				game.pause(true)
 			else:
 				quit()
 		MainLoop.NOTIFICATION_WM_FOCUS_OUT:
-			tree.paused = true
+			if game:
+				game.pause(true)
 		MainLoop.NOTIFICATION_APP_PAUSED:
-			tree.paused = true
-		MainLoop.NOTIFICATION_APP_RESUMED:
-			tree.paused = false
+			if game:
+				game.pause(true)
+#		MainLoop.NOTIFICATION_APP_RESUMED:
+#			pass
 
 func return_to_main_menu() -> void:
 	yield(tree, "idle_frame")
 	tree.change_scene_to(Preloader.get_resource("Empty"))
-	GUI.title.visible = true
+	GUI.title_screen(true)
 
 func new_game() -> void:
 	set_battlefield_volume(0)
 	EnemyManager.clear_statistics()
 	tree.change_scene_to(Preloader.get_resource("Game"))
-	tree.paused = false
+	
+	if debug:
+		debug.init()
 
 func quit() -> void:
 	# TODO: save game state

@@ -5,6 +5,7 @@ extends Area2D
 
 signal durability_changed(value)
 signal ammo_changed(value)
+signal destroyed
 
 const HEIGHT: float = 500.0 # player's height above the ground
 const PLAYER_SPEED: int = 100
@@ -14,7 +15,7 @@ const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
 const MAX_DURABILITY: float = 100.0
 const MAX_ROCKETS: int = 32 # max amount of rockets that player can carry
 
-var durability := MAX_DURABILITY
+var durability: float
 var direction := Vector2.ZERO # current move normalized direction vector
 var velocity: Vector2 # player local velocity per second
 var rockets_amount: int = MAX_ROCKETS # available rockets
@@ -30,4 +31,7 @@ func get_height() -> float:
 	return HEIGHT
 
 func hit_by_rocket() -> void:
+	pass
+
+func game_over() -> void:
 	pass
