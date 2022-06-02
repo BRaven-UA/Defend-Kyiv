@@ -51,10 +51,8 @@ func _ready() -> void:
 			if places.groups[invert_index].Offset > start_offset:
 				places.groups.resize(invert_index)
 				break
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		pause()
+	
+	pause(false)
 
 func bump_camera() -> void:
 	var shift = Vector2.ONE

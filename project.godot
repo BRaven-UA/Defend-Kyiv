@@ -119,11 +119,16 @@ _global_script_class_icons={
 config/name="Defend Kyiv"
 run/main_scene="res://Game/Prefabs/Empty.tscn"
 config/icon="res://Game/Textures/Classic icon.png"
+config/windows_native_icon="res://Game/Textures/Windows icon.ico"
 config/quit_on_go_back=false
 
 [audio]
 
 default_bus_layout="res://Game/Resources/default_bus_layout.tres"
+driver=""
+mix_rate=48000
+output_latency=70
+output_latency.web=70
 
 [autoload]
 
@@ -150,8 +155,6 @@ gdscript/warnings/return_value_discarded=false
 window/size/width=720
 window/size/height=1280
 window/size/resizable=false
-window/size/test_width=720
-window/size/test_height=960
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

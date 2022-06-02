@@ -56,6 +56,10 @@ func _notification(what):
 #		MainLoop.NOTIFICATION_APP_RESUMED:
 #			pass
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and game:
+		game.pause()
+
 func return_to_main_menu() -> void:
 	yield(tree, "idle_frame")
 	tree.change_scene_to(Preloader.get_resource("Empty"))
