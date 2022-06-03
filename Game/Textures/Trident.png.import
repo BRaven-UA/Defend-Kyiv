@@ -2,25 +2,23 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.s3tc.stex"
-path.etc2="res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.etc2.stex"
+path="res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/Trident.png"
-dest_files=[ "res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.s3tc.stex", "res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.etc2.stex" ]
+dest_files=[ "res://.import/Trident.png-8fb0abef3002c6a9b6f9c0865507d159.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=1.0
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false

@@ -2,25 +2,23 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.s3tc.stex"
-path.etc2="res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.etc2.stex"
+path="res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/GlowTemplate.png"
-dest_files=[ "res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.s3tc.stex", "res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.etc2.stex" ]
+dest_files=[ "res://.import/GlowTemplate.png-7be1323821f3843303b904f14f312977.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false

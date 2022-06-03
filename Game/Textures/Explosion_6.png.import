@@ -2,25 +2,23 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.s3tc.stex"
-path.etc2="res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.etc2.stex"
+path="res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/Explosion_6.png"
-dest_files=[ "res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.s3tc.stex", "res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.etc2.stex" ]
+dest_files=[ "res://.import/Explosion_6.png-a9e1f3b6f10e88c4f17cc30db20e4ec2.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false

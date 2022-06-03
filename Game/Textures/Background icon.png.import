@@ -2,21 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.s3tc.stex"
-path.etc2="res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.etc2.stex"
+path="res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/Background icon.png"
-dest_files=[ "res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.s3tc.stex", "res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.etc2.stex" ]
+dest_files=[ "res://.import/Background icon.png-11d105a654f08c49244ccdd97cdd7840.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=1.0
 compress/hdr_mode=0
 compress/bptc_ldr=0

@@ -14,11 +14,11 @@ dest_files=[ "res://.import/FireRocketButton.png-8971cfa5791e214b87d8c322cb088ad
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false

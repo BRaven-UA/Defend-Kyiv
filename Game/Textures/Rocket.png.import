@@ -2,25 +2,23 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.s3tc.stex"
-path.etc2="res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.etc2.stex"
+path="res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/Rocket.png"
-dest_files=[ "res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.s3tc.stex", "res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.etc2.stex" ]
+dest_files=[ "res://.import/Rocket.png-30f8cc1117f357172a74891ee1405b7d.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false

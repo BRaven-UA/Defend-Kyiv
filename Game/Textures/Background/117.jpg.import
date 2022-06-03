@@ -2,27 +2,25 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.s3tc.stex"
-path.etc2="res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.etc2.stex"
+path="res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Game/Textures/Background/117.jpg"
-dest_files=[ "res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.s3tc.stex", "res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.etc2.stex" ]
+dest_files=[ "res://.import/117.jpg-37d3498fe3b8eb7735d79075b5852731.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -24,6 +24,7 @@ onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
 
 
 func _enter_tree() -> void:
+	pause_mode = PAUSE_MODE_PROCESS
 	tree = get_tree()
 	viewport_size = get_viewport_rect().size
 	screen_polygon = PoolVector2Array([Vector2.ZERO, Vector2(viewport_size.x, 0), viewport_size, Vector2(0, viewport_size.y)])
