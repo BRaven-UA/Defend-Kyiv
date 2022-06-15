@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game/Prefabs/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/FuelExplosion.tscn" type="PackedScene" id=2]
@@ -8,17 +8,29 @@
 [ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Prefabs/WarningSign.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Game/Textures/Background/125.jpg" type="Texture" id=9]
+[ext_resource path="res://Game/Pictures/Background/125.jpg" type="Texture" id=9]
 [ext_resource path="res://Game/Prefabs/TouchControls.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Game/Resources/Shaders/Color manipulator.shader" type="Shader" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 12 )
+shader_param/brightness = -0.088
+shader_param/contrast = 1.0
+shader_param/saturation = 1.579
+shader_param/redVal = 1.0
+shader_param/greenVal = 1.0
+shader_param/blueVal = 1.0
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/tint_effect_factor = 0.0
+
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 5 )
 shader_param/force = 2.0
 shader_param/progression = 0.0
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Node" type="Node"]
 
@@ -26,13 +38,17 @@ shader_param/progression = 0.0
 rotation = 1.5708
 texture = ExtResource( 9 )
 
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+material = SubResource( 1 )
+copy_mode = 2
+
 [node name="ground" type="Node2D" parent="."]
 
 [node name="Explosion" parent="ground" instance=ExtResource( 2 )]
 position = Vector2( 14.5151, 114.254 )
 
 [node name="Shockwave" parent="ground/Explosion/BackBufferCopy" index="0"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 
 [node name="Animation" parent="ground/Explosion" index="3"]
 frame = 20
@@ -92,20 +108,14 @@ position = Vector2( -61.9467, 169.493 )
 [node name="Hitbox" parent="Player" index="0"]
 visible = false
 
-[node name="Shadow" parent="Player" index="4"]
-frame = 7
-
 [node name="HighlightArea" parent="Player/Highlight" index="0"]
 visible = false
 
 [node name="CollisionShape2D" parent="Player/BalloonPusher" index="0"]
 visible = false
 
-[node name="Body" parent="Player" index="8"]
-frame = 7
-
 [node name="AnimationTree" parent="Player" index="15"]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 3 )
 
 [node name="TouchControls" parent="." instance=ExtResource( 10 )]
 position = Vector2( -365.569, -1137.58 )

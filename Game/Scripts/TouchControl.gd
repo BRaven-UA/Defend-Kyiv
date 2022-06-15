@@ -3,10 +3,10 @@ extends TextureButton
 var index: int = -1
 
 
-func _ready() -> void:
-	var bitmap = BitMap.new()
-	bitmap.create_from_image_alpha(texture_normal.get_data())
-	texture_click_mask = bitmap
+#func _ready() -> void:
+#	var bitmap = BitMap.new()
+#	bitmap.create_from_image_alpha(texture_normal.get_data()) # DOESN'T WORK with atlas!
+#	texture_click_mask = bitmap
 	
 #	connect("button_down", self, "_on_button_down")
 #	connect("button_up", self, "_on_button_up")

@@ -53,6 +53,10 @@ func _ready() -> void:
 				break
 	
 	pause(false)
+		
+	if Global.debug:
+		Global.debug.init()
+
 
 func bump_camera() -> void:
 	var shift = Vector2.ONE
@@ -81,7 +85,7 @@ func game_over() -> void:
 		hud.touch_controls.visible = false
 	hud.warnings.visible = false
 	postprocess.visible = true
-	postprocess.update()
+#	postprocess.update()
 	
 	hud.total_score.text = "Total score: %d" % score
 	if score:
@@ -92,6 +96,7 @@ func game_over() -> void:
 				stat_unit.init(enemy_data)
 	
 	var win = score >= Global.victory_value
+	hud.gameover_caption.set("custom_colors/font_color", Color("70af69") if win else Color("bf4040"))
 	hud.gameover_caption.text = "SUCCESS !\nKyiv is defended" if win else "FAILURE !\nKyiv is occupied"
 	GlobalTween.game_over(win)
 	
@@ -104,7 +109,7 @@ func game_over() -> void:
 	PoolManager.return_all_reusable()
 	
 	yield(tree.create_timer(GlobalTween.GAMEOVER_DURATION * 2, false), "timeout")
-	hud.main_menu.visible = true
+	hud.main_menu_button.visible = true
 
 # called periodically during the game (by default every second)
 func _routine() -> void:

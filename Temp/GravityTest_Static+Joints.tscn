@@ -15,4 +15,5 @@ input_pickable = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2.99997, -23 )
 shape = SubResource( 1 )

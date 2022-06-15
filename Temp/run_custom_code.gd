@@ -3,6 +3,33 @@ extends EditorScript
 
 
 func _run() -> void:
+	pass
+
+func j():
+	var c = Config.new()
+	c.bri = 1.1
+	print(c.get_property_list())
+	
+	var f = File.new()
+
+	print(f.open_encrypted_with_pass("user://DefendKyiv.save", File.WRITE, Global.PASSWORD))
+	var str1 = var2str(c)
+	printt(str1)
+	f.store_string(str1)
+	f.close()
+
+	yield(get_scene().get_tree().create_timer(.5), "timeout")
+	
+	print(f.open_encrypted_with_pass("user://DefendKyiv.save", File.READ, Global.PASSWORD))
+	var str2 = f.get_as_text()
+	f.close()
+	var b: Config = str2var(str2)
+#	printt(str2)
+	print(b.bri)
+#	print(b.get_property_list())
+
+
+func i():
 	var atlas_width = 5
 	var texture_size = Vector2(154, 120)
 	for i in 10:

@@ -13,7 +13,8 @@ const POINTS = [0, 1, 2, 4, 8, 16] # score points per rarity
 const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow direction
 
 var tree: SceneTree
-var game_mode: int = GAMEMODE.DEMO
+var game_mode: int = GAMEMODE.DEBUG
+#var game_mode: int = GAMEMODE.DEMO
 var game: Game
 var debug: Debug
 var curve: Curve2D
@@ -21,6 +22,7 @@ var viewport_size: Vector2
 var screen_polygon
 var victory_value: float
 onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
+onready var config := Config.new().load()
 
 
 func _enter_tree() -> void:
@@ -70,12 +72,9 @@ func new_game() -> void:
 	set_battlefield_volume(0)
 	EnemyManager.clear_statistics()
 	tree.change_scene_to(Preloader.get_resource("Game"))
-	
-	if debug:
-		debug.init()
 
 func quit() -> void:
-	# TODO: save game state
+	config.save()
 	tree.quit()
 
 func clamp_int(value: int, min_value: int, max_value: int) -> int:

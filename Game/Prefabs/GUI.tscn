@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Game/Textures/TitleScreen.jpg" type="Texture" id=2]
+[ext_resource path="res://Game/Pictures/TitleScreen.jpg" type="Texture" id=2]
 [ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Game/Scripts/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Game/Resources/Style/Transparent Foreground Stylebox.tres" type="StyleBox" id=5]
+[ext_resource path="res://Game/Resources/Style/Title font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Game/Resources/Style/Title small font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Game/Resources/Style/Demo Frame.tres" type="StyleBox" id=8]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -54,15 +57,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Caption" type="Label" parent="BaseControl/TitleScene"]
+[node name="Caption1" type="Label" parent="BaseControl/TitleScene"]
 anchor_right = 1.0
-margin_top = 50.0
-margin_bottom = 111.0
-text = "Defend Kyiv
-(WIP)"
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0.356863, 0.737255, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.262745, 0.541176, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/line_spacing = -6
+custom_constants/shadow_offset_y = 2
+text = "DEFEND
+"
 align = 1
 valign = 1
 max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Caption2" type="Label" parent="BaseControl/TitleScene"]
+anchor_right = 1.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.839216, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.698039, 0.588235, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/line_spacing = -6
+custom_constants/shadow_offset_y = 2
+text = "
+KYIV"
+align = 1
+valign = 1
+max_lines_visible = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CaptionDemo" type="Label" parent="BaseControl/TitleScene/Caption2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 39.0
+margin_top = 30.5
+margin_right = 158.0
+margin_bottom = 87.5
+rect_rotation = -45.0
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.439216, 0.686275, 0.411765, 1 )
+custom_colors/font_color_shadow = Color( 0.333333, 0.52549, 0.309804, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/line_spacing = -6
+custom_constants/shadow_offset_y = 2
+text = "DEMO"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Menu" type="Panel" parent="BaseControl/TitleScene"]
 anchor_left = 0.5

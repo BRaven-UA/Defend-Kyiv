@@ -1,5 +1,7 @@
 extends BackBufferCopy
 
+func _ready() -> void:
+	update()
 
 func _draw() -> void:
 	var rect = get_viewport_rect()

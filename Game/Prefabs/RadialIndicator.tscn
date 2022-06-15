@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Game/Textures/Radial indicator.png" type="Texture" id=1]
+[ext_resource path="res://Game/Pictures/Radial indicator.png" type="Texture" id=1]
 [ext_resource path="res://Game/Scripts/RadialIndicator.gd" type="Script" id=2]
 
 [node name="RadialIndicator" type="Node2D"]

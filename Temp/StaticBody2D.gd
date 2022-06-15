@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends PhysicsBody2D
 
 var is_moving: bool
 

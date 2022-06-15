@@ -7,7 +7,7 @@ onready var balloon: RigidBody2D = find_node("Balloon")
 onready var frame: Sprite = find_node("PreviewFrame")
 onready var shadow: Sprite = find_node("PreviewShadow")
 onready var picture: Sprite = find_node("PreviewPicture")
-onready var layers := balloon.layers
+onready var layer := balloon.collision_layer
 
 
 func _process(delta: float) -> void:
@@ -25,13 +25,13 @@ func init(pos: Vector2, frame_index: int, color: Color) -> void:
 	frame.scale = Vector2.ZERO
 
 func activate() -> void:
-	balloon.layers = layers # collide also with visible balloons
+	balloon.collision_layer = layer # collide also with visible balloons
 	set_process(true)
 	GlobalTween.show_up_preview(frame)
 
 # disable physics, processing and showing
 func deactivate() -> void:
-	balloon.layers = 0
-	balloon.set_collision_layer_bit(9, true) # collide only with the pusher
+	balloon.collision_layer = 0
+#	balloon.set_collision_layer_bit(9, true) # collide only with the pusher
 	set_process(false)
 	GlobalTween.fade_preview(frame)
