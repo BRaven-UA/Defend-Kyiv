@@ -12,7 +12,8 @@ const SATURATION := 1.0
 export var brightness := BRIGHTNESS
 export var contrast := CONTRAST
 export var saturation := SATURATION
-onready var file := File.new()
+export var honor_points := 0
+var _file := File.new()
 
 
 func reset_settings() -> void:
@@ -24,12 +25,12 @@ func reset_settings() -> void:
 # Returns new config loaded from user directory. If there is no saved config or a loading error then returns default config (self)
 func load() -> Config:
 	var config = self
-	if file.open_encrypted_with_pass(PATH, File.READ, PASSWORD) == OK:
-		config = str2var(file.get_as_text())
-	file.close()
+	if _file.open_encrypted_with_pass(PATH, File.READ, PASSWORD) == OK:
+		config = str2var(_file.get_as_text())
+	_file.close()
 	return config
 
 func save() -> void:
-	file.open_encrypted_with_pass(PATH, File.WRITE, PASSWORD)
-	file.store_string(var2str(self))
-	file.close()
+	_file.open_encrypted_with_pass(PATH, File.WRITE, PASSWORD)
+	_file.store_string(var2str(self))
+	_file.close()

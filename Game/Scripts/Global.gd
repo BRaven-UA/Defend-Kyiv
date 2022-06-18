@@ -18,11 +18,12 @@ var game_mode: int = GAMEMODE.DEBUG
 var game: Game
 var debug: Debug
 var curve: Curve2D
+var config := Config.new().load()
 var viewport_size: Vector2
 var screen_polygon
 var victory_value: float
+var upgrades: Dictionary
 onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
-onready var config := Config.new().load()
 
 
 func _enter_tree() -> void:
@@ -35,6 +36,7 @@ func _enter_tree() -> void:
 	match game_mode:
 		GAMEMODE.DEBUG:
 			victory_value = 5.0
+			config.honor_points = 500
 		GAMEMODE.DEMO:
 			victory_value = 100.0
 
@@ -71,7 +73,8 @@ func return_to_main_menu() -> void:
 func new_game() -> void:
 	set_battlefield_volume(0)
 	EnemyManager.clear_statistics()
-	tree.change_scene_to(Preloader.get_resource("Game"))
+	upgrades.clear()
+	tree.change_scene_to(Preloader.get_resource("Hangar" if config.honor_points else "Game"))
 
 func quit() -> void:
 	config.save()

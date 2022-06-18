@@ -5,12 +5,15 @@ const HEIGHT: float = 1.0 # enemy's height above the ground
 
 var data
 var preview: Preview # link to preview
+var is_permanent_highlighted: bool # activated by installing the appropriate update
 onready var on_map_highlight: Sprite = find_node("OnMapHighlight")
 onready var on_map_shadow: Sprite = find_node("OnMapShadow")
 onready var on_map_picture: Sprite = find_node("OnMapPicture")
 
 
 func _ready() -> void:
+	is_permanent_highlighted = Global.upgrades["HIGHLIGHT"] as bool
+	on_map_highlight.visible = is_permanent_highlighted
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
 
@@ -73,5 +76,5 @@ func _on_area_exited(area: Area2D) -> void:
 	if area is RocketBase or area is Explosion:
 		return
 	else: # cancel highlight when the crossair leave
-		on_map_highlight.visible = false
+		on_map_highlight.visible = is_permanent_highlighted
 		preview.deactivate()

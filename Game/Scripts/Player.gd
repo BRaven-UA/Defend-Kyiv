@@ -44,6 +44,7 @@ func _ready() -> void:
 	rocket_launchers[1] = find_node("RocketLauncher2")
 	rocket_timer.connect("timeout", self, "_on_RocketTimer_timeout")
 	ammo_timer.connect("timeout", self, "_on_AmmoTimer_timeout")
+	ammo_timer.wait_time = 1.0 / Global.upgrades["REGEN"]
 	
 	# calculating screen boundaries
 	var player_extents = find_node("Hitbox").shape.extents # player boundaries

@@ -9,6 +9,7 @@ var places: Places # placeholders database
 var viewport_size: Vector2
 var score: int
 
+onready var background: Node2D = find_node("Background")
 onready var ground_layer: Node2D = find_node("GroundLayer")
 onready var above_ground_layer: Node2D = find_node("AboveGroundLayer")
 onready var midair_layer: Node2D = find_node("MidairLayer")
@@ -87,7 +88,9 @@ func game_over() -> void:
 	postprocess.visible = true
 #	postprocess.update()
 	
-	hud.total_score.text = "Total score: %d" % score
+	Global.config.honor_points = score
+	Global.config.save()
+	hud.honor_points.text = "Honor points: %d" % score
 	if score:
 		for enemy_data in EnemyManager.ENEMIES:
 			if enemy_data[EnemyManager.DESTROYED]:

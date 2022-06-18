@@ -3,8 +3,8 @@
 [ext_resource path="res://Game/Resources/Style/Completed Stylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Game/Resources/Style/Small_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Game/Pictures/Vehicles_preview.png" type="Texture" id=3]
-[ext_resource path="res://Game/Resources/Style/White Background Stylebox.tres" type="StyleBox" id=4]
-[ext_resource path="res://Game/Resources/Style/Uncompleted Stylebox.tres" type="StyleBox" id=5]
+[ext_resource path="res://Game/Resources/Style/Uncompleted Stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Game/Resources/Style/White Background Stylebox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Game/Scripts/StatisticUnit.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -36,7 +36,6 @@ margin_right = 166.0
 margin_bottom = 52.0
 rect_min_size = Vector2( 0, 52 )
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 text = "TOS-1A Solntsepyok"
 align = 1
 valign = 2
@@ -48,7 +47,7 @@ margin_top = 57.0
 margin_right = 166.0
 margin_bottom = 189.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
+custom_styles/panel = ExtResource( 5 )
 
 [node name="Picture" type="TextureRect" parent="VBoxContainer/Background"]
 margin_left = 6.0
@@ -66,7 +65,7 @@ margin_bottom = 216.0
 rect_min_size = Vector2( 0, 22 )
 mouse_filter = 2
 custom_styles/fg = ExtResource( 1 )
-custom_styles/bg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 4 )
 step = 1.0
 value = 75.0
 percent_visible = false

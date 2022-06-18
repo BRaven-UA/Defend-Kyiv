@@ -14,7 +14,7 @@ onready var flag_ru: ColorRect = base.find_node("FlagRU")
 onready var flag_ua: ColorRect = base.find_node("FlagUA")
 onready var statistics: PanelContainer = base.find_node("Statistics")
 onready var statistic_units: GridContainer = base.find_node("StatisticUnits")
-onready var total_score: Label = base.find_node("TotalScore")
+onready var honor_points: Label = base.find_node("HonorPoints")
 onready var pause_menu: Panel = base.find_node("PauseMenu")
 onready var resume_button: Button = pause_menu.find_node("Resume")
 onready var settings_button: Button = pause_menu.find_node("Settings")
@@ -53,7 +53,7 @@ func _ready() -> void:
 		durability_bar.value = player.durability
 		score_bar.value = 0
 		increase_score(0) # init call
-		set_settings()
+		restore_settings()
 		
 		var max_rockets: int = PlayerBase.MAX_ROCKETS
 		ammo_bar.max_value = max_rockets
@@ -95,13 +95,13 @@ func increase_score(value: int) -> void:
 func set_ammo(value: int) -> void:
 	ammo_bar.value = value
 
-func set_settings() -> void:
+func restore_settings() -> void:
 	brightness_slider.value = Global.config.brightness
 	contrast_slider.value = Global.config.contrast
 	saturation_slider.value = Global.config.saturation
 
 func _on_config_settings_changed() -> void:
-	set_settings()
+	restore_settings()
 
 func _on_game_pause_changed(state: bool) -> void:
 	pause_menu.visible = state
@@ -128,18 +128,22 @@ func _on_main_menu_button_pressed() -> void:
 	Global.return_to_main_menu()
 
 func _on_brightness_slider_value_changed(value: float) -> void:
+	Global.config.brightness = value
 	background_color_shader.set_shader_param("brightness", value)
 
 func _on_contrast_slider_value_changed(value: float) -> void:
+	Global.config.contrast = value
 	background_color_shader.set_shader_param("contrast", value)
 
 func _on_saturation_slider_value_changed(value: float) -> void:
+	Global.config.saturation = value
 	background_color_shader.set_shader_param("saturation", value)
 
 func _on_settings_reset_button_pressed() -> void:
 	Global.config.reset_settings()
 
 func _on_settings_close_button_pressed() -> void:
+	Global.config.save()
 	settings.visible = false
 	if pause_menu.visible:
 		pause_menu.grab_focus()

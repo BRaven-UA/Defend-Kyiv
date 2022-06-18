@@ -3,7 +3,7 @@
 [ext_resource path="res://Game/Resources/Style/DUBAI-MEDIUM.TTF" type="DynamicFontData" id=1]
 
 [resource]
-size = 18
+size = 24
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.498039 )
 use_filter = true

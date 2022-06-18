@@ -8,8 +8,9 @@ onready var amount_label: Label = find_node("AmountLabel")
 
 
 func init(data: Dictionary) -> void:
-	name_label.text = data[EnemyManager.NAME]
 	var rarity = data[EnemyManager.RARITY]
+	name_label.text = data[EnemyManager.NAME]
+	name_label.set("custom_colors/font_color", Global.COLORS[rarity])
 	background.self_modulate = Global.COLORS[rarity]
 	amount_bar.max_value = data[EnemyManager.SPAWNED]
 	amount_bar.value = data[EnemyManager.DESTROYED]

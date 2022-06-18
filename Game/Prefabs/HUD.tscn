@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=2]
@@ -11,13 +11,15 @@
 [ext_resource path="res://Game/Resources/Shaders/Flag_RU.shader" type="Shader" id=9]
 [ext_resource path="res://Game/Pictures/ZZ.png" type="Texture" id=10]
 [ext_resource path="res://Game/Pictures/Trident.png" type="Texture" id=11]
-[ext_resource path="res://Game/Resources/Style/White Foreground Stylebox.tres" type="StyleBox" id=12]
+[ext_resource path="res://Game/Resources/Style/Caption Label Theme.tres" type="Theme" id=12]
 [ext_resource path="res://Game/Resources/Style/Completed Stylebox.tres" type="StyleBox" id=13]
 [ext_resource path="res://Game/Resources/Style/Uncompleted Stylebox.tres" type="StyleBox" id=14]
 [ext_resource path="res://Game/Resources/Style/Ammunition Stylebox.tres" type="StyleBox" id=15]
 [ext_resource path="res://Game/Scripts/TouchControl.gd" type="Script" id=16]
 [ext_resource path="res://Game/Resources/Style/Title small font.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Game/Resources/Style/Title font.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Game/Resources/Shaders/Camouflage.tres" type="Material" id=19]
+[ext_resource path="res://Game/Resources/Accept Shortcut.tres" type="ShortCut" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -166,28 +168,27 @@ margin_top = 6.0
 margin_right = 708.0
 margin_bottom = 449.0
 
-[node name="StatisticsCaption" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
+[node name="Label" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
+material = ExtResource( 19 )
 margin_right = 702.0
-margin_bottom = 29.0
-custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 17 )
 text = "Destroyed vehicles:"
 align = 1
 valign = 1
 max_lines_visible = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="BaseControl/Statistics/VBoxContainer"]
-self_modulate = Color( 1, 1, 1, 0.2 )
-margin_top = 33.0
+margin_top = 52.0
 margin_right = 702.0
-margin_bottom = 410.0
+margin_bottom = 397.0
 size_flags_vertical = 3
-custom_styles/panel = ExtResource( 12 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BaseControl/Statistics/VBoxContainer/PanelContainer"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 697.0
-margin_bottom = 372.0
+margin_bottom = 340.0
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
@@ -200,12 +201,13 @@ custom_constants/vseparation = 4
 custom_constants/hseparation = 1
 columns = 4
 
-[node name="TotalScore" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
-margin_top = 414.0
+[node name="HonorPoints" type="Label" parent="BaseControl/Statistics/VBoxContainer"]
+self_modulate = Color( 0.372549, 0.67451, 0.968627, 1 )
+margin_top = 401.0
 margin_right = 702.0
 margin_bottom = 443.0
-custom_colors/font_color = Color( 0, 0.890196, 1, 1 )
-text = "Total score:"
+theme = ExtResource( 12 )
+text = "Honor points:"
 align = 1
 valign = 1
 max_lines_visible = 1
@@ -236,15 +238,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -360.0
-margin_top = -11.0
+margin_top = -16.0
 margin_right = 360.0
-margin_bottom = 11.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.996078, 1, 0.478431, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Defense of Kyiv"
 align = 1
-valign = 2
+valign = 1
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -307,14 +308,14 @@ __meta__ = {
 
 [node name="Settings" type="PanelContainer" parent="BaseControl"]
 pause_mode = 2
-anchor_left = 0.004
-anchor_top = 0.058
-anchor_right = 0.996
-anchor_bottom = 0.334
-margin_left = 0.12
-margin_top = -0.239998
-margin_right = -0.119995
-margin_bottom = 7.48001
+anchor_left = 0.083
+anchor_top = 0.067
+anchor_right = 0.917
+anchor_bottom = 0.946
+margin_left = 0.239998
+margin_top = 0.239998
+margin_right = -0.240051
+margin_bottom = -770.88
 focus_neighbour_top = NodePath("VBoxContainer/Close")
 focus_neighbour_bottom = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness/HSlider")
 focus_next = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness/HSlider")
@@ -328,12 +329,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Settings"]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 708.0
-margin_bottom = 355.0
+margin_right = 594.0
+margin_bottom = 351.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer"]
-margin_right = 702.0
+material = ExtResource( 19 )
+margin_right = 587.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = ExtResource( 17 )
@@ -342,60 +344,60 @@ align = 1
 valign = 1
 max_lines_visible = 1
 
-[node name="ColorSettings" type="Label" parent="BaseControl/Settings/VBoxContainer"]
+[node name="BackgroundColor" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
 margin_top = 54.0
-margin_right = 702.0
-margin_bottom = 83.0
-custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
-text = "Background color:"
-valign = 1
-max_lines_visible = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
-self_modulate = Color( 1, 1, 1, 0.498039 )
-margin_top = 87.0
-margin_right = 702.0
-margin_bottom = 295.0
+margin_right = 587.0
+margin_bottom = 289.0
 mouse_filter = 2
 size_flags_vertical = 3
-custom_styles/panel = ExtResource( 12 )
 
-[node name="MarginContainer" type="MarginContainer" parent="BaseControl/Settings/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BaseControl/Settings/VBoxContainer/BackgroundColor"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 697.0
-margin_bottom = 203.0
+margin_right = 582.0
+margin_bottom = 230.0
 mouse_filter = 2
 custom_constants/margin_right = 20
-custom_constants/margin_top = 20
 custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer"]
 margin_left = 20.0
-margin_top = 20.0
-margin_right = 672.0
-margin_bottom = 178.0
+margin_right = 557.0
+margin_bottom = 225.0
 mouse_filter = 2
 custom_constants/separation = 25
 
-[node name="Brightness" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_right = 652.0
-margin_bottom = 36.0
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer"]
+margin_left = 177.0
+margin_right = 360.0
+margin_bottom = 42.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource( 12 )
+text = "Background color:"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="Brightness" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer"]
+margin_top = 67.0
+margin_right = 537.0
+margin_bottom = 103.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness"]
-margin_top = 3.0
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Brightness"]
+margin_top = 2.0
 margin_right = 160.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 160, 0 )
+custom_fonts/font = ExtResource( 6 )
 text = "Brightness"
 valign = 1
 max_lines_visible = 1
 
-[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness"]
+[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Brightness"]
 margin_left = 164.0
-margin_right = 652.0
+margin_right = 537.0
 margin_bottom = 36.0
 focus_neighbour_top = NodePath(".")
 focus_neighbour_bottom = NodePath("../../Contrast/HSlider")
@@ -407,24 +409,25 @@ min_value = -0.3
 max_value = 0.3
 step = 0.02
 
-[node name="Contrast" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 61.0
-margin_right = 652.0
-margin_bottom = 97.0
+[node name="Contrast" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 537.0
+margin_bottom = 164.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Contrast"]
-margin_top = 3.0
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Contrast"]
+margin_top = 2.0
 margin_right = 160.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 160, 0 )
+custom_fonts/font = ExtResource( 6 )
 text = "Contrast"
 valign = 1
 max_lines_visible = 1
 
-[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Contrast"]
+[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Contrast"]
 margin_left = 164.0
-margin_right = 652.0
+margin_right = 537.0
 margin_bottom = 36.0
 focus_neighbour_top = NodePath("../../Brightness/HSlider")
 focus_neighbour_bottom = NodePath("../../Saturation/HSlider")
@@ -437,24 +440,25 @@ max_value = 1.5
 step = 0.04
 value = 1.0
 
-[node name="Saturation" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 122.0
-margin_right = 652.0
-margin_bottom = 158.0
+[node name="Saturation" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer"]
+margin_top = 189.0
+margin_right = 537.0
+margin_bottom = 225.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Saturation"]
-margin_top = 3.0
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Saturation"]
+margin_top = 2.0
 margin_right = 160.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 160, 0 )
+custom_fonts/font = ExtResource( 6 )
 text = "Saturation"
 valign = 1
 max_lines_visible = 1
 
-[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Saturation"]
+[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/BackgroundColor/MarginContainer/VBoxContainer/Saturation"]
 margin_left = 164.0
-margin_right = 652.0
+margin_right = 537.0
 margin_bottom = 36.0
 focus_neighbour_top = NodePath("../../Contrast/HSlider")
 focus_neighbour_bottom = NodePath("../../../../../HBoxContainer/Reset")
@@ -466,41 +470,46 @@ max_value = 3.0
 step = 0.1
 value = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer"]
-margin_top = 299.0
-margin_right = 702.0
-margin_bottom = 349.0
+[node name="Buttons" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer"]
+margin_top = 293.0
+margin_right = 587.0
+margin_bottom = 345.0
 alignment = 1
 
-[node name="Reset" type="Button" parent="BaseControl/Settings/VBoxContainer/HBoxContainer"]
-margin_left = 152.0
-margin_right = 272.0
-margin_bottom = 50.0
+[node name="Reset" type="Button" parent="BaseControl/Settings/VBoxContainer/Buttons"]
+margin_left = 94.0
+margin_right = 214.0
+margin_bottom = 52.0
 rect_min_size = Vector2( 120, 50 )
-focus_neighbour_top = NodePath("../../PanelContainer/MarginContainer/VBoxContainer/Saturation/HSlider")
+focus_neighbour_left = NodePath("../../BackgroundColor/MarginContainer/VBoxContainer/Saturation/HSlider")
+focus_neighbour_top = NodePath("../../BackgroundColor/MarginContainer/VBoxContainer/Saturation/HSlider")
+focus_neighbour_right = NodePath("../Close")
 focus_neighbour_bottom = NodePath("../Close")
 focus_next = NodePath("../Close")
-focus_previous = NodePath("../../PanelContainer/MarginContainer/VBoxContainer/Saturation/HSlider")
+focus_previous = NodePath("../../BackgroundColor/MarginContainer/VBoxContainer/Saturation/HSlider")
 shortcut_in_tooltip = false
 text = "Reset"
 
-[node name="Dummy" type="Control" parent="BaseControl/Settings/VBoxContainer/HBoxContainer"]
-margin_left = 276.0
-margin_right = 426.0
-margin_bottom = 50.0
+[node name="Dummy" type="Control" parent="BaseControl/Settings/VBoxContainer/Buttons"]
+margin_left = 218.0
+margin_right = 368.0
+margin_bottom = 52.0
 rect_min_size = Vector2( 150, 0 )
 mouse_filter = 2
 
-[node name="Close" type="Button" parent="BaseControl/Settings/VBoxContainer/HBoxContainer"]
-margin_left = 430.0
-margin_right = 550.0
-margin_bottom = 50.0
+[node name="Close" type="Button" parent="BaseControl/Settings/VBoxContainer/Buttons"]
+margin_left = 372.0
+margin_right = 492.0
+margin_bottom = 52.0
 rect_min_size = Vector2( 120, 50 )
+focus_neighbour_left = NodePath("../Reset")
 focus_neighbour_top = NodePath("../Reset")
+focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../../PanelContainer/MarginContainer/VBoxContainer/Brightness/HSlider")
+focus_next = NodePath("../../BackgroundColor/MarginContainer/VBoxContainer/Brightness/HSlider")
 focus_previous = NodePath("../Reset")
 shortcut_in_tooltip = false
+shortcut = ExtResource( 20 )
 text = "Close"
 
 [node name="PauseMenu" type="Panel" parent="BaseControl"]
@@ -540,6 +549,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="BaseControl/PauseMenu/VBoxContainer"]
+material = ExtResource( 19 )
 margin_right = 320.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
@@ -559,7 +569,7 @@ mouse_filter = 2
 [node name="Resume" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
 margin_top = 110.0
 margin_right = 320.0
-margin_bottom = 160.0
+margin_bottom = 162.0
 rect_min_size = Vector2( 320, 50 )
 focus_neighbour_top = NodePath(".")
 focus_neighbour_bottom = NodePath("../Settings")
@@ -572,9 +582,9 @@ __meta__ = {
 }
 
 [node name="Settings" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 180.0
+margin_top = 182.0
 margin_right = 320.0
-margin_bottom = 230.0
+margin_bottom = 234.0
 rect_min_size = Vector2( 320, 50 )
 focus_neighbour_top = NodePath("../Resume")
 focus_neighbour_bottom = NodePath("../MainMenu")
@@ -587,9 +597,9 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 250.0
+margin_top = 254.0
 margin_right = 320.0
-margin_bottom = 300.0
+margin_bottom = 306.0
 rect_min_size = Vector2( 320, 50 )
 focus_neighbour_top = NodePath("../Settings")
 focus_neighbour_bottom = NodePath(".")
