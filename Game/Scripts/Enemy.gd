@@ -12,7 +12,7 @@ onready var on_map_picture: Sprite = find_node("OnMapPicture")
 
 
 func _ready() -> void:
-	is_permanent_highlighted = Global.upgrades["HIGHLIGHT"] as bool
+	is_permanent_highlighted = Global.config.upgrades["HIGHLIGHT"] as bool
 	on_map_highlight.visible = is_permanent_highlighted
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
@@ -45,6 +45,7 @@ func get_height() -> float:
 	return HEIGHT
 
 func destroy() -> void:
+	is_permanent_highlighted = false
 	on_map_highlight.visible = false
 	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
 	preview.deactivate()
@@ -65,7 +66,8 @@ func destroy() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Explosion:
-		destroy()
+		if area.height < 10.0: # not aerial
+			destroy()
 	elif area is RocketBase:
 		return
 	else: # highlighting and show preview when under the crossair highlight area

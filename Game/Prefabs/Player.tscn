@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Game/Resources/Textures/Crossair.tres" type="Texture" id=1]
 [ext_resource path="res://Game/Resources/Shaders/OutlineBlack.tres" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game/Resources/Textures/Trace color.tres" type="Texture" id=4]
 [ext_resource path="res://Game/Prefabs/RocketLauncher.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Sounds/Helicopter.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Game/Sounds/Flares.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Game/Resources/Shaders/Blur.tres" type="Material" id=8]
 [ext_resource path="res://Game/Pictures/Smoke.png" type="Texture" id=9]
 [ext_resource path="res://Game/Resources/Textures/ScaleCurveLirear.tres" type="Texture" id=10]
@@ -572,6 +573,10 @@ stream = ExtResource( 11 )
 volume_db = -15.0
 bus = "Battlefield"
 
+[node name="Flares" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+bus = "Battlefield"
+
 [node name="Empty" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 volume_db = -15.0
@@ -657,6 +662,10 @@ one_shot = true
 [node name="AmmoReplenishTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="FlaresTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

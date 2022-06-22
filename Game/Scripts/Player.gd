@@ -10,6 +10,7 @@ var rocket_launchers: Array # list of the two available rocket launchers
 var current_rocket_launcher_index: int # index of current launcher
 var breakdown_threshold = MAX_DURABILITY / 2
 var ready_to_fire: bool = true
+var ready_use_flares: bool
 var is_breakdown: bool # engine failure
 var can_control: bool = true
 
@@ -22,9 +23,11 @@ onready var pusher: KinematicBody2D = find_node("BalloonPusher") # a physics bod
 onready var animation_tree: AnimationTree = find_node("AnimationTree") # blend space animation
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
 onready var breakdown_sound: AudioStreamPlayer2D = find_node("Breakdown")
+onready var flares_sound: AudioStreamPlayer2D = find_node("Flares")
 onready var empty_sound: AudioStreamPlayer2D = find_node("Empty")
 onready var rocket_timer: Timer = find_node("RocketTimer")
 onready var ammo_timer: Timer = find_node("AmmoReplenishTimer")
+onready var flares_timer: Timer = find_node("FlaresTimer")
 
 
 func _enter_tree() -> void:
@@ -42,9 +45,13 @@ func _ready() -> void:
 	rocket_launchers.resize(2)
 	rocket_launchers[0] = find_node("RocketLauncher1")
 	rocket_launchers[1] = find_node("RocketLauncher2")
-	rocket_timer.connect("timeout", self, "_on_RocketTimer_timeout")
-	ammo_timer.connect("timeout", self, "_on_AmmoTimer_timeout")
-	ammo_timer.wait_time = 1.0 / Global.upgrades["REGEN"]
+	rocket_timer.connect("timeout", self, "_on_rocket_timer_timeout")
+	ammo_timer.connect("timeout", self, "_on_ammo_timer_timeout")
+	ammo_timer.wait_time = 1.0 / Global.config.upgrades["REGEN"]
+	if Global.config.upgrades["FLARES"]:
+		flares_timer.wait_time = FLARES_COOLDOWN
+		flares_timer.connect("timeout", self, "_on_flares_timer_timeout")
+		ready_use_flares = true
 	
 	# calculating screen boundaries
 	var player_extents = find_node("Hitbox").shape.extents # player boundaries
@@ -70,8 +77,11 @@ func _process(delta: float) -> void:
 	shadow.global_position = global_position + Global.SHADOW * 100
 	crossair_shadow.position = Global.SHADOW.rotated(-crossair_shadow.global_rotation) * 7.0
 	
-	if Input.is_action_pressed("fire_rocket") and ready_to_fire and can_control:
-		fire_rocket()
+	if can_control:
+		if Input.is_action_pressed("fire_rocket") and ready_to_fire:
+			fire_rocket()
+		if Input.is_action_pressed("use_flares") and ready_use_flares:
+			use_flares()
 	
 	sound.pitch_scale = engine_efficiency
 
@@ -168,6 +178,20 @@ func fire_rocket() -> void:
 	ready_to_fire = false
 	rocket_timer.start(ROCKET_COOLDOWN)
 
+func use_flares() -> void:
+	var flares_array := []
+	for direction in FLARE_DIRECTIONS:
+		var flare: Flare = PoolManager.get_flare()
+		var pos = Vector3(global_position.x, HEIGHT, global_position.y)
+		direction = direction.rotated(Vector3.UP, -global_rotation)
+		var velocity_3D = Vector3(velocity.x, 0, velocity.y)
+		flare.activate(pos, global_rotation, direction, velocity_3D * 0.2)
+		flares_array.append(flare)
+	flares_sound.play()
+	ready_use_flares = false
+	emit_signal("flares_used", flares_array)
+	flares_timer.start()
+
 func hit_by_rocket() -> void:
 	apply_damage(10)
 	GlobalTween.shake_camera()
@@ -184,8 +208,11 @@ func _change_rockets_amount(value: int) -> void:
 		rockets_amount = new_value
 		emit_signal("ammo_changed", rockets_amount)
 
-func _on_RocketTimer_timeout() -> void:
+func _on_rocket_timer_timeout() -> void:
 	ready_to_fire = true
 
-func _on_AmmoTimer_timeout() -> void:
+func _on_ammo_timer_timeout() -> void:
 	_change_rockets_amount(1)
+
+func _on_flares_timer_timeout() -> void:
+	ready_use_flares = true

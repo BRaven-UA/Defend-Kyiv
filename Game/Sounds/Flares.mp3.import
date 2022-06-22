@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Flares.mp3-37f258133dbbb180b4159e149f9ba92a.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Flares.mp3"
+dest_files=[ "res://.import/Flares.mp3-37f258133dbbb180b4159e149f9ba92a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

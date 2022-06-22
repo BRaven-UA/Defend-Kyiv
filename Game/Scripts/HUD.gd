@@ -6,8 +6,11 @@ var analog_controller: AnalogController
 onready var base: Control = $BaseControl
 onready var durability_bar: ProgressBar = base.find_node("DurabilityBar")
 onready var ammo_bar: TextureProgress = base.find_node("AmmoBar")
+onready var flares_bar: ProgressBar = base.find_node("FlaresBar")
+onready var flares_label: Label = base.find_node("FlaresLabel")
 onready var score_bar: ProgressBar = base.find_node("ScoreBar")
 onready var score_label: Label = base.find_node("ScoreLabel")
+
 onready var warnings: Control = base.find_node("Warnings")
 onready var gameover_caption: Label = base.find_node("GameoverCaption")
 onready var flag_ru: ColorRect = base.find_node("FlagRU")
@@ -15,16 +18,20 @@ onready var flag_ua: ColorRect = base.find_node("FlagUA")
 onready var statistics: PanelContainer = base.find_node("Statistics")
 onready var statistic_units: GridContainer = base.find_node("StatisticUnits")
 onready var honor_points: Label = base.find_node("HonorPoints")
+
 onready var pause_menu: Panel = base.find_node("PauseMenu")
-onready var resume_button: Button = pause_menu.find_node("Resume")
-onready var settings_button: Button = pause_menu.find_node("Settings")
+onready var resume_button: Button = pause_menu.find_node("ResumeButton")
+onready var settings_button: Button = pause_menu.find_node("SettingsButton")
+onready var main_menu_button: Button = pause_menu.find_node("MainMenuButton")
+
 onready var settings: PanelContainer = base.find_node("Settings")
+onready var volume_slider: HSlider = settings.find_node("Volume").get_node("HSlider")
 onready var brightness_slider: HSlider = settings.find_node("Brightness").get_node("HSlider")
 onready var contrast_slider: HSlider = settings.find_node("Contrast").get_node("HSlider")
 onready var saturation_slider: HSlider = settings.find_node("Saturation").get_node("HSlider")
 onready var settings_reset_button: Button = settings.find_node("Reset")
 onready var settings_close_button: Button = settings.find_node("Close")
-onready var main_menu_button: Button = pause_menu.find_node("MainMenu")
+
 onready var anthem: AudioStreamPlayer = base.find_node("Anthem")
 onready var background_color_shader: ShaderMaterial = Preloader.get_resource("ColorManipulator")
 
@@ -38,6 +45,7 @@ func _ready() -> void:
 	resume_button.connect("pressed", self, "_on_resume_button_pressed")
 	settings_button.connect("pressed", self, "_on_settings_button_pressed")
 	main_menu_button.connect("pressed", self, "_on_main_menu_button_pressed")
+	volume_slider.connect("value_changed", self, "_on_volume_slider_value_changed")
 	brightness_slider.connect("value_changed", self, "_on_brightness_slider_value_changed")
 	contrast_slider.connect("value_changed", self, "_on_contrast_slider_value_changed")
 	saturation_slider.connect("value_changed", self, "_on_saturation_slider_value_changed")
@@ -48,9 +56,12 @@ func _ready() -> void:
 	if player:
 		player.connect("durability_changed", self, "_on_player_durability_changed")
 		player.connect("ammo_changed", self, "_on_player_ammo_changed")
+		player.connect("flares_used", self, "_on_player_flares_used")
 		Global.game.connect("score_changed", self, "_on_game_score_changed")
 		
 		durability_bar.value = player.durability
+		flares_bar.max_value = PlayerBase.FLARES_COOLDOWN
+		flares_bar.value = PlayerBase.FLARES_COOLDOWN
 		score_bar.value = 0
 		increase_score(0) # init call
 		restore_settings()
@@ -62,6 +73,11 @@ func _ready() -> void:
 	else:
 		durability_bar.value = 0
 		ammo_bar.visible = false
+	
+	var is_flares_installed = Global.config.upgrades["FLARES"] as bool
+	flares_bar.visible = is_flares_installed
+	flares_label.visible = is_flares_installed
+	restore_settings()
 	
 	if OS.has_touchscreen_ui_hint():
 		touch_controls = Preloader.get_resource("TouchControls").instance()
@@ -83,6 +99,10 @@ func set_durability(new_value: int) -> void:
 	GlobalTween.interpolate_property(durability_bar, "value", durability_bar.value, new_value, difference / 10.0)
 	GlobalTween.start()
 
+func start_flares_cooldown() -> void:
+	GlobalTween.interpolate_property(flares_bar, "value", 0.0, PlayerBase.FLARES_COOLDOWN, PlayerBase.FLARES_COOLDOWN)
+	GlobalTween.start()
+
 func increase_score(value: int) -> void:
 	var progress = clamp(score_bar.value + value, 0, 100) / Global.victory_value * 100
 	score_label.text = "Defense of Kyiv: %d%%" % progress
@@ -96,6 +116,7 @@ func set_ammo(value: int) -> void:
 	ammo_bar.value = value
 
 func restore_settings() -> void:
+	volume_slider.value = Global.config.volume
 	brightness_slider.value = Global.config.brightness
 	contrast_slider.value = Global.config.contrast
 	saturation_slider.value = Global.config.saturation
@@ -114,6 +135,9 @@ func _on_player_durability_changed(value: int) -> void:
 func _on_player_ammo_changed(value: int) -> void:
 	set_ammo(value)
 
+func _on_player_flares_used(flares: Array) -> void:
+	start_flares_cooldown()
+
 func _on_game_score_changed(value: int) -> void:
 	increase_score(value)
 
@@ -126,6 +150,10 @@ func _on_settings_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	Global.return_to_main_menu()
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	Global.config.volume = value
+	AudioServer.set_bus_volume_db(0, linear2db(value))
 
 func _on_brightness_slider_value_changed(value: float) -> void:
 	Global.config.brightness = value

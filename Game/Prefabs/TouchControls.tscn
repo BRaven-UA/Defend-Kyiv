@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=1]
 [ext_resource path="res://Game/Resources/Textures/FireRocketButton.tres" type="Texture" id=2]
+[ext_resource path="res://Game/Resources/Textures/CountermeasureButton.tres" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.0
@@ -19,3 +20,12 @@ normal = ExtResource( 2 )
 shape = SubResource( 1 )
 shape_visible = false
 action = "fire_rocket"
+
+[node name="Countermeasure" type="TouchScreenButton" parent="."]
+self_modulate = Color( 1, 0.8, 0.164706, 0.709804 )
+position = Vector2( 559.281, 894.018 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 3 )
+shape = SubResource( 1 )
+shape_visible = false
+action = "use_flares"

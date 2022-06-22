@@ -24,6 +24,7 @@ onready var timer: Timer = find_node("Timer")
 
 
 func _enter_tree() -> void:
+	print("Game entered tree") # TODO: remove this
 	Global.game = self
 	viewport_size = Global.viewport_size
 
@@ -58,6 +59,9 @@ func _ready() -> void:
 	if Global.debug:
 		Global.debug.init()
 
+func _notification(what: int) -> void: # TODO: remove this
+	if what == NOTIFICATION_PREDELETE:
+		print("Game is about delete")
 
 func bump_camera() -> void:
 	var shift = Vector2.ONE
@@ -125,7 +129,7 @@ func _routine() -> void:
 		if group_data.Offset < max_offset:
 			EnemyManager.spawn_enemy_group(group_data)
 			places.groups.resize(places.groups.size() - 1)
-	else: # no more enemies - end of map
+	else: # no more enemies - end of map TODO: replace with placemarkers
 		timer.stop()
 		yield(tree.create_timer(viewport_size.y * 2.5 / path_follow.scroll_speed, false), "timeout")
 		game_over()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Pictures/TitleScreen.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Game/Resources/Style/Title font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Game/Resources/Style/Title small font.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Game/Resources/Style/Demo Frame.tres" type="StyleBox" id=8]
+[ext_resource path="res://Game/Prefabs/Hangar.tscn" type="PackedScene" id=9]
 
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
@@ -146,9 +147,9 @@ __meta__ = {
 }
 
 [node name="NewGame" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
-margin_top = 25.0
+margin_top = 6.0
 margin_right = 360.0
-margin_bottom = 64.0
+margin_bottom = 58.0
 focus_neighbour_bottom = NodePath("../Settings")
 focus_next = NodePath("../Settings")
 focus_previous = NodePath("../Exit")
@@ -156,9 +157,9 @@ shortcut_in_tooltip = false
 text = "NEW GAME"
 
 [node name="Settings" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
-margin_top = 80.0
+margin_top = 74.0
 margin_right = 360.0
-margin_bottom = 119.0
+margin_bottom = 126.0
 focus_neighbour_top = NodePath("../NewGame")
 focus_neighbour_bottom = NodePath("../Exit")
 focus_next = NodePath("../Exit")
@@ -168,11 +169,14 @@ shortcut_in_tooltip = false
 text = "SETTINGS"
 
 [node name="Exit" type="Button" parent="BaseControl/TitleScene/Menu/VBoxContainer"]
-margin_top = 135.0
+margin_top = 142.0
 margin_right = 360.0
-margin_bottom = 174.0
+margin_bottom = 194.0
 focus_neighbour_top = NodePath("../Settings")
 focus_next = NodePath("../NewGame")
 focus_previous = NodePath("../Settings")
 shortcut_in_tooltip = false
 text = "EXIT"
+
+[node name="Hangar" parent="BaseControl" instance=ExtResource( 9 )]
+visible = false

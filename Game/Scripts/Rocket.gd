@@ -16,7 +16,7 @@ onready var visual: Node2D = find_node("Visual")
 onready var body: Sprite = find_node("Body")
 onready var flame: Particles2D = find_node("Flame")
 onready var trace: Particles2D = find_node("Trace")
-onready var watchdog: Timer = find_node("WatchDog")
+onready var watchdog: Timer = find_node("WatchDog") # lifetime limit
 onready var reset_timer: Timer = find_node("ResetTimer")
 
 
@@ -27,21 +27,20 @@ func _exit_tree() -> void:
 func _physics_process(delta: float) -> void:
 	if target:
 		var dest_2D: Vector2 = target.global_position
-		var dest_3D = Vector3(dest_2D.x, target.HEIGHT, dest_2D.y)
+		var dest_3D = Vector3(dest_2D.x, target.get_height(), dest_2D.y)
 		var dir_to_dest = position_3D.direction_to(dest_3D)
 		direction_3D = direction_3D.move_toward(dir_to_dest, TANG_SPEED * delta)
 		
 		var new_square_distance = position_3D.distance_squared_to(dest_3D)
 		if new_square_distance > square_distance: # miss the target
 			set_target(null)
-			watchdog.start(2) # deactivate after this time
 		else:
 			square_distance = new_square_distance
 	
 	var velocity_3D = direction_3D * SPEED * delta
 	position_3D += velocity_3D
 	
-	if position_3D.y < 0: # landing
+	if position_3D.y < 0 or position_3D.y > PlayerBase.HEIGHT + 200.0: # landing or too high
 		detonation()
 	else:
 		position += Vector2(velocity_3D.x, velocity_3D.z)
@@ -62,15 +61,17 @@ func set_target(new_target: Node2D) -> void:
 	if new_target is PlayerBase:
 		warning_sign = PoolManager.get_warning_sign()
 		warning_sign.activate(self)
+		Global.game.player.connect("flares_used", self, "_on_player_flares_used", [], CONNECT_ONESHOT + CONNECT_REFERENCE_COUNTED)
+	elif warning_sign:
+		warning_sign.deactivate()
+		warning_sign = null
 	
-	if new_target == null:
-		if target is Target:
-			target.deactivate()
-		if warning_sign:
-			warning_sign.deactivate()
-			warning_sign = null
+	if target is Target:
+		target.deactivate()
+#		watchdog.start(2) # deactivate after this time
 	
 	target = new_target
+	square_distance = INF
 
 # activate (fire) the rocket. Initial position and normalized move direction both are in global coords
 func activate(shoot: Node2D, pos: Vector3, dir: Vector3, new_target: Node2D) -> void:
@@ -124,6 +125,10 @@ func _scale() -> void:
 	var _scale = position_3D.y / PlayerBase.HEIGHT
 	visual.scale = Vector2.ONE * _scale
 	sound.max_distance = orig_max_distanse * _scale
+
+func _on_player_flares_used(flares: Array) -> void:
+	flares.shuffle()
+	set_target(flares[0])
 
 func _on_area_entered(area: Area2D) -> void:
 	if area != shooter:

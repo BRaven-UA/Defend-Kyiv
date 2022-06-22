@@ -5,7 +5,7 @@ const GROW_SPEED: float = 25.0
 
 #var is_free: bool = false
 export var max_radius: float = 12.0
-
+var height: float
 onready var area: CollisionShape2D = find_node("ExplosionArea")
 onready var flash: Sprite = find_node("Flash")
 onready var shockwave: Sprite = find_node("Shockwave")
@@ -32,6 +32,7 @@ func activate(pos: Vector3) -> void:
 #	is_free = false
 	area.scale = Vector2.ONE
 	
+	height = pos.y
 	global_position = Vector2(pos.x, pos.z)
 	global_rotation = Global.game.player.global_rotation
 	
@@ -44,13 +45,13 @@ func activate(pos: Vector3) -> void:
 	
 	sound.play()
 	
-	var _scale = lerp(1.0, 5.0, pos.y / PlayerBase.HEIGHT) * Vector2.ONE
+	var _scale = lerp(1.0, 5.0, height / PlayerBase.HEIGHT) * Vector2.ONE
 	shockwave.scale = _scale
 	flash.scale = _scale
 	GlobalTween.explosion_flash(flash, max_radius)
 	GlobalTween.explosion_shockwave(shockwave, max_radius)
 	
-	set_physics_process(pos.y < 10.0) # start growing the explosion area
+	set_physics_process(height < 10.0) # start growing the explosion area
 
 func place_crater():
 	if Global.game.ground_layer:

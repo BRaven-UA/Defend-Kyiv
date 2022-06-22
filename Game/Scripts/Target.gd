@@ -5,6 +5,9 @@ extends Node2D
 const HEIGHT: float = 1.0
 
 
+func get_height() -> float:
+	return HEIGHT
+
 func activate(pos: Vector2, spread := 0.0) -> void:
 	if spread:
 		pos.x += (randf() - 0.5) * spread

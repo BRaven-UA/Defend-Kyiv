@@ -80,4 +80,5 @@ func _shake_camera_process(delta: float):
 	var strength = lerp(60.0 - delta, 0.0, 0.05)
 	var noise_point = Vector2(noise.get_noise_2d(1, delta), noise.get_noise_2d(100, delta))
 	Global.game.camera.offset = noise_point * strength
-	Global.game.background.modulate = Color(1.0, 1.0 - strength, 1.0 - strength, 1.0)
+	var color_value = 1.0 - (noise_point.length() if strength > 0.05 else 0.0)
+	Global.game.background.modulate = Color(1.0, color_value, color_value, 1.0)

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 onready var base: Control = find_node("BaseControl")
 onready var title: Control = base.find_node("TitleScene")
+onready var hangar: Hangar = base.find_node("Hangar")
 onready var new_game: Button = base.find_node("NewGame")
 onready var settings: Button = base.find_node("Settings")
 onready var exit: Button = base.find_node("Exit")

@@ -18,11 +18,10 @@ var game_mode: int = GAMEMODE.DEBUG
 var game: Game
 var debug: Debug
 var curve: Curve2D
-var config := Config.new().load()
+var config: Config
 var viewport_size: Vector2
 var screen_polygon
 var victory_value: float
-var upgrades: Dictionary
 onready var bf_audio_bus_idx: int = AudioServer.get_bus_index("Battlefield")
 
 
@@ -31,12 +30,13 @@ func _enter_tree() -> void:
 	tree = get_tree()
 	viewport_size = get_viewport_rect().size
 	screen_polygon = PoolVector2Array([Vector2.ZERO, Vector2(viewport_size.x, 0), viewport_size, Vector2(0, viewport_size.y)])
+	config = Config.new().load()
 	curve = Preloader.get_resource("MovePath2D")
 	randomize()
 	match game_mode:
 		GAMEMODE.DEBUG:
 			victory_value = 5.0
-			config.honor_points = 500
+			config.honor_points = 300
 		GAMEMODE.DEMO:
 			victory_value = 100.0
 
@@ -48,15 +48,15 @@ func _notification(what):
 			else:
 				quit()
 		MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-			if game:
+			if game != null:
 				game.pause(true)
 			else:
 				quit()
 		MainLoop.NOTIFICATION_WM_FOCUS_OUT:
-			if game:
+			if game != null:
 				game.pause(true)
 		MainLoop.NOTIFICATION_APP_PAUSED:
-			if game:
+			if game != null:
 				game.pause(true)
 #		MainLoop.NOTIFICATION_APP_RESUMED:
 #			pass
@@ -66,15 +66,19 @@ func _input(event: InputEvent) -> void:
 		game.pause()
 
 func return_to_main_menu() -> void:
-	yield(tree, "idle_frame")
-	tree.change_scene_to(Preloader.get_resource("Empty"))
+	if game:
+		game = null
+		yield(tree, "idle_frame")
+		tree.change_scene_to(Preloader.get_resource("Empty"))
+		print("Scene changed") # TODO: remove this
 	GUI.title_screen(true)
 
 func new_game() -> void:
 	set_battlefield_volume(0)
 	EnemyManager.clear_statistics()
-	upgrades.clear()
-	tree.change_scene_to(Preloader.get_resource("Hangar" if config.honor_points else "Game"))
+#	config.upgrades.clear()
+#	tree.change_scene_to(Preloader.get_resource("Hangar" if config.honor_points else "Game"))
+	GUI.hangar.new_game()
 
 func quit() -> void:
 	config.save()

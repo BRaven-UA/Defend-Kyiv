@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Game/Resources/Style/Title font.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Game/Resources/Shaders/Camouflage.tres" type="Material" id=19]
 [ext_resource path="res://Game/Resources/Accept Shortcut.tres" type="ShortCut" id=20]
+[ext_resource path="res://Game/Resources/Style/Countermeasure Stylebox.tres" type="StyleBox" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -95,29 +96,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoPanel" type="Panel" parent="BaseControl"]
+[node name="UpperRightCorner" type="VBoxContainer" parent="BaseControl"]
 anchor_left = 0.996
 anchor_top = 0.002
 anchor_right = 0.996
 anchor_bottom = 0.002
-margin_left = -130.12
+margin_left = -134.12
 margin_top = 0.44
 margin_right = -0.120056
-margin_bottom = 49.44
-custom_styles/panel = ExtResource( 15 )
+margin_bottom = 83.44
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoBar" type="TextureProgress" parent="BaseControl/AmmoPanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -23.5
-margin_right = 64.0
-margin_bottom = 23.5
+[node name="AmmoPanel" type="PanelContainer" parent="BaseControl/UpperRightCorner"]
+margin_right = 134.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 15 )
+
+[node name="AmmoBar" type="TextureProgress" parent="BaseControl/UpperRightCorner/AmmoPanel"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 131.0
+margin_bottom = 49.0
 max_value = 32.0
 value = 16.0
 rounded = true
@@ -132,15 +134,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AmmoLabel" type="Label" parent="BaseControl/AmmoPanel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -65.0
-margin_right = 65.0
+[node name="AmmoLabel" type="Label" parent="BaseControl/UpperRightCorner"]
+margin_top = 51.0
+margin_right = 134.0
+margin_bottom = 83.0
 custom_fonts/font = ExtResource( 6 )
 text = "Ammunition"
+align = 1
+valign = 2
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dummy" type="Control" parent="BaseControl/UpperRightCorner"]
+margin_top = 83.0
+margin_right = 134.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="FlaresBar" type="ProgressBar" parent="BaseControl/UpperRightCorner"]
+margin_top = 98.0
+margin_right = 134.0
+margin_bottom = 110.0
+custom_styles/fg = ExtResource( 21 )
+custom_styles/bg = ExtResource( 7 )
+max_value = 10.0
+value = 7.0
+percent_visible = false
+
+[node name="FlaresLabel" type="Label" parent="BaseControl/UpperRightCorner"]
+margin_top = 110.0
+margin_right = 134.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 6 )
+text = "Countermeasure"
 align = 1
 valign = 2
 max_lines_visible = 1
@@ -306,6 +334,105 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PauseMenu" type="Panel" parent="BaseControl"]
+pause_mode = 2
+self_modulate = Color( 0.564706, 0.235294, 0.235294, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = 200.0
+focus_neighbour_top = NodePath("VBoxContainer/MainMenu")
+focus_neighbour_right = NodePath("VBoxContainer/Resume")
+focus_neighbour_bottom = NodePath("VBoxContainer/Resume")
+focus_next = NodePath("VBoxContainer/Resume")
+focus_previous = NodePath("VBoxContainer/MainMenu")
+focus_mode = 2
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -160.0
+margin_right = 160.0
+margin_bottom = 160.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="BaseControl/PauseMenu/VBoxContainer"]
+material = ExtResource( 19 )
+margin_right = 320.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = ExtResource( 17 )
+text = "PAUSED"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="Dummy" type="Control" parent="BaseControl/PauseMenu/VBoxContainer"]
+margin_top = 70.0
+margin_right = 320.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 20 )
+mouse_filter = 2
+
+[node name="ResumeButton" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
+margin_top = 110.0
+margin_right = 320.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 320, 50 )
+focus_neighbour_top = NodePath(".")
+focus_neighbour_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../MainMenu")
+shortcut_in_tooltip = false
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
+margin_top = 182.0
+margin_right = 320.0
+margin_bottom = 234.0
+rect_min_size = Vector2( 320, 50 )
+focus_neighbour_top = NodePath("../Resume")
+focus_neighbour_bottom = NodePath("../MainMenu")
+focus_next = NodePath("../MainMenu")
+focus_previous = NodePath("../Resume")
+shortcut_in_tooltip = false
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
+margin_top = 254.0
+margin_right = 320.0
+margin_bottom = 306.0
+rect_min_size = Vector2( 320, 50 )
+focus_neighbour_top = NodePath("../Settings")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath("../Resume")
+focus_previous = NodePath("../Settings")
+shortcut_in_tooltip = false
+text = "Return to main menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Settings" type="PanelContainer" parent="BaseControl"]
 pause_mode = 2
 anchor_left = 0.083
@@ -315,7 +442,7 @@ anchor_bottom = 0.946
 margin_left = 0.239998
 margin_top = 0.239998
 margin_right = -0.240051
-margin_bottom = -770.88
+margin_bottom = -650.88
 focus_neighbour_top = NodePath("VBoxContainer/Close")
 focus_neighbour_bottom = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness/HSlider")
 focus_next = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Brightness/HSlider")
@@ -330,7 +457,7 @@ __meta__ = {
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 594.0
-margin_bottom = 351.0
+margin_bottom = 468.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer"]
@@ -344,10 +471,75 @@ align = 1
 valign = 1
 max_lines_visible = 1
 
-[node name="BackgroundColor" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
+[node name="Audio" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
 margin_top = 54.0
 margin_right = 587.0
-margin_bottom = 289.0
+margin_bottom = 167.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BaseControl/Settings/VBoxContainer/Audio"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 582.0
+margin_bottom = 108.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Settings/VBoxContainer/Audio/MarginContainer"]
+margin_left = 20.0
+margin_right = 557.0
+margin_bottom = 103.0
+mouse_filter = 2
+custom_constants/separation = 25
+
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/Audio/MarginContainer/VBoxContainer"]
+margin_left = 235.0
+margin_right = 301.0
+margin_bottom = 42.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource( 12 )
+text = "Audio:"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="Volume" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/Audio/MarginContainer/VBoxContainer"]
+margin_top = 67.0
+margin_right = 537.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/Audio/MarginContainer/VBoxContainer/Volume"]
+margin_top = 2.0
+margin_right = 160.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 160, 0 )
+custom_fonts/font = ExtResource( 6 )
+text = "Volume"
+valign = 1
+max_lines_visible = 1
+
+[node name="HSlider" type="HSlider" parent="BaseControl/Settings/VBoxContainer/Audio/MarginContainer/VBoxContainer/Volume"]
+margin_left = 164.0
+margin_right = 537.0
+margin_bottom = 36.0
+focus_neighbour_top = NodePath(".")
+focus_neighbour_bottom = NodePath("../../Contrast/HSlider")
+focus_next = NodePath("../../Contrast/HSlider")
+focus_previous = NodePath("../../../../../HBoxContainer/Close")
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackgroundColor" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
+margin_top = 171.0
+margin_right = 587.0
+margin_bottom = 406.0
 mouse_filter = 2
 size_flags_vertical = 3
 
@@ -471,9 +663,9 @@ step = 0.1
 value = 1.0
 
 [node name="Buttons" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer"]
-margin_top = 293.0
+margin_top = 410.0
 margin_right = 587.0
-margin_bottom = 345.0
+margin_bottom = 462.0
 alignment = 1
 
 [node name="Reset" type="Button" parent="BaseControl/Settings/VBoxContainer/Buttons"]
@@ -511,105 +703,6 @@ focus_previous = NodePath("../Reset")
 shortcut_in_tooltip = false
 shortcut = ExtResource( 20 )
 text = "Close"
-
-[node name="PauseMenu" type="Panel" parent="BaseControl"]
-pause_mode = 2
-self_modulate = Color( 0.564706, 0.235294, 0.235294, 1 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -200.0
-margin_right = 200.0
-margin_bottom = 200.0
-focus_neighbour_top = NodePath("VBoxContainer/MainMenu")
-focus_neighbour_right = NodePath("VBoxContainer/Resume")
-focus_neighbour_bottom = NodePath("VBoxContainer/Resume")
-focus_next = NodePath("VBoxContainer/Resume")
-focus_previous = NodePath("VBoxContainer/MainMenu")
-focus_mode = 2
-custom_styles/panel = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/PauseMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -160.0
-margin_right = 160.0
-margin_bottom = 160.0
-custom_constants/separation = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="BaseControl/PauseMenu/VBoxContainer"]
-material = ExtResource( 19 )
-margin_right = 320.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
-custom_fonts/font = ExtResource( 17 )
-text = "PAUSED"
-align = 1
-valign = 1
-max_lines_visible = 1
-
-[node name="Dummy" type="Control" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 70.0
-margin_right = 320.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 0, 20 )
-mouse_filter = 2
-
-[node name="Resume" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 110.0
-margin_right = 320.0
-margin_bottom = 162.0
-rect_min_size = Vector2( 320, 50 )
-focus_neighbour_top = NodePath(".")
-focus_neighbour_bottom = NodePath("../Settings")
-focus_next = NodePath("../Settings")
-focus_previous = NodePath("../MainMenu")
-shortcut_in_tooltip = false
-text = "Resume"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Settings" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 182.0
-margin_right = 320.0
-margin_bottom = 234.0
-rect_min_size = Vector2( 320, 50 )
-focus_neighbour_top = NodePath("../Resume")
-focus_neighbour_bottom = NodePath("../MainMenu")
-focus_next = NodePath("../MainMenu")
-focus_previous = NodePath("../Resume")
-shortcut_in_tooltip = false
-text = "Settings"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MainMenu" type="Button" parent="BaseControl/PauseMenu/VBoxContainer"]
-margin_top = 254.0
-margin_right = 320.0
-margin_bottom = 306.0
-rect_min_size = Vector2( 320, 50 )
-focus_neighbour_top = NodePath("../Settings")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../Resume")
-focus_previous = NodePath("../Settings")
-shortcut_in_tooltip = false
-text = "Return to main menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Anthem" type="AudioStreamPlayer" parent="BaseControl"]
 bus = "Game"

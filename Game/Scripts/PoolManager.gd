@@ -10,6 +10,7 @@ var projectiles_pool: Array
 var projectile_fire_pool: Array
 var projectile_hit_pool: Array
 var rocket_pool: Array # object pool for rockets
+var flare_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
 var crater_pool: Array # object pool for crater decals
@@ -91,6 +92,17 @@ func get_rocket() -> RocketBase: # get reference to new rocket from the rocket p
 	new_rocket.add_to_group(REUSABLE)
 	rocket_pool.append(new_rocket)
 	return new_rocket
+
+func get_flare() -> Flare: # get reference to new flare from the flare pool
+	for flare in flare_pool: # search for free flare
+		if not flare.is_inside_tree():
+			return flare
+	
+	# add new instance to the pool if there no free flares left
+	var new_flare = Preloader.get_resource("Flare").instance()
+	new_flare.add_to_group(REUSABLE)
+	flare_pool.append(new_flare)
+	return new_flare
 
 func get_explosion(type: int) -> Explosion: # get reference to new explosion with given type from the explosion pool
 	var _name = EXPLOSION.keys()[type]

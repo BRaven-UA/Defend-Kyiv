@@ -5,6 +5,7 @@ extends Area2D
 
 signal durability_changed(value)
 signal ammo_changed(value)
+signal flares_used(flares_array)
 signal destroyed
 
 const HEIGHT: float = 500.0 # player's height above the ground
@@ -14,6 +15,9 @@ const CROSSAIR_DISTANCE: float = 600.0 # distance to the crossair when player is
 const ROCKET_COOLDOWN: float = 0.15 # rocket fire delay
 const MAX_DURABILITY: float = 100.0
 const MAX_ROCKETS: int = 32 # max amount of rockets that player can carry
+const FLARE_DIRECTIONS := [Vector3(-0.965926, 0, -0.258819), Vector3(-0.866025, 0, -0.5), Vector3(-0.707107, 0, -0.707107), Vector3(0.965926, 0, -0.258819), Vector3(0.866025, 0, -0.5), Vector3(0.707107, 0, -0.707107)
+]
+const FLARES_COOLDOWN := 10.0
 
 var durability: float
 var direction := Vector2.ZERO # current move normalized direction vector

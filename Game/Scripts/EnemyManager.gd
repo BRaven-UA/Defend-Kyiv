@@ -65,7 +65,7 @@ func spawn_enemy(data: Dictionary, pos := Vector2.ZERO, rot := 0.0) -> void:
 	if Global.game.path_follow:
 		enemy.set_meta("Offset", Global.pos_to_offset(pos))
 	if Global.game.ground_layer:
-		Global.game.ground_layer.add_child(enemy)
+		Global.game.ground_layer.add_child(enemy, true)
 	enemy.call_deferred("init", data, pos, rot)
 
 func get_random_enemy() -> Dictionary:

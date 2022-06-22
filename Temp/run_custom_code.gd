@@ -1,9 +1,11 @@
 tool
 extends EditorScript
 
-
+const ar := [{1: "one"}, {2: "two"}]
 func _run() -> void:
-	pass
+	ar[0]["test"] = "test"
+	ar.shuffle()
+	print(ar)
 
 func j():
 	var c = Config.new()
