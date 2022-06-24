@@ -566,12 +566,12 @@ shape = SubResource( 1 )
 stream = ExtResource( 6 )
 volume_db = 10.0
 autoplay = true
-bus = "Battlefield"
+bus = "Helicopter"
 
 [node name="Breakdown" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 volume_db = -15.0
-bus = "Battlefield"
+bus = "Helicopter"
 
 [node name="Flares" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
@@ -590,7 +590,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 14 )
 hframes = 6
 vframes = 6
-frame = 6
+frame = 7
 region_enabled = true
 region_rect = Rect2( 1002, 1, 864, 942 )
 region_filter_clip = true
@@ -634,7 +634,7 @@ material = ExtResource( 2 )
 texture = ExtResource( 14 )
 hframes = 6
 vframes = 6
-frame = 6
+frame = 7
 region_enabled = true
 region_rect = Rect2( 1002, 1, 864, 942 )
 region_filter_clip = true

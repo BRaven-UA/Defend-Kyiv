@@ -8,6 +8,7 @@ onready var durability_bar: ProgressBar = base.find_node("DurabilityBar")
 onready var ammo_bar: TextureProgress = base.find_node("AmmoBar")
 onready var flares_bar: ProgressBar = base.find_node("FlaresBar")
 onready var flares_label: Label = base.find_node("FlaresLabel")
+onready var pause_button: Button = base.find_node("PauseButton")
 onready var score_bar: ProgressBar = base.find_node("ScoreBar")
 onready var score_label: Label = base.find_node("ScoreLabel")
 
@@ -19,13 +20,16 @@ onready var statistics: PanelContainer = base.find_node("Statistics")
 onready var statistic_units: GridContainer = base.find_node("StatisticUnits")
 onready var honor_points: Label = base.find_node("HonorPoints")
 
-onready var pause_menu: Panel = base.find_node("PauseMenu")
+onready var pause_menu: PopupPanel = base.find_node("PauseMenu")
+#onready var pause_menu: Panel = base.find_node("PauseMenu")
 onready var resume_button: Button = pause_menu.find_node("ResumeButton")
 onready var settings_button: Button = pause_menu.find_node("SettingsButton")
 onready var main_menu_button: Button = pause_menu.find_node("MainMenuButton")
 
-onready var settings: PanelContainer = base.find_node("Settings")
-onready var volume_slider: HSlider = settings.find_node("Volume").get_node("HSlider")
+onready var settings: PopupPanel = base.find_node("Settings")
+#onready var settings: PanelContainer = base.find_node("Settings")
+onready var master_volume_slider: HSlider = settings.find_node("MasterVolume").get_node("HSlider")
+onready var helicopter_volume_slider: HSlider = settings.find_node("HelicopterVolume").get_node("HSlider")
 onready var brightness_slider: HSlider = settings.find_node("Brightness").get_node("HSlider")
 onready var contrast_slider: HSlider = settings.find_node("Contrast").get_node("HSlider")
 onready var saturation_slider: HSlider = settings.find_node("Saturation").get_node("HSlider")
@@ -42,10 +46,13 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	Global.config.connect("settings_changed", self, "_on_config_settings_changed")
 	Global.game.connect("pause_changed", self, "_on_game_pause_changed")
+#	base.connect("gui_input", self, "_on_base_gui_input")
+	pause_button.connect("pressed", self, "_on_pause_button_pressed")
 	resume_button.connect("pressed", self, "_on_resume_button_pressed")
 	settings_button.connect("pressed", self, "_on_settings_button_pressed")
 	main_menu_button.connect("pressed", self, "_on_main_menu_button_pressed")
-	volume_slider.connect("value_changed", self, "_on_volume_slider_value_changed")
+	master_volume_slider.connect("value_changed", self, "_on_master_volume_slider_value_changed")
+	helicopter_volume_slider.connect("value_changed", self, "_on_helicopter_volume_slider_value_changed")
 	brightness_slider.connect("value_changed", self, "_on_brightness_slider_value_changed")
 	contrast_slider.connect("value_changed", self, "_on_contrast_slider_value_changed")
 	saturation_slider.connect("value_changed", self, "_on_saturation_slider_value_changed")
@@ -82,6 +89,7 @@ func _ready() -> void:
 	if OS.has_touchscreen_ui_hint():
 		touch_controls = Preloader.get_resource("TouchControls").instance()
 		analog_controller = touch_controls.find_node("AnalogController")
+		touch_controls.find_node("Countermeasure").visible = is_flares_installed
 		add_child(touch_controls)
 	
 	# the following settings are initially defined as visible in the editor
@@ -92,6 +100,10 @@ func _ready() -> void:
 	statistics.visible = false
 	settings.visible = false
 	pause_menu.visible = false
+
+#func _on_base_gui_input(event: InputEvent) -> void:
+#	if event.is_action_pressed("ui_cancel"):
+#		Global.game.pause(true)
 
 func set_durability(new_value: int) -> void:
 	GlobalTween.stop(durability_bar)
@@ -116,18 +128,24 @@ func set_ammo(value: int) -> void:
 	ammo_bar.value = value
 
 func restore_settings() -> void:
-	volume_slider.value = Global.config.volume
+	master_volume_slider.value = Global.config.master_volume
+	helicopter_volume_slider.value = Global.config.helicopter_volume
 	brightness_slider.value = Global.config.brightness
 	contrast_slider.value = Global.config.contrast
 	saturation_slider.value = Global.config.saturation
 
+func _on_pause_button_pressed() -> void:
+	Global.game.pause(true)
+
 func _on_config_settings_changed() -> void:
 	restore_settings()
 
-func _on_game_pause_changed(state: bool) -> void:
-	pause_menu.visible = state
-	if state:
+func _on_game_pause_changed(enabled: bool) -> void:
+	if enabled:
+		pause_menu.show_modal(true)
 		pause_menu.grab_focus()
+	else:
+		pause_menu.hide()
 
 func _on_player_durability_changed(value: int) -> void:
 	set_durability(value)
@@ -145,15 +163,20 @@ func _on_resume_button_pressed() -> void:
 	Global.game.pause(false)
 
 func _on_settings_button_pressed() -> void:
-	settings.visible = true
+	settings.show_modal(true)
 	settings.grab_focus()
 
 func _on_main_menu_button_pressed() -> void:
 	Global.return_to_main_menu()
 
-func _on_volume_slider_value_changed(value: float) -> void:
-	Global.config.volume = value
+func _on_master_volume_slider_value_changed(value: float) -> void:
+	Global.config.master_volume = value
 	AudioServer.set_bus_volume_db(0, linear2db(value))
+
+func _on_helicopter_volume_slider_value_changed(value: float) -> void:
+	Global.config.helicopter_volume = value
+	var bus_index = AudioServer.get_bus_index("Helicopter")
+	AudioServer.set_bus_volume_db(bus_index, linear2db(value))
 
 func _on_brightness_slider_value_changed(value: float) -> void:
 	Global.config.brightness = value

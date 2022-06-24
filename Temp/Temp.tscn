@@ -6,7 +6,7 @@
 [ext_resource path="res://Game/Prefabs/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Resources/Shaders/Shockwave.shader" type="Shader" id=5]
 [ext_resource path="res://Game/Prefabs/Crater.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Prefabs/AntiAircraftEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Temp/GlowTemplate2.png" type="Texture" id=7]
 [ext_resource path="res://Game/Prefabs/WarningSign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Pictures/Background/125.jpg" type="Texture" id=9]
 [ext_resource path="res://Game/Prefabs/TouchControls.tscn" type="PackedScene" id=10]
@@ -45,39 +45,28 @@ copy_mode = 2
 
 [node name="ground" type="Node2D" parent="."]
 
-[node name="Explosion" parent="ground" instance=ExtResource( 2 )]
-position = Vector2( 14.5151, 114.254 )
+[node name="Enemy" parent="ground" instance=ExtResource( 4 )]
+position = Vector2( 4, -82 )
 
-[node name="Shockwave" parent="ground/Explosion/BackBufferCopy" index="0"]
-material = SubResource( 2 )
+[node name="Hitbox" parent="ground/Enemy" index="0"]
+visible = false
 
-[node name="Animation" parent="ground/Explosion" index="3"]
-frame = 20
+[node name="OnMapHighlight" parent="ground/Enemy" index="1"]
+visible = true
+self_modulate = Color( 1, 0.654902, 0, 1 )
 
 [node name="Enemy2" parent="ground" instance=ExtResource( 4 )]
 position = Vector2( -2, 29 )
 
-[node name="Enemy" parent="ground" instance=ExtResource( 7 )]
-position = Vector2( -7, 185 )
-collision_mask = 416
+[node name="Hitbox" parent="ground/Enemy2" index="0"]
+visible = false
 
-[node name="OnMapHighlight" parent="ground/Enemy" index="1"]
-material = null
-scale = Vector2( 0.85, 1.5 )
-
-[node name="OuterShadow" parent="ground/Enemy/RadialIndicator" index="0"]
+[node name="OnMapHighlight" parent="ground/Enemy2" index="1"]
 visible = true
-
-[node name="InnerShadow" parent="ground/Enemy/RadialIndicator" index="1"]
-visible = true
-
-[node name="OuterProgress" parent="ground/Enemy/RadialIndicator" index="2"]
-visible = true
-frame = 8
-
-[node name="InnerProgress" parent="ground/Enemy/RadialIndicator" index="3"]
-visible = true
-frame = 23
+self_modulate = Color( 1, 0.654902, 0, 1 )
+texture = ExtResource( 7 )
+region_enabled = false
+region_rect = Rect2( 877, 14, 3, 0 )
 
 [node name="BackBufferCopy2" type="BackBufferCopy" parent="ground"]
 position = Vector2( 46.3056, -18.7456 )
@@ -85,6 +74,18 @@ copy_mode = 2
 
 [node name="Crater" parent="ground/BackBufferCopy2" instance=ExtResource( 6 )]
 position = Vector2( -30.2905, 0 )
+
+[node name="Explosion" parent="ground" instance=ExtResource( 2 )]
+position = Vector2( 61, -48 )
+
+[node name="Flash" parent="ground/Explosion" index="1"]
+self_modulate = Color( 1, 0.780392, 0.270588, 0.537255 )
+
+[node name="Shockwave" parent="ground/Explosion/BackBufferCopy" index="0"]
+material = SubResource( 2 )
+
+[node name="Animation" parent="ground/Explosion" index="3"]
+frame = 15
 
 [node name="Rocket" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56.8539, -28.0332 )
@@ -125,9 +126,9 @@ material = ExtResource( 11 )
 position = Vector2( 55, -200 )
 texture = ExtResource( 13 )
 
-[editable path="ground/Explosion"]
 [editable path="ground/Enemy"]
-[editable path="ground/Enemy/RadialIndicator"]
+[editable path="ground/Enemy2"]
 [editable path="ground/BackBufferCopy2/Crater"]
+[editable path="ground/Explosion"]
 [editable path="Rocket"]
 [editable path="Player"]

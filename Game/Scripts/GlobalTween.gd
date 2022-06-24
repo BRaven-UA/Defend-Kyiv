@@ -25,7 +25,7 @@ func fade_preview(frame: Node2D) -> void:
 	start()
 
 func explosion_flash(flash: Sprite, scale: float) -> void:
-	var duration = 0.01 * scale
+	var duration = 0.02 * scale
 	var brightness = 0.025 * scale
 	interpolate_property(flash, "self_modulate:a", 0.0, brightness, duration, TRANS_EXPO, EASE_IN_OUT)
 	interpolate_property(flash, "self_modulate:a", brightness, 0.0, duration, TRANS_SINE, EASE_IN_OUT, duration)

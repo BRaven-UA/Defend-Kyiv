@@ -80,8 +80,10 @@ func pause(state: int = -1): # three state workaround: 0 - false, 1 - true, -1 -
 		paused = !tree.paused
 	else:
 		paused = state as bool # type casting
-	tree.paused = paused
-	emit_signal("pause_changed", paused)
+	
+	if tree.paused != paused:
+		tree.paused = paused
+		emit_signal("pause_changed", paused)
 
 func game_over() -> void:
 	player.game_over()

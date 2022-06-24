@@ -13,8 +13,8 @@ const POINTS = [0, 1, 2, 4, 8, 16] # score points per rarity
 const SHADOW := Vector2(0.707107, -0.707107) # normalized global shadow direction
 
 var tree: SceneTree
-var game_mode: int = GAMEMODE.DEBUG
-#var game_mode: int = GAMEMODE.DEMO
+#var game_mode: int = GAMEMODE.DEBUG
+var game_mode: int = GAMEMODE.DEMO
 var game: Game
 var debug: Debug
 var curve: Curve2D
@@ -60,10 +60,10 @@ func _notification(what):
 				game.pause(true)
 #		MainLoop.NOTIFICATION_APP_RESUMED:
 #			pass
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and game:
-		game.pause()
+#
+#func _input(event: InputEvent) -> void:
+#	if event.is_action_pressed("ui_cancel") and game:
+#		game.pause()
 
 func return_to_main_menu() -> void:
 	if game:

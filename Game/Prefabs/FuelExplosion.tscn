@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Game/Sounds/Fuel Explosion.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Game/Resources/Textures/FuelExplosion.tres" type="Texture" id=2]
 [ext_resource path="res://Game/Scripts/Explosion.gd" type="Script" id=3]
+[ext_resource path="res://Game/Resources/Shaders/Highlight.tres" type="Material" id=4]
 [ext_resource path="res://Game/Resources/Shaders/Shockwave.tres" type="Material" id=5]
 [ext_resource path="res://Game/Pictures/Spritesheet_lossless_filter.png" type="Texture" id=6]
 
@@ -236,7 +237,8 @@ max_radius = 30.0
 shape = SubResource( 1 )
 
 [node name="Flash" type="Sprite" parent="."]
-self_modulate = Color( 1, 0.980392, 0.843137, 0 )
+self_modulate = Color( 1, 0.78, 0.27, 0 )
+material = ExtResource( 4 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 1829, 944, 200, 200 )

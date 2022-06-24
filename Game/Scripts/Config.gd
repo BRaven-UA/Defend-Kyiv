@@ -11,7 +11,8 @@ const BRIGHTNESS := 0.0
 const CONTRAST := 1.0
 const SATURATION := 1.0
 
-export var volume := VOLUME
+export var master_volume := VOLUME
+export var helicopter_volume := VOLUME
 export var brightness := BRIGHTNESS
 export var contrast := CONTRAST
 export var saturation := SATURATION
@@ -21,7 +22,8 @@ var _file := File.new()
 
 
 func reset_settings() -> void:
-	volume = VOLUME
+	master_volume = VOLUME
+	helicopter_volume = VOLUME
 	brightness = BRIGHTNESS
 	contrast = CONTRAST
 	saturation = SATURATION

@@ -5,7 +5,7 @@ var player_rocket_consumption: int # backup value
 
 #onready var player: PlayerBase = Global.game.player
 onready var tree: SceneTree = get_tree()
-onready var panel: Panel = find_node("DebugPanel")
+onready var panel: PopupPanel = find_node("DebugPanel")
 onready var debug_label_1: Label = find_node("DebugLabel_1")
 onready var debug_label_2: Label = find_node("DebugLabel_2")
 onready var scroll_speed_label: Label = find_node("ScrollSpeedLabel")
@@ -55,7 +55,6 @@ func debug_panel(state: int = -1): # three state workaround: 0 - false, 1 - true
 		_visible = !panel.visible
 	else:
 		_visible = state as bool # type casting
-	panel.visible = _visible
 	
 	var is_ingame = Global.game != null
 	if _visible:
@@ -63,6 +62,9 @@ func debug_panel(state: int = -1): # three state workaround: 0 - false, 1 - true
 			_on_scroll_speed_changed(Global.game.path_follow.scroll_speed)
 		for node in tree.get_nodes_in_group("GameDebug"):
 			node.visible = is_ingame
+		panel.show_modal(true)
+	else:
+		panel.hide()
 
 func _on_reset_position_pressed() -> void:
 	if Global.game.path_follow:
