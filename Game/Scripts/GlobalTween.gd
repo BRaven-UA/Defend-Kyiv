@@ -31,10 +31,10 @@ func explosion_flash(flash: Sprite, scale: float) -> void:
 	interpolate_property(flash, "self_modulate:a", brightness, 0.0, duration, TRANS_SINE, EASE_IN_OUT, duration)
 	start()
 
-func explosion_shockwave(shockwave: Sprite, scale: float) -> void:
-	shockwave.material.set_shader_param("force", 0.15 * scale)
-	interpolate_property(shockwave, "material:shader_param/progression", 0.0, 3.0, 3.0)
-	start()
+#func explosion_shockwave(shockwave: Sprite, scale: float) -> void:
+#	shockwave.material.set_shader_param("force", 0.15 * scale)
+#	interpolate_property(shockwave, "material:shader_param/progression", 0.0, 3.0, 3.0)
+#	start()
 
 func flying_text(node: Node2D) -> void:
 	var _direction := Vector2.UP.rotated(Global.game.player.global_rotation)
@@ -53,7 +53,7 @@ func cancel_breakdown(player: PlayerBase) -> void:
 	start()
 
 func shake_camera() -> void:
-	if Global.game.camera:
+	if Global.game.main_camera:
 		noise.seed = randi()
 		interpolate_method(self, "_shake_camera_process", 0, 60, 0.5)
 		start()
@@ -79,6 +79,6 @@ func game_over(win: bool) -> void:
 func _shake_camera_process(delta: float):
 	var strength = lerp(60.0 - delta, 0.0, 0.05)
 	var noise_point = Vector2(noise.get_noise_2d(1, delta), noise.get_noise_2d(100, delta))
-	Global.game.camera.offset = noise_point * strength
+	Global.game.main_camera.offset = noise_point * strength
 	var color_value = 1.0 - (noise_point.length() if strength > 0.05 else 0.0)
 	Global.game.background.modulate = Color(1.0, color_value, color_value, 1.0)

@@ -3,13 +3,14 @@ extends PathFollow2D
 var scroll_speed := 50.0 # per second
 onready var start_offset := offset
 
+
 func _enter_tree() -> void:
 	get_parent().visible = true # the parent may be hidden in the editor due to Path2D performance issues
 	match Global.game_mode:
 		Global.GAMEMODE.DEBUG:
 			offset = 125000.0
 		Global.GAMEMODE.DEMO:
-			offset = 110500.0
+			offset = 111000.0
 		_:
 			offset = 0.0
 

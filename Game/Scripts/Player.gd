@@ -13,6 +13,7 @@ var ready_to_fire: bool = true
 var ready_use_flares: bool
 var is_breakdown: bool # engine failure
 var can_control: bool = true
+var is_casual_mode: bool
 
 onready var shadow: Sprite = find_node("Shadow")
 onready var smoke: Particles2D = find_node("Smoke")
@@ -57,6 +58,15 @@ func _ready() -> void:
 	var player_extents = find_node("Hitbox").shape.extents # player boundaries
 	horizontal_limit = Global.viewport_size.x / 2 - player_extents.x
 	vertical_limit = Global.viewport_size.y / 2 - player_extents.y
+	
+	is_casual_mode = Global.config.upgrades["CASUAL"] as bool
+	if is_casual_mode:
+		var _pos = Vector2.UP * CROSSAIR_DISTANCE
+		crossair.position = _pos
+		highlight.position = _pos
+		pusher.position = _pos
+		var _spread_value = _pos.length() * RocketBase.SPREAD
+		crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
 
 func _process(delta: float) -> void:
 	_moving(delta)
@@ -66,12 +76,13 @@ func _process(delta: float) -> void:
 	animation_tree.set("parameters/BlendTree/TimeScale/scale", engine_efficiency)
 	
 	# moving the crossair, highlight area and preview pusher
-	var _pos = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
-	crossair.position = _pos
-	highlight.position = _pos
-	pusher.position = _pos
-	var _spread_value = _pos.length() * RocketBase.SPREAD
-	crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
+	if not is_casual_mode:
+		var _pos = (direction.reflect(Vector2.RIGHT) / 2 + Vector2.UP) * Vector2(CROSSAIR_DISTANCE * direction.y, CROSSAIR_DISTANCE) # Y-axis is inverted in 2D
+		crossair.position = _pos
+		highlight.position = _pos
+		pusher.position = _pos
+		var _spread_value = _pos.length() * RocketBase.SPREAD
+		crossair.scale = Vector2.ONE * (_spread_value / 40.0) # default scale equal to 40 meters spread
 	
 	# adjust shadow position
 	shadow.global_position = global_position + Global.SHADOW * 100

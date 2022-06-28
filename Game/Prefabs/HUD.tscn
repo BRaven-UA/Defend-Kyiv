@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Game/Resources/Style/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game/Resources/Shaders/Flag_UA.shader" type="Shader" id=2]
@@ -19,11 +19,13 @@
 [ext_resource path="res://Game/Resources/Style/Title small font.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Game/Resources/Style/Title font.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Game/Resources/Shaders/Camouflage.tres" type="Material" id=19]
-[ext_resource path="res://Game/Resources/Close Shortcut.tres" type="ShortCut" id=20]
+[ext_resource path="res://Game/Resources/Style/Panel Stylebox.tres" type="StyleBox" id=20]
 [ext_resource path="res://Game/Resources/Style/Countermeasure Stylebox.tres" type="StyleBox" id=21]
 [ext_resource path="res://Game/Resources/Cancel Shortcut.tres" type="ShortCut" id=22]
 [ext_resource path="res://Game/Resources/Textures/PauseButton.tres" type="Texture" id=23]
 [ext_resource path="res://Game/Resources/Style/Opaque Background Stylebox.tres" type="StyleBox" id=24]
+[ext_resource path="res://Game/Resources/Textures/Uncheck.tres" type="Texture" id=25]
+[ext_resource path="res://Game/Resources/Textures/Check.tres" type="Texture" id=26]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -480,9 +482,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -200.0
-margin_top = -251.0
+margin_top = -337.5
 margin_right = 200.0
-margin_bottom = 251.0
+margin_bottom = 337.5
 focus_neighbour_top = NodePath("VBoxContainer/Buttons/Close")
 focus_neighbour_bottom = NodePath("VBoxContainer/Audio/MarginContainer/VBoxContainer/MasterVolume/HSlider")
 focus_next = NodePath("VBoxContainer/Audio/MarginContainer/VBoxContainer/MasterVolume/HSlider")
@@ -499,9 +501,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -194.0
-margin_top = -275.5
+margin_top = -331.5
 margin_right = 194.0
-margin_bottom = 275.5
+margin_bottom = 331.5
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -604,8 +606,8 @@ margin_left = 104.0
 margin_right = 338.0
 margin_bottom = 36.0
 focus_neighbour_top = NodePath("../../MasterVolume/HSlider")
-focus_neighbour_bottom = NodePath("../../../../../BackgroundColor/MarginContainer/VBoxContainer/Brightness/HSlider")
-focus_next = NodePath("../../../../../BackgroundColor/MarginContainer/VBoxContainer/Brightness/HSlider")
+focus_neighbour_bottom = NodePath("../../../../../Game/MarginContainer/VBoxContainer/Preview/CheckBox")
+focus_next = NodePath("../../../../../Game/MarginContainer/VBoxContainer/Preview/CheckBox")
 focus_previous = NodePath("../../MasterVolume/HSlider")
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -613,10 +615,80 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="BackgroundColor" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
+[node name="Game" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
 margin_top = 232.0
 margin_right = 388.0
-margin_bottom = 467.0
+margin_bottom = 340.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BaseControl/Settings/VBoxContainer/Game"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 383.0
+margin_bottom = 103.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseControl/Settings/VBoxContainer/Game/MarginContainer"]
+margin_left = 20.0
+margin_right = 358.0
+margin_bottom = 98.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/Game/MarginContainer/VBoxContainer"]
+margin_left = 138.0
+margin_right = 200.0
+margin_bottom = 42.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource( 12 )
+text = "Game:"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="Preview" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 338.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="BaseControl/Settings/VBoxContainer/Game/MarginContainer/VBoxContainer/Preview"]
+margin_top = 10.0
+margin_right = 165.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = ExtResource( 6 )
+text = "Show vehicles preview"
+valign = 1
+max_lines_visible = 1
+
+[node name="CheckBox" type="CheckBox" parent="BaseControl/Settings/VBoxContainer/Game/MarginContainer/VBoxContainer/Preview"]
+margin_left = 230.0
+margin_right = 276.0
+margin_bottom = 52.0
+focus_neighbour_top = NodePath("../../../../../Audio/MarginContainer/VBoxContainer/HelicopterVolume/HSlider")
+focus_neighbour_bottom = NodePath("../../../../../BackgroundColor/MarginContainer/VBoxContainer/Brightness/HSlider")
+focus_next = NodePath("../../../../../BackgroundColor/MarginContainer/VBoxContainer/Brightness/HSlider")
+focus_previous = NodePath("../../../../../Audio/MarginContainer/VBoxContainer/HelicopterVolume/HSlider")
+size_flags_horizontal = 6
+custom_icons/checked = ExtResource( 26 )
+custom_icons/unchecked = ExtResource( 25 )
+custom_styles/hover = ExtResource( 20 )
+custom_styles/focus = ExtResource( 20 )
+custom_styles/hover_pressed = ExtResource( 20 )
+shortcut_in_tooltip = false
+pressed = true
+action_mode = 0
+flat = true
+align = 1
+
+[node name="BackgroundColor" type="PanelContainer" parent="BaseControl/Settings/VBoxContainer"]
+margin_top = 344.0
+margin_right = 388.0
+margin_bottom = 579.0
 mouse_filter = 2
 size_flags_vertical = 3
 
@@ -668,10 +740,10 @@ max_lines_visible = 1
 margin_left = 104.0
 margin_right = 338.0
 margin_bottom = 36.0
-focus_neighbour_top = NodePath("../../../../../Audio/MarginContainer/VBoxContainer/HelicopterVolume/HSlider")
+focus_neighbour_top = NodePath("../../../../../Game/MarginContainer/VBoxContainer/Preview/CheckBox")
 focus_neighbour_bottom = NodePath("../../Contrast/HSlider")
 focus_next = NodePath("../../Contrast/HSlider")
-focus_previous = NodePath("../../../../../Audio/MarginContainer/VBoxContainer/HelicopterVolume/HSlider")
+focus_previous = NodePath("../../../../../Game/MarginContainer/VBoxContainer/Preview/CheckBox")
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = -0.3
@@ -740,9 +812,9 @@ step = 0.1
 value = 1.0
 
 [node name="Buttons" type="HBoxContainer" parent="BaseControl/Settings/VBoxContainer"]
-margin_top = 471.0
+margin_top = 583.0
 margin_right = 388.0
-margin_bottom = 551.0
+margin_bottom = 663.0
 alignment = 1
 
 [node name="Reset" type="Button" parent="BaseControl/Settings/VBoxContainer/Buttons"]
@@ -782,7 +854,7 @@ focus_next = NodePath("../../BackgroundColor/MarginContainer/VBoxContainer/Brigh
 focus_previous = NodePath("../Reset")
 size_flags_vertical = 4
 shortcut_in_tooltip = false
-shortcut = ExtResource( 20 )
+shortcut = ExtResource( 22 )
 text = "Close"
 
 [node name="Anthem" type="AudioStreamPlayer" parent="BaseControl"]

@@ -7,12 +7,14 @@ const PATH := "user://DefendKyiv.save"
 const DEBUG_PATH := "user://Debug.save"
 const PASSWORD := "Glory to Ukraine!"
 const VOLUME := 1.0
+const PREVIEW := true
 const BRIGHTNESS := 0.0
 const CONTRAST := 1.0
 const SATURATION := 1.0
 
 export var master_volume := VOLUME
 export var helicopter_volume := VOLUME
+export var preview := PREVIEW
 export var brightness := BRIGHTNESS
 export var contrast := CONTRAST
 export var saturation := SATURATION
@@ -24,6 +26,7 @@ var _file := File.new()
 func reset_settings() -> void:
 	master_volume = VOLUME
 	helicopter_volume = VOLUME
+	preview = PREVIEW
 	brightness = BRIGHTNESS
 	contrast = CONTRAST
 	saturation = SATURATION

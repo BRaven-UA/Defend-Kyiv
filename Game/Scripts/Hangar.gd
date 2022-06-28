@@ -4,6 +4,7 @@ extends Control
 const OVERFLOW := Color(1.0, 0.5, 0.5, 1.0)
 enum {SHORT_NAME, NAME, DESCRIPTION, MIN_VALUE, DEFAULT_VALUE, VALUE, MAX_VALUE, STEP, PRICE, TOTAL}
 const UPGRADES := [
+	{SHORT_NAME: "CASUAL", NAME: "Fixed crosshair", DESCRIPTION: "The crosshair position is fixed in relation to the helicopter. The tilt of the helicopter body no longer affects the offset and size of the crosshair", PRICE: 50},
 	{SHORT_NAME: "REGEN", NAME: "Rocket generation per second", DESCRIPTION: "Replenishes over time the main rockets up to the maximum. The cost is for 0.1 rockets per second", PRICE: 50, MIN_VALUE: 0.5, DEFAULT_VALUE: 0.5, MAX_VALUE: 2.0, STEP: 0.1},
 	{SHORT_NAME: "HIGHLIGHT", NAME: "Always highlight enemies", DESCRIPTION: "Enemies on the map will be highlighted permanently. Without this upgrade, the highlighting only appears near the crosshair", PRICE: 100},
 	{SHORT_NAME: "FLARES", NAME: "Infrared countermeasure", DESCRIPTION: "Adds a system to counter enemy homing missiles. Reuse cooldown is %d seconds" % PlayerBase.FLARES_COOLDOWN, PRICE: 200}

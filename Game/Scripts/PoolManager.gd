@@ -13,7 +13,7 @@ var rocket_pool: Array # object pool for rockets
 var flare_pool: Array # object pool for rockets
 var explosion_pool: Array # object pool for explosions
 var explosion_indexes: Dictionary # keys are explosion names, values are list of pool indexes with that explosion instance
-var crater_pool: Array # object pool for crater decals
+#var crater_pool: Array # object pool for crater decals
 var preview_pool: Array
 var flying_text_pool: Array
 var warning_sign_pool: Array
@@ -126,18 +126,18 @@ func get_explosion(type: int) -> Explosion: # get reference to new explosion wit
 	
 	return new_explosion
 
-func get_crater() -> Sprite:
-#	var distance = Global.viewport_size.length() * 2 # guaranteed offscreen distance
-	for crater in crater_pool: # search for free crater
-		if not crater.is_inside_tree():
-#		if (crater.global_position - Global.game.player.global_position).length() > distance: # far enough
-			return crater
-	
-	# add new instance to the pool if there no free craterss left
-	var new_crater = Preloader.get_resource("Crater").instance()
-	new_crater.add_to_group(REUSABLE)
-	crater_pool.append(new_crater)
-	return new_crater
+#func get_crater() -> Sprite:
+##	var distance = Global.viewport_size.length() * 2 # guaranteed offscreen distance
+#	for crater in crater_pool: # search for free crater
+#		if not crater.is_inside_tree():
+##		if (crater.global_position - Global.game.player.global_position).length() > distance: # far enough
+#			return crater
+#
+#	# add new instance to the pool if there no free craterss left
+#	var new_crater = Preloader.get_resource("Crater").instance()
+#	new_crater.add_to_group(REUSABLE)
+#	crater_pool.append(new_crater)
+#	return new_crater
 
 func get_preview() -> Preview:
 # TODO: joint2D stops work after readded to the scene tree

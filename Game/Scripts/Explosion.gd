@@ -3,12 +3,11 @@ extends Area2D
 
 const GROW_SPEED: float = 25.0
 
-#var is_free: bool = false
 export var max_radius: float = 12.0
 var height: float
 onready var area: CollisionShape2D = find_node("ExplosionArea")
 onready var flash: Sprite = find_node("Flash")
-onready var shockwave: Sprite = find_node("Shockwave")
+#onready var shockwave: Sprite = find_node("Shockwave")
 onready var animation: AnimatedSprite = find_node("Animation")
 onready var sound: AudioStreamPlayer2D = find_node("Sound")
 onready var anim_names: PoolStringArray = animation.frames.get_animation_names()
@@ -25,11 +24,10 @@ func _physics_process(delta: float) -> void:
 	var _radius = area.scale.x + delta * GROW_SPEED
 	if _radius >= max_radius:
 		set_physics_process(false) # stop growing
-		place_crater()
+		Global.game.ground_texture.place_crater(global_position)
 	area.scale = Vector2.ONE * _radius # growing the explosion area
 
-func activate(pos: Vector3) -> void:
-#	is_free = false
+func activate(pos: Vector3) -> void: # position in global coords
 	area.scale = Vector2.ONE
 	
 	height = pos.y
@@ -44,29 +42,28 @@ func activate(pos: Vector3) -> void:
 	animation.play()
 	
 	sound.play()
-	
 	var _scale = lerp(1.0, 5.0, height / PlayerBase.HEIGHT) * Vector2.ONE
-	shockwave.scale = _scale
+#	shockwave.scale = _scale
 	flash.scale = _scale
 	GlobalTween.explosion_flash(flash, max_radius)
-	GlobalTween.explosion_shockwave(shockwave, max_radius)
+	Global.game.ground_texture.start_wave(global_position)
+#	GlobalTween.explosion_shockwave(shockwave, max_radius)
 	
 	set_physics_process(height < 10.0) # start growing the explosion area
 
-func place_crater():
-	if Global.game.ground_layer:
-		var crater = PoolManager.get_crater()
-		Global.game.ground_layer.add_child(crater)
-		crater.global_position = global_position
-		# add some randomness (default crater radius is 22)
-		crater.scale.x = max_radius / 20.0 * (0.8 + randf() * 0.4)
-		crater.scale.y = max_radius / 20.0 * (0.8 + randf() * 0.4)
-		crater.rotation = randf() * PI * 2.0
-		if Global.game.path_follow:
-			crater.set_meta("Offset", Global.pos_to_offset(global_position))
+#func place_crater():
+#	if Global.game.ground_layer:
+#		var crater = PoolManager.get_crater()
+#		Global.game.ground_layer.add_child(crater)
+#		crater.global_position = global_position
+#		# add some randomness (default crater radius is 22)
+#		crater.scale.x = max_radius / 20.0 * (0.8 + randf() * 0.4)
+#		crater.scale.y = max_radius / 20.0 * (0.8 + randf() * 0.4)
+#		crater.rotation = randf() * PI * 2.0
+#		if Global.game.path_follow:
+#			crater.set_meta("Offset", Global.pos_to_offset(global_position))
 
 func _on_animation_finished():
 #	animation.stop() # FACEPALM: animation must be stopped via code
 	if is_inside_tree():
 		get_parent().remove_child(self)
-#	is_free = true

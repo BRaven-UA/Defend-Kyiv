@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Game/Prefabs/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -21,9 +21,10 @@
 [ext_resource path="res://Game/Scripts/Game.gd" type="Script" id=19]
 [ext_resource path="res://Game/Resources/Shaders/Screen Blur.tres" type="Material" id=20]
 [ext_resource path="res://Game/Scripts/Postprocess.gd" type="Script" id=21]
-[ext_resource path="res://Game/Resources/Shaders/ColorManipulator.tres" type="Material" id=22]
+[ext_resource path="res://Game/Resources/Textures/GroundTexture.tres" type="Texture" id=22]
+[ext_resource path="res://Game/Resources/Shaders/WavesAndCraters.tres" type="Material" id=23]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 360, 640 )
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -32,98 +33,93 @@ extents = Vector2( 500, 400 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 19 )
 
-[node name="Background" type="Node2D" parent="."]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+[node name="GroundViewport" type="Viewport" parent="."]
+size = Vector2( 720, 1280 )
+handle_input_locally = false
+disable_3d = true
+render_target_v_flip = true
 
-[node name="69" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
-position = Vector2( 65884.4, -50559.1 )
-rotation = 3.40796
-texture = ExtResource( 6 )
+[node name="HalfSizeOffset" type="Node2D" parent="GroundViewport"]
+visible = false
 
-[node name="70" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
-position = Vector2( 67499.2, -50118.6 )
-rotation = 3.40796
-texture = ExtResource( 7 )
+[node name="Background" type="Node2D" parent="GroundViewport"]
 
-[node name="71" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
-position = Vector2( 68107.3, -51364.6 )
-rotation = 2.04052
-texture = ExtResource( 9 )
-
-[node name="72" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
-position = Vector2( 69134, -52551.9 )
-rotation = 2.41257
-texture = ExtResource( 8 )
-
-[node name="1" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="1" type="Sprite" parent="GroundViewport/Background"]
 rotation = 1.5708
 texture = ExtResource( 3 )
 
-[node name="68" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
-position = Vector2( 64159.4, -51029.6 )
-rotation = 3.40796
-texture = ExtResource( 10 )
-
-[node name="67" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="67" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 62431.8, -51452.3 )
 rotation = 3.33099
 texture = ExtResource( 4 )
 
-[node name="73" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="68" type="Sprite" parent="GroundViewport/Background"]
+position = Vector2( 64159.4, -51029.6 )
+rotation = 3.40796
+texture = ExtResource( 10 )
+
+[node name="69" type="Sprite" parent="GroundViewport/Background"]
+position = Vector2( 65884.4, -50559.1 )
+rotation = 3.40796
+texture = ExtResource( 6 )
+
+[node name="70" type="Sprite" parent="GroundViewport/Background"]
+position = Vector2( 67499.2, -50118.6 )
+rotation = 3.40796
+texture = ExtResource( 7 )
+
+[node name="71" type="Sprite" parent="GroundViewport/Background"]
+position = Vector2( 68107.3, -51364.6 )
+rotation = 2.04052
+texture = ExtResource( 9 )
+
+[node name="72" type="Sprite" parent="GroundViewport/Background"]
+position = Vector2( 69134, -52551.9 )
+rotation = 2.41257
+texture = ExtResource( 8 )
+
+[node name="73" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 70449.1, -53748.2 )
 rotation = 2.41257
 texture = ExtResource( 11 )
 
-[node name="74" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="74" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 71758, -54925.4 )
 rotation = 2.41257
 texture = ExtResource( 17 )
 
-[node name="75" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="75" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 73086.9, -56112 )
 rotation = 2.41257
 texture = ExtResource( 18 )
 
-[node name="76" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="76" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 74398.7, -57280.7 )
 rotation = 2.41257
 texture = ExtResource( 15 )
 
-[node name="77" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="77" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 75298.2, -58702.7 )
 rotation = 2.00544
 texture = ExtResource( 16 )
 
-[node name="78" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="78" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 76019.6, -60300.5 )
 rotation = 2.00544
 texture = ExtResource( 13 )
 
-[node name="79" type="Sprite" parent="Background"]
-material = ExtResource( 22 )
+[node name="79" type="Sprite" parent="GroundViewport/Background"]
 position = Vector2( 76746.9, -61905.2 )
 rotation = 2.00544
 texture = ExtResource( 14 )
 
-[node name="GroundLayer" type="Node2D" parent="."]
+[node name="GroundLayer" type="Node2D" parent="GroundViewport"]
 
-[node name="AboveGroundLayer" type="Node2D" parent="."]
+[node name="AboveGroundLayer" type="Node2D" parent="GroundViewport"]
+
+[node name="GroundCamera" type="Camera2D" parent="GroundViewport"]
+rotating = true
+current = true
 
 [node name="MidairLayer" type="Node2D" parent="."]
 
@@ -150,21 +146,27 @@ script = ExtResource( 5 )
 [node name="90 degrees" type="Node2D" parent="Path2D/PathFollow"]
 rotation = 1.5708
 
-[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow/90 degrees"]
+[node name="GroundViewportTexture" type="Sprite" parent="Path2D/PathFollow/90 degrees"]
+material = ExtResource( 23 )
+use_parent_material = true
+z_index = -1
+texture = ExtResource( 22 )
+
+[node name="MainCamera" type="Camera2D" parent="Path2D/PathFollow/90 degrees"]
 rotating = true
 current = true
 
-[node name="ScreenRect" type="Area2D" parent="Path2D/PathFollow/90 degrees/Camera2D"]
+[node name="ScreenRect" type="Area2D" parent="Path2D/PathFollow/90 degrees/MainCamera"]
 input_pickable = false
 monitoring = false
 collision_layer = 2048
 collision_mask = 0
 
-[node name="ScreenRectShape" type="CollisionShape2D" parent="Path2D/PathFollow/90 degrees/Camera2D/ScreenRect"]
+[node name="ScreenRectShape" type="CollisionShape2D" parent="Path2D/PathFollow/90 degrees/MainCamera/ScreenRect"]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="Postprocess" type="BackBufferCopy" parent="Path2D/PathFollow/90 degrees/Camera2D"]
+[node name="Postprocess" type="BackBufferCopy" parent="Path2D/PathFollow/90 degrees/MainCamera"]
 visible = false
 material = ExtResource( 20 )
 copy_mode = 2

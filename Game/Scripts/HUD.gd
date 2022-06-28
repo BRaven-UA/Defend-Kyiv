@@ -30,6 +30,7 @@ onready var settings: PopupPanel = base.find_node("Settings")
 #onready var settings: PanelContainer = base.find_node("Settings")
 onready var master_volume_slider: HSlider = settings.find_node("MasterVolume").get_node("HSlider")
 onready var helicopter_volume_slider: HSlider = settings.find_node("HelicopterVolume").get_node("HSlider")
+onready var preview_checkbox: CheckBox = settings.find_node("Preview").get_node("CheckBox")
 onready var brightness_slider: HSlider = settings.find_node("Brightness").get_node("HSlider")
 onready var contrast_slider: HSlider = settings.find_node("Contrast").get_node("HSlider")
 onready var saturation_slider: HSlider = settings.find_node("Saturation").get_node("HSlider")
@@ -53,6 +54,7 @@ func _ready() -> void:
 	main_menu_button.connect("pressed", self, "_on_main_menu_button_pressed")
 	master_volume_slider.connect("value_changed", self, "_on_master_volume_slider_value_changed")
 	helicopter_volume_slider.connect("value_changed", self, "_on_helicopter_volume_slider_value_changed")
+	preview_checkbox.connect("toggled", self, "_on_preview_checkbox_toggled")
 	brightness_slider.connect("value_changed", self, "_on_brightness_slider_value_changed")
 	contrast_slider.connect("value_changed", self, "_on_contrast_slider_value_changed")
 	saturation_slider.connect("value_changed", self, "_on_saturation_slider_value_changed")
@@ -130,6 +132,7 @@ func set_ammo(value: int) -> void:
 func restore_settings() -> void:
 	master_volume_slider.value = Global.config.master_volume
 	helicopter_volume_slider.value = Global.config.helicopter_volume
+	preview_checkbox.pressed = Global.config.preview
 	brightness_slider.value = Global.config.brightness
 	contrast_slider.value = Global.config.contrast
 	saturation_slider.value = Global.config.saturation
@@ -177,6 +180,9 @@ func _on_helicopter_volume_slider_value_changed(value: float) -> void:
 	Global.config.helicopter_volume = value
 	var bus_index = AudioServer.get_bus_index("Helicopter")
 	AudioServer.set_bus_volume_db(bus_index, linear2db(value))
+
+func _on_preview_checkbox_toggled(state: bool) -> void:
+	Global.config.preview = state
 
 func _on_brightness_slider_value_changed(value: float) -> void:
 	Global.config.brightness = value

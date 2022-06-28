@@ -1,11 +1,29 @@
 tool
 extends EditorScript
 
-const ar := [{1: "one"}, {2: "two"}]
 func _run() -> void:
-	ar[0]["test"] = "test"
-	ar.shuffle()
-	print(ar)
+	var current_crater := 1
+	for i in 100:
+		print(current_crater)
+		current_crater = current_crater % 16 + 1
+
+func k():
+#	var pos = Vector2(100, 100)
+	var node = get_scene().find_node("GroundTexture")
+	var rot = node.global_rotation
+	var node_pos = node.global_position.rotated(-rot)
+	var pos = get_scene().find_node("OffscreenPuller").global_position.rotated(-rot)
+	var screen_size = node.get_viewport_rect().size
+	var screen_origin = node_pos - screen_size / 2.0
+	var shader_pos = (pos - screen_origin) / screen_size
+	print(shader_pos)
+#	var node = get_scene().find_node("GroundTexture")
+#	var node_pos = node.global_position
+#	var pos = get_scene().find_node("OffscreenPuller").global_position
+#	var screen_size = node.get_viewport_rect().size
+#	var screen_origin = node_pos - screen_size.rotated(node.global_rotation) / 2.0
+#	var shader_pos = (pos - screen_origin).rotated(-node.global_rotation) / screen_size
+#	print(shader_pos)
 
 func j():
 	var c = Config.new()

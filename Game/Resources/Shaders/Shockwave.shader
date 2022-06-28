@@ -26,4 +26,4 @@ void fragment(){
 	float shockfactor = exp(-progression * 1.5) * force;
 
 	vec2 total_shift = getPixelShift(screen_pos, FRAGCOORD.xy, startradius, size, shockfactor);
-	COLOR = texture(SCREEN_TEXTURE, total_shift * SCREEN_PIXEL_SIZE);}
+	COLOR = textureLod(SCREEN_TEXTURE, total_shift * SCREEN_PIXEL_SIZE, 0.0);}

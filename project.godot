@@ -185,7 +185,7 @@ window/stretch/aspect="keep"
 
 [editor]
 
-search_in_file_extensions=PoolStringArray( "gd" )
+search_in_file_extensions=PoolStringArray( "gd", "tscn" )
 
 [editor_plugins]
 

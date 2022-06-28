@@ -72,7 +72,8 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	else: # highlighting and show preview when under the crossair highlight area
 		on_map_highlight.visible = true
-		preview.activate()
+		if Global.config.preview:
+			preview.activate()
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is RocketBase or area is Explosion:

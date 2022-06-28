@@ -12,19 +12,23 @@ var score: int
 onready var background: Node2D = find_node("Background")
 onready var ground_layer: Node2D = find_node("GroundLayer")
 onready var above_ground_layer: Node2D = find_node("AboveGroundLayer")
+onready var ground: CanvasLayer = find_node("Ground") # canvas for ground viewport
+onready var ground_viewport: Viewport = find_node("GroundViewport") # source of viewport texture
+onready var ground_camera: Camera2D = find_node("GroundCamera") # main camera shadowing
 onready var midair_layer: Node2D = find_node("MidairLayer")
 onready var preview_layer: Node2D = find_node("PreviewLayer")
 onready var path_follow: PathFollow2D = find_node("PathFollow")
-onready var camera: Camera2D = find_node("Camera2D")
+onready var ground_texture: Sprite = find_node("GroundTexture")
+onready var main_camera: Camera2D = find_node("MainCamera")
 onready var player: PlayerBase = find_node("Player")
 onready var information_layer: Node2D = find_node("InformationLayer")
-onready var postprocess: BackBufferCopy = camera.find_node("Postprocess")
+onready var postprocess: BackBufferCopy = main_camera.find_node("Postprocess")
 onready var hud: HUD = find_node("HUD")
 onready var timer: Timer = find_node("Timer")
 
 
 func _enter_tree() -> void:
-	print("Game entered tree") # TODO: remove this
+#	print("Game entered tree") # TODO: remove this
 	Global.game = self
 	viewport_size = Global.viewport_size
 
@@ -37,8 +41,11 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	tree = get_tree()
-	var screen_rect = camera.find_node("ScreenRectShape")
+	var screen_rect = main_camera.find_node("ScreenRectShape")
 	screen_rect.shape.extents = viewport_size / 2
+	# next two properties must be set at runtime
+	ground.custom_viewport = ground_viewport
+	ground.follow_viewport_enable = true
 	
 	player.connect("destroyed", self, "_on_player_destroyed")
 	timer.connect("timeout", self, "_on_timer_timeout")
@@ -59,16 +66,19 @@ func _ready() -> void:
 	if Global.debug:
 		Global.debug.init()
 
-func _notification(what: int) -> void: # TODO: remove this
-	if what == NOTIFICATION_PREDELETE:
-		print("Game is about delete")
+#func _notification(what: int) -> void: # TODO: remove this
+#	if what == NOTIFICATION_PREDELETE:
+#		print("Game is about delete")
+
+func _process(delta: float) -> void:
+	ground_camera.global_transform = main_camera.global_transform
 
 func bump_camera() -> void:
 	var shift = Vector2.ONE
-	camera.offset += shift
+	main_camera.offset += shift
 	yield(tree.create_timer(0.05, false), "timeout")
-	if camera.offset:
-		camera.offset -= shift
+	if main_camera.offset:
+		main_camera.offset -= shift
 
 func increase_score(value: int) -> void:
 	score += value

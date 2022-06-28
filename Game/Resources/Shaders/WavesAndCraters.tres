@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Game/Resources/Shaders/WavesAndCraters.shader" type="Shader" id=1]
+[ext_resource path="res://Game/Pictures/crater.png" type="Texture" id=2]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/delta_pos = null
+shader_param/crater_strength = 0.011
+shader_param/wave_force = 0.005
+shader_param/wave_pos1 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos2 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos3 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos4 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos5 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos6 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos7 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos8 = Vector2( 0.5, 0.5 )
+shader_param/wave_pos9 = Vector2( 0.5, 0.5 )
+shader_param/wave_size1 = 0.0
+shader_param/wave_size2 = 0.0
+shader_param/wave_size3 = 0.0
+shader_param/wave_size4 = 0.0
+shader_param/wave_size5 = 0.0
+shader_param/wave_size6 = 0.0
+shader_param/wave_size7 = 0.0
+shader_param/wave_size8 = 0.0
+shader_param/wave_size9 = 0.0
+shader_param/crater_pos1 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos2 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos3 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos4 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos5 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos6 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos7 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos8 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos9 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos10 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos11 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos12 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos13 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos14 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos15 = Vector2( -0.1, -0.1 )
+shader_param/crater_pos16 = Vector2( -0.1, -0.1 )
+shader_param/crater_img = ExtResource( 2 )

@@ -70,7 +70,7 @@ func return_to_main_menu() -> void:
 		game = null
 		yield(tree, "idle_frame")
 		tree.change_scene_to(Preloader.get_resource("Empty"))
-		print("Scene changed") # TODO: remove this
+#		print("Scene changed") # TODO: remove this
 	GUI.title_screen(true)
 
 func new_game() -> void:
