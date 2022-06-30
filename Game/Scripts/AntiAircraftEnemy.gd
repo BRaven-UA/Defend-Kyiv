@@ -5,7 +5,7 @@ var player: PlayerBase
 var position_3D: Vector3
 var anti_aircraft: int # type of ant-aircraft system
 
-onready var indicator: RadialIndicator = find_node("RadialIndicator")
+onready var indicator: RadialIndicator
 onready var rocket_reload_timer: Timer = find_node("RocketReloadTimer")
 onready var cannon_reload_timer: Timer = find_node("CannonReloadTimer")
 
@@ -14,6 +14,8 @@ func _ready() -> void:
 	rocket_reload_timer.connect("timeout", self, "_on_rocket_reload_timer_timeout")
 	cannon_reload_timer.connect("timeout", self, "_on_cannon_reload_timer_timeout")
 	
+	indicator = Preloader.get_resource("RadialIndicator").instance()
+	Global.game.information_layer.add_child(indicator, true)
 	indicator.set_process(player != null)
 
 func _exit_tree() -> void:
@@ -27,8 +29,8 @@ func init(data: Dictionary, pos: Vector2, rot: float) -> void:
 	anti_aircraft = data.get(EnemyManager.ANTIAIRCRAFT, EnemyManager.AA_NONE)
 	var has_rockets: bool = anti_aircraft in [EnemyManager.AA_ROCKETS, EnemyManager.AA_BOTH]
 	var has_cannon: bool = anti_aircraft in [EnemyManager.AA_CANNON, EnemyManager.AA_BOTH]
-	indicator.visible = true
-	indicator.activate(has_cannon, has_rockets)
+	
+	indicator.call_deferred("activate", pos, has_cannon, has_rockets)
 	
 	if player: # attack only if player exists
 		if has_rockets:

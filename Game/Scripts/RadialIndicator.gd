@@ -21,12 +21,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	global_rotation = Global.game.player.global_rotation
 
-func activate(inner_state: bool, outer_state: bool) -> void:
+func activate(pos: Vector2, inner_state: bool, outer_state: bool) -> void:
 	set_process(Global.game.player != null)
+	global_position = pos
 	inner_shadow.visible = inner_state
 	inner_progress.visible = inner_state
 	outer_shadow.visible = outer_state
 	outer_progress.visible = outer_state
+	visible = true
 
 func deactivate() -> void:
 	inner_timer.stop()

@@ -39,7 +39,7 @@ func init(_data: Dictionary, pos: Vector2, rot: float) -> void:
 	preview.call_deferred("init", pos, frame_index, color)
 
 	monitoring = true
-	on_map_picture.visible = true
+#	on_map_picture.visible = true
 
 func get_height() -> float:
 	return HEIGHT
@@ -47,7 +47,7 @@ func get_height() -> float:
 func destroy() -> void:
 	is_permanent_highlighted = false
 	on_map_highlight.visible = false
-	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
+#	on_map_picture.visible = false # hide picture and keep shadow as representation of remains
 	preview.deactivate()
 	
 	data[EnemyManager.DESTROYED] += 1

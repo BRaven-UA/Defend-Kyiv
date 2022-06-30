@@ -6,7 +6,7 @@
 [ext_resource path="res://Game/Sounds/Rocket.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Game/Pictures/Smoke.png" type="Texture" id=5]
 [ext_resource path="res://Game/Pictures/Flame.png" type="Texture" id=6]
-[ext_resource path="res://Game/Pictures/Rocket.png" type="Texture" id=7]
+[ext_resource path="res://Game/Pictures/Spritesheet_lossless_filter.png" type="Texture" id=7]
 [ext_resource path="res://Game/Resources/CircleShape2D_r10.tres" type="Shape2D" id=9]
 
 [sub_resource type="Animation" id=1]
@@ -53,6 +53,9 @@ bus = "Battlefield"
 
 [node name="Body" type="Sprite" parent="Visual"]
 texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 952, 885, 3, 16 )
+region_filter_clip = true
 
 [node name="Flame" type="Particles2D" parent="Visual"]
 position = Vector2( 0, 11 )

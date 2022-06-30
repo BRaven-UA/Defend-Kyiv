@@ -114,8 +114,6 @@ texture = ExtResource( 15 )
 
 [node name="GroundLayer" type="Node2D" parent="Ground"]
 
-[node name="AboveGroundLayer" type="Node2D" parent="Ground"]
-
 [node name="GroundViewport" type="Viewport" parent="."]
 size = Vector2( 720, 1280 )
 handle_input_locally = false
@@ -127,6 +125,8 @@ audio_listener_enable_2d = true
 visible = false
 rotating = true
 current = true
+
+[node name="AboveGroundLayer" type="Node2D" parent="."]
 
 [node name="MidairLayer" type="Node2D" parent="."]
 

@@ -17,6 +17,7 @@ func _ready() -> void:
 	if OS.is_debug_build(): # not available in release build
 		base.add_child(load("res://Debug/Debug.tscn").instance())
 	
+#	title_screen(false)
 	title_screen(true)
 
 func title_screen(state: bool) -> void:

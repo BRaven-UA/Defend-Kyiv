@@ -19,7 +19,7 @@
 [ext_resource path="res://Game/Prefabs/ProjectileFire.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Game/Prefabs/ProjectileHit.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Game/Resources/MovePath2D.tres" type="Curve2D" id=20]
-[ext_resource path="res://Temp/Game.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Game/Prefabs/Game.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Game/Sounds/Ukraine Anthem.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Game/Sounds/Russia Anthem.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Game/Prefabs/StatisticUnit.tscn" type="PackedScene" id=24]

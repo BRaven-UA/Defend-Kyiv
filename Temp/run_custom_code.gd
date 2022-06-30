@@ -2,10 +2,10 @@ tool
 extends EditorScript
 
 func _run() -> void:
-	var current_crater := 1
-	for i in 100:
+	var current_crater := 0
+	for i in 30:
+		current_crater = (current_crater + 1) % 16
 		print(current_crater)
-		current_crater = current_crater % 16 + 1
 
 func k():
 #	var pos = Vector2(100, 100)
